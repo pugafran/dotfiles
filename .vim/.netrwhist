@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/var/lib/postgres/data'
+let g:netrw_dirhist_2='/home/claudia/.config/dmenu-recent'
+let g:netrw_dirhist_1='/home/claudia/.config/fish/conf.d'
