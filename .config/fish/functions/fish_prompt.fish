@@ -25,6 +25,7 @@ function fish_prompt
     # ╰─>$ echo there
 
     set -l lineColor red
+    set -l stat $status
     test $status = 0; and set lineColor cyan
 
     set -q __fish_git_prompt_showupstream
@@ -69,13 +70,37 @@ function fish_prompt
     set_color FFB91A
     echo -n (prompt_hostname)
     
+    set_color -o 0044FF
+    echo -n ']'
     set_color $lineColor
-    echo -n :(prompt_pwd)
+    echo -n :
+    set_color -o 0044FF
+    echo -n [
+    set_color $lineColor
+    echo -n (prompt_pwd)
     set_color -o 0044FF
     echo -n ']'
 
     # Date
+    set_color $lineColor
     _nim_prompt_wrapper $lineColor '' (date +%X)
+
+    # Last exit code
+    set_color -o $lineColor
+    echo -n '─'
+    set_color -o 0044FF
+    echo -n '['
+    set_color -o $lineColor
+    if test "$stat" = 0
+    	echo -n 'OK.'
+    else 
+	echo -n 'ERR.'
+    end
+    echo -n $stat
+    set_color -o 0044FF
+    echo -n ']'
+
+
 
     # Vi-mode
     # The default mode prompt would be prefixed, which ruins our alignment.
