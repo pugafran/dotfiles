@@ -1,0 +1,54 @@
+* {
+	bg:	#222D3150;
+	orange:	#F5AF19;
+	white:	#FFFFFF;
+	
+
+	background-color:		@bg;
+	border-color:			@orange;
+	text-color:			@white;
+	font:				"CascadiaCodePL 10";
+	selected-normal-background:	@bg;
+	spacing:			3;
+	separatorcolor:			@orange;
+}
+
+window {
+	anchor:		north;
+	location:	north;
+	width:		100%;
+	padding: 	4px;
+	children:	[ horibox ];
+}
+
+horibox {
+	orientation:	horizontal;
+	children:	[ prompt, entry, listview ];
+}
+
+listview {
+	layout:		horizontal;
+	spacing:	5px;
+	lines:		100;
+}
+
+entry {
+	expand:		false;
+	width:		10em;
+	padding: 	3px;
+}
+
+element {
+	padding: 	0px 2px;
+	text-color:	@white;
+}
+
+element selected {
+	background-color:	@selected-normal-background;
+	text-color:		@orange;
+}
+
+prompt {
+	spacing: 	3;
+	text-color: 	@orange;
+}

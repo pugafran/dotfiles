@@ -1,0 +1,141 @@
+[2022-09-12 17:24:36.584] [exthost] [info] Extension host with pid 1752 started
+[2022-09-12 17:24:36.620] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: true, activationEvent: '*'
+[2022-09-12 17:24:36.623] [exthost] [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+[2022-09-12 17:24:36.626] [exthost] [info] ExtensionService#_doActivateExtension vscode.ipynb, startup: true, activationEvent: '*'
+[2022-09-12 17:24:36.629] [exthost] [info] ExtensionService#_doActivateExtension ckolkman.vscode-postgres, startup: true, activationEvent: '*'
+[2022-09-12 17:24:36.719] [exthost] [info] ExtensionService#_doActivateExtension kiteco.kite, startup: true, activationEvent: '*'
+[2022-09-12 17:24:36.741] [exthost] [info] ExtensionService#_doActivateExtension ms-vsliveshare.vsliveshare, startup: true, activationEvent: '*'
+[2022-09-12 17:24:37.107] [exthost] [info] ExtensionService#_doActivateExtension vscodevim.vim, startup: true, activationEvent: '*'
+[2022-09-12 17:24:37.197] [exthost] [info] ExtensionService#_doActivateExtension wayou.vscode-todo-highlight, startup: true, activationEvent: '*'
+[2022-09-12 17:24:37.919] [exthost] [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+[2022-09-12 17:24:37.938] [exthost] [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+[2022-09-12 17:24:43.121] [exthost] [error] Activating extension ms-vsliveshare.vsliveshare failed due to an error:
+[2022-09-12 17:24:43.121] [exthost] [error] Error: Agent terminated with exit code: 0 and signal null: Process terminated. Couldn't find a valid ICU package installed on the system. Set the configuration flag System.Globalization.Invariant to true if you want to run with no globalization support.
+   at System.Environment.FailFast(System.String)
+   at System.Globalization.GlobalizationMode.GetGlobalizationInvariantMode()
+   at System.Globalization.GlobalizationMode..cctor()
+   at System.Globalization.CultureData.CreateCultureWithInvariantData()
+   at System.Globalization.CultureData.get_Invariant()
+   at System.Globalization.CultureInfo..cctor()
+   at System.String.ToLowerInvariant()
+   at System.Text.EncodingHelper.GetCharset()
+   at System.Text.EncodingHelper.GetEncodingFromCharset()
+   at System.ConsolePal.GetConsoleEncoding()
+   at System.Console+<>c.<get_OutputEncoding>b__19_0()at System.Threading.LazyInitializer.EnsureInitializedCore[[System.__Canon, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]](System.__Canon ByRef, System.Object ByRef, System.Func`1<System.__Canon>)
+   at System.Threading.LazyInitializer.EnsureInitialized[[System.__Canon, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]](System.__Canon ByRef, System.Object ByRef, System.Func`1<System.__Canon>)
+   at System.Console.get_OutputEncoding()
+   at System.Console.CreateOutputWriter(System.IO.Stream)
+   at System.Console+<>c.<get_Out>b__26_0()
+   at System.Threading.LazyInitializer.EnsureInitializedCore[[System.__Canon, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]](System.__Canon ByRef, System.Object ByRef, System.Func`1<System.__Canon>)
+   at System.Threading.LazyInitializer.EnsureInitialized[[System.__Canon, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]](System.__Canon ByRef, System.Object ByRef, System.Func`1<System.__Canon>)
+   at System.Console.get_Out()
+   at Microsoft.Extensions.CommandLineUtils.CommandLineApplication..ctor(Boolean)
+   at Microsoft.Cascade.Agent.Program..ctor()
+   at Microsoft.Cascade.Agent.Program.Main(System.String[])
+    at ChildProcess.<anonymous> (/home/alex/.vscode-oss/extensions/ms-vsliveshare.vsliveshare-1.0.5711/src/abstractions/node/agent.ts:304:32)
+    at ChildProcess.emit (node:events:538:35)
+    at maybeClose (node:internal/child_process:1092:16)
+    at Socket.<anonymous> (node:internal/child_process:451:11)
+    at Socket.emit (node:events:526:28)
+    at Pipe.<anonymous> (node:net:687:12)
+[2022-09-12 17:24:43.122] [exthost] [info] Eager extensions activated
+[2022-09-12 17:24:43.124] [exthost] [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onStartupFinished'
+[2022-09-12 17:24:43.131] [exthost] [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+[2022-09-12 17:24:43.133] [exthost] [info] ExtensionService#_doActivateExtension CoenraadS.bracket-pair-colorizer-2, startup: false, activationEvent: 'onStartupFinished'
+[2022-09-12 17:24:43.142] [exthost] [info] ExtensionService#_doActivateExtension eamodio.gitlens, startup: false, activationEvent: 'onStartupFinished'
+[2022-09-12 17:24:43.237] [exthost] [info] ExtensionService#_doActivateExtension Equinusocio.vsc-material-theme, startup: false, activationEvent: 'onStartupFinished'
+[2022-09-12 17:24:43.242] [exthost] [info] ExtensionService#_doActivateExtension equinusocio.vsc-material-theme-icons, startup: false, activationEvent: 'onStartupFinished'
+[2022-09-12 17:24:43.260] [exthost] [info] ExtensionService#_doActivateExtension vscode.npm, startup: false, activationEvent: 'onStartupFinished', root cause: esbenp.prettier-vscode
+[2022-09-12 17:24:43.283] [exthost] [info] ExtensionService#_doActivateExtension formulahendry.code-runner, startup: false, activationEvent: 'onStartupFinished'
+[2022-09-12 17:24:43.299] [exthost] [info] ExtensionService#_doActivateExtension ms-vscode-remote.remote-containers, startup: false, activationEvent: 'onStartupFinished'
+[2022-09-12 17:24:43.368] [exthost] [info] ExtensionService#_doActivateExtension ms-vscode-remote.remote-wsl, startup: false, activationEvent: 'onStartupFinished'
+[2022-09-12 17:24:43.393] [exthost] [info] ExtensionService#_doActivateExtension usernamehw.errorlens, startup: false, activationEvent: 'onStartupFinished'
+[2022-09-12 17:24:43.395] [exthost] [info] ExtensionService#_doActivateExtension zhuangtongfa.material-theme, startup: false, activationEvent: 'onStartupFinished'
+[2022-09-12 17:24:43.466] [exthost] [error] Activating extension ms-vscode-remote.remote-containers failed due to an error:
+[2022-09-12 17:24:43.466] [exthost] [error] Error: Extension 'ms-vscode-remote.remote-containers' CANNOT use API proposal: resolvers.
+Its package.json#enabledApiProposals-property declares:  but NOT resolvers.
+ The missing proposal MUST be added and you must start in extension development mode or use the following command line switch: --enable-proposed-api ms-vscode-remote.remote-containers
+    at g (/usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:83:68142)
+    at Object.registerRemoteAuthorityResolver (/usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:106:49125)
+    at a0e (/home/alex/.vscode-oss/extensions/ms-vscode-remote.remote-containers-0.245.2/dist/extension/extension.js:466:1214)
+    at E._activate (/usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:85:8224)
+    at E._waitForDepsThenActivate (/usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:85:8166)
+    at E._initialize (/usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:85:7530)
+[2022-09-12 17:24:43.554] [exthost] [info] ExtensionService#_doActivateExtension esbenp.prettier-vscode, startup: false, activationEvent: 'onStartupFinished'
+[2022-09-12 17:24:51.033] [exthost] [info] ExtensionService#_doActivateExtension vscode.configuration-editing, startup: false, activationEvent: 'onLanguage:jsonc'
+[2022-09-12 17:24:51.038] [exthost] [info] ExtensionService#_doActivateExtension vscode.json-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+[2022-09-12 17:24:51.088] [exthost] [info] ExtensionService#_doActivateExtension vscode.typescript-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+[2022-09-12 17:25:18.529] [exthost] [info] Extension host terminating: received terminate message from renderer
+[2022-09-12 17:25:18.558] [exthost] [error] Error: ENOENT: no such file or directory, open '/home/alex/.config/Code - OSS/User/globalStorage/vscodevim.vim/.registers'
+[2022-09-12 17:25:18.558] [exthost] [info] Extension host with pid 1752 exiting with code 0
+[2022-09-12 17:25:20.311] [exthost] [info] Extension host with pid 1899 started
+[2022-09-12 17:25:20.311] [exthost] [info] Skipping acquiring lock for /home/alex/.config/Code - OSS/User/workspaceStorage/2a4925f47eabd34d1ae0c1a4a8b0872d.
+[2022-09-12 17:25:20.368] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: true, activationEvent: '*'
+[2022-09-12 17:25:20.370] [exthost] [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*'
+[2022-09-12 17:25:20.371] [exthost] [info] ExtensionService#_doActivateExtension vscode.ipynb, startup: true, activationEvent: '*'
+[2022-09-12 17:25:20.373] [exthost] [info] ExtensionService#_doActivateExtension ms-vsliveshare.vsliveshare, startup: true, activationEvent: '*'
+[2022-09-12 17:25:20.773] [exthost] [info] ExtensionService#_doActivateExtension vscodevim.vim, startup: true, activationEvent: '*'
+[2022-09-12 17:25:20.894] [exthost] [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+[2022-09-12 17:25:22.086] [exthost] [error] Activating extension ms-vsliveshare.vsliveshare failed due to an error:
+[2022-09-12 17:25:22.086] [exthost] [error] Error: Agent terminated with exit code: 0 and signal null: Process terminated. Couldn't find a valid ICU package installed on the system. Set the configuration flag System.Globalization.Invariant to true if you want to run with no globalization support.
+   at System.Environment.FailFast(System.String)
+   at System.Globalization.GlobalizationMode.GetGlobalizationInvariantMode()
+   at System.Globalization.GlobalizationMode..cctor()
+   at System.Globalization.CultureData.CreateCultureWithInvariantData()
+   at System.Globalization.CultureData.get_Invariant()
+   at System.Globalization.CultureInfo..cctor()
+   at System.String.ToLowerInvariant()
+   at System.Text.EncodingHelper.GetCharset()
+   at System.Text.EncodingHelper.GetEncodingFromCharset()
+   at System.ConsolePal.GetConsoleEncoding()
+   at System.Console+<>c.<get_OutputEncoding>b__19_0()at System.Threading.LazyInitializer.EnsureInitializedCore[[System.__Canon, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]](System.__Canon ByRef, System.Object ByRef, System.Func`1<System.__Canon>)
+   at System.Threading.LazyInitializer.EnsureInitialized[[System.__Canon, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]](System.__Canon ByRef, System.Object ByRef, System.Func`1<System.__Canon>)
+   at System.Console.get_OutputEncoding()
+   at System.Console.CreateOutputWriter(System.IO.Stream)
+   at System.Console+<>c.<get_Out>b__26_0()
+   at System.Threading.LazyInitializer.EnsureInitializedCore[[System.__Canon, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]](System.__Canon ByRef, System.Object ByRef, System.Func`1<System.__Canon>)
+   at System.Threading.LazyInitializer.EnsureInitialized[[System.__Canon, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]](System.__Canon ByRef, System.Object ByRef, System.Func`1<System.__Canon>)
+   at System.Console.get_Out()
+   at Microsoft.Extensions.CommandLineUtils.CommandLineApplication..ctor(Boolean)
+   at Microsoft.Cascade.Agent.Program..ctor()
+   at Microsoft.Cascade.Agent.Program.Main(System.String[])
+    at ChildProcess.<anonymous> (/home/alex/.vscode-oss/extensions/ms-vsliveshare.vsliveshare-1.0.5711/src/abstractions/node/agent.ts:304:32)
+    at ChildProcess.emit (node:events:538:35)
+    at maybeClose (node:internal/child_process:1092:16)
+    at Socket.<anonymous> (node:internal/child_process:451:11)
+    at Socket.emit (node:events:526:28)
+    at Pipe.<anonymous> (node:net:687:12)
+[2022-09-12 17:25:22.087] [exthost] [info] Eager extensions activated
+[2022-09-12 17:25:22.365] [exthost] [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onStartupFinished'
+[2022-09-12 17:25:22.370] [exthost] [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+[2022-09-12 17:25:22.371] [exthost] [info] ExtensionService#_doActivateExtension eamodio.gitlens, startup: false, activationEvent: 'onStartupFinished'
+[2022-09-12 17:25:22.393] [exthost] [info] ExtensionService#_doActivateExtension Equinusocio.vsc-material-theme, startup: false, activationEvent: 'onStartupFinished'
+[2022-09-12 17:25:22.396] [exthost] [info] ExtensionService#_doActivateExtension vscode.npm, startup: false, activationEvent: 'onStartupFinished', root cause: esbenp.prettier-vscode
+[2022-09-12 17:25:22.403] [exthost] [info] ExtensionService#_doActivateExtension ms-vscode-remote.remote-containers, startup: false, activationEvent: 'onStartupFinished'
+[2022-09-12 17:25:22.422] [exthost] [info] ExtensionService#_doActivateExtension ms-vscode-remote.remote-wsl, startup: false, activationEvent: 'onStartupFinished'
+[2022-09-12 17:25:22.426] [exthost] [info] ExtensionService#_doActivateExtension zhuangtongfa.material-theme, startup: false, activationEvent: 'onStartupFinished'
+[2022-09-12 17:25:22.497] [exthost] [info] ExtensionService#_doActivateExtension vscode.git, startup: false, activationEvent: 'api', root cause: vscode.github
+[2022-09-12 17:25:22.527] [exthost] [info] ExtensionService#_doActivateExtension ckolkman.vscode-postgres, startup: false, activationEvent: '*'
+[2022-09-12 17:25:22.615] [exthost] [info] ExtensionService#_doActivateExtension CoenraadS.bracket-pair-colorizer-2, startup: false, activationEvent: 'onStartupFinished'
+[2022-09-12 17:25:22.621] [exthost] [info] ExtensionService#_doActivateExtension equinusocio.vsc-material-theme-icons, startup: false, activationEvent: 'onStartupFinished'
+[2022-09-12 17:25:22.633] [exthost] [info] ExtensionService#_doActivateExtension formulahendry.code-runner, startup: false, activationEvent: 'onStartupFinished'
+[2022-09-12 17:25:22.644] [exthost] [info] ExtensionService#_doActivateExtension kiteco.kite, startup: false, activationEvent: '*'
+[2022-09-12 17:25:22.665] [exthost] [info] ExtensionService#_doActivateExtension usernamehw.errorlens, startup: false, activationEvent: 'onStartupFinished'
+[2022-09-12 17:25:22.666] [exthost] [info] ExtensionService#_doActivateExtension wayou.vscode-todo-highlight, startup: false, activationEvent: '*'
+[2022-09-12 17:25:22.969] [exthost] [error] Activating extension ms-vscode-remote.remote-containers failed due to an error:
+[2022-09-12 17:25:22.969] [exthost] [error] Error: Extension 'ms-vscode-remote.remote-containers' CANNOT use API proposal: resolvers.
+Its package.json#enabledApiProposals-property declares:  but NOT resolvers.
+ The missing proposal MUST be added and you must start in extension development mode or use the following command line switch: --enable-proposed-api ms-vscode-remote.remote-containers
+    at g (/usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:83:68142)
+    at Object.registerRemoteAuthorityResolver (/usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:106:49125)
+    at a0e (/home/alex/.vscode-oss/extensions/ms-vscode-remote.remote-containers-0.245.2/dist/extension/extension.js:466:1214)
+    at E._activate (/usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:85:8224)
+    at E._waitForDepsThenActivate (/usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:85:8166)
+    at E._initialize (/usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:85:7530)
+[2022-09-12 17:25:23.000] [exthost] [info] ExtensionService#_doActivateExtension esbenp.prettier-vscode, startup: false, activationEvent: 'onStartupFinished'
+[2022-09-12 17:25:54.613] [exthost] [info] ExtensionService#_doActivateExtension vscode.configuration-editing, startup: false, activationEvent: 'onLanguage:jsonc'
+[2022-09-12 17:25:54.614] [exthost] [info] ExtensionService#_doActivateExtension vscode.json-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+[2022-09-12 17:25:54.625] [exthost] [info] ExtensionService#_doActivateExtension vscode.typescript-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+[2022-09-12 17:26:58.863] [exthost] [info] Extension host terminating: received terminate message from renderer
+[2022-09-12 17:26:58.888] [exthost] [error] Error: ENOENT: no such file or directory, open '/home/alex/.config/Code - OSS/User/globalStorage/vscodevim.vim/.registers'
+[2022-09-12 17:26:58.888] [exthost] [info] Extension host with pid 1899 exiting with code 0

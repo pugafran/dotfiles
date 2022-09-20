@@ -1,0 +1,56 @@
+{
+	"name": "minimal-wave",
+	"displayName": "Minimal Wave",
+	"description": "Collection of minimal themes with a hint of synthwave",
+	"version": "0.0.3",
+	"publisher": "annalifatou",
+	"author": {
+		"name": "Anna Li-Fatou"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/annalifatou/minimal-wave"
+	},
+	"bugs": {
+		"url": "https://github.com/annalifatou/minimal-wave/issues"
+	},
+	"icon": "images/logo.png",
+	"galleryBanner": {
+		"color": "#121316",
+		"theme": "dark"
+	},
+	"engines": {
+		"vscode": "^1.49.0"
+	},
+	"categories": [
+		"Themes"
+	],
+	"keywords": [
+		"Dark theme",
+		"Light theme",
+		"Minimal",
+		"Floral",
+		"Purple"
+	],
+	"contributes": {
+		"themes": [
+			{
+				"label": "Minimal Wave - Dark Floral",
+				"uiTheme": "vs-dark",
+				"path": "./themes/MinimalWave-dark-floral-color-theme.json"
+			},
+			{
+				"label": "Minimal Wave - Light Floral",
+				"uiTheme": "vs",
+				"path": "./themes/MinimalWave-light-floral-color-theme.json"
+			}
+		]
+	},
+	"__metadata": {
+		"id": "cb361aca-b0aa-4f30-9556-e53e2c8f8f61",
+		"publisherId": "5b95539c-37ec-47be-a741-34e04ef159ec",
+		"publisherDisplayName": "annalifatou",
+		"isPreReleaseVersion": false,
+		"installedTimestamp": 1639309778048
+	}
+}

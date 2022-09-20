@@ -1,0 +1,12 @@
+*
+*/**
+
+# Whitelist
+!.vscodeignore
+!package.json
+!images/logo.png
+!themes/MinimalWave-dark-floral-color-theme.json
+!themes/MinimalWave-light-floral-color-theme.json
+!themes/*
+!README.md
+!CHANGELOG.md

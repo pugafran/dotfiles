@@ -1,0 +1,4 @@
+[2022-09-12 15:25:22.685] [GIT  ] [/home/alex/.config/i3] git rev-parse --show-toplevel • Command failed: /usr/bin/git -c core.quotepath=false -c color.ui=false rev-parse --show-toplevel • not a git repository (or any of the parent directories): .git • 160 ms
+
+[2022-09-12 15:25:22.944] [GIT  ] [/home/alex/.config/i3] git rev-parse --show-toplevel • Command failed: /usr/bin/git -c core.quotepath=false -c color.ui=false rev-parse --show-toplevel • not a git repository (or any of the parent directories): .git • 269 ms
+

@@ -1,0 +1,22 @@
+[2022-09-12 17:24:36.448] [sharedprocess] [info] Starting worker process with pid 1787 (type: fileWatcher, window: 1).
+[2022-09-12 17:24:37.057] [sharedprocess] [info] Deleted from disk esbenp.prettier-vscode /home/alex/.vscode-oss/extensions/esbenp.prettier-vscode-9.5.0
+[2022-09-12 17:24:37.058] [sharedprocess] [info] Deleted from disk eamodio.gitlens /home/alex/.vscode-oss/extensions/eamodio.gitlens-12.1.2
+[2022-09-12 17:24:37.083] [sharedprocess] [info] Deleted from disk vscjava.vscode-maven /home/alex/.vscode-oss/extensions/vscjava.vscode-maven-0.37.0
+[2022-09-12 17:24:37.084] [sharedprocess] [info] Deleted from disk visualstudioexptteam.vscodeintellicode /home/alex/.vscode-oss/extensions/visualstudioexptteam.vscodeintellicode-1.2.22
+[2022-09-12 17:24:37.109] [sharedprocess] [info] Deleted from disk redhat.java /home/alex/.vscode-oss/extensions/redhat.java-1.9.0-win32-x64
+[2022-09-12 17:24:37.109] [sharedprocess] [info] Deleted from disk ms-vscode.cpptools /home/alex/.vscode-oss/extensions/ms-vscode.cpptools-1.11.4-win32-x64
+[2022-09-12 17:24:37.125] [sharedprocess] [info] Deleted from disk ms-python.vscode-pylance /home/alex/.vscode-oss/extensions/ms-python.vscode-pylance-2022.7.40
+[2022-09-12 17:24:37.128] [sharedprocess] [info] Deleted from disk ms-python.python /home/alex/.vscode-oss/extensions/ms-python.python-2022.10.1
+[2022-09-12 17:24:37.128] [sharedprocess] [info] Deleted from disk ms-vsliveshare.vsliveshare /home/alex/.vscode-oss/extensions/ms-vsliveshare.vsliveshare-1.0.5669
+[2022-09-12 17:24:39.139] [sharedprocess] [info] Getting Manifest... ms-toolsai.jupyter
+[2022-09-12 17:24:39.152] [sharedprocess] [info] Getting Manifest... redhat.java
+[2022-09-12 17:24:45.028] [sharedprocess] [info] Installing extension: redhat.java
+[2022-09-12 17:24:45.075] [sharedprocess] [info] Installing extension: ms-toolsai.jupyter
+[2022-09-12 17:24:45.437] [sharedprocess] [info] Extension installed successfully: redhat.java
+[2022-09-12 17:24:48.249] [sharedprocess] [info] Downloaded extension: ms-toolsai.jupyter /home/alex/.config/Code - OSS/CachedExtensionVSIXs/ms-toolsai.jupyter-2022.8.1002460559
+[2022-09-12 17:24:48.626] [sharedprocess] [info] Extracted extension to /home/alex/.vscode-oss/extensions/.9285f32f-4adf-4998-b72d-62a944f97293: ms-toolsai.jupyter
+[2022-09-12 17:24:48.631] [sharedprocess] [info] Renamed to /home/alex/.vscode-oss/extensions/ms-toolsai.jupyter-2022.8.1002460559
+[2022-09-12 17:24:48.638] [sharedprocess] [info] Extracting completed. ms-toolsai.jupyter
+[2022-09-12 17:24:48.641] [sharedprocess] [info] Extension installed successfully: ms-toolsai.jupyter
+[2022-09-12 17:25:18.539] [sharedprocess] [info] Worker process with pid 1787 terminated normally (type: fileWatcher, window: 1).
+[2022-09-12 17:25:19.533] [sharedprocess] [info] Starting worker process with pid 1900 (type: fileWatcher, window: 1).

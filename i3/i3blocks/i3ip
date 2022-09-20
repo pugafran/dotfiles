@@ -1,0 +1,4 @@
+#!/bin/sh
+
+sleep 1;
+echo "$(ip address | grep '^ *inet 192.168.*$' | tr -s [:space:] ';' | cut -d ';' -f 3 | cut -d '/' -f 1)"

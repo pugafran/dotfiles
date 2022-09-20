@@ -1,0 +1,4 @@
+#!/bin/sh
+
+data=$(free -h | tail -n 1 | tr -s [:space:] ';')
+echo "$(echo $data | cut -d ';' -f 3)/$(echo $data | cut -d ';' -f 2)"
