@@ -1,0 +1,21 @@
+[2022-09-29 21:58:43.549] [sharedprocess] [info] Starting worker process with pid 113757 (type: fileWatcher, window: 1).
+[2022-09-29 21:58:45.753] [sharedprocess] [info] Getting Manifest... esbenp.prettier-vscode
+[2022-09-29 21:58:45.753] [sharedprocess] [info] Getting Manifest... redhat.java
+[2022-09-29 21:58:45.753] [sharedprocess] [info] Getting Manifest... vscjava.vscode-java-pack
+[2022-09-29 21:58:45.754] [sharedprocess] [info] Getting Manifest... vscjava.vscode-maven
+[2022-09-29 21:58:45.754] [sharedprocess] [info] Getting Manifest... vscodevim.vim
+[2022-09-29 21:58:46.482] [sharedprocess] [info] Installing extension: vscjava.vscode-java-pack
+[2022-09-29 21:58:46.484] [sharedprocess] [info] Installing extension: esbenp.prettier-vscode
+[2022-09-29 21:58:46.528] [sharedprocess] [info] Installing extension: redhat.java
+[2022-09-29 21:58:46.533] [sharedprocess] [info] Installing extension: vscjava.vscode-maven
+[2022-09-29 21:58:46.580] [sharedprocess] [info] Installing extension: vscodevim.vim
+[2022-09-29 21:58:48.529] [sharedprocess] [info] Downloaded extension: vscjava.vscode-java-pack /home/alex/.config/Code - OSS/CachedExtensionVSIXs/vscjava.vscode-java-pack-0.25.2-universal
+[2022-09-29 21:58:48.658] [sharedprocess] [info] Extracted extension to /home/alex/.vscode-oss/extensions/.c3991daf-3bb6-4b32-8292-30cdebc30773: vscjava.vscode-java-pack
+[2022-09-29 21:58:48.661] [sharedprocess] [info] Renamed to /home/alex/.vscode-oss/extensions/vscjava.vscode-java-pack-0.25.2-universal
+[2022-09-29 21:58:48.662] [sharedprocess] [info] Extracting completed. vscjava.vscode-java-pack
+[2022-09-29 21:58:48.665] [sharedprocess] [info] Extension installed successfully: vscjava.vscode-java-pack
+[2022-09-29 21:58:49.001] [sharedprocess] [info] Downloaded extension: vscodevim.vim /home/alex/.config/Code - OSS/CachedExtensionVSIXs/vscodevim.vim-1.24.1-universal
+[2022-09-29 21:58:49.128] [sharedprocess] [info] Extracted extension to /home/alex/.vscode-oss/extensions/.221e6d8c-8dbb-4067-be3d-a04229abc6f1: vscodevim.vim
+[2022-09-29 21:58:49.131] [sharedprocess] [info] Renamed to /home/alex/.vscode-oss/extensions/vscodevim.vim-1.24.1-universal
+[2022-09-29 21:58:49.133] [sharedprocess] [info] Extracting completed. vscodevim.vim
+[2022-09-29 21:58:49.136] [sharedprocess] [info] Extension installed successfully: vscodevim.vim

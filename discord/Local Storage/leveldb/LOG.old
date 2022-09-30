@@ -1,14 +1,6 @@
-2022/09/14-01:26:23.443 9b1e Reusing MANIFEST /home/alex/.config/discord/Local Storage/leveldb/MANIFEST-000001
-2022/09/14-01:26:23.444 9b1e Recovering log #12
-2022/09/14-01:26:23.445 9b1e Reusing old log /home/alex/.config/discord/Local Storage/leveldb/000012.log 
-2022/09/14-01:28:25.134 9b0b Level-0 table #16: started
-2022/09/14-01:28:25.161 9b0b Level-0 table #16: 1115920 bytes OK
-2022/09/14-01:28:25.163 9b0b Delete type=0 #12
-2022/09/14-01:28:25.164 9b0b Compacting 4@0 + 0@1 files
-2022/09/14-01:28:25.186 9b0b Generated table #17@0: 24 keys, 1114104 bytes
-2022/09/14-01:28:25.186 9b0b Compacted 4@0 + 0@1 files => 1114104 bytes
-2022/09/14-01:28:25.187 9b0b compacted to: files[ 0 1 1 0 0 0 0 ]
-2022/09/14-01:28:25.187 9b0b Delete type=2 #10
-2022/09/14-01:28:25.187 9b0b Delete type=2 #16
-2022/09/14-01:28:25.187 9b0b Delete type=2 #7
-2022/09/14-01:28:25.187 9b0b Delete type=2 #13
+2022/09/29-16:40:57.992 6ef8 Reusing MANIFEST /home/alex/.config/discord/Local Storage/leveldb/MANIFEST-000001
+2022/09/29-16:40:57.992 6ef8 Recovering log #22
+2022/09/29-16:40:57.993 6ef8 Reusing old log /home/alex/.config/discord/Local Storage/leveldb/000022.log 
+2022/09/29-16:48:40.277 6ef8 Level-0 table #26: started
+2022/09/29-16:48:40.303 6ef8 Level-0 table #26: 1121502 bytes OK
+2022/09/29-16:48:40.304 6ef8 Delete type=0 #22

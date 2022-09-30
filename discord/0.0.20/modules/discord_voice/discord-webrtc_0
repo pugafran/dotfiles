@@ -1,0 +1,746 @@
+22:01:10.873] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 61577 61578 
+[2022-09-29 22:01:10.971] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 61602 61603 
+[2022-09-29 22:01:11.009] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 61612 61613 
+[2022-09-29 22:01:11.107] [1799] (connection.cpp:870): Received REMB for ssrcs: 741092: 5625344 [bps]
+[2022-09-29 22:01:11.107] [1799] (connection.cpp:894): Received receiver count for ssrc: 741092: 2
+[2022-09-29 22:01:11.299] [102529] (quality_scaler.cc:316): Checking average QP 26 (26).
+[2022-09-29 22:01:11.424] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 61946 
+[2022-09-29 22:01:11.444] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 61963 
+[2022-09-29 22:01:11.545] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 62051 62052 
+[2022-09-29 22:01:11.552] [1713] (discord.cpp:543): JS console: ["%c[RTCControlSocket]","Sending heartbeat"]
+[2022-09-29 22:01:11.594] [1799] (receive_statistics_proxy2.cc:532): Bad call (any) end: 13977615
+[2022-09-29 22:01:11.594] [1799] (receive_statistics_proxy2.cc:550): Bad call (variance) end: 13977615
+[2022-09-29 22:01:11.604] [1713] (discord.cpp:543): JS console: ["%c[RTCControlSocket]","Heartbeat ACK received"]
+[2022-09-29 22:01:11.715] [1799] (connection.cpp:924): Received inbound estimate: 7897952 [bps], loss rate: 0 [%]
+[2022-09-29 22:01:11.869] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 62179 
+[2022-09-29 22:01:11.899] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 62185 
+[2022-09-29 22:01:12.001] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 62207 62208 
+[2022-09-29 22:01:12.069] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 62220 
+[2022-09-29 22:01:12.098] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 62224 
+[2022-09-29 22:01:12.107] [1799] (connection.cpp:870): Received REMB for ssrcs: 741092: 5626048 [bps]
+[2022-09-29 22:01:12.107] [1799] (connection.cpp:894): Received receiver count for ssrc: 741092: 2
+[2022-09-29 22:01:12.339] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 62265 
+[2022-09-29 22:01:12.339] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 62268 
+[2022-09-29 22:01:12.468] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 62295 
+[2022-09-29 22:01:12.511] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 62302 
+[2022-09-29 22:01:12.540] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 62307 
+[2022-09-29 22:01:12.565] [1800] (device_info_linux.cc:45): NumberOfDevices
+[2022-09-29 22:01:12.566] [1800] (device_info_linux.cc:45): NumberOfDevices
+[2022-09-29 22:01:12.566] [1800] (device_info_linux.cc:78): GetDeviceName
+[2022-09-29 22:01:12.567] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 62315 
+[2022-09-29 22:01:12.667] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 62333 
+[2022-09-29 22:01:12.715] [1799] (connection.cpp:924): Received inbound estimate: 7897952 [bps], loss rate: 0 [%]
+[2022-09-29 22:01:12.740] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 62348 
+[2022-09-29 22:01:12.901] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 62380 
+[2022-09-29 22:01:13.024] [110142] (udp_socket.cpp:607): Reconnection started, sending echo
+[2022-09-29 22:01:13.071] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 62411 
+[2022-09-29 22:01:13.077] [110142] (udp_socket.cpp:194): ReconnectionAttemptFinished: succeeded, local address: 83.97.221.238:34346
+[2022-09-29 22:01:13.108] [1799] (connection.cpp:870): Received REMB for ssrcs: 741092: 5618432 [bps]
+[2022-09-29 22:01:13.108] [1799] (connection.cpp:894): Received receiver count for ssrc: 741092: 2
+[2022-09-29 22:01:13.132] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 62421 62422 62423 62424 
+[2022-09-29 22:01:13.138] [110142] (udp_socket.cpp:874): Sending ping to 66.22.238.141:50017, seq: 121
+[2022-09-29 22:01:13.171] [24067] (udp_socket.cpp:874): Sending ping to 66.22.241.6:50004, seq: 2265
+[2022-09-29 22:01:13.185] [110142] (socket_client.cpp:263): Ping received from 66.22.238.141:50017, seq: 121, rtt: 46
+[2022-09-29 22:01:13.193] [24067] (socket_client.cpp:263): Ping received from 66.22.241.6:50004, seq: 2265, rtt: 22
+[2022-09-29 22:01:13.302] [102529] (quality_scaler.cc:316): Checking average QP 26 (26).
+[2022-09-29 22:01:13.500] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 62488 
+[2022-09-29 22:01:13.715] [1799] (connection.cpp:924): Received inbound estimate: 7897952 [bps], loss rate: 0 [%]
+[2022-09-29 22:01:13.741] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 62537 
+[2022-09-29 22:01:13.851] [24068] (bitrate_prober.cc:114): Probe cluster (bitrate:min bytes:min packets): (10000000:18750:5)
+[2022-09-29 22:01:13.900] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 62627 
+[2022-09-29 22:01:13.901] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 62629 
+[2022-09-29 22:01:14.040] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 62656 
+[2022-09-29 22:01:14.040] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 62658 
+[2022-09-29 22:01:14.104] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 62669 
+[2022-09-29 22:01:14.108] [1799] (connection.cpp:870): Received REMB for ssrcs: 741092: 5574752 [bps]
+[2022-09-29 22:01:14.108] [1799] (connection.cpp:894): Received receiver count for ssrc: 741092: 2
+[2022-09-29 22:01:14.133] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 62676 
+[2022-09-29 22:01:14.205] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 62687 62688 
+[2022-09-29 22:01:14.334] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 62711 
+[2022-09-29 22:01:14.418] [1799] (rtp_video_stream_receiver2.cc:664): Packet received on SSRC: 290417 with payload type: 101, timestamp: 3536314799, sequence number: 62715, arrival time: 13980439, toffset: 4410, abs send time: 13540023
+[2022-09-29 22:01:14.497] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 62740 62741 62742 62743 
+[2022-09-29 22:01:14.574] [23716] (udp_socket.cpp:874): Sending ping to 66.22.238.15:50007, seq: 2273
+[2022-09-29 22:01:14.619] [23716] (socket_client.cpp:263): Ping received from 66.22.238.15:50007, seq: 2273, rtt: 44
+[2022-09-29 22:01:14.670] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 62770 
+[2022-09-29 22:01:14.717] [1799] (connection.cpp:924): Received inbound estimate: 7897952 [bps], loss rate: 0 [%]
+[2022-09-29 22:01:14.764] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 62785 
+[2022-09-29 22:01:14.901] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 62814 
+[2022-09-29 22:01:14.997] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 62829 
+[2022-09-29 22:01:14.997] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 62832 
+[2022-09-29 22:01:15.072] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 62842 
+[2022-09-29 22:01:15.108] [1799] (connection.cpp:870): Received REMB for ssrcs: 741092: 5617632 [bps]
+[2022-09-29 22:01:15.108] [1799] (connection.cpp:894): Received receiver count for ssrc: 741092: 2
+[2022-09-29 22:01:15.126] [24068] (bitrate_allocator.cc:394): Current BWE 5617632
+[2022-09-29 22:01:15.141] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 62854 
+[2022-09-29 22:01:15.171] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 62860 62861 
+[2022-09-29 22:01:15.307] [102529] (quality_scaler.cc:316): Checking average QP 26 (26).
+[2022-09-29 22:01:15.325] [1799] (connection.cpp:870): Received REMB for ssrcs: 741092: 5617632 [bps]
+[2022-09-29 22:01:15.325] [1799] (connection.cpp:894): Received receiver count for ssrc: 741092: 1
+[2022-09-29 22:01:15.435] [1806] (audio_device_buffer.cc:411): [REC : 10010msec, 44kHz] callbacks: 1001, samples: 441441, rate: 44100, rate diff: 0%, level: 2407
+[2022-09-29 22:01:15.435] [1806] (audio_device_buffer.cc:437): [PLAY: 10010msec, 44kHz] callbacks: 1001, samples: 441441, rate: 44100, rate diff: 0%, level: 3700
+[2022-09-29 22:01:15.479] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 62914 
+[2022-09-29 22:01:15.500] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 62922 62923 
+[2022-09-29 22:01:15.534] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 62926 
+[2022-09-29 22:01:15.569] [1800] (device_info_linux.cc:45): NumberOfDevices
+[2022-09-29 22:01:15.569] [1800] (device_info_linux.cc:45): NumberOfDevices
+[2022-09-29 22:01:15.570] [1800] (device_info_linux.cc:78): GetDeviceName
+[2022-09-29 22:01:15.641] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 62946 
+[2022-09-29 22:01:15.715] [1799] (connection.cpp:924): Received inbound estimate: 7897952 [bps], loss rate: 0 [%]
+[2022-09-29 22:01:15.933] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 63000 
+[2022-09-29 22:01:15.967] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 63006 
+[2022-09-29 22:01:16.002] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 63015 
+[2022-09-29 22:01:16.107] [1799] (connection.cpp:870): Received REMB for ssrcs: 741092: 5671968 [bps]
+[2022-09-29 22:01:16.107] [1799] (connection.cpp:894): Received receiver count for ssrc: 741092: 1
+[2022-09-29 22:01:16.108] [24068] (probe_bitrate_estimator.cc:159): Probing successful [cluster id: 2271] [send: 14448 bytes / 10 ms = 11558400 bps ] [receive: 15381 bytes / 12 ms = 10254 kbps]
+[2022-09-29 22:01:16.108] [24068] (connection.cpp:1079): Bitrate probed id: 2271, bitrate: 9741300 [bps]
+[2022-09-29 22:01:16.108] [24068] (probe_bitrate_estimator.cc:159): Probing successful [cluster id: 2271] [send: 15633 bytes / 10 ms = 12506400 bps ] [receive: 16566 bytes / 12 ms = 11044 kbps]
+[2022-09-29 22:01:16.108] [24068] (connection.cpp:1079): Bitrate probed id: 2271, bitrate: 10491800 [bps]
+[2022-09-29 22:01:16.108] [24068] (probe_bitrate_estimator.cc:159): Probing successful [cluster id: 2271] [send: 16818 bytes / 13 ms = 10349538 bps ] [receive: 17751 bytes / 15 ms = 9467200 bps]
+[2022-09-29 22:01:16.108] [24068] (connection.cpp:1079): Bitrate probed id: 2271, bitrate: 9467200 [bps]
+[2022-09-29 22:01:16.108] [24068] (probe_bitrate_estimator.cc:159): Probing successful [cluster id: 2271] [send: 18003 bytes / 13 ms = 11078769 bps ] [receive: 18936 bytes / 15 ms = 10099200 bps]
+[2022-09-29 22:01:16.108] [24068] (connection.cpp:1079): Bitrate probed id: 2271, bitrate: 10099200 [bps]
+[2022-09-29 22:01:16.108] [24068] (probe_bitrate_estimator.cc:159): Probing successful [cluster id: 2271] [send: 19188 bytes / 13 ms = 11808 kbps ] [receive: 20121 bytes / 15 ms = 10731200 bps]
+[2022-09-29 22:01:16.108] [24068] (connection.cpp:1079): Bitrate probed id: 2271, bitrate: 10731200 [bps]
+[2022-09-29 22:01:16.173] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 63046 
+[2022-09-29 22:01:16.268] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 63081 
+[2022-09-29 22:01:16.278] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 63086 63087 
+[2022-09-29 22:01:16.504] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 63171 
+[2022-09-29 22:01:16.703] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 63236 
+[2022-09-29 22:01:16.715] [1799] (connection.cpp:924): Received inbound estimate: 7897952 [bps], loss rate: 0 [%]
+[2022-09-29 22:01:16.743] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 63249 
+[2022-09-29 22:01:16.769] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 63262 
+[2022-09-29 22:01:17.107] [1799] (connection.cpp:870): Received REMB for ssrcs: 741092: 5718720 [bps]
+[2022-09-29 22:01:17.107] [1799] (connection.cpp:894): Received receiver count for ssrc: 741092: 1
+[2022-09-29 22:01:17.203] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 63434 
+[2022-09-29 22:01:17.204] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 63437 
+[2022-09-29 22:01:17.214] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 63446 
+[2022-09-29 22:01:17.227] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 63450 
+[2022-09-29 22:01:17.240] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 63465 
+[2022-09-29 22:01:17.308] [102529] (quality_scaler.cc:316): Checking average QP 26 (26).
+[2022-09-29 22:01:17.332] [1799] (connection.cpp:615): Inbound stats for user: 429371816755331072, audio ssrc: 290416, packets received: 0, lost: 0, audio frames normal: 0, silent: 0, expand: 0, video ssrc: 290417, packets received: 90150, lost: 108, video frames received (key/delta): 1/17941, decoded: 17940, dropped: 0, resolution: 1280 x 720, freeze (count/duration): 26/7089, pause (count/duration): 0/0
+[2022-09-29 22:01:17.332] [1799] (connection.cpp:647): Outbound stats for user: 485091468843810816
+[2022-09-29 22:01:17.332] [1799] (connection.cpp:649):   Audio ssrc: 290874, packets sent: 10, packets lost: 0
+[2022-09-29 22:01:17.332] [1799] (connection.cpp:737): Transport stats for user: 485091468843810816, rtt: 47 [ms], available bitrate: 600000 [bps], outbound estimate: 600000 [bps], remb: 0 [bps], inbound estimate: 7897952
+[2022-09-29 22:01:17.332] [1799] (connection.cpp:759): Memory usage: 552MB, CPU usage:106%
+[2022-09-29 22:01:17.597] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 63609 
+[2022-09-29 22:01:17.666] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 63641 63642 63643 63644 
+[2022-09-29 22:01:17.715] [1799] (connection.cpp:924): Received inbound estimate: 7897952 [bps], loss rate: 0 [%]
+[2022-09-29 22:01:17.729] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 63676 
+[2022-09-29 22:01:17.798] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 63698 63699 
+[2022-09-29 22:01:17.917] [1713] (discord.cpp:543): JS console: ["%c[RTCControlSocket]","Sending heartbeat"]
+[2022-09-29 22:01:17.942] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 63759 
+[2022-09-29 22:01:17.963] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 63763 63764 63765 63766 63767 
+[2022-09-29 22:01:17.981] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 63774 63775 
+[2022-09-29 22:01:17.982] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 63778 
+[2022-09-29 22:01:17.986] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 63783 
+[2022-09-29 22:01:17.990] [1713] (discord.cpp:543): JS console: ["%c[RTCControlSocket]","Heartbeat ACK received"]
+[2022-09-29 22:01:17.997] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 63791 
+[2022-09-29 22:01:18.048] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 63810 
+[2022-09-29 22:01:18.054] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 63816 
+[2022-09-29 22:01:18.060] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 63819 63820 
+[2022-09-29 22:01:18.100] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 63841 
+[2022-09-29 22:01:18.108] [1799] (connection.cpp:870): Received REMB for ssrcs: 741092: 5879520 [bps]
+[2022-09-29 22:01:18.108] [1799] (connection.cpp:894): Received receiver count for ssrc: 741092: 1
+[2022-09-29 22:01:18.138] [110142] (udp_socket.cpp:874): Sending ping to 66.22.238.141:50017, seq: 122
+[2022-09-29 22:01:18.141] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 63846 63847 63848 63849 
+[2022-09-29 22:01:18.172] [24067] (udp_socket.cpp:874): Sending ping to 66.22.241.6:50004, seq: 2266
+[2022-09-29 22:01:18.184] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 63862 
+[2022-09-29 22:01:18.185] [110142] (socket_client.cpp:263): Ping received from 66.22.238.141:50017, seq: 122, rtt: 47
+[2022-09-29 22:01:18.196] [24067] (socket_client.cpp:263): Ping received from 66.22.241.6:50004, seq: 2266, rtt: 24
+[2022-09-29 22:01:18.335] [1799] (connection.cpp:647): Outbound stats for user: 485091468843810816
+[2022-09-29 22:01:18.335] [1799] (connection.cpp:649):   Audio ssrc: 741091, packets sent: 0, packets lost: 0
+[2022-09-29 22:01:18.335] [1799] (connection.cpp:683):   Video codec: H264 (OpenH264), input frame rate: 31 [fps], frames encoded: 46504, encoded frame rate: 31 [fps], target rate: 4000000 [bps], actual rate: 1170864 [bps], cpu limited: 0, bw limited: 0, substream ssrc: 741092, frames sent (key/delta): 51/46453, packets sent: 59364, packets sent lost: 162, resolution: 1280 x 720 
+[2022-09-29 22:01:18.335] [1799] (connection.cpp:689):   Screen share frames, WebRTC: 341547, VideoHook: 0, Hybrid DXGI: 0, Hybrid GDI: 0, Hybrid VideoHook: 0, Hybrid Graphics Capture: 0, Quartz: 0
+[2022-09-29 22:01:18.335] [1799] (connection.cpp:737): Transport stats for user: 485091468843810816, rtt: 23 [ms], available bitrate: 5879520 [bps], outbound estimate: 5879520 [bps], remb: 5879520 [bps], inbound estimate: 0
+[2022-09-29 22:01:18.335] [1799] (connection.cpp:746): Receiver: 429371816755331072, bitrate: 7417600 [bps], loss: 0 [%]
+[2022-09-29 22:01:18.335] [1799] (connection.cpp:759): Memory usage: 549MB, CPU usage:117%
+[2022-09-29 22:01:18.344] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 63940 
+[2022-09-29 22:01:18.405] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 63965 
+[2022-09-29 22:01:18.444] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 63986 
+[2022-09-29 22:01:18.484] [23718] (rtcp_sender.cc:471): Sender Report {ssrc: 297278, ntp: 3873470478:2079326811, rtp_timestamp: 4047026602, last_rtp_timestamp: 545460480, last_frame_capture_time_ms: 13984498, now_us: 13984505131, rtp_rate: 48}
+[2022-09-29 22:01:18.572] [1800] (device_info_linux.cc:45): NumberOfDevices
+[2022-09-29 22:01:18.572] [1800] (device_info_linux.cc:45): NumberOfDevices
+[2022-09-29 22:01:18.572] [1800] (device_info_linux.cc:78): GetDeviceName
+[2022-09-29 22:01:18.715] [1799] (connection.cpp:924): Received inbound estimate: 7897952 [bps], loss rate: 0 [%]
+[2022-09-29 22:01:18.800] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64131 64132 
+[2022-09-29 22:01:18.875] [24068] (bitrate_prober.cc:114): Probe cluster (bitrate:min bytes:min packets): (10000000:18750:5)
+[2022-09-29 22:01:18.896] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64173 64174 
+[2022-09-29 22:01:18.900] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64187 
+[2022-09-29 22:01:18.900] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64190 
+[2022-09-29 22:01:18.931] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64196 
+[2022-09-29 22:01:18.957] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64211 
+[2022-09-29 22:01:18.972] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64229 
+[2022-09-29 22:01:18.989] [24068] (probe_bitrate_estimator.cc:159): Probing successful [cluster id: 2272] [send: 14464 bytes / 11 ms = 10519272 bps ] [receive: 15364 bytes / 13 ms = 9454769 bps]
+[2022-09-29 22:01:18.989] [24068] (connection.cpp:1079): Bitrate probed id: 2272, bitrate: 8982030 [bps]
+[2022-09-29 22:01:18.989] [24068] (probe_bitrate_estimator.cc:159): Probing successful [cluster id: 2272] [send: 15616 bytes / 11 ms = 11357090 bps ] [receive: 16516 bytes / 13 ms = 10163692 bps]
+[2022-09-29 22:01:18.989] [24068] (connection.cpp:1079): Bitrate probed id: 2272, bitrate: 9655507 [bps]
+[2022-09-29 22:01:18.989] [24068] (probe_bitrate_estimator.cc:159): Probing successful [cluster id: 2272] [send: 16768 bytes / 14 ms = 9581714 bps ] [receive: 17668 bytes / 16 ms = 8834 kbps]
+[2022-09-29 22:01:18.989] [24068] (connection.cpp:1079): Bitrate probed id: 2272, bitrate: 8834000 [bps]
+[2022-09-29 22:01:18.989] [24068] (probe_bitrate_estimator.cc:159): Probing successful [cluster id: 2272] [send: 17920 bytes / 14 ms = 10240 kbps ] [receive: 18820 bytes / 16 ms = 9410 kbps]
+[2022-09-29 22:01:18.989] [24068] (connection.cpp:1079): Bitrate probed id: 2272, bitrate: 9410000 [bps]
+[2022-09-29 22:01:18.989] [24068] (probe_bitrate_estimator.cc:159): Probing successful [cluster id: 2272] [send: 19072 bytes / 14 ms = 10898285 bps ] [receive: 19972 bytes / 16 ms = 9986 kbps]
+[2022-09-29 22:01:18.989] [24068] (connection.cpp:1079): Bitrate probed id: 2272, bitrate: 9986000 [bps]
+[2022-09-29 22:01:19.053] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64259 
+[2022-09-29 22:01:19.063] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64263 
+[2022-09-29 22:01:19.108] [1799] (connection.cpp:870): Received REMB for ssrcs: 741092: 6031232 [bps]
+[2022-09-29 22:01:19.108] [1799] (connection.cpp:894): Received receiver count for ssrc: 741092: 1
+[2022-09-29 22:01:19.290] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64367 64368 64369 
+[2022-09-29 22:01:19.305] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64383 
+[2022-09-29 22:01:19.308] [102529] (quality_scaler.cc:316): Checking average QP 26 (26).
+[2022-09-29 22:01:19.436] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64487 
+[2022-09-29 22:01:19.478] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64521 
+[2022-09-29 22:01:19.515] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64562 
+[2022-09-29 22:01:19.575] [23716] (udp_socket.cpp:874): Sending ping to 66.22.238.15:50007, seq: 2274
+[2022-09-29 22:01:19.579] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64606 
+[2022-09-29 22:01:19.622] [23716] (socket_client.cpp:263): Ping received from 66.22.238.15:50007, seq: 2274, rtt: 46
+[2022-09-29 22:01:19.713] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64642 64643 
+[2022-09-29 22:01:19.716] [1799] (connection.cpp:924): Received inbound estimate: 7897952 [bps], loss rate: 0 [%]
+[2022-09-29 22:01:19.728] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64652 
+[2022-09-29 22:01:19.798] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64673 
+[2022-09-29 22:01:19.800] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64686 64687 
+[2022-09-29 22:01:19.801] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64689 
+[2022-09-29 22:01:19.853] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64699 
+[2022-09-29 22:01:19.866] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64712 64713 
+[2022-09-29 22:01:19.954] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64721 64722 
+[2022-09-29 22:01:19.955] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64724 
+[2022-09-29 22:01:19.956] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64728 
+[2022-09-29 22:01:19.958] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64731 64732 
+[2022-09-29 22:01:19.959] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64734 
+[2022-09-29 22:01:19.959] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64739 
+[2022-09-29 22:01:19.982] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64757 
+[2022-09-29 22:01:19.999] [1808] (captured_audio_processor.cpp:82): Audio frames processed: 1136529, noise canceller process time: 0 [ms]
+[2022-09-29 22:01:19.999] [1808] (captured_audio_processor.cpp:93): Audio frame: 1136529, samples: 480, channels: 1, rate: 48000 [Hz], bytes: 2, level: 439
+[2022-09-29 22:01:20.073] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64773 
+[2022-09-29 22:01:20.099] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64811 
+[2022-09-29 22:01:20.108] [1799] (connection.cpp:870): Received REMB for ssrcs: 741092: 6053376 [bps]
+[2022-09-29 22:01:20.108] [1799] (connection.cpp:894): Received receiver count for ssrc: 741092: 1
+[2022-09-29 22:01:20.133] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64817 
+[2022-09-29 22:01:20.133] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64819 
+[2022-09-29 22:01:20.230] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64852 
+[2022-09-29 22:01:20.249] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64872 
+[2022-09-29 22:01:20.313] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64897 64898 
+[2022-09-29 22:01:20.339] [1799] (connection.cpp:615): Inbound stats for user: 752450786671460352, audio ssrc: 297273, packets received: 302432, lost: 45, audio frames normal: 443317, silent: 677062, expand: 3083, video ssrc: 0, packets received: 0, lost: 0, video frames received (key/delta): 0/0, decoded: 0, dropped: 0, resolution: 0 x 0, freeze (count/duration): 0/0, pause (count/duration): 0/0
+[2022-09-29 22:01:20.339] [1799] (connection.cpp:615): Inbound stats for user: 429371816755331072, audio ssrc: 301323, packets received: 28027, lost: 32, audio frames normal: 40567, silent: 141088, expand: 294, video ssrc: 0, packets received: 0, lost: 0, video frames received (key/delta): 0/0, decoded: 0, dropped: 0, resolution: 0 x 0, freeze (count/duration): 0/0, pause (count/duration): 0/0
+[2022-09-29 22:01:20.339] [1799] (connection.cpp:647): Outbound stats for user: 485091468843810816
+[2022-09-29 22:01:20.339] [1799] (connection.cpp:649):   Audio ssrc: 297278, packets sent: 271213, packets lost: 12
+[2022-09-29 22:01:20.339] [1799] (connection.cpp:737): Transport stats for user: 485091468843810816, rtt: 45 [ms], available bitrate: 600000 [bps], outbound estimate: 600000 [bps], remb: 0 [bps], inbound estimate: 0
+[2022-09-29 22:01:20.339] [1799] (connection.cpp:759): Memory usage: 541MB, CPU usage:97%
+[2022-09-29 22:01:20.340] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64916 
+[2022-09-29 22:01:20.407] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64936 
+[2022-09-29 22:01:20.428] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64950 
+[2022-09-29 22:01:20.436] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64960 
+[2022-09-29 22:01:20.469] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 64984 
+[2022-09-29 22:01:20.541] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 65008 
+[2022-09-29 22:01:20.600] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 65042 
+[2022-09-29 22:01:20.715] [1799] (connection.cpp:924): Received inbound estimate: 7897952 [bps], loss rate: 0 [%]
+[2022-09-29 22:01:20.731] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 65084 65085 
+[2022-09-29 22:01:20.734] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 65087 
+[2022-09-29 22:01:20.768] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 65090 
+[2022-09-29 22:01:20.804] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 65096 
+[2022-09-29 22:01:20.902] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 65153 
+[2022-09-29 22:01:20.904] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 65159 
+[2022-09-29 22:01:20.905] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 65161 
+[2022-09-29 22:01:20.909] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 65164 
+[2022-09-29 22:01:20.910] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 65166 
+[2022-09-29 22:01:20.997] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 65197 
+[2022-09-29 22:01:21.042] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 65206 
+[2022-09-29 22:01:21.042] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 65211 
+[2022-09-29 22:01:21.108] [1799] (connection.cpp:870): Received REMB for ssrcs: 741092: 6102208 [bps]
+[2022-09-29 22:01:21.108] [1799] (connection.cpp:894): Received receiver count for ssrc: 741092: 1
+[2022-09-29 22:01:21.108] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 65254 
+[2022-09-29 22:01:21.109] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 65260 
+[2022-09-29 22:01:21.110] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 65262 
+[2022-09-29 22:01:21.116] [24068] (bitrate_allocator.cc:394): Current BWE 6102208
+[2022-09-29 22:01:21.120] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 65271 
+[2022-09-29 22:01:21.172] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 65294 
+[2022-09-29 22:01:21.266] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 65311 
+[2022-09-29 22:01:21.273] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 65316 
+[2022-09-29 22:01:21.309] [102529] (quality_scaler.cc:316): Checking average QP 26 (26).
+[2022-09-29 22:01:21.310] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 65345 
+[2022-09-29 22:01:21.311] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 65347 
+[2022-09-29 22:01:21.377] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 65373 65374 65375 
+[2022-09-29 22:01:21.392] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 65383 
+[2022-09-29 22:01:21.395] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 65389 
+[2022-09-29 22:01:21.575] [1800] (device_info_linux.cc:45): NumberOfDevices
+[2022-09-29 22:01:21.576] [1800] (device_info_linux.cc:45): NumberOfDevices
+[2022-09-29 22:01:21.576] [1800] (device_info_linux.cc:78): GetDeviceName
+[2022-09-29 22:01:21.716] [1799] (connection.cpp:924): Received inbound estimate: 7897952 [bps], loss rate: 0 [%]
+[2022-09-29 22:01:22.034] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 65504 
+[2022-09-29 22:01:22.108] [1799] (connection.cpp:870): Received REMB for ssrcs: 741092: 6128864 [bps]
+[2022-09-29 22:01:22.108] [1799] (connection.cpp:894): Received receiver count for ssrc: 741092: 1
+[2022-09-29 22:01:22.274] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 5 
+[2022-09-29 22:01:22.275] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 7 
+[2022-09-29 22:01:22.312] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 10 
+[2022-09-29 22:01:22.468] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 35 
+[2022-09-29 22:01:22.715] [1799] (connection.cpp:924): Received inbound estimate: 7897952 [bps], loss rate: 0 [%]
+[2022-09-29 22:01:22.798] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 85 
+[2022-09-29 22:01:22.826] [1713] (discord.cpp:543): JS console: ["%c[RTCControlSocket]","Sending heartbeat"]
+[2022-09-29 22:01:22.845] [1713] (discord.cpp:543): JS console: ["%c[RTCControlSocket]","Heartbeat ACK received"]
+[2022-09-29 22:01:22.870] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 95 96 
+[2022-09-29 22:01:23.108] [1799] (connection.cpp:870): Received REMB for ssrcs: 741092: 6073376 [bps]
+[2022-09-29 22:01:23.108] [1799] (connection.cpp:894): Received receiver count for ssrc: 741092: 1
+[2022-09-29 22:01:23.138] [110142] (udp_socket.cpp:874): Sending ping to 66.22.238.141:50017, seq: 123
+[2022-09-29 22:01:23.172] [24067] (udp_socket.cpp:874): Sending ping to 66.22.241.6:50004, seq: 2267
+[2022-09-29 22:01:23.185] [110142] (socket_client.cpp:263): Ping received from 66.22.238.141:50017, seq: 123, rtt: 46
+[2022-09-29 22:01:23.194] [24067] (socket_client.cpp:263): Ping received from 66.22.241.6:50004, seq: 2267, rtt: 22
+[2022-09-29 22:01:23.241] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 154 155 156 
+[2022-09-29 22:01:23.310] [102529] (quality_scaler.cc:316): Checking average QP 26 (26).
+[2022-09-29 22:01:23.500] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 194 
+[2022-09-29 22:01:23.700] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 226 
+[2022-09-29 22:01:23.716] [1799] (connection.cpp:924): Received inbound estimate: 7897952 [bps], loss rate: 0 [%]
+[2022-09-29 22:01:23.810] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 242 
+[2022-09-29 22:01:23.872] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 252 
+[2022-09-29 22:01:23.875] [24068] (bitrate_prober.cc:114): Probe cluster (bitrate:min bytes:min packets): (10000000:18750:5)
+[2022-09-29 22:01:24.065] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 283 
+[2022-09-29 22:01:24.066] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 285 
+[2022-09-29 22:01:24.108] [1799] (connection.cpp:870): Received REMB for ssrcs: 741092: 6063040 [bps]
+[2022-09-29 22:01:24.108] [1799] (connection.cpp:894): Received receiver count for ssrc: 741092: 1
+[2022-09-29 22:01:24.145] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 294 
+[2022-09-29 22:01:24.178] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 298 
+[2022-09-29 22:01:24.300] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 319 
+[2022-09-29 22:01:24.329] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 323 
+[2022-09-29 22:01:24.440] [1799] (rtp_video_stream_receiver2.cc:664): Packet received on SSRC: 290417 with payload type: 101, timestamp: 3537220829, sequence number: 337, arrival time: 13990462, toffset: 720, abs send time: 16167206
+[2022-09-29 22:01:24.575] [23716] (udp_socket.cpp:874): Sending ping to 66.22.238.15:50007, seq: 2275
+[2022-09-29 22:01:24.579] [1800] (device_info_linux.cc:45): NumberOfDevices
+[2022-09-29 22:01:24.579] [1800] (device_info_linux.cc:45): NumberOfDevices
+[2022-09-29 22:01:24.579] [1800] (device_info_linux.cc:78): GetDeviceName
+[2022-09-29 22:01:24.621] [23716] (socket_client.cpp:263): Ping received from 66.22.238.15:50007, seq: 2275, rtt: 45
+[2022-09-29 22:01:24.716] [1799] (connection.cpp:924): Received inbound estimate: 7897952 [bps], loss rate: 0 [%]
+[2022-09-29 22:01:24.734] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 386 
+[2022-09-29 22:01:24.735] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 388 
+[2022-09-29 22:01:24.957] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 417 
+[2022-09-29 22:01:24.999] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 425 426 
+[2022-09-29 22:01:25.034] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 431 
+[2022-09-29 22:01:25.108] [1799] (connection.cpp:870): Received REMB for ssrcs: 741092: 6094176 [bps]
+[2022-09-29 22:01:25.108] [1799] (connection.cpp:894): Received receiver count for ssrc: 741092: 1
+[2022-09-29 22:01:25.169] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 454 455 
+[2022-09-29 22:01:25.305] [1713] (discord.cpp:543): JS console: ["%c[RTCControlSocket]","Sending heartbeat"]
+[2022-09-29 22:01:25.318] [102529] (quality_scaler.cc:316): Checking average QP 26 (26).
+[2022-09-29 22:01:25.357] [1713] (discord.cpp:543): JS console: ["%c[RTCControlSocket]","Heartbeat ACK received"]
+[2022-09-29 22:01:25.445] [1806] (audio_device_buffer.cc:411): [REC : 10010msec, 44kHz] callbacks: 1001, samples: 441441, rate: 44100, rate diff: 0%, level: 1761
+[2022-09-29 22:01:25.445] [1806] (audio_device_buffer.cc:437): [PLAY: 10010msec, 44kHz] callbacks: 1001, samples: 441441, rate: 44100, rate diff: 0%, level: 2073
+[2022-09-29 22:01:25.547] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 513 
+[2022-09-29 22:01:25.705] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 537 538 539 
+[2022-09-29 22:01:25.716] [1799] (connection.cpp:924): Received inbound estimate: 7897952 [bps], loss rate: 0 [%]
+[2022-09-29 22:01:25.878] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 565 566 
+[2022-09-29 22:01:25.920] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 569 570 
+[2022-09-29 22:01:25.921] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 572 
+[2022-09-29 22:01:25.999] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 580 
+[2022-09-29 22:01:26.000] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 583 
+[2022-09-29 22:01:26.001] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 587 
+[2022-09-29 22:01:26.033] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 590 591 
+[2022-09-29 22:01:26.108] [1799] (connection.cpp:870): Received REMB for ssrcs: 741092: 6113216 [bps]
+[2022-09-29 22:01:26.108] [1799] (connection.cpp:894): Received receiver count for ssrc: 741092: 1
+[2022-09-29 22:01:26.126] [24068] (bitrate_allocator.cc:394): Current BWE 6113216
+[2022-09-29 22:01:26.133] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 607 
+[2022-09-29 22:01:26.200] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 617 
+[2022-09-29 22:01:26.333] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 636 637 
+[2022-09-29 22:01:26.370] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 641 
+[2022-09-29 22:01:26.371] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 643 
+[2022-09-29 22:01:26.432] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 651 
+[2022-09-29 22:01:26.582] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 671 672 
+[2022-09-29 22:01:26.614] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 677 
+[2022-09-29 22:01:26.675] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 686 
+[2022-09-29 22:01:26.716] [1799] (connection.cpp:924): Received inbound estimate: 7897952 [bps], loss rate: 0 [%]
+[2022-09-29 22:01:26.731] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 696 
+[2022-09-29 22:01:26.874] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 716 
+[2022-09-29 22:01:26.907] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 721 
+[2022-09-29 22:01:26.944] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 728 
+[2022-09-29 22:01:27.064] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 746 
+[2022-09-29 22:01:27.065] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 748 
+[2022-09-29 22:01:27.108] [1799] (connection.cpp:870): Received REMB for ssrcs: 741092: 6214976 [bps]
+[2022-09-29 22:01:27.108] [1799] (connection.cpp:894): Received receiver count for ssrc: 741092: 1
+[2022-09-29 22:01:27.311] [102529] (quality_scaler.cc:316): Checking average QP 26 (26).
+[2022-09-29 22:01:27.335] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 786 787 788 
+[2022-09-29 22:01:27.371] [1799] (connection.cpp:615): Inbound stats for user: 429371816755331072, audio ssrc: 290416, packets received: 0, lost: 0, audio frames normal: 0, silent: 0, expand: 0, video ssrc: 290417, packets received: 92979, lost: 108, video frames received (key/delta): 1/18243, decoded: 18241, dropped: 0, resolution: 1280 x 720, freeze (count/duration): 26/7089, pause (count/duration): 0/0
+[2022-09-29 22:01:27.372] [1799] (connection.cpp:647): Outbound stats for user: 485091468843810816
+[2022-09-29 22:01:27.372] [1799] (connection.cpp:649):   Audio ssrc: 290874, packets sent: 10, packets lost: 0
+[2022-09-29 22:01:27.372] [1799] (connection.cpp:737): Transport stats for user: 485091468843810816, rtt: 46 [ms], available bitrate: 600000 [bps], outbound estimate: 600000 [bps], remb: 0 [bps], inbound estimate: 7897952
+[2022-09-29 22:01:27.372] [1799] (connection.cpp:759): Memory usage: 542MB, CPU usage:121%
+[2022-09-29 22:01:27.397] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 797 
+[2022-09-29 22:01:27.467] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 807 808 
+[2022-09-29 22:01:27.564] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 823 
+[2022-09-29 22:01:27.582] [1800] (device_info_linux.cc:45): NumberOfDevices
+[2022-09-29 22:01:27.582] [1800] (device_info_linux.cc:45): NumberOfDevices
+[2022-09-29 22:01:27.583] [1800] (device_info_linux.cc:78): GetDeviceName
+[2022-09-29 22:01:27.601] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 829 830 831 832 
+[2022-09-29 22:01:27.701] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 846 
+[2022-09-29 22:01:27.716] [1799] (connection.cpp:924): Received inbound estimate: 7897952 [bps], loss rate: 0 [%]
+[2022-09-29 22:01:27.741] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 852 
+[2022-09-29 22:01:27.831] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 865 866 867 
+[2022-09-29 22:01:28.108] [1799] (connection.cpp:870): Received REMB for ssrcs: 741092: 6219456 [bps]
+[2022-09-29 22:01:28.108] [1799] (connection.cpp:894): Received receiver count for ssrc: 741092: 1
+[2022-09-29 22:01:28.138] [110142] (udp_socket.cpp:874): Sending ping to 66.22.238.141:50017, seq: 124
+[2022-09-29 22:01:28.172] [24067] (udp_socket.cpp:874): Sending ping to 66.22.241.6:50004, seq: 2268
+[2022-09-29 22:01:28.190] [110142] (socket_client.cpp:263): Ping received from 66.22.238.141:50017, seq: 124, rtt: 51
+[2022-09-29 22:01:28.194] [24067] (socket_client.cpp:263): Ping received from 66.22.241.6:50004, seq: 2268, rtt: 22
+[2022-09-29 22:01:28.377] [1799] (connection.cpp:647): Outbound stats for user: 485091468843810816
+[2022-09-29 22:01:28.377] [1799] (connection.cpp:649):   Audio ssrc: 741091, packets sent: 0, packets lost: 0
+[2022-09-29 22:01:28.377] [1799] (connection.cpp:683):   Video codec: H264 (OpenH264), input frame rate: 30 [fps], frames encoded: 46806, encoded frame rate: 30 [fps], target rate: 4000000 [bps], actual rate: 11040 [bps], cpu limited: 0, bw limited: 0, substream ssrc: 741092, frames sent (key/delta): 51/46755, packets sent: 60022, packets sent lost: 162, resolution: 1280 x 720 
+[2022-09-29 22:01:28.377] [1799] (connection.cpp:689):   Screen share frames, WebRTC: 341850, VideoHook: 0, Hybrid DXGI: 0, Hybrid GDI: 0, Hybrid VideoHook: 0, Hybrid Graphics Capture: 0, Quartz: 0
+[2022-09-29 22:01:28.377] [1799] (connection.cpp:737): Transport stats for user: 485091468843810816, rtt: 22 [ms], available bitrate: 6219456 [bps], outbound estimate: 6219456 [bps], remb: 6219456 [bps], inbound estimate: 0
+[2022-09-29 22:01:28.377] [1799] (connection.cpp:746): Receiver: 429371816755331072, bitrate: 7417600 [bps], loss: 0 [%]
+[2022-09-29 22:01:28.378] [1799] (connection.cpp:759): Memory usage: 543MB, CPU usage:118%
+[2022-09-29 22:01:28.442] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 966 
+[2022-09-29 22:01:28.474] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 970 
+[2022-09-29 22:01:28.631] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 999 
+[2022-09-29 22:01:28.670] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 1003 
+[2022-09-29 22:01:28.671] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 1005 
+[2022-09-29 22:01:28.716] [1799] (connection.cpp:924): Received inbound estimate: 7897952 [bps], loss rate: 0 [%]
+[2022-09-29 22:01:28.735] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 1012 
+[2022-09-29 22:01:28.801] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 1024 
+[2022-09-29 22:01:28.876] [24068] (bitrate_prober.cc:114): Probe cluster (bitrate:min bytes:min packets): (10000000:18750:5)
+[2022-09-29 22:01:28.899] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 1038 
+[2022-09-29 22:01:29.098] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 1070 
+[2022-09-29 22:01:29.108] [1799] (connection.cpp:870): Received REMB for ssrcs: 741092: 6228160 [bps]
+[2022-09-29 22:01:29.108] [1799] (connection.cpp:894): Received receiver count for ssrc: 741092: 1
+[2022-09-29 22:01:29.161] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 1075 
+[2022-09-29 22:01:29.161] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 1077 
+[2022-09-29 22:01:29.312] [102529] (quality_scaler.cc:316): Checking average QP 26 (26).
+[2022-09-29 22:01:29.547] [24068] (probe_bitrate_estimator.cc:159): Probing successful [cluster id: 2274] [send: 14318 bytes / 9 ms = 12727111 bps ] [receive: 15218 bytes / 13 ms = 9364923 bps]
+[2022-09-29 22:01:29.547] [24068] (connection.cpp:1079): Bitrate probed id: 2274, bitrate: 8896677 [bps]
+[2022-09-29 22:01:29.547] [24068] (probe_bitrate_estimator.cc:159): Probing successful [cluster id: 2274] [send: 15470 bytes / 12 ms = 10313333 bps ] [receive: 16370 bytes / 13 ms = 10073846 bps]
+[2022-09-29 22:01:29.547] [24068] (connection.cpp:1079): Bitrate probed id: 2274, bitrate: 10073846 [bps]
+[2022-09-29 22:01:29.547] [24068] (probe_bitrate_estimator.cc:159): Probing successful [cluster id: 2274] [send: 16623 bytes / 12 ms = 11082 kbps ] [receive: 17523 bytes / 13 ms = 10783384 bps]
+[2022-09-29 22:01:29.547] [24068] (connection.cpp:1079): Bitrate probed id: 2274, bitrate: 10783384 [bps]
+[2022-09-29 22:01:29.547] [24068] (probe_bitrate_estimator.cc:159): Probing successful [cluster id: 2274] [send: 17776 bytes / 12 ms = 11850666 bps ] [receive: 18676 bytes / 13 ms = 11492923 bps]
+[2022-09-29 22:01:29.547] [24068] (connection.cpp:1079): Bitrate probed id: 2274, bitrate: 11492923 [bps]
+[2022-09-29 22:01:29.575] [23716] (udp_socket.cpp:874): Sending ping to 66.22.238.15:50007, seq: 2276
+[2022-09-29 22:01:29.619] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 1170 
+[2022-09-29 22:01:29.621] [23716] (socket_client.cpp:263): Ping received from 66.22.238.15:50007, seq: 2276, rtt: 45
+[2022-09-29 22:01:29.638] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 1185 
+[2022-09-29 22:01:29.698] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 1199 
+[2022-09-29 22:01:29.710] [1799] (audio_receive_stream.cc:144): ~AudioReceiveStream: 297273
+[2022-09-29 22:01:29.710] [1799] (rtp_demuxer.cc:240): Removed sink = ce8d500 bindings
+[2022-09-29 22:01:29.716] [1799] (connection.cpp:924): Received inbound estimate: 7897952 [bps], loss rate: 0 [%]
+[2022-09-29 22:01:29.776] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 1222 
+[2022-09-29 22:01:29.830] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 1247 1248 
+[2022-09-29 22:01:29.830] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 1250 
+[2022-09-29 22:01:29.831] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 1255 
+[2022-09-29 22:01:29.861] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 1287 
+[2022-09-29 22:01:29.909] [102529] (rtcp_sender.cc:471): Sender Report {ssrc: 741092, ntp: 3873470489:3906401604, rtp_timestamp: 967114232, last_rtp_timestamp: 2733574858, last_frame_capture_time_ms: 13995901, now_us: 13995930530, rtp_rate: 90}
+[2022-09-29 22:01:29.917] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 1311 
+[2022-09-29 22:01:30.001] [1808] (captured_audio_processor.cpp:82): Audio frames processed: 1137529, noise canceller process time: 0 [ms]
+[2022-09-29 22:01:30.001] [1808] (captured_audio_processor.cpp:93): Audio frame: 1137529, samples: 480, channels: 1, rate: 48000 [Hz], bytes: 2, level: 365
+[2022-09-29 22:01:30.105] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 1392 
+[2022-09-29 22:01:30.108] [1799] (connection.cpp:870): Received REMB for ssrcs: 741092: 6226112 [bps]
+[2022-09-29 22:01:30.108] [1799] (connection.cpp:894): Received receiver count for ssrc: 741092: 1
+[2022-09-29 22:01:30.142] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 1421 
+[2022-09-29 22:01:30.212] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 1437 
+[2022-09-29 22:01:30.388] [1799] (connection.cpp:615): Inbound stats for user: 429371816755331072, audio ssrc: 301323, packets received: 28279, lost: 32, audio frames normal: 40968, silent: 141690, expand: 294, video ssrc: 0, packets received: 0, lost: 0, video frames received (key/delta): 0/0, decoded: 0, dropped: 0, resolution: 0 x 0, freeze (count/duration): 0/0, pause (count/duration): 0/0
+[2022-09-29 22:01:30.388] [1799] (connection.cpp:647): Outbound stats for user: 485091468843810816
+[2022-09-29 22:01:30.388] [1799] (connection.cpp:649):   Audio ssrc: 297278, packets sent: 271332, packets lost: 12
+[2022-09-29 22:01:30.388] [1799] (connection.cpp:737): Transport stats for user: 485091468843810816, rtt: 45 [ms], available bitrate: 600000 [bps], outbound estimate: 600000 [bps], remb: 0 [bps], inbound estimate: 0
+[2022-09-29 22:01:30.388] [1799] (connection.cpp:759): Memory usage: 561MB, CPU usage:102%
+[2022-09-29 22:01:30.585] [1800] (device_info_linux.cc:45): NumberOfDevices
+[2022-09-29 22:01:30.586] [1800] (device_info_linux.cc:45): NumberOfDevices
+[2022-09-29 22:01:30.586] [1800] (device_info_linux.cc:78): GetDeviceName
+[2022-09-29 22:01:30.716] [1799] (connection.cpp:924): Received inbound estimate: 7897952 [bps], loss rate: 0 [%]
+[2022-09-29 22:01:30.834] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 1583 
+[2022-09-29 22:01:30.900] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 1594 
+[2022-09-29 22:01:30.901] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 1596 
+[2022-09-29 22:01:31.108] [1799] (connection.cpp:870): Received REMB for ssrcs: 741092: 6222560 [bps]
+[2022-09-29 22:01:31.108] [1799] (connection.cpp:894): Received receiver count for ssrc: 741092: 1
+[2022-09-29 22:01:31.166] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 1639 
+[2022-09-29 22:01:31.202] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 1643 
+[2022-09-29 22:01:31.234] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 1648 
+[2022-09-29 22:01:31.301] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 1666 1667 
+[2022-09-29 22:01:31.313] [102529] (quality_scaler.cc:316): Checking average QP 26 (26).
+[2022-09-29 22:01:31.412] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 1727 
+[2022-09-29 22:01:31.469] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 1753 
+[2022-09-29 22:01:31.537] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 1783 1784 1785 
+[2022-09-29 22:01:31.617] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 1825 1826 
+[2022-09-29 22:01:31.667] [1713] (discord.cpp:543): JS console: ["%c[RTCControlSocket]","Sending heartbeat"]
+[2022-09-29 22:01:31.716] [1799] (connection.cpp:924): Received inbound estimate: 7897952 [bps], loss rate: 0 [%]
+[2022-09-29 22:01:31.738] [1713] (discord.cpp:543): JS console: ["%c[RTCControlSocket]","Heartbeat ACK received"]
+[2022-09-29 22:01:31.865] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 1943 
+[2022-09-29 22:01:31.976] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 1965 
+[2022-09-29 22:01:32.109] [1799] (connection.cpp:870): Received REMB for ssrcs: 741092: 6110144 [bps]
+[2022-09-29 22:01:32.109] [1799] (connection.cpp:894): Received receiver count for ssrc: 741092: 1
+[2022-09-29 22:01:32.126] [24068] (bitrate_allocator.cc:394): Current BWE 6110144
+[2022-09-29 22:01:32.567] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2222 
+[2022-09-29 22:01:32.568] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2224 
+[2022-09-29 22:01:32.701] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2275 
+[2022-09-29 22:01:32.702] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2277 
+[2022-09-29 22:01:32.716] [1799] (connection.cpp:924): Received inbound estimate: 7897952 [bps], loss rate: 0 [%]
+[2022-09-29 22:01:32.799] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2291 
+[2022-09-29 22:01:32.800] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2293 
+[2022-09-29 22:01:32.896] [24067] (udp_socket.cpp:607): Reconnection started, sending echo
+[2022-09-29 22:01:32.897] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2306 
+[2022-09-29 22:01:32.898] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2308 
+[2022-09-29 22:01:32.923] [24067] (udp_socket.cpp:194): ReconnectionAttemptFinished: succeeded, local address: 83.97.221.238:41889
+[2022-09-29 22:01:33.040] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2326 2327 2328 
+[2022-09-29 22:01:33.064] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2331 2332 
+[2022-09-29 22:01:33.109] [1799] (connection.cpp:870): Received REMB for ssrcs: 741092: 6084704 [bps]
+[2022-09-29 22:01:33.109] [1799] (connection.cpp:894): Received receiver count for ssrc: 741092: 1
+[2022-09-29 22:01:33.138] [110142] (udp_socket.cpp:874): Sending ping to 66.22.238.141:50017, seq: 125
+[2022-09-29 22:01:33.143] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2344 
+[2022-09-29 22:01:33.143] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2346 
+[2022-09-29 22:01:33.172] [24067] (udp_socket.cpp:874): Sending ping to 66.22.241.6:50004, seq: 2269
+[2022-09-29 22:01:33.180] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2349 
+[2022-09-29 22:01:33.180] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2351 2352 
+[2022-09-29 22:01:33.184] [110142] (socket_client.cpp:263): Ping received from 66.22.238.141:50017, seq: 125, rtt: 46
+[2022-09-29 22:01:33.195] [24067] (socket_client.cpp:263): Ping received from 66.22.241.6:50004, seq: 2269, rtt: 23
+[2022-09-29 22:01:33.196] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2355 
+[2022-09-29 22:01:33.232] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2360 
+[2022-09-29 22:01:33.269] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2365 
+[2022-09-29 22:01:33.269] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2367 
+[2022-09-29 22:01:33.300] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2370 
+[2022-09-29 22:01:33.318] [102529] (quality_scaler.cc:316): Checking average QP 26 (26).
+[2022-09-29 22:01:33.369] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2380 2381 2382 
+[2022-09-29 22:01:33.437] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2390 
+[2022-09-29 22:01:33.463] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2395 
+[2022-09-29 22:01:33.570] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2410 2411 
+[2022-09-29 22:01:33.589] [1800] (device_info_linux.cc:45): NumberOfDevices
+[2022-09-29 22:01:33.589] [1800] (device_info_linux.cc:45): NumberOfDevices
+[2022-09-29 22:01:33.589] [1800] (device_info_linux.cc:78): GetDeviceName
+[2022-09-29 22:01:33.725] [1799] (connection.cpp:924): Received inbound estimate: 7897952 [bps], loss rate: 0 [%]
+[2022-09-29 22:01:33.804] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2445 2446 2447 
+[2022-09-29 22:01:33.870] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2455 
+[2022-09-29 22:01:33.876] [24068] (bitrate_prober.cc:114): Probe cluster (bitrate:min bytes:min packets): (10000000:18750:5)
+[2022-09-29 22:01:33.964] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2479 
+[2022-09-29 22:01:33.968] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2489 2490 
+[2022-09-29 22:01:34.011] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2508 
+[2022-09-29 22:01:34.038] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2515 
+[2022-09-29 22:01:34.092] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2544 2545 
+[2022-09-29 22:01:34.104] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2549 
+[2022-09-29 22:01:34.108] [1799] (connection.cpp:870): Received REMB for ssrcs: 741092: 6029664 [bps]
+[2022-09-29 22:01:34.108] [1799] (connection.cpp:894): Received receiver count for ssrc: 741092: 1
+[2022-09-29 22:01:34.183] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2569 2570 2571 2572 
+[2022-09-29 22:01:34.221] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2606 
+[2022-09-29 22:01:34.292] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2639 
+[2022-09-29 22:01:34.318] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2658 
+[2022-09-29 22:01:34.336] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2665 
+[2022-09-29 22:01:34.403] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2687 2688 
+[2022-09-29 22:01:34.470] [1799] (rtp_video_stream_receiver2.cc:664): Packet received on SSRC: 290417 with payload type: 101, timestamp: 3538123889, sequence number: 2706, arrival time: 14000491, toffset: 810, abs send time: 2019046
+[2022-09-29 22:01:34.576] [23716] (udp_socket.cpp:874): Sending ping to 66.22.238.15:50007, seq: 2277
+[2022-09-29 22:01:34.622] [23716] (socket_client.cpp:263): Ping received from 66.22.238.15:50007, seq: 2277, rtt: 46
+[2022-09-29 22:01:34.703] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2750 2751 2752 2753 
+[2022-09-29 22:01:34.717] [1799] (connection.cpp:924): Received inbound estimate: 7897952 [bps], loss rate: 0 [%]
+[2022-09-29 22:01:34.736] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2765 2766 2767 2768 
+[2022-09-29 22:01:34.807] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2787 2788 
+[2022-09-29 22:01:34.807] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2792 
+[2022-09-29 22:01:34.808] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2801 
+[2022-09-29 22:01:34.809] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2803 2804 
+[2022-09-29 22:01:34.847] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2812 2813 
+[2022-09-29 22:01:34.852] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2830 
+[2022-09-29 22:01:34.857] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2838 
+[2022-09-29 22:01:34.906] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2860 2861 
+[2022-09-29 22:01:34.973] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2880 2881 
+[2022-09-29 22:01:35.041] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2894 2895 
+[2022-09-29 22:01:35.109] [1799] (connection.cpp:870): Received REMB for ssrcs: 741092: 5984256 [bps]
+[2022-09-29 22:01:35.109] [1799] (connection.cpp:894): Received receiver count for ssrc: 741092: 1
+[2022-09-29 22:01:35.137] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2911 
+[2022-09-29 22:01:35.167] [1799] (local_user.cpp:570): Screenshare: ClearScreenshareSource
+[2022-09-29 22:01:35.168] [1799] (x_server_pixel_buffer.cc:202): Failed to get icc profile
+[2022-09-29 22:01:35.169] [1799] (screen_capturer_x11.cc:166): Using XRandR extension v146646
+[2022-09-29 22:01:35.176] [1799] (video_send_stream.cc:187): VideoSendStream::Stop
+[2022-09-29 22:01:35.176] [1799] (video_send_stream.cc:187): VideoSendStream::Stop
+[2022-09-29 22:01:35.176] [24068] (video_send_stream_impl.cc:406): VideoSendStreamImpl::Stop
+[2022-09-29 22:01:35.176] [24068] (bitrate_allocator.cc:523): UpdateAllocationLimits : total_requested_min_bitrate: 0 bps, total_requested_padding_bitrate: 0 bps, total_requested_max_bitrate: 0 bps
+[2022-09-29 22:01:35.176] [102529] (resource_adaptation_processor.cc:144): Removing resource "EncoderUsageResource".
+[2022-09-29 22:01:35.176] [24068] (video_send_stream_impl.cc:406): VideoSendStreamImpl::Stop
+[2022-09-29 22:01:35.176] [102529] (resource_adaptation_processor.cc:144): Removing resource "QualityScalerResource".
+[2022-09-29 22:01:35.178] [102529] (video_stream_encoder.cc:1912): Video suspend state changed to: suspended
+[2022-09-29 22:01:35.178] [24068] (video_send_stream_impl.cc:406): VideoSendStreamImpl::Stop
+[2022-09-29 22:01:35.178] [24068] (video_send_stream_impl.cc:316): ~VideoSendStreamInternal: {encoder_settings: { experiment_cpu_load_estimator: off}}, rtp: {ssrcs: [741092], rids: [], mid: '', rtcp_mode: RtcpMode::kCompound, max_packet_size: 1200, extmap-allow-mixed: false, extensions: [{uri: urn:ietf:params:rtp-hdrext:toffset, id: 2}, {uri: http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time, id: 3}, {uri: urn:3gpp:video-orientation, id: 4}, {uri: http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01, id: 5}, {uri: http://www.webrtc.org/experiments/rtp-hdrext/playout-delay, id: 6}, {uri: urn:ietf:params:rtp-hdrext:sdes:mid, id: 10}], lntf: {enabled: false}, nack: {rtp_history_ms: 1000}, ulpfec: {ulpfec_payload_type: -1, red_payload_type: -1, red_rtx_payload_type: -1}, payload_name: H264, payload_type: 101, raw_payload: false, flexfec: {payload_type: -1, ssrc: 0, protected_media_ssrcs: []}, rtx: {ssrcs: [741093], payload_type: 102}, c_name: }, rtcp_report_interval_ms: 1000, send_transport: (Transport), render_delay_ms: 0, target_delay_ms: 0, suspend_below_min_bitrate: off}
+[2022-09-29 22:01:35.179] [24070] (packet_router.cc:156): Failed to send packet, matching RTP module not found or transport error. SSRC = 741092, sequence number 13490
+[2022-09-29 22:01:35.179] [1799] (send_statistics_proxy.cc:667): WebRTC.Video.Screenshare.InputWidthInPixels 1280
+WebRTC.Video.Screenshare.InputHeightInPixels 720
+WebRTC.Video.Screenshare.InputFramesPerSecond periodic_samples:779, {min:30, avg:30, max:31}
+WebRTC.Video.Screenshare.SentWidthInPixels 1280
+WebRTC.Video.Screenshare.SentHeightInPixels 720
+WebRTC.Video.Screenshare.SentFramesPerSecond periodic_samples:779, {min:27, avg:30, max:31}
+WebRTC.Video.Screenshare.SentToInputFpsRatioPercent 100
+WebRTC.Video.Screenshare.EncodeTimeInMs 12
+WebRTC.Video.Screenshare.KeyFramesSentInPermille 1
+WebRTC.Video.Screenshare.QualityLimitedResolutionInPercent 0
+WebRTC.Video.Screenshare.SentPacketsLostInPercent 0
+WebRTC.Video.Screenshare.NumberOfPauseEvents 0
+WebRTC.Video.Screenshare.PausedTimeInPercent 0
+WebRTC.Video.Screenshare.BitrateSentInBps periodic_samples:779, {min:367464, avg:532560, max:1759568}
+WebRTC.Video.Screenshare.MediaBitrateSentInBps periodic_samples:779, {min:3072, avg:98952, max:1660728}
+WebRTC.Video.Screenshare.PaddingBitrateSentInBps periodic_samples:779, {min:0, avg:198520, max:340480}
+WebRTC.Video.Screenshare.RetransmittedBitrateSentInBps periodic_samples:779, {min:0, avg:40, max:17816}
+WebRTC.Video.Screenshare.RtxBitrateSentInBps periodic_samples:779, {min:0, avg:424920, max:587288}
+Frames encoded 47012
+WebRTC.Video.Screenshare.DroppedFrames.Capturer 0
+WebRTC.Video.Screenshare.DroppedFrames.EncoderQueue 7
+WebRTC.Video.Screenshare.DroppedFrames.Encoder 14
+WebRTC.Video.Screenshare.DroppedFrames.Ratelimiter 0
+WebRTC.Video.Screenshare.DroppedFrames.CongestionWindow 0
+[2022-09-29 22:01:35.179] [1799] (media_filter_manager.cpp:182): Updating video output stream 5
+[2022-09-29 22:01:35.179] [1799] (media_filter_manager.cpp:205): Updating direct video output stream 5
+[2022-09-29 22:01:35.179] [1799] (screenshare_video_source.cpp:74): Screenshare: Deconstructing
+[2022-09-29 22:01:35.181] [1799] (local_user.cpp:626): SetScreenshare: (nil)
+[2022-09-29 22:01:35.185] [1799] (audio_send_stream.cc:229): AudioSendStream::ConfigureStream: {rtp: {ssrc: 741091, extmap-allow-mixed: false, extensions: [{uri: urn:ietf:params:rtp-hdrext:ssrc-audio-level, id: 1}, {uri: https://discord.com/#rtp-hdrext/2018-07-29/speaker, id: 9}, {uri: urn:ietf:params:rtp-hdrext:sdes:mid, id: 10}, {uri: urn:ietf:params:rtp-hdrext:sdes:rtp-stream-id, id: 11}, {uri: urn:ietf:params:rtp-hdrext:sdes:repaired-rtp-stream-id, id: 12}], c_name: }, rtcp_report_interval_ms: 5000, send_transport: (Transport), min_bitrate_bps: -1, max_bitrate_bps: -1, has audio_network_adaptor_config: false, has_dscp: false, send_codec_spec: {nack_enabled: false, transport_cc_enabled: false, cng_payload_type: <unset>, red_payload_type: <unset>, payload_type: 120, format: {name: opus, clockrate_hz: 48000, num_channels: 2, parameters: {minplr: 30, stereo: 1, usedtx: 0, useinbandfec: 1}}}}
+[2022-09-29 22:01:35.185] [1799] (audio_send_stream.cc:229): AudioSendStream::ConfigureStream: {rtp: {ssrc: 741091, extmap-allow-mixed: false, extensions: [{uri: urn:ietf:params:rtp-hdrext:ssrc-audio-level, id: 1}, {uri: https://discord.com/#rtp-hdrext/2018-07-29/speaker, id: 9}, {uri: urn:ietf:params:rtp-hdrext:sdes:mid, id: 10}, {uri: urn:ietf:params:rtp-hdrext:sdes:rtp-stream-id, id: 11}, {uri: urn:ietf:params:rtp-hdrext:sdes:repaired-rtp-stream-id, id: 12}], c_name: }, rtcp_report_interval_ms: 5000, send_transport: (Transport), min_bitrate_bps: -1, max_bitrate_bps: -1, has audio_network_adaptor_config: false, has_dscp: false, send_codec_spec: {nack_enabled: false, transport_cc_enabled: false, cng_payload_type: <unset>, red_payload_type: <unset>, payload_type: 120, format: {name: opus, clockrate_hz: 48000, num_channels: 2, parameters: {minplr: 30, stereo: 1, usedtx: 0, useinbandfec: 1}}}}
+[2022-09-29 22:01:35.185] [1799] (audio_send_stream.cc:229): AudioSendStream::ConfigureStream: {rtp: {ssrc: 741091, extmap-allow-mixed: false, extensions: [{uri: urn:ietf:params:rtp-hdrext:ssrc-audio-level, id: 1}, {uri: https://discord.com/#rtp-hdrext/2018-07-29/speaker, id: 9}, {uri: urn:ietf:params:rtp-hdrext:sdes:mid, id: 10}, {uri: urn:ietf:params:rtp-hdrext:sdes:rtp-stream-id, id: 11}, {uri: urn:ietf:params:rtp-hdrext:sdes:repaired-rtp-stream-id, id: 12}], c_name: }, rtcp_report_interval_ms: 5000, send_transport: (Transport), min_bitrate_bps: -1, max_bitrate_bps: -1, has audio_network_adaptor_config: false, has_dscp: false, send_codec_spec: {nack_enabled: false, transport_cc_enabled: false, cng_payload_type: <unset>, red_payload_type: <unset>, payload_type: 120, format: {name: opus, clockrate_hz: 48000, num_channels: 2, parameters: {minplr: 30, stereo: 1, usedtx: 0, useinbandfec: 1}}}}
+[2022-09-29 22:01:35.185] [1799] (audio_send_stream.cc:229): AudioSendStream::ConfigureStream: {rtp: {ssrc: 741091, extmap-allow-mixed: false, extensions: [{uri: urn:ietf:params:rtp-hdrext:ssrc-audio-level, id: 1}, {uri: https://discord.com/#rtp-hdrext/2018-07-29/speaker, id: 9}, {uri: urn:ietf:params:rtp-hdrext:sdes:mid, id: 10}, {uri: urn:ietf:params:rtp-hdrext:sdes:rtp-stream-id, id: 11}, {uri: urn:ietf:params:rtp-hdrext:sdes:repaired-rtp-stream-id, id: 12}], c_name: }, rtcp_report_interval_ms: 5000, send_transport: (Transport), min_bitrate_bps: -1, max_bitrate_bps: -1, has audio_network_adaptor_config: false, has_dscp: false, send_codec_spec: {nack_enabled: false, transport_cc_enabled: false, cng_payload_type: <unset>, red_payload_type: <unset>, payload_type: 120, format: {name: opus, clockrate_hz: 48000, num_channels: 2, parameters: {minplr: 30, stereo: 1, usedtx: 0, useinbandfec: 1}}}}
+[2022-09-29 22:01:35.186] [1799] (local_user.cpp:570): Screenshare: ClearScreenshareSource
+[2022-09-29 22:01:35.186] [1799] (x_server_pixel_buffer.cc:202): Failed to get icc profile
+[2022-09-29 22:01:35.187] [1799] (screen_capturer_x11.cc:166): Using XRandR extension v146646
+[2022-09-29 22:01:35.189] [1799] (local_user.cpp:626): SetScreenshare: (nil)
+[2022-09-29 22:01:35.189] [1799] (audio_send_stream.cc:229): AudioSendStream::ConfigureStream: {rtp: {ssrc: 290874, extmap-allow-mixed: false, extensions: [{uri: urn:ietf:params:rtp-hdrext:ssrc-audio-level, id: 1}, {uri: https://discord.com/#rtp-hdrext/2018-07-29/speaker, id: 9}, {uri: urn:ietf:params:rtp-hdrext:sdes:mid, id: 10}, {uri: urn:ietf:params:rtp-hdrext:sdes:rtp-stream-id, id: 11}, {uri: urn:ietf:params:rtp-hdrext:sdes:repaired-rtp-stream-id, id: 12}], c_name: }, rtcp_report_interval_ms: 5000, send_transport: (Transport), min_bitrate_bps: -1, max_bitrate_bps: -1, has audio_network_adaptor_config: false, has_dscp: false, send_codec_spec: {nack_enabled: false, transport_cc_enabled: false, cng_payload_type: <unset>, red_payload_type: <unset>, payload_type: 120, format: {name: opus, clockrate_hz: 48000, num_channels: 2, parameters: {minplr: 30, stereo: 1, usedtx: 0, useinbandfec: 1}}}}
+[2022-09-29 22:01:35.189] [1799] (audio_send_stream.cc:229): AudioSendStream::ConfigureStream: {rtp: {ssrc: 290874, extmap-allow-mixed: false, extensions: [{uri: urn:ietf:params:rtp-hdrext:ssrc-audio-level, id: 1}, {uri: https://discord.com/#rtp-hdrext/2018-07-29/speaker, id: 9}, {uri: urn:ietf:params:rtp-hdrext:sdes:mid, id: 10}, {uri: urn:ietf:params:rtp-hdrext:sdes:rtp-stream-id, id: 11}, {uri: urn:ietf:params:rtp-hdrext:sdes:repaired-rtp-stream-id, id: 12}], c_name: }, rtcp_report_interval_ms: 5000, send_transport: (Transport), min_bitrate_bps: -1, max_bitrate_bps: -1, has audio_network_adaptor_config: false, has_dscp: false, send_codec_spec: {nack_enabled: false, transport_cc_enabled: false, cng_payload_type: <unset>, red_payload_type: <unset>, payload_type: 120, format: {name: opus, clockrate_hz: 48000, num_channels: 2, parameters: {minplr: 30, stereo: 1, usedtx: 0, useinbandfec: 1}}}}
+[2022-09-29 22:01:35.239] [1713] (discord.cpp:543): JS console: ["%c[RTCConnection(1025057591694479390)]","Remote media sink wants: {\"any\":100}"]
+[2022-09-29 22:01:35.240] [1713] (discord.cpp:543): JS console: ["updateVideoQuality: {\n    \"remoteSinkWantsPixelCount\": 0,\n    \"encodingVideoMinBitRate\": 500000,\n    \"encodingVideoMaxBitRate\": 4000000,\n    \"encodingVideoBitRate\": 600000,\n    \"streamParameters\": [\n        {\n            \"type\": \"video\",\n            \"active\": false,\n            \"rid\": \"100\",\n            \"ssrc\": 741092,\n            \"rtxSsrc\": 741093,\n            \"quality\": 100,\n            \"maxBitrate\": 4000000,\n            \"maxFrameRate\": 30,\n            \"maxResolution\": {\n                \"type\": \"fixed\",\n                \"width\": 1280,\n                \"height\": 720\n            }\n        }\n    ]\n}"]
+[2022-09-29 22:01:35.240] [1799] (audio_send_stream.cc:229): AudioSendStream::ConfigureStream: {rtp: {ssrc: 741091, extmap-allow-mixed: false, extensions: [{uri: urn:ietf:params:rtp-hdrext:ssrc-audio-level, id: 1}, {uri: https://discord.com/#rtp-hdrext/2018-07-29/speaker, id: 9}, {uri: urn:ietf:params:rtp-hdrext:sdes:mid, id: 10}, {uri: urn:ietf:params:rtp-hdrext:sdes:rtp-stream-id, id: 11}, {uri: urn:ietf:params:rtp-hdrext:sdes:repaired-rtp-stream-id, id: 12}], c_name: }, rtcp_report_interval_ms: 5000, send_transport: (Transport), min_bitrate_bps: -1, max_bitrate_bps: -1, has audio_network_adaptor_config: false, has_dscp: false, send_codec_spec: {nack_enabled: false, transport_cc_enabled: false, cng_payload_type: <unset>, red_payload_type: <unset>, payload_type: 120, format: {name: opus, clockrate_hz: 48000, num_channels: 2, parameters: {minplr: 30, stereo: 1, usedtx: 0, useinbandfec: 1}}}}
+[2022-09-29 22:01:35.240] [1799] (audio_send_stream.cc:229): AudioSendStream::ConfigureStream: {rtp: {ssrc: 741091, extmap-allow-mixed: false, extensions: [{uri: urn:ietf:params:rtp-hdrext:ssrc-audio-level, id: 1}, {uri: https://discord.com/#rtp-hdrext/2018-07-29/speaker, id: 9}, {uri: urn:ietf:params:rtp-hdrext:sdes:mid, id: 10}, {uri: urn:ietf:params:rtp-hdrext:sdes:rtp-stream-id, id: 11}, {uri: urn:ietf:params:rtp-hdrext:sdes:repaired-rtp-stream-id, id: 12}], c_name: }, rtcp_report_interval_ms: 5000, send_transport: (Transport), min_bitrate_bps: -1, max_bitrate_bps: -1, has audio_network_adaptor_config: false, has_dscp: false, send_codec_spec: {nack_enabled: false, transport_cc_enabled: false, cng_payload_type: <unset>, red_payload_type: <unset>, payload_type: 120, format: {name: opus, clockrate_hz: 48000, num_channels: 2, parameters: {minplr: 30, stereo: 1, usedtx: 0, useinbandfec: 1}}}}
+[2022-09-29 22:01:35.332] [1713] (discord.cpp:543): JS console: ["%c[RTCConnection(1025057591694479390)]","Destroy RTCConnection"]
+[2022-09-29 22:01:35.332] [1713] (discord.cpp:543): JS console: ["%c[RTCControlSocket]","CLOSE"]
+[2022-09-29 22:01:35.333] [1713] (discord.cpp:543): JS console: ["%c[RTCConnection(1025057591694479390)]","Disconnected from RTC server, clean: true, code: 1000, reason: Force Close, state: RTC_CONNECTED"]
+[2022-09-29 22:01:35.334] [1799] (engine.cpp:880): obtained codec survey:null
+
+[2022-09-29 22:01:35.335] [1713] (discord.cpp:543): JS console: ["Connection state change: CONNECTED => DISCONNECTED"]
+[2022-09-29 22:01:35.335] [1799] (call.cc:1168): UpdateAggregateNetworkState: aggregate_state change to down
+[2022-09-29 22:01:35.335] [1799] (audio_send_stream.cc:178): ~AudioSendStream: 741091
+[2022-09-29 22:01:35.335] [24068] (pacing_controller.cc:162): PacedSender paused.
+[2022-09-29 22:01:35.335] [24068] (control_handler.cc:78): Bitrate estimate state changed, BWE: 5984256 bps.
+[2022-09-29 22:01:35.335] [1713] (discord.cpp:543): JS console: ["%c[RTCConnection(1025057591694479390)]","RTC media connection state change: RTC_CONNECTED => DISCONNECTED"]
+[2022-09-29 22:01:35.335] [1713] (discord.cpp:543): JS console: ["%c[RTCConnection(1025057591694479390)]","RTC connection state: RTC_CONNECTED => RTC_DISCONNECTED"]
+[2022-09-29 22:01:35.335] [1799] (connection.cpp:1106): UpdateRtcLogScopes key:
+[2022-09-29 22:01:35.335] [1799] (call.cc:704): WebRTC.Call.EstimatedSendBitrateInKbps, periodic_samples:5669, {min:500, avg:6877, max:7808}
+[2022-09-29 22:01:35.335] [1799] (call.cc:712): WebRTC.Call.PacerBitrateInKbps, periodic_samples:5669, {min:500, avg:6877, max:7808}
+[2022-09-29 22:01:35.335] [1799] (paced_sender.cc:186): ProcessThreadAttached 0x0
+[2022-09-29 22:01:35.335] [1713] (discord.cpp:543): JS console: ["Connection state change: DISCONNECTED => DISCONNECTED"]
+[2022-09-29 22:01:35.335] [1713] (discord.cpp:543): JS console: ["%c[RTCConnection(1025057591694479390)]","RTC media connection state change: RTC_DISCONNECTED => DISCONNECTED"]
+[2022-09-29 22:01:35.335] [1713] (discord.cpp:543): JS console: ["%c[RTCConnection(1025057591694479390)]","RTC connection state: RTC_DISCONNECTED => RTC_DISCONNECTED"]
+[2022-09-29 22:01:35.335] [1713] (discord.cpp:543): JS console: ["%c[RTCConnection(1025057591694479390)]","RTC connection state: RTC_DISCONNECTED => DISCONNECTED"]
+[2022-09-29 22:01:35.336] [1799] (paced_sender.cc:186): ProcessThreadAttached 0x0
+[2022-09-29 22:01:35.336] [1799] (send_delay_stats.cc:49): WebRTC.Video.SendDelayInMs, periodic_samples:5520, {min:0, avg:0, max:0}
+[2022-09-29 22:01:35.336] [24067] (udp_socket.cpp:382): Disconnect
+[2022-09-29 22:01:35.350] [1713] (discord.cpp:543): JS console: ["%c[RTCConnection(1025057591694479390)]","Error: codec survey is not available"]
+[2022-09-29 22:01:35.354] [1713] (discord.cpp:543): JS console: ["updateVideoQuality: {\n    \"remoteSinkWantsMaxFramerate\": 30\n}"]
+[2022-09-29 22:01:35.354] [1799] (audio_send_stream.cc:229): AudioSendStream::ConfigureStream: {rtp: {ssrc: 297278, extmap-allow-mixed: false, extensions: [{uri: urn:ietf:params:rtp-hdrext:ssrc-audio-level, id: 1}, {uri: https://discord.com/#rtp-hdrext/2018-07-29/speaker, id: 9}, {uri: urn:ietf:params:rtp-hdrext:sdes:mid, id: 10}, {uri: urn:ietf:params:rtp-hdrext:sdes:rtp-stream-id, id: 11}, {uri: urn:ietf:params:rtp-hdrext:sdes:repaired-rtp-stream-id, id: 12}], c_name: }, rtcp_report_interval_ms: 5000, send_transport: (Transport), min_bitrate_bps: -1, max_bitrate_bps: -1, has audio_network_adaptor_config: false, has_dscp: false, send_codec_spec: {nack_enabled: false, transport_cc_enabled: false, cng_payload_type: <unset>, red_payload_type: <unset>, payload_type: 120, format: {name: opus, clockrate_hz: 48000, num_channels: 2, parameters: {minplr: 30, stereo: 0, usedtx: 0, useinbandfec: 1}}}}
+[2022-09-29 22:01:35.354] [1799] (audio_send_stream.cc:229): AudioSendStream::ConfigureStream: {rtp: {ssrc: 297278, extmap-allow-mixed: false, extensions: [{uri: urn:ietf:params:rtp-hdrext:ssrc-audio-level, id: 1}, {uri: https://discord.com/#rtp-hdrext/2018-07-29/speaker, id: 9}, {uri: urn:ietf:params:rtp-hdrext:sdes:mid, id: 10}, {uri: urn:ietf:params:rtp-hdrext:sdes:rtp-stream-id, id: 11}, {uri: urn:ietf:params:rtp-hdrext:sdes:repaired-rtp-stream-id, id: 12}], c_name: }, rtcp_report_interval_ms: 5000, send_transport: (Transport), min_bitrate_bps: -1, max_bitrate_bps: -1, has audio_network_adaptor_config: false, has_dscp: false, send_codec_spec: {nack_enabled: false, transport_cc_enabled: false, cng_payload_type: <unset>, red_payload_type: <unset>, payload_type: 120, format: {name: opus, clockrate_hz: 48000, num_channels: 2, parameters: {minplr: 30, stereo: 0, usedtx: 0, useinbandfec: 1}}}}
+[2022-09-29 22:01:35.354] [1713] (discord.cpp:543): JS console: ["updateVideoQuality: {}"]
+[2022-09-29 22:01:35.354] [1799] (audio_send_stream.cc:229): AudioSendStream::ConfigureStream: {rtp: {ssrc: 290874, extmap-allow-mixed: false, extensions: [{uri: urn:ietf:params:rtp-hdrext:ssrc-audio-level, id: 1}, {uri: https://discord.com/#rtp-hdrext/2018-07-29/speaker, id: 9}, {uri: urn:ietf:params:rtp-hdrext:sdes:mid, id: 10}, {uri: urn:ietf:params:rtp-hdrext:sdes:rtp-stream-id, id: 11}, {uri: urn:ietf:params:rtp-hdrext:sdes:repaired-rtp-stream-id, id: 12}], c_name: }, rtcp_report_interval_ms: 5000, send_transport: (Transport), min_bitrate_bps: -1, max_bitrate_bps: -1, has audio_network_adaptor_config: false, has_dscp: false, send_codec_spec: {nack_enabled: false, transport_cc_enabled: false, cng_payload_type: <unset>, red_payload_type: <unset>, payload_type: 120, format: {name: opus, clockrate_hz: 48000, num_channels: 2, parameters: {minplr: 30, stereo: 1, usedtx: 0, useinbandfec: 1}}}}
+[2022-09-29 22:01:35.354] [1799] (audio_send_stream.cc:229): AudioSendStream::ConfigureStream: {rtp: {ssrc: 290874, extmap-allow-mixed: false, extensions: [{uri: urn:ietf:params:rtp-hdrext:ssrc-audio-level, id: 1}, {uri: https://discord.com/#rtp-hdrext/2018-07-29/speaker, id: 9}, {uri: urn:ietf:params:rtp-hdrext:sdes:mid, id: 10}, {uri: urn:ietf:params:rtp-hdrext:sdes:rtp-stream-id, id: 11}, {uri: urn:ietf:params:rtp-hdrext:sdes:repaired-rtp-stream-id, id: 12}], c_name: }, rtcp_report_interval_ms: 5000, send_transport: (Transport), min_bitrate_bps: -1, max_bitrate_bps: -1, has audio_network_adaptor_config: false, has_dscp: false, send_codec_spec: {nack_enabled: false, transport_cc_enabled: false, cng_payload_type: <unset>, red_payload_type: <unset>, payload_type: 120, format: {name: opus, clockrate_hz: 48000, num_channels: 2, parameters: {minplr: 30, stereo: 1, usedtx: 0, useinbandfec: 1}}}}
+[2022-09-29 22:01:35.426] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 2996 
+[2022-09-29 22:01:35.455] [1806] (audio_device_buffer.cc:411): [REC : 10010msec, 44kHz] callbacks: 1001, samples: 441441, rate: 44100, rate diff: 0%, level: 1897
+[2022-09-29 22:01:35.455] [1806] (audio_device_buffer.cc:437): [PLAY: 10010msec, 44kHz] callbacks: 1001, samples: 441441, rate: 44100, rate diff: 0%, level: 3620
+[2022-09-29 22:01:35.468] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 3020 
+[2022-09-29 22:01:35.634] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 3098 3099 
+[2022-09-29 22:01:35.635] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 3101 
+[2022-09-29 22:01:35.670] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 3105 
+[2022-09-29 22:01:35.700] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 3110 3111 
+[2022-09-29 22:01:35.716] [1799] (connection.cpp:924): Received inbound estimate: 7897952 [bps], loss rate: 0 [%]
+[2022-09-29 22:01:35.738] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 3119 
+[2022-09-29 22:01:35.775] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 3125 
+[2022-09-29 22:01:35.842] [1799] (connection.cpp:118): Send RTCP NACK with sender ssrc: 290875 for media ssrc: 290417: 3136 
+[2022-09-29 22:01:35.940] [1713] (discord.cpp:543): JS console: ["Unsubscribing from direct frames for streamId 36"]
+[2022-09-29 22:01:35.940] [1799] (media_filter_manager.cpp:205): Updating direct video output stream 36
+[2022-09-29 22:01:35.949] [1799] (receive_statistics_proxy2.cc:495): WebRTC.Video.ReceiveStreamLifetimeInSeconds 622
+Frames decoded 18498
+WebRTC.Video.DroppedFrames.Receiver 3
+WebRTC.Video.ReceivedPacketsLostInPercent 0
+WebRTC.Video.DecodedFramesPerSecond 30
+WebRTC.Video.RenderFramesPerSecond 30
+WebRTC.Video.KeyFramesReceivedInPermille 0
+WebRTC.Video.DecodeTimeInMs 3
+WebRTC.Video.JitterBufferDelayInMs 73
+WebRTC.Video.TargetDelayInMs 89
+WebRTC.Video.CurrentDelayInMs 88
+WebRTC.Video.InterframeDelayInMs 33
+WebRTC.Video.InterframeDelayMaxInMs 646
+WebRTC.Video.InterframeDelay95PercentileInMs 37
+WebRTC.Video.ReceivedWidthInPixels 1280
+WebRTC.Video.ReceivedHeightInPixels 720
+WebRTC.Video.MediaBitrateReceivedInKbps 1034
+
+[2022-09-29 22:01:35.949] [1799] (video_quality_observer2.cc:134): WebRTC.Video.MeanTimeBetweenFreezesMs 22793
+WebRTC.Video.MeanFreezeDurationMs 272
+WebRTC.Video.TimeInHdPercentage 98
+WebRTC.Video.TimeInBlockyVideoPercentage 0
+WebRTC.Video.NumberResolutionDownswitchesPerMinute 0
+WebRTC.Video.NumberFreezesPerMinute 2
+WebRTC.Video.HarmonicFrameRate 26
+
+[2022-09-29 22:01:35.949] [1799] (video_render_frames.cc:47): WebRTC.Video.DroppedFrames.RenderQueue 0
+[2022-09-29 22:01:35.949] [1799] (video_receive_stream2.cc:285): ~VideoReceiveStream2: {decoders: [{payload_type: 101, payload_name: H264, codec_params: {hardware-h264: 1, level-asymmetry-allowed: 1, packetization-mode: 1, profile-level-id: 42e034}}, {payload_type: 103, payload_name: VP8, codec_params: {}}, {payload_type: 105, payload_name: VP9, codec_params: {}}], rtp: {remote_ssrc: 290417, local_ssrc: 290875, rtcp_mode: RtcpMode::kCompound, rtcp_xr: {receiver_reference_time_report: off}, transport_cc: on, lntf: {enabled: false}, nack: {rtp_history_ms: 1000}, ulpfec_payload_type: -1, red_type: -1, rtx_ssrc: 290418, rtx_payload_types: {102 (pt) -> 101 (apt), 104 (pt) -> 103 (apt), 106 (pt) -> 105 (apt), }, raw_payload_types: {}, extensions: [{uri: urn:ietf:params:rtp-hdrext:toffset, id: 2}, {uri: http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time, id: 3}, {uri: urn:3gpp:video-orientation, id: 4}, {uri: http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01, id: 5}, {uri: http://www.webrtc.org/experiments/rtp-hdrext/playout-delay, id: 6}]}, renderer: (renderer), render_delay_ms: 10, sync_group: 429371816755331072, target_delay_ms: 0}
+[2022-09-29 22:01:35.949] [1799] (rtp_demuxer.cc:240): Removed sink = c1f0a40 bindings
+[2022-09-29 22:01:35.949] [1799] (rtp_demuxer.cc:240): Removed sink = e023f78 bindings
+[2022-09-29 22:01:35.950] [1799] (media_filter_manager.cpp:182): Updating video output stream 36
+[2022-09-29 22:01:35.950] [1799] (media_filter_manager.cpp:205): Updating direct video output stream 36
+[2022-09-29 22:01:35.950] [1799] (audio_receive_stream.cc:144): ~AudioReceiveStream: 290416
+[2022-09-29 22:01:35.950] [1799] (rtp_demuxer.cc:240): Removed sink = cde9800 bindings
+[2022-09-29 22:01:35.950] [1799] (audio_device_impl.cc:847): StopPlayout
+[2022-09-29 22:01:35.950] [1799] (audio_device_buffer.cc:139): StopPlayout
+[2022-09-29 22:01:35.950] [1799] (audio_device_buffer.cc:145): total playout time: 11381852
+[2022-09-29 22:01:35.950] [1799] (audio_device_impl.cc:851): output: 0
+[2022-09-29 22:01:35.950] [1799] (audio_receive_stream.cc:144): ~AudioReceiveStream: 301323
+[2022-09-29 22:01:35.950] [1799] (rtp_demuxer.cc:240): Removed sink = ed89400 bindings
+[2022-09-29 22:01:35.954] [1713] (discord.cpp:543): JS console: ["%c[RTCConnection(1025098057316048906)]","Destroy RTCConnection"]
+[2022-09-29 22:01:35.954] [1713] (discord.cpp:543): JS console: ["%c[RTCControlSocket]","CLOSE"]
+[2022-09-29 22:01:35.955] [1713] (discord.cpp:543): JS console: ["%c[RTCConnection(1025098057316048906)]","Disconnected from RTC server, clean: true, code: 1000, reason: Force Close, state: RTC_CONNECTED"]
+[2022-09-29 22:01:35.955] [1799] (engine.cpp:880): obtained codec survey:null
+
+[2022-09-29 22:01:35.955] [1713] (discord.cpp:543): JS console: ["Connection state change: CONNECTED => DISCONNECTED"]
+[2022-09-29 22:01:35.955] [1799] (call.cc:1168): UpdateAggregateNetworkState: aggregate_state change to down
+[2022-09-29 22:01:35.955] [1799] (audio_send_stream.cc:178): ~AudioSendStream: 290874
+[2022-09-29 22:01:35.955] [110143] (pacing_controller.cc:162): PacedSender paused.
+[2022-09-29 22:01:35.955] [110143] (control_handler.cc:78): Bitrate estimate state changed, BWE: 600 kbps.
+[2022-09-29 22:01:35.955] [1713] (discord.cpp:543): JS console: ["%c[RTCConnection(1025098057316048906)]","RTC media connection state change: RTC_CONNECTED => DISCONNECTED"]
+[2022-09-29 22:01:35.955] [1713] (discord.cpp:543): JS console: ["%c[RTCConnection(1025098057316048906)]","RTC connection state: RTC_CONNECTED => RTC_DISCONNECTED"]
+[2022-09-29 22:01:35.955] [1713] (discord.cpp:543): JS console: ["Connection state change: DISCONNECTED => DISCONNECTED"]
+[2022-09-29 22:01:35.955] [1713] (discord.cpp:543): JS console: ["%c[RTCConnection(1025098057316048906)]","RTC media connection state change: RTC_DISCONNECTED => DISCONNECTED"]
+[2022-09-29 22:01:35.955] [1713] (discord.cpp:543): JS console: ["%c[RTCConnection(1025098057316048906)]","RTC connection state: RTC_DISCONNECTED => RTC_DISCONNECTED"]
+[2022-09-29 22:01:35.955] [1799] (connection.cpp:1106): UpdateRtcLogScopes key:
+[2022-09-29 22:01:35.955] [1799] (call.cc:734): WebRTC.Call.VideoBitrateReceivedInBps, periodic_samples:311, {min:40496, avg:1133912, max:4446744}
+[2022-09-29 22:01:35.955] [1713] (discord.cpp:543): JS console: ["%c[RTCConnection(1025098057316048906)]","RTC connection state: RTC_DISCONNECTED => DISCONNECTED"]
+[2022-09-29 22:01:35.955] [1799] (call.cc:750): WebRTC.Call.RtcpBitrateReceivedInBps, periodic_samples:311, {min:560, avg:672, max:672}
+[2022-09-29 22:01:35.955] [1799] (call.cc:758): WebRTC.Call.BitrateReceivedInBps, periodic_samples:311, {min:41168, avg:1134584, max:4447416}
+[2022-09-29 22:01:35.955] [1799] (paced_sender.cc:186): ProcessThreadAttached 0x0
+[2022-09-29 22:01:35.956] [1799] (paced_sender.cc:186): ProcessThreadAttached 0x0
+[2022-09-29 22:01:35.956] [110142] (udp_socket.cpp:382): Disconnect
+[2022-09-29 22:01:35.962] [1713] (discord.cpp:543): JS console: ["%c[RTCConnection(1025098057316048906)]","Error: codec survey is not available"]
+[2022-09-29 22:01:36.592] [1800] (device_info_linux.cc:45): NumberOfDevices
+[2022-09-29 22:01:36.593] [1800] (device_info_linux.cc:45): NumberOfDevices
+[2022-09-29 22:01:36.593] [1800] (device_info_linux.cc:78): GetDeviceName
+[2022-09-29 22:01:37.133] [1713] (discord.cpp:543): JS console: ["%c[RTCConnection(701845275777433640)]","Destroy RTCConnection"]
+[2022-09-29 22:01:37.134] [1713] (discord.cpp:543): JS console: ["%c[RTCControlSocket]","CLOSE"]
+[2022-09-29 22:01:37.134] [1713] (discord.cpp:543): JS console: ["%c[RTCConnection(701845275777433640)]","Disconnected from RTC server, clean: true, code: 1000, reason: Force Close, state: RTC_CONNECTED"]
+[2022-09-29 22:01:37.136] [1799] (engine.cpp:880): obtained codec survey:null
+
+[2022-09-29 22:01:37.138] [1799] (audio_device_impl.cc:889): Recording
+[2022-09-29 22:01:37.138] [1799] (audio_device_impl.cc:878): StopRecording
+[2022-09-29 22:01:37.138] [1799] (audio_device_buffer.cc:153): StopRecording
+[2022-09-29 22:01:37.138] [1799] (audio_device_buffer.cc:173): HISTOGRAM(WebRTC.Audio.RecordedOnlyZeros): 0
+[2022-09-29 22:01:37.138] [1799] (audio_device_buffer.cc:176): total recording time: 11383039
+[2022-09-29 22:01:37.138] [1799] (audio_device_impl.cc:882): output: 0
+[2022-09-29 22:01:37.138] [1713] (discord.cpp:543): JS console: ["Connection state change: CONNECTED => DISCONNECTED"]
+[2022-09-29 22:01:37.138] [1713] (discord.cpp:543): JS console: ["%c[RTCConnection(701845275777433640)]","RTC media connection state change: RTC_CONNECTED => DISCONNECTED"]
+[2022-09-29 22:01:37.138] [1713] (discord.cpp:543): JS console: ["%c[RTCConnection(701845275777433640)]","RTC connection state: RTC_CONNECTED => RTC_DISCONNECTED"]
+[2022-09-29 22:01:37.138] [1799] (audio_device_impl.cc:878): StopRecording
+[2022-09-29 22:01:37.138] [1799] (audio_device_impl.cc:882): output: 0
+[2022-09-29 22:01:37.138] [1799] (call.cc:1168): UpdateAggregateNetworkState: aggregate_state change to down
+[2022-09-29 22:01:37.138] [1799] (audio_send_stream.cc:178): ~AudioSendStream: 297278
+[2022-09-29 22:01:37.139] [23717] (pacing_controller.cc:162): PacedSender paused.
+[2022-09-29 22:01:37.139] [23717] (control_handler.cc:78): Bitrate estimate state changed, BWE: 600 kbps.
+[2022-09-29 22:01:37.139] [1713] (discord.cpp:543): JS console: ["Connection state change: DISCONNECTED => DISCONNECTED"]
+[2022-09-29 22:01:37.139] [1713] (discord.cpp:543): JS console: ["%c[RTCConnection(701845275777433640)]","RTC media connection state change: RTC_DISCONNECTED => DISCONNECTED"]
+[2022-09-29 22:01:37.139] [1713] (discord.cpp:543): JS console: ["%c[RTCConnection(701845275777433640)]","RTC connection state: RTC_DISCONNECTED => RTC_DISCONNECTED"]
+[2022-09-29 22:01:37.139] [1799] (connection.cpp:1106): UpdateRtcLogScopes key:
+[2022-09-29 22:01:37.139] [1799] (engine.cpp:351): Stopping audio output device
+[2022-09-29 22:01:37.139] [1799] (audio_device_impl.cc:858): Playing
+[2022-09-29 22:01:37.139] [1799] (call.cc:742): WebRTC.Call.AudioBitrateReceivedInBps, periodic_samples:5688, {min:0, avg:32720, max:148704}
+[2022-09-29 22:01:37.139] [1799] (call.cc:750): WebRTC.Call.RtcpBitrateReceivedInBps, periodic_samples:5689, {min:256, avg:256, max:256}
+[2022-09-29 22:01:37.139] [1799] (call.cc:758): WebRTC.Call.BitrateReceivedInBps, periodic_samples:5689, {min:256, avg:32984, max:148960}
+[2022-09-29 22:01:37.140] [1799] (paced_sender.cc:186): ProcessThreadAttached 0x0
+[2022-09-29 22:01:37.140] [1799] (paced_sender.cc:186): ProcessThreadAttached 0x0
+[2022-09-29 22:01:37.140] [1713] (discord.cpp:543): JS console: ["%c[RTCConnection(701845275777433640)]","RTC connection state: RTC_DISCONNECTED => DISCONNECTED"]
+[2022-09-29 22:01:37.140] [23716] (udp_socket.cpp:382): Disconnect
+[2022-09-29 22:01:37.156] [1713] (discord.cpp:543): JS console: ["%c[Routing/Utils]","transitionTo - Transitioning to /channels/701845275777433640/775060649885302816"]
+[2022-09-29 22:01:37.173] [1713] (discord.cpp:543): JS console: ["%c[MessageActionCreators]","Fetching messages for 775060649885302816 between undefined and undefined. jump={}"]
+[2022-09-29 22:01:37.353] [1713] (discord.cpp:543): JS console: ["%c[RTCConnection(701845275777433640)]","Error: codec survey is not available"]
+[2022-09-29 22:01:37.494] [1713] (discord.cpp:543): JS console: ["%c[MessageActionCreators]","Fetched 50 messages for 775060649885302816 isBefore:false isAfter:false"]
+[2022-09-29 22:01:39.597] [1800] (device_info_linux.cc:45): NumberOfDevices
+[2022-09-29 22:01:39.597] [1800] (device_info_linux.cc:45): NumberOfDevices
+[2022-09-29 22:01:39.598] [1800] (device_info_linux.cc:78): GetDeviceName
+[2022-09-29 22:01:42.601] [1800] (device_info_linux.cc:45): NumberOfDevices
+[2022-09-29 22:01:42.602] [1800] (device_info_linux.cc:45): NumberOfDevices
+[2022-09-29 22:01:42.602] [1800] (device_info_linux.cc:78): GetDeviceName
+[2022-09-29 22:01:45.605] [1800] (device_info_linux.cc:45): NumberOfDevices
+[2022-09-29 22:01:45.722] [1800] (device_info_linux.cc:45): NumberOfDevices
+[2022-09-29 22:01:45.723] [1800] (device_info_linux.cc:78): GetDeviceName

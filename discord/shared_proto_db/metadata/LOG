@@ -1,2 +1,3 @@
-2022/09/05-11:29:13.253 1457 Creating DB /home/alex/.config/discord/shared_proto_db/metadata since it was missing.
-2022/09/05-11:29:13.258 1457 Reusing MANIFEST /home/alex/.config/discord/shared_proto_db/metadata/MANIFEST-000001
+2022/09/29-16:41:04.285 6ef8 Reusing MANIFEST /home/alex/.config/discord/shared_proto_db/metadata/MANIFEST-000001
+2022/09/29-16:41:04.285 6ef8 Recovering log #3
+2022/09/29-16:41:04.285 6ef8 Reusing old log /home/alex/.config/discord/shared_proto_db/metadata/000003.log 
