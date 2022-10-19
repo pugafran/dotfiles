@@ -1,6 +1,0 @@
-2022/10/14-10:46:35.389 5dce Creating DB /home/alex/.config/discord/IndexedDB/https_www.youtube.com_0.indexeddb.leveldb since it was missing.
-2022/10/14-10:46:35.393 5dce Reusing MANIFEST /home/alex/.config/discord/IndexedDB/https_www.youtube.com_0.indexeddb.leveldb/MANIFEST-000001
-2022/10/14-13:17:03.457 17fdc Level-0 table #5: started
-2022/10/14-13:17:03.458 17fdc Level-0 table #5: 13341 bytes OK
-2022/10/14-13:17:03.460 17fdc Delete type=0 #3
-2022/10/14-13:17:03.460 17fdc Manual compaction at level-0 from (begin) .. (end); will stop at (end)

@@ -1,6 +1,0 @@
-2022/10/19-22:29:16.095 7e44 Reusing MANIFEST /home/alex/.config/discord/Local Storage/leveldb/MANIFEST-000001
-2022/10/19-22:29:16.097 7e44 Recovering log #106
-2022/10/19-22:29:16.097 7e44 Reusing old log /home/alex/.config/discord/Local Storage/leveldb/000106.log 
-2022/10/19-23:43:16.365 7e2e Level-0 table #110: started
-2022/10/19-23:43:16.387 7e2e Level-0 table #110: 1148129 bytes OK
-2022/10/19-23:43:16.389 7e2e Delete type=0 #106
