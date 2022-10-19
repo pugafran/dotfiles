@@ -1,0 +1,74 @@
+[2022-10-15 11:54:50.627] [sharedprocess] [info] Deleted from disk vscodevim.vim /home/alex/.vscode-oss/extensions/vscodevim.vim-1.23.2
+[2022-10-15 11:54:50.628] [sharedprocess] [info] Deleted from disk vscjava.vscode-java-pack /home/alex/.vscode-oss/extensions/vscjava.vscode-java-pack-0.25.1
+[2022-10-15 11:54:50.817] [sharedprocess] [info] Starting worker process with pid 36801 (type: fileWatcher, window: 1).
+[2022-10-15 11:54:53.106] [sharedprocess] [info] Getting Manifest... akamud.vscode-theme-onedark
+[2022-10-15 11:54:53.106] [sharedprocess] [info] Getting Manifest... esbenp.prettier-vscode
+[2022-10-15 11:54:53.107] [sharedprocess] [info] Getting Manifest... jeff-hykin.better-cpp-syntax
+[2022-10-15 11:54:53.107] [sharedprocess] [info] Getting Manifest... ms-python.python
+[2022-10-15 11:54:53.107] [sharedprocess] [info] Getting Manifest... ms-toolsai.jupyter
+[2022-10-15 11:54:53.108] [sharedprocess] [info] Getting Manifest... redhat.java
+[2022-10-15 11:54:53.108] [sharedprocess] [info] Getting Manifest... vscjava.vscode-java-debug
+[2022-10-15 11:54:53.109] [sharedprocess] [info] Getting Manifest... vscjava.vscode-java-pack
+[2022-10-15 11:54:53.109] [sharedprocess] [info] Getting Manifest... vscjava.vscode-maven
+[2022-10-15 11:54:53.110] [sharedprocess] [info] Getting Manifest... zhuangtongfa.material-theme
+[2022-10-15 11:54:53.875] [sharedprocess] [info] Installing extension: esbenp.prettier-vscode
+[2022-10-15 11:54:53.887] [sharedprocess] [info] Installing extension: redhat.java
+[2022-10-15 11:54:53.921] [sharedprocess] [info] Installing extension: vscjava.vscode-maven
+[2022-10-15 11:54:53.963] [sharedprocess] [info] Installing extension: akamud.vscode-theme-onedark
+[2022-10-15 11:54:53.993] [sharedprocess] [info] Installing extension: vscjava.vscode-java-pack
+[2022-10-15 11:54:53.994] [sharedprocess] [info] Installing extension: jeff-hykin.better-cpp-syntax
+[2022-10-15 11:54:54.019] [sharedprocess] [info] Installing extension: zhuangtongfa.material-theme
+[2022-10-15 11:54:54.038] [sharedprocess] [info] Installing extension: vscjava.vscode-java-debug
+[2022-10-15 11:54:54.089] [sharedprocess] [info] Installing extension: ms-python.python
+[2022-10-15 11:54:54.092] [sharedprocess] [info] Installing extension: ms-toolsai.jupyter
+[2022-10-15 11:54:54.265] [sharedprocess] [info] Getting Manifest... vscode.npm
+[2022-10-15 11:54:56.105] [sharedprocess] [info] Downloaded extension: akamud.vscode-theme-onedark /home/alex/.config/Code - OSS/CachedExtensionVSIXs/akamud.vscode-theme-onedark-2.3.0-universal
+[2022-10-15 11:54:56.124] [sharedprocess] [info] Extracted extension to /home/alex/.vscode-oss/extensions/.e995f314-9481-4aa7-95b9-2cc9d98a6c8b: akamud.vscode-theme-onedark
+[2022-10-15 11:54:56.129] [sharedprocess] [info] Renamed to /home/alex/.vscode-oss/extensions/akamud.vscode-theme-onedark-2.3.0-universal
+[2022-10-15 11:54:56.130] [sharedprocess] [info] Extracting completed. akamud.vscode-theme-onedark
+[2022-10-15 11:54:56.134] [sharedprocess] [info] Extension installed successfully: akamud.vscode-theme-onedark
+[2022-10-15 11:54:56.973] [sharedprocess] [info] Downloaded extension: jeff-hykin.better-cpp-syntax /home/alex/.config/Code - OSS/CachedExtensionVSIXs/jeff-hykin.better-cpp-syntax-1.16.1-universal
+[2022-10-15 11:54:57.028] [sharedprocess] [info] Extracted extension to /home/alex/.vscode-oss/extensions/.3e89db42-c19e-4721-84bf-36cb5b8ad96c: jeff-hykin.better-cpp-syntax
+[2022-10-15 11:54:57.030] [sharedprocess] [info] Renamed to /home/alex/.vscode-oss/extensions/jeff-hykin.better-cpp-syntax-1.16.1-universal
+[2022-10-15 11:54:57.031] [sharedprocess] [info] Extracting completed. jeff-hykin.better-cpp-syntax
+[2022-10-15 11:54:57.033] [sharedprocess] [info] Extension installed successfully: jeff-hykin.better-cpp-syntax
+[2022-10-15 11:54:57.177] [sharedprocess] [info] Downloaded extension: zhuangtongfa.material-theme /home/alex/.config/Code - OSS/CachedExtensionVSIXs/zhuangtongfa.material-theme-3.15.6-universal
+[2022-10-15 11:54:57.305] [sharedprocess] [info] Extracted extension to /home/alex/.vscode-oss/extensions/.330eb089-da11-4dfe-ace6-76a35351d1db: zhuangtongfa.material-theme
+[2022-10-15 11:54:57.308] [sharedprocess] [info] Renamed to /home/alex/.vscode-oss/extensions/zhuangtongfa.material-theme-3.15.6-universal
+[2022-10-15 11:54:57.310] [sharedprocess] [info] Extracting completed. zhuangtongfa.material-theme
+[2022-10-15 11:54:57.312] [sharedprocess] [info] Extension installed successfully: zhuangtongfa.material-theme
+[2022-10-15 11:54:58.402] [sharedprocess] [info] Downloaded extension: vscjava.vscode-java-debug /home/alex/.config/Code - OSS/CachedExtensionVSIXs/vscjava.vscode-java-debug-0.45.0-universal
+[2022-10-15 11:54:58.499] [sharedprocess] [info] Extracted extension to /home/alex/.vscode-oss/extensions/.34727194-4c8f-42fc-a86e-5c40c7639ae7: vscjava.vscode-java-debug
+[2022-10-15 11:54:58.502] [sharedprocess] [info] Renamed to /home/alex/.vscode-oss/extensions/vscjava.vscode-java-debug-0.45.0-universal
+[2022-10-15 11:54:58.504] [sharedprocess] [info] Extracting completed. vscjava.vscode-java-debug
+[2022-10-15 11:54:58.506] [sharedprocess] [info] Extension installed successfully: vscjava.vscode-java-debug
+[2022-10-15 11:54:58.525] [sharedprocess] [info] Downloaded extension: esbenp.prettier-vscode /home/alex/.config/Code - OSS/CachedExtensionVSIXs/esbenp.prettier-vscode-9.9.0-universal
+[2022-10-15 11:54:58.631] [sharedprocess] [info] Extracted extension to /home/alex/.vscode-oss/extensions/.fea673f9-edcb-479d-91a6-5013b9ed6a15: esbenp.prettier-vscode
+[2022-10-15 11:54:58.633] [sharedprocess] [info] Renamed to /home/alex/.vscode-oss/extensions/esbenp.prettier-vscode-9.9.0-universal
+[2022-10-15 11:54:58.635] [sharedprocess] [info] Extracting completed. esbenp.prettier-vscode
+[2022-10-15 11:54:58.637] [sharedprocess] [info] Extension installed successfully: esbenp.prettier-vscode
+[2022-10-15 11:55:00.916] [sharedprocess] [info] Downloaded extension: vscjava.vscode-java-pack /home/alex/.config/Code - OSS/CachedExtensionVSIXs/vscjava.vscode-java-pack-0.25.3-universal
+[2022-10-15 11:55:00.990] [sharedprocess] [info] Extracted extension to /home/alex/.vscode-oss/extensions/.ac429c17-6d0f-470a-a63e-5f844f0609f4: vscjava.vscode-java-pack
+[2022-10-15 11:55:00.992] [sharedprocess] [info] Renamed to /home/alex/.vscode-oss/extensions/vscjava.vscode-java-pack-0.25.3-universal
+[2022-10-15 11:55:00.994] [sharedprocess] [info] Extracting completed. vscjava.vscode-java-pack
+[2022-10-15 11:55:00.997] [sharedprocess] [info] Extension installed successfully: vscjava.vscode-java-pack
+[2022-10-15 11:55:02.921] [sharedprocess] [info] Downloaded extension: ms-python.python /home/alex/.config/Code - OSS/CachedExtensionVSIXs/ms-python.python-2022.16.0-universal
+[2022-10-15 11:55:03.188] [sharedprocess] [info] Downloaded extension: redhat.java /home/alex/.config/Code - OSS/CachedExtensionVSIXs/redhat.java-1.11.0-universal
+[2022-10-15 11:55:03.682] [sharedprocess] [info] Extracted extension to /home/alex/.vscode-oss/extensions/.50e27f65-1b9a-4697-882e-adba8850b9b7: redhat.java
+[2022-10-15 11:55:03.686] [sharedprocess] [info] Renamed to /home/alex/.vscode-oss/extensions/redhat.java-1.11.0-universal
+[2022-10-15 11:55:03.688] [sharedprocess] [info] Extracting completed. redhat.java
+[2022-10-15 11:55:03.691] [sharedprocess] [info] Extension installed successfully: redhat.java
+[2022-10-15 11:55:04.206] [sharedprocess] [info] Extracted extension to /home/alex/.vscode-oss/extensions/.c24a33eb-bf85-4440-acca-e244907d68e9: ms-python.python
+[2022-10-15 11:55:04.212] [sharedprocess] [info] Renamed to /home/alex/.vscode-oss/extensions/ms-python.python-2022.16.0-universal
+[2022-10-15 11:55:04.214] [sharedprocess] [info] Extracting completed. ms-python.python
+[2022-10-15 11:55:04.217] [sharedprocess] [info] Extension installed successfully: ms-python.python
+[2022-10-15 11:55:05.839] [sharedprocess] [info] Downloaded extension: vscjava.vscode-maven /home/alex/.config/Code - OSS/CachedExtensionVSIXs/vscjava.vscode-maven-0.39.0-universal
+[2022-10-15 11:55:05.974] [sharedprocess] [info] Extracted extension to /home/alex/.vscode-oss/extensions/.c8c68a41-b238-4b92-8ce7-50fe7b4686ef: vscjava.vscode-maven
+[2022-10-15 11:55:05.977] [sharedprocess] [info] Renamed to /home/alex/.vscode-oss/extensions/vscjava.vscode-maven-0.39.0-universal
+[2022-10-15 11:55:05.979] [sharedprocess] [info] Extracting completed. vscjava.vscode-maven
+[2022-10-15 11:55:05.982] [sharedprocess] [info] Extension installed successfully: vscjava.vscode-maven
+[2022-10-15 11:55:12.995] [sharedprocess] [info] Downloaded extension: ms-toolsai.jupyter /home/alex/.config/Code - OSS/CachedExtensionVSIXs/ms-toolsai.jupyter-2022.10.110-universal
+[2022-10-15 11:55:13.370] [sharedprocess] [info] Extracted extension to /home/alex/.vscode-oss/extensions/.b3f990c0-6193-4500-a791-ad8345dc9a6c: ms-toolsai.jupyter
+[2022-10-15 11:55:13.374] [sharedprocess] [info] Renamed to /home/alex/.vscode-oss/extensions/ms-toolsai.jupyter-2022.10.110-universal
+[2022-10-15 11:55:13.381] [sharedprocess] [info] Extracting completed. ms-toolsai.jupyter
+[2022-10-15 11:55:13.386] [sharedprocess] [info] Extension installed successfully: ms-toolsai.jupyter

@@ -194,7 +194,8 @@ colors:
   # Default colors
   primary:
   #  background: '#1d1f21'
-    background: '#222D31'
+  #  background: '#222D31'
+    background: '#191919'
   #  foreground: '#c5c8c6'
   #  foreground: '#FB9F1A'
     foreground: '#90A0B0'

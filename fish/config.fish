@@ -1,14 +1,22 @@
-set quotes "\tAnd one day...\n\t\tI got in" "\tHe who fights for the users" "\tOut there is a new world!\n\t\tOut there is our victory!\n\tOut there is our destiny" "\tI will create the perfect system" "\tNow that is a big door" "\t\t\t\tNow do you know who\n\t\t\t\tthe biggest shareholder is?\n I don't know, some kid?\n\t\t\t\t* shrugs *\n You're Mr. Flynn. Why?\n This is your father's company\n\t\t\t\tNot anymore.\n\t\t\t\t* Jumps *"
+# set quotes "\tAnd one day...\n\t\tI got in" "\tHe who fights for the users" "\tOut there is a new world!\n\t\tOut there is our victory!\n\tOut there is our destiny" "\tI will create the perfect system" "\tNow that is a big door" "\t\t\t\tNow do you know who\n\t\t\t\tthe biggest shareholder is?\n I don't know, some kid?\n\t\t\t\t* shrugs *\n You're Mr. Flynn. Why?\n This is your father's company\n\t\t\t\tNot anymore.\n\t\t\t\t* Jumps *"
+set quotes "\tAnd one day...\n\t\tI got in" "\tHe who fights for the users" "\tSometimes to love someone,\n\t\tyou got to be a stranger" "\tDon't let yourself get attached\n\t\tto anything you are not willing\n\tto walk out on in 30 seconds flat\n\t\tif you feel the heat around the corner"
+
+set colors "FB9F1A" "FB9F1A" "FBA0A0" "A0A0FB"
+
+set entry "$(expr $(expr $(date +%s) % $(count $quotes)) + 1)"
+
 set fish_greeting ""
-cd ~
-clear
-neofetch
-echo -e (set_color -i FB9F1A) $quotes[$(expr $(expr $(date +%s) % $(count $quotes)) + 1)] 
+
+# cd ~
+# clear
+# neofetch
+# echo -e (set_color -i $colors[$entry]) $quotes[$entry] 
 
 alias c='clear'
 alias cc='clear; echo; neofetch; echo -e (set_color -i FB9F1A) $quotes[$(expr $(expr $(date +%s) % $(count $quotes)) + 1)]; echo'
 alias l='ls -lah'
 alias ..='cd ..'
+alias q='exit'
 alias btw='neofetch'
 alias lt='tree -A -C'
 alias lta='tree -A -a -C'

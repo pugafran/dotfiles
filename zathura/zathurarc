@@ -1,0 +1,6 @@
+set recolor true
+
+set i recolor
+set p print
+
+include catpuccin-mocha

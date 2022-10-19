@@ -38,7 +38,8 @@
                             "items": [
                                 {
                                     "id": "workbench.action.reopenClosedEditor",
-                                    "label": "&&Reopen Closed Editor"
+                                    "label": "&&Reopen Closed Editor",
+                                    "enabled": false
                                 },
                                 {
                                     "id": "vscode.menubar.separator"
@@ -47,11 +48,37 @@
                                     "id": "openRecentFolder",
                                     "uri": {
                                         "$mid": 1,
+                                        "external": "file:///home/alex/.mozilla/firefox/bzx9qndp.default-release/chrome",
+                                        "path": "/home/alex/.mozilla/firefox/bzx9qndp.default-release/chrome",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/.mozilla/firefox/bzx9qndp.default-release/chrome"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/alex/.config/i3",
                                         "path": "/home/alex/.config/i3",
                                         "scheme": "file"
                                     },
                                     "enabled": true,
                                     "label": "~/.config/i3"
+                                },
+                                {
+                                    "id": "vscode.menubar.separator"
+                                },
+                                {
+                                    "id": "openRecentFile",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/alex/.mozilla/firefox/bzx9qndp.default-release/chrome/userChrome.css",
+                                        "path": "/home/alex/.mozilla/firefox/bzx9qndp.default-release/chrome/userChrome.css",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/.mozilla/firefox/bzx9qndp.default-release/chrome/userChrome.css"
                                 },
                                 {
                                     "id": "vscode.menubar.separator"
@@ -90,18 +117,31 @@
                     },
                     {
                         "id": "workbench.action.files.save",
-                        "label": "&&Save",
-                        "enabled": false
+                        "label": "&&Save"
                     },
                     {
                         "id": "workbench.action.files.saveAs",
-                        "label": "Save &&As...",
-                        "enabled": false
+                        "label": "Save &&As..."
                     },
                     {
                         "id": "saveAll",
                         "label": "Save A&&ll",
                         "enabled": false
+                    },
+                    {
+                        "id": "vscode.menubar.separator"
+                    },
+                    {
+                        "id": "submenuitem.MenubarShare",
+                        "label": "Share",
+                        "submenu": {
+                            "items": [
+                                {
+                                    "id": "workbench.profiles.actions.exportProfile",
+                                    "label": "Export Settings Profile (Default)..."
+                                }
+                            ]
+                        }
                     },
                     {
                         "id": "vscode.menubar.separator"
@@ -172,13 +212,11 @@
                     },
                     {
                         "id": "workbench.action.files.revert",
-                        "label": "Re&&vert File",
-                        "enabled": false
+                        "label": "Re&&vert File"
                     },
                     {
                         "id": "workbench.action.closeActiveEditor",
-                        "label": "&&Close Editor",
-                        "enabled": false
+                        "label": "&&Close Editor"
                     },
                     {
                         "id": "workbench.action.closeWindow",
@@ -223,13 +261,11 @@
                     },
                     {
                         "id": "actions.find",
-                        "label": "&&Find",
-                        "enabled": false
+                        "label": "&&Find"
                     },
                     {
                         "id": "editor.action.startFindReplaceAction",
-                        "label": "&&Replace",
-                        "enabled": false
+                        "label": "&&Replace"
                     },
                     {
                         "id": "vscode.menubar.separator"
@@ -587,8 +623,7 @@
                     },
                     {
                         "id": "editor.action.toggleWordWrap",
-                        "label": "&&Word Wrap",
-                        "enabled": false
+                        "label": "&&Word Wrap"
                     },
                     {
                         "id": "editor.action.toggleMinimap",
@@ -772,23 +807,28 @@
                     },
                     {
                         "id": "editor.action.revealDefinition",
-                        "label": "Go to &&Definition"
+                        "label": "Go to &&Definition",
+                        "enabled": false
                     },
                     {
                         "id": "editor.action.revealDeclaration",
-                        "label": "Go to &&Declaration"
+                        "label": "Go to &&Declaration",
+                        "enabled": false
                     },
                     {
                         "id": "editor.action.goToTypeDefinition",
-                        "label": "Go to &&Type Definition"
+                        "label": "Go to &&Type Definition",
+                        "enabled": false
                     },
                     {
                         "id": "editor.action.goToImplementation",
-                        "label": "Go to &&Implementations"
+                        "label": "Go to &&Implementations",
+                        "enabled": false
                     },
                     {
                         "id": "editor.action.goToReferences",
-                        "label": "Go to &&References"
+                        "label": "Go to &&References",
+                        "enabled": false
                     },
                     {
                         "id": "vscode.menubar.separator"
@@ -1476,9 +1516,17 @@
                 "label": "Ctrl+Shift+5",
                 "userSettingsLabel": "ctrl+shift+5"
             },
+            "workbench.action.tasks.runTask": {
+                "label": "F6",
+                "userSettingsLabel": "f6"
+            },
             "workbench.action.tasks.build": {
-                "label": "Ctrl+Shift+B",
-                "userSettingsLabel": "ctrl+shift+b"
+                "label": "F7",
+                "userSettingsLabel": "f7"
+            },
+            "workbench.action.tasks.terminate": {
+                "label": "Shift+F6",
+                "userSettingsLabel": "shift+f6"
             },
             "workbench.action.keybindingsReference": {
                 "label": "Ctrl+K Ctrl+R",
@@ -1518,15 +1566,24 @@
     },
     "windowsState": {
         "lastActiveWindow": {
-            "backupPath": "/home/alex/.config/Code - OSS/Backups/1663021669788",
+            "backupPath": "/home/alex/.config/Code - OSS/Backups/1665828823872",
             "uiState": {
                 "mode": 1,
                 "x": 1,
                 "y": 18,
-                "width": 2558,
+                "width": 1278,
                 "height": 1398
             }
         },
         "openedWindows": []
+    },
+    "backupWorkspaces": {
+        "workspaces": [],
+        "folders": [],
+        "emptyWindows": [
+            {
+                "backupFolder": "1665828823872"
+            }
+        ]
     }
 }
