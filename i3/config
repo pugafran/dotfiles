@@ -70,6 +70,9 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 bindsym $mod+F2 exec firefox
+bindsym $mod+F4 exec discord 
+bindsym $mod+F6 exec steam 
+bindsym $mod+F10 exec spotify
 bindsym $mod+E exec Thunar
 
 # start dmenu (a program launcher)
@@ -282,3 +285,5 @@ exec xsetwacom --set $wacomA Rotate half
 exec xsetwacom --set $wacomB Rotate half
 exec xsetwacom --set $wacomA Area 0 0 15200 8550
 exec xsetwacom --set $wacomB Area 0 0 15200 8550
+
+exec export ZDOTDIR=$HOME/.config/zsh

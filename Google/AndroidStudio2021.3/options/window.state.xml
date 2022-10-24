@@ -1,0 +1,15 @@
+<application>
+  <component name="DimensionService">
+    <location key="WELCOME_SCREEN.0.0.2560.1440" x="1280" y="708" />
+  </component>
+  <component name="WindowStateApplicationService">
+    <state x="1899" y="1225" width="300" height="183" key="ProcessPopupWindow" timestamp="1666621561287">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="1899" y="1225" width="300" height="183" key="ProcessPopupWindow/0.0.2560.1440/2560.0.1920.1080" timestamp="1666621561287" />
+    <state x="640" y="731" width="1280" height="1417" key="WELCOME_SCREEN" timestamp="1666621349029">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="640" y="731" width="1280" height="1417" key="WELCOME_SCREEN/0.0.2560.1440/2560.0.1920.1080" timestamp="1666621349029" />
+  </component>
+</application>
