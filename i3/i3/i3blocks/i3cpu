@@ -1,0 +1,8 @@
+#!/bin/sh
+
+case $BLOCK_BUTTON in
+	1) notify-send "CPU hogs:
+$(ps axch -o cmd:15,%cpu:15 --sort=-%cpu | head)"
+esac
+
+echo "$(top -bn2 | grep '%Cpu' | tail -1 | grep -P '(....|...) id,' | awk ' { print 100-$8 "%" }') ($(sensors | grep '^Package id 0:.*$' | tr -s [:space:] ';' | cut -d ';' -f 4))"
