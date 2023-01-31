@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<oor:component-schema oor:name="MacroFormatterADP" oor:package="org.pitonyak.addon" xml:lang="en-US" xmlns:oor="http://openoffice.org/2001/registry" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <templates>
+     <group oor:name="ADPSetting">
+       <prop oor:name="Setting" oor:type="xs:string"/>
+       <set oor:name="SubSetting" oor:node-type="ADPSetting"/>
+     </group>
+   </templates>
+   <component>
+      <group oor:name="Config">
+        <group oor:name="DefaultStyles">
+         <prop oor:name="ParNextStyleName" oor:type="xs:string"/>
+         <prop oor:name="FontName" oor:type="xs:string"/>
+         <prop oor:name="TabWidth" oor:type="xs:long"/>
+         <prop oor:name="ParSmallCharHeight" oor:type="xs:double"/>
+         <prop oor:name="ParNormalCharHeight" oor:type="xs:double"/>
+         <prop oor:name="Units" oor:type="xs:string"/>
+         <set oor:name="StyleSettings" oor:node-type="ADPSetting"/>
+        </group>
+        <set oor:name="Settings" oor:node-type="ADPSetting"/>
+      </group>
+    </component>
+</oor:component-schema> 

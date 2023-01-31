@@ -1,0 +1,1428 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oor:component-data xmlns:oor="http://openoffice.org/2001/registry" 
+ xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+ oor:name="Addons" oor:package="org.openoffice.Office">
+   <node oor:name="AddonUI">
+
+      <node oor:name="AddonMenu">
+         <node oor:name="org.pitonyak.addon.MacroFormatterADP.N001" oor:op="replace">
+            <prop oor:name="Context" oor:type="xs:string">
+               <value/>
+            </prop>
+            <prop oor:name="Title" oor:type="xs:string">
+               <value>MacroFormatterADP</value>
+            </prop>
+            <node oor:name="Submenu">
+               <node oor:name="N002" oor:op="replace">
+                  <prop oor:name="Context" oor:type="xs:string">
+                     <value/>
+                  </prop>
+                  <prop oor:name="Title" oor:type="xs:string">
+                     <value>~Basic</value>
+                  </prop>
+                  <node oor:name="Submenu">
+                     <node oor:name="N003" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~Current</value>
+                           <value xml:lang="fr">Couleur ~Courant</value>
+                           <value xml:lang="de">Kolorieren ~Current</value>
+                           <value xml:lang="es">Colorear ~actual</value>
+                           <value xml:lang="ru">Раскрасить ~Текущий</value>
+                           <value xml:lang="ja">色付け現在</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Basic.FMT_ColorCodeCurrentBasic?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N004" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize Selected  Basic</value>
+                           <value xml:lang="fr">Couleur Basic sélectionné</value>
+                           <value xml:lang="de">Farbe vorgewähltes Basic</value>
+                           <value xml:lang="es">Basic seleccionado color</value>
+                           <value xml:lang="ru">Раскрась выделение Basic</value>
+                           <value xml:lang="ja">色はBasicを選んだ</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Basic.HighlightSelBasic?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N005" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~All Basic</value>
+                           <value xml:lang="fr">Couleur ~tous</value>
+                           <value xml:lang="de">Farbe ~All</value>
+                           <value xml:lang="es">Colorear ~Todas</value>
+                           <value xml:lang="ru">~Всё раскрасить</value>
+                           <value xml:lang="ja">すべての色付け</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Basic.HighlightDocBasic?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                  </node>
+               </node>
+               <node oor:name="N006" oor:op="replace">
+                  <prop oor:name="Context" oor:type="xs:string">
+                     <value/>
+                  </prop>
+                  <prop oor:name="Title" oor:type="xs:string">
+                     <value>Bash</value>
+                  </prop>
+                  <node oor:name="Submenu">
+                     <node oor:name="N007" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~Current</value>
+                           <value xml:lang="fr">Couleur ~Courant</value>
+                           <value xml:lang="de">Kolorieren ~Current</value>
+                           <value xml:lang="es">Colorear ~actual</value>
+                           <value xml:lang="ru">Раскрасить ~Текущий</value>
+                           <value xml:lang="ja">色付け現在</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Bash.FMT_ColorCodeCurrentBash?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N008" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize Selected  Bash</value>
+                           <value xml:lang="fr">Couleur Basic sélectionné</value>
+                           <value xml:lang="de">Farbe vorgewähltes Basic</value>
+                           <value xml:lang="es">Basic seleccionado color</value>
+                           <value xml:lang="ru">Раскрась выделение Basic</value>
+                           <value xml:lang="ja">色はBasicを選んだ</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Bash.HighlightSelBash?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N009" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~All Bash</value>
+                           <value xml:lang="fr">Couleur ~tous</value>
+                           <value xml:lang="de">Farbe ~All</value>
+                           <value xml:lang="es">Colorear ~Todas</value>
+                           <value xml:lang="ru">~Всё раскрасить</value>
+                           <value xml:lang="ja">すべての色付け</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Bash.HighlightDocBash?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                  </node>
+               </node>
+               <node oor:name="N010" oor:op="replace">
+                  <prop oor:name="Context" oor:type="xs:string">
+                     <value/>
+                  </prop>
+                  <prop oor:name="Title" oor:type="xs:string">
+                     <value>Bat</value>
+                  </prop>
+                  <node oor:name="Submenu">
+                     <node oor:name="N011" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~Current</value>
+                           <value xml:lang="fr">Couleur ~Courant</value>
+                           <value xml:lang="de">Kolorieren ~Current</value>
+                           <value xml:lang="es">Colorear ~actual</value>
+                           <value xml:lang="ru">Раскрасить ~Текущий</value>
+                           <value xml:lang="ja">色付け現在</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Bat.FMT_ColorCodeCurrentBat?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N012" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize Selected  Bat</value>
+                           <value xml:lang="fr">Couleur Bat sélectionné</value>
+                           <value xml:lang="de">Farbe vorgewähltes Bat</value>
+                           <value xml:lang="es">Bat seleccionado color</value>
+                           <value xml:lang="ru">Раскрась выделение Bat</value>
+                           <value xml:lang="ja">色はBatを選んだ</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Bat.HighlightSelBat?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N013" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~All Bat</value>
+                           <value xml:lang="fr">Couleur ~tous</value>
+                           <value xml:lang="de">Farbe ~All</value>
+                           <value xml:lang="es">Colorear ~Todas</value>
+                           <value xml:lang="ru">~Всё раскрасить</value>
+                           <value xml:lang="ja">すべての色付け</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Bat.HighlightDocBat?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                  </node>
+               </node>
+               <node oor:name="N014" oor:op="replace">
+                  <prop oor:name="Context" oor:type="xs:string">
+                     <value/>
+                  </prop>
+                  <prop oor:name="Title" oor:type="xs:string">
+                     <value>C++</value>
+                  </prop>
+                  <node oor:name="Submenu">
+                     <node oor:name="N015" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~Current</value>
+                           <value xml:lang="fr">Couleur ~Courant</value>
+                           <value xml:lang="de">Kolorieren ~Current</value>
+                           <value xml:lang="es">Colorear ~actual</value>
+                           <value xml:lang="ru">Раскрасить ~Текущий</value>
+                           <value xml:lang="ja">色付け現在</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Cpp.FMT_ColorCodeCurrentCpp?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N016" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize Selected  C++</value>
+                           <value xml:lang="fr">Couleur C++ sélectionné</value>
+                           <value xml:lang="de">Farbe vorgewähltes C++</value>
+                           <value xml:lang="es">C++ seleccionado color</value>
+                           <value xml:lang="ru">Раскрась выделение C++</value>
+                           <value xml:lang="ja">色はC++を選んだ</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Cpp.HighlightSelCpp?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N017" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~All C++</value>
+                           <value xml:lang="fr">Couleur ~tous</value>
+                           <value xml:lang="de">Farbe ~All</value>
+                           <value xml:lang="es">Colorear ~Todas</value>
+                           <value xml:lang="ru">~Всё раскрасить</value>
+                           <value xml:lang="ja">すべての色付け</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Cpp.HighlightDocCpp?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                  </node>
+               </node>
+               <node oor:name="N018" oor:op="replace">
+                  <prop oor:name="Context" oor:type="xs:string">
+                     <value/>
+                  </prop>
+                  <prop oor:name="Title" oor:type="xs:string">
+                     <value>C#</value>
+                  </prop>
+                  <node oor:name="Submenu">
+                     <node oor:name="N019" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~Current</value>
+                           <value xml:lang="fr">Couleur ~Courant</value>
+                           <value xml:lang="de">Kolorieren ~Current</value>
+                           <value xml:lang="es">Colorear ~actual</value>
+                           <value xml:lang="ru">Раскрасить ~Текущий</value>
+                           <value xml:lang="ja">色付け現在</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.CSharp.FMT_ColorCodeCurrentCSharp?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N020" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize Selected  C#</value>
+                           <value xml:lang="fr">Couleur C# sélectionné</value>
+                           <value xml:lang="de">Farbe vorgewähltes C#</value>
+                           <value xml:lang="es">C# seleccionado color</value>
+                           <value xml:lang="ru">Раскрась выделение C#</value>
+                           <value xml:lang="ja">色はC#を選んだ</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.CSharp.HighlightSelCSharp?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N021" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~All C#</value>
+                           <value xml:lang="fr">Couleur ~tous</value>
+                           <value xml:lang="de">Farbe ~All</value>
+                           <value xml:lang="es">Colorear ~Todas</value>
+                           <value xml:lang="ru">~Всё раскрасить</value>
+                           <value xml:lang="ja">すべての色付け</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.CSharp.HighlightDocCSharp?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                  </node>
+               </node>
+               <node oor:name="N022" oor:op="replace">
+                  <prop oor:name="Context" oor:type="xs:string">
+                     <value/>
+                  </prop>
+                  <prop oor:name="Title" oor:type="xs:string">
+                     <value>Go</value>
+                  </prop>
+                  <node oor:name="Submenu">
+                     <node oor:name="N023" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~Current</value>
+                           <value xml:lang="fr">Couleur ~Courant</value>
+                           <value xml:lang="de">Kolorieren ~Current</value>
+                           <value xml:lang="es">Colorear ~actual</value>
+                           <value xml:lang="ru">Раскрасить ~Текущий</value>
+                           <value xml:lang="ja">色付け現在</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Go.FMT_ColorCodeCurrentGo?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N024" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize Selected  Go</value>
+                           <value xml:lang="fr">Couleur Go sélectionné</value>
+                           <value xml:lang="de">Farbe vorgewähltes Go</value>
+                           <value xml:lang="es">Go seleccionado color</value>
+                           <value xml:lang="ru">Раскрась выделение Go</value>
+                           <value xml:lang="ja">色はGoを選んだ</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Go.HighlightSelGo?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N025" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~All Go</value>
+                           <value xml:lang="fr">Couleur ~tous</value>
+                           <value xml:lang="de">Farbe ~All</value>
+                           <value xml:lang="es">Colorear ~Todas</value>
+                           <value xml:lang="ru">~Всё раскрасить</value>
+                           <value xml:lang="ja">すべての色付け</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Go.HighlightDocGo?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                  </node>
+               </node>
+               <node oor:name="N026" oor:op="replace">
+                  <prop oor:name="Context" oor:type="xs:string">
+                     <value/>
+                  </prop>
+                  <prop oor:name="Title" oor:type="xs:string">
+                     <value>Rust</value>
+                  </prop>
+                  <node oor:name="Submenu">
+                     <node oor:name="N027" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~Current</value>
+                           <value xml:lang="fr">Couleur ~Courant</value>
+                           <value xml:lang="de">Kolorieren ~Current</value>
+                           <value xml:lang="es">Colorear ~actual</value>
+                           <value xml:lang="ru">Раскрасить ~Текущий</value>
+                           <value xml:lang="ja">色付け現在</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Rust.FMT_ColorCodeCurrentRust?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N028" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize Selected  Java</value>
+                           <value xml:lang="fr">Couleur Java sélectionné</value>
+                           <value xml:lang="de">Farbe vorgewähltes Java</value>
+                           <value xml:lang="es">Java seleccionado color</value>
+                           <value xml:lang="ru">Раскрась выделение Java</value>
+                           <value xml:lang="ja">色はJavaを選んだ</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Rust.HighlightSelRust?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N029" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~All Java</value>
+                           <value xml:lang="fr">Couleur ~tous</value>
+                           <value xml:lang="de">Farbe ~All</value>
+                           <value xml:lang="es">Colorear ~Todas</value>
+                           <value xml:lang="ru">~Всё раскрасить</value>
+                           <value xml:lang="ja">すべての色付け</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Rust.HighlightDocRust?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                  </node>
+               </node>
+               <node oor:name="N030" oor:op="replace">
+                  <prop oor:name="Context" oor:type="xs:string">
+                     <value/>
+                  </prop>
+                  <prop oor:name="Title" oor:type="xs:string">
+                     <value>Java</value>
+                  </prop>
+                  <node oor:name="Submenu">
+                     <node oor:name="N031" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~Current</value>
+                           <value xml:lang="fr">Couleur ~Courant</value>
+                           <value xml:lang="de">Kolorieren ~Current</value>
+                           <value xml:lang="es">Colorear ~actual</value>
+                           <value xml:lang="ru">Раскрасить ~Текущий</value>
+                           <value xml:lang="ja">色付け現在</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Java.FMT_ColorCodeCurrentJava?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N032" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize Selected  Java</value>
+                           <value xml:lang="fr">Couleur Java sélectionné</value>
+                           <value xml:lang="de">Farbe vorgewähltes Java</value>
+                           <value xml:lang="es">Java seleccionado color</value>
+                           <value xml:lang="ru">Раскрась выделение Java</value>
+                           <value xml:lang="ja">色はJavaを選んだ</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Java.HighlightSelJava?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N033" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~All Java</value>
+                           <value xml:lang="fr">Couleur ~tous</value>
+                           <value xml:lang="de">Farbe ~All</value>
+                           <value xml:lang="es">Colorear ~Todas</value>
+                           <value xml:lang="ru">~Всё раскрасить</value>
+                           <value xml:lang="ja">すべての色付け</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Java.HighlightDocJava?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                  </node>
+               </node>
+               <node oor:name="N034" oor:op="replace">
+                  <prop oor:name="Context" oor:type="xs:string">
+                     <value/>
+                  </prop>
+                  <prop oor:name="Title" oor:type="xs:string">
+                     <value>JavaScript</value>
+                  </prop>
+                  <node oor:name="Submenu">
+                     <node oor:name="N035" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~Current</value>
+                           <value xml:lang="fr">Couleur ~Courant</value>
+                           <value xml:lang="de">Kolorieren ~Current</value>
+                           <value xml:lang="es">Colorear ~actual</value>
+                           <value xml:lang="ru">Раскрасить ~Текущий</value>
+                           <value xml:lang="ja">色付け現在</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.JS.FMT_ColorCodeCurrentJS?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N036" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize Selected  JavaScript</value>
+                           <value xml:lang="fr">Couleur JavaScript sélectionné</value>
+                           <value xml:lang="de">Farbe vorgewähltes JavaScript</value>
+                           <value xml:lang="es">JavaScript seleccionado color</value>
+                           <value xml:lang="ru">Раскрась выделение JavaScript</value>
+                           <value xml:lang="ja">色はJavaScriptを選んだ</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.JS.HighlightSelJS?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N037" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~All JavaScript</value>
+                           <value xml:lang="fr">Couleur ~tous</value>
+                           <value xml:lang="de">Farbe ~All</value>
+                           <value xml:lang="es">Colorear ~Todas</value>
+                           <value xml:lang="ru">~Всё раскрасить</value>
+                           <value xml:lang="ja">すべての色付け</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.JS.HighlightDocJS?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                  </node>
+               </node>
+               <node oor:name="N038" oor:op="replace">
+                  <prop oor:name="Context" oor:type="xs:string">
+                     <value/>
+                  </prop>
+                  <prop oor:name="Title" oor:type="xs:string">
+                     <value>JSON</value>
+                  </prop>
+                  <node oor:name="Submenu">
+                     <node oor:name="N039" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~Current</value>
+                           <value xml:lang="fr">Couleur ~Courant</value>
+                           <value xml:lang="de">Kolorieren ~Current</value>
+                           <value xml:lang="es">Colorear ~actual</value>
+                           <value xml:lang="ru">Раскрасить ~Текущий</value>
+                           <value xml:lang="ja">色付け現在</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.JSON.FMT_ColorCodeCurrentJSON?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N040" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize Selected  JavaScript</value>
+                           <value xml:lang="fr">Couleur JavaScript sélectionné</value>
+                           <value xml:lang="de">Farbe vorgewähltes JavaScript</value>
+                           <value xml:lang="es">JavaScript seleccionado color</value>
+                           <value xml:lang="ru">Раскрась выделение JavaScript</value>
+                           <value xml:lang="ja">色はJavaScriptを選んだ</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.JSON.HighlightSelJSON?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N041" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~All JavaScript</value>
+                           <value xml:lang="fr">Couleur ~tous</value>
+                           <value xml:lang="de">Farbe ~All</value>
+                           <value xml:lang="es">Colorear ~Todas</value>
+                           <value xml:lang="ru">~Всё раскрасить</value>
+                           <value xml:lang="ja">すべての色付け</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.JSON.HighlightDocJSON?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                  </node>
+               </node>
+               <node oor:name="N042" oor:op="replace">
+                  <prop oor:name="Context" oor:type="xs:string">
+                     <value/>
+                  </prop>
+                  <prop oor:name="Title" oor:type="xs:string">
+                     <value>Lisp</value>
+                  </prop>
+                  <node oor:name="Submenu">
+                     <node oor:name="N043" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~Current</value>
+                           <value xml:lang="fr">Couleur ~Courant</value>
+                           <value xml:lang="de">Kolorieren ~Current</value>
+                           <value xml:lang="es">Colorear ~actual</value>
+                           <value xml:lang="ru">Раскрасить ~Текущий</value>
+                           <value xml:lang="ja">色付け現在</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Lisp.FMT_ColorCodeCurrentLisp?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N044" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize Selected  Lisp</value>
+                           <value xml:lang="fr">Couleur Lisp sélectionné</value>
+                           <value xml:lang="de">Farbe vorgewähltes Lisp</value>
+                           <value xml:lang="es">Lisp seleccionado color</value>
+                           <value xml:lang="ru">Раскрась выделение Lisp</value>
+                           <value xml:lang="ja">色はLispを選んだ</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Lisp.HighlightSelLisp?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N045" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~All Lisp</value>
+                           <value xml:lang="fr">Couleur ~tous</value>
+                           <value xml:lang="de">Farbe ~All</value>
+                           <value xml:lang="es">Colorear ~Todas</value>
+                           <value xml:lang="ru">~Всё раскрасить</value>
+                           <value xml:lang="ja">すべての色付け</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Lisp.HighlightDocLisp?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                  </node>
+               </node>
+               <node oor:name="N046" oor:op="replace">
+                  <prop oor:name="Context" oor:type="xs:string">
+                     <value/>
+                  </prop>
+                  <prop oor:name="Title" oor:type="xs:string">
+                     <value>Perl</value>
+                  </prop>
+                  <node oor:name="Submenu">
+                     <node oor:name="N047" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~Current</value>
+                           <value xml:lang="fr">Couleur ~Courant</value>
+                           <value xml:lang="de">Kolorieren ~Current</value>
+                           <value xml:lang="es">Colorear ~actual</value>
+                           <value xml:lang="ru">Раскрасить ~Текущий</value>
+                           <value xml:lang="ja">色付け現在</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Perl.FMT_ColorCodeCurrentPerl?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N048" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize Selected  Perl</value>
+                           <value xml:lang="fr">Couleur Perl sélectionné</value>
+                           <value xml:lang="de">Farbe vorgewähltes Perl</value>
+                           <value xml:lang="es">Perl seleccionado color</value>
+                           <value xml:lang="ru">Раскрась выделение Perl</value>
+                           <value xml:lang="ja">色はPerlを選んだ</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Perl.HighlightSelPerl?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N049" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~All Perl</value>
+                           <value xml:lang="fr">Couleur ~tous</value>
+                           <value xml:lang="de">Farbe ~All</value>
+                           <value xml:lang="es">Colorear ~Todas</value>
+                           <value xml:lang="ru">~Всё раскрасить</value>
+                           <value xml:lang="ja">すべての色付け</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Perl.HighlightDocPerl?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                  </node>
+               </node>
+               <node oor:name="N050" oor:op="replace">
+                  <prop oor:name="Context" oor:type="xs:string">
+                     <value/>
+                  </prop>
+                  <prop oor:name="Title" oor:type="xs:string">
+                     <value>PHP</value>
+                  </prop>
+                  <node oor:name="Submenu">
+                     <node oor:name="N051" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~Current</value>
+                           <value xml:lang="fr">Couleur ~Courant</value>
+                           <value xml:lang="de">Kolorieren ~Current</value>
+                           <value xml:lang="es">Colorear ~actual</value>
+                           <value xml:lang="ru">Раскрасить ~Текущий</value>
+                           <value xml:lang="ja">色付け現在</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.PHP.FMT_ColorCodeCurrentPHP?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N052" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize Selected  PHP</value>
+                           <value xml:lang="fr">Couleur PHP sélectionné</value>
+                           <value xml:lang="de">Farbe vorgewähltes PHP</value>
+                           <value xml:lang="es">PHP seleccionado color</value>
+                           <value xml:lang="ru">Раскрась выделение PHP</value>
+                           <value xml:lang="ja">色はPHPを選んだ</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.PHP.HighlightSelPHP?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N053" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~All PHP</value>
+                           <value xml:lang="fr">Couleur ~tous</value>
+                           <value xml:lang="de">Farbe ~All</value>
+                           <value xml:lang="es">Colorear ~Todas</value>
+                           <value xml:lang="ru">~Всё раскрасить</value>
+                           <value xml:lang="ja">すべての色付け</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.PHP.HighlightDocPHP?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                  </node>
+               </node>
+               <node oor:name="N054" oor:op="replace">
+                  <prop oor:name="Context" oor:type="xs:string">
+                     <value/>
+                  </prop>
+                  <prop oor:name="Title" oor:type="xs:string">
+                     <value>Python</value>
+                  </prop>
+                  <node oor:name="Submenu">
+                     <node oor:name="N055" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~Current</value>
+                           <value xml:lang="fr">Couleur ~Courant</value>
+                           <value xml:lang="de">Kolorieren ~Current</value>
+                           <value xml:lang="es">Colorear ~actual</value>
+                           <value xml:lang="ru">Раскрасить ~Текущий</value>
+                           <value xml:lang="ja">色付け現在</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Python.FMT_ColorCodeCurrentPython?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N056" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize Selected  Python</value>
+                           <value xml:lang="fr">Couleur Python sélectionné</value>
+                           <value xml:lang="de">Farbe vorgewähltes Python</value>
+                           <value xml:lang="es">Python seleccionado color</value>
+                           <value xml:lang="ru">Раскрась выделение Python</value>
+                           <value xml:lang="ja">色はPythonを選んだ</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Python.HighlightSelPython?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N057" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~All Python</value>
+                           <value xml:lang="fr">Couleur ~tous</value>
+                           <value xml:lang="de">Farbe ~All</value>
+                           <value xml:lang="es">Colorear ~Todas</value>
+                           <value xml:lang="ru">~Всё раскрасить</value>
+                           <value xml:lang="ja">すべての色付け</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Python.HighlightDocPython?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                  </node>
+               </node>
+               <node oor:name="N058" oor:op="replace">
+                  <prop oor:name="Context" oor:type="xs:string">
+                     <value/>
+                  </prop>
+                  <prop oor:name="Title" oor:type="xs:string">
+                     <value>R</value>
+                  </prop>
+                  <node oor:name="Submenu">
+                     <node oor:name="N059" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~Current</value>
+                           <value xml:lang="fr">Couleur ~Courant</value>
+                           <value xml:lang="de">Kolorieren ~Current</value>
+                           <value xml:lang="es">Colorear ~actual</value>
+                           <value xml:lang="ru">Раскрасить ~Текущий</value>
+                           <value xml:lang="ja">色付け現在</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.R.FMT_ColorCodeCurrentR?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N060" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize Selected  R</value>
+                           <value xml:lang="fr">Couleur R sélectionné</value>
+                           <value xml:lang="de">Farbe vorgewähltes R</value>
+                           <value xml:lang="es">R seleccionado color</value>
+                           <value xml:lang="ru">Раскрась выделение R</value>
+                           <value xml:lang="ja">色はRを選んだ</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.R.HighlightSelR?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N061" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~All R</value>
+                           <value xml:lang="fr">Couleur ~tous</value>
+                           <value xml:lang="de">Farbe ~All</value>
+                           <value xml:lang="es">Colorear ~Todas</value>
+                           <value xml:lang="ru">~Всё раскрасить</value>
+                           <value xml:lang="ja">すべての色付け</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.R.HighlightDocR?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                  </node>
+               </node>
+               <node oor:name="N062" oor:op="replace">
+                  <prop oor:name="Context" oor:type="xs:string">
+                     <value/>
+                  </prop>
+                  <prop oor:name="Title" oor:type="xs:string">
+                     <value>Ruby</value>
+                  </prop>
+                  <node oor:name="Submenu">
+                     <node oor:name="N063" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~Current</value>
+                           <value xml:lang="fr">Couleur ~Courant</value>
+                           <value xml:lang="de">Kolorieren ~Current</value>
+                           <value xml:lang="es">Colorear ~actual</value>
+                           <value xml:lang="ru">Раскрасить ~Текущий</value>
+                           <value xml:lang="ja">色付け現在</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Ruby.FMT_ColorCodeCurrentRuby?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N064" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize Selected  Ruby</value>
+                           <value xml:lang="fr">Couleur Ruby sélectionné</value>
+                           <value xml:lang="de">Farbe vorgewähltes Ruby</value>
+                           <value xml:lang="es">Ruby seleccionado color</value>
+                           <value xml:lang="ru">Раскрась выделение Ruby</value>
+                           <value xml:lang="ja">色はRubyを選んだ</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Ruby.HighlightSelRuby?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N065" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~All Ruby</value>
+                           <value xml:lang="fr">Couleur ~tous</value>
+                           <value xml:lang="de">Farbe ~All</value>
+                           <value xml:lang="es">Colorear ~Todas</value>
+                           <value xml:lang="ru">~Всё раскрасить</value>
+                           <value xml:lang="ja">すべての色付け</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Ruby.HighlightDocRuby?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                  </node>
+               </node>
+               <node oor:name="N066" oor:op="replace">
+                  <prop oor:name="Context" oor:type="xs:string">
+                     <value/>
+                  </prop>
+                  <prop oor:name="Title" oor:type="xs:string">
+                     <value>SQL</value>
+                  </prop>
+                  <node oor:name="Submenu">
+                     <node oor:name="N067" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~Current</value>
+                           <value xml:lang="fr">Couleur ~Courant</value>
+                           <value xml:lang="de">Kolorieren ~Current</value>
+                           <value xml:lang="es">Colorear ~actual</value>
+                           <value xml:lang="ru">Раскрасить ~Текущий</value>
+                           <value xml:lang="ja">色付け現在</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.SQL.FMT_ColorCodeCurrentSQL?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N068" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize Selected  SQL</value>
+                           <value xml:lang="fr">Couleur SQL sélectionné</value>
+                           <value xml:lang="de">Farbe vorgewähltes SQL</value>
+                           <value xml:lang="es">SQL seleccionado color</value>
+                           <value xml:lang="ru">Раскрась выделение SQL</value>
+                           <value xml:lang="ja">色はSQLを選んだ</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.SQL.HighlightSelSQL?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N069" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~All SQL</value>
+                           <value xml:lang="fr">Couleur ~tous</value>
+                           <value xml:lang="de">Farbe ~All</value>
+                           <value xml:lang="es">Colorear ~Todas</value>
+                           <value xml:lang="ru">~Всё раскрасить</value>
+                           <value xml:lang="ja">すべての色付け</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.SQL.HighlightDocSQL?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                  </node>
+               </node>
+               <node oor:name="N070" oor:op="replace">
+                  <prop oor:name="Context" oor:type="xs:string">
+                     <value/>
+                  </prop>
+                  <prop oor:name="Title" oor:type="xs:string">
+                     <value>Squirrel</value>
+                  </prop>
+                  <node oor:name="Submenu">
+                     <node oor:name="N071" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~Current</value>
+                           <value xml:lang="fr">Couleur ~Courant</value>
+                           <value xml:lang="de">Kolorieren ~Current</value>
+                           <value xml:lang="es">Colorear ~actual</value>
+                           <value xml:lang="ru">Раскрасить ~Текущий</value>
+                           <value xml:lang="ja">色付け現在</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Squirrel.FMT_ColorCodeCurrentSquirrel?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N072" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize Selected  Squirrel</value>
+                           <value xml:lang="fr">Couleur Squirrel sélectionné</value>
+                           <value xml:lang="de">Farbe vorgewähltes Squirrel</value>
+                           <value xml:lang="es">Squirrel seleccionado color</value>
+                           <value xml:lang="ru">Раскрась выделение Squirrel</value>
+                           <value xml:lang="ja">色はSquirrelを選んだ</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Squirrel.HighlightSelSquirrel?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N073" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~All Squirrel</value>
+                           <value xml:lang="fr">Couleur ~tous</value>
+                           <value xml:lang="de">Farbe ~All</value>
+                           <value xml:lang="es">Colorear ~Todas</value>
+                           <value xml:lang="ru">~Всё раскрасить</value>
+                           <value xml:lang="ja">すべての色付け</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Squirrel.HighlightDocSquirrel?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                  </node>
+               </node>
+               <node oor:name="N074" oor:op="replace">
+                  <prop oor:name="Context" oor:type="xs:string">
+                     <value/>
+                  </prop>
+                  <prop oor:name="Title" oor:type="xs:string">
+                     <value>8085</value>
+                  </prop>
+                  <node oor:name="Submenu">
+                     <node oor:name="N075" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~Current</value>
+                           <value xml:lang="fr">Couleur ~Courant</value>
+                           <value xml:lang="de">Kolorieren ~Current</value>
+                           <value xml:lang="es">Colorear ~actual</value>
+                           <value xml:lang="ru">Раскрасить ~Текущий</value>
+                           <value xml:lang="ja">色付け現在</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Assembler.FMT_ColorCodeCurrentAssembler8085?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N076" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize Selected  8085</value>
+                           <value xml:lang="fr">Couleur 8085 sélectionné</value>
+                           <value xml:lang="de">Farbe vorgewähltes 8085</value>
+                           <value xml:lang="es">8085 seleccionado color</value>
+                           <value xml:lang="ru">Раскрась выделение 8085</value>
+                           <value xml:lang="ja">色は8085を選んだ</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Assembler.HighlightSelAssembler8085?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N077" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~All 8085</value>
+                           <value xml:lang="fr">Couleur ~tous</value>
+                           <value xml:lang="de">Farbe ~All</value>
+                           <value xml:lang="es">Colorear ~Todas</value>
+                           <value xml:lang="ru">~Всё раскрасить</value>
+                           <value xml:lang="ja">すべての色付け</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Assembler.HighlightDocAssembler8085?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                  </node>
+               </node>
+               <node oor:name="N078" oor:op="replace">
+                  <prop oor:name="Context" oor:type="xs:string">
+                     <value/>
+                  </prop>
+                  <prop oor:name="Title" oor:type="xs:string">
+                     <value>x86</value>
+                  </prop>
+                  <node oor:name="Submenu">
+                     <node oor:name="N079" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~Current</value>
+                           <value xml:lang="fr">Couleur ~Courant</value>
+                           <value xml:lang="de">Kolorieren ~Current</value>
+                           <value xml:lang="es">Colorear ~actual</value>
+                           <value xml:lang="ru">Раскрасить ~Текущий</value>
+                           <value xml:lang="ja">色付け現在</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Assemblerx86.FMT_ColorCodeCurrentAssemblerx86?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N080" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize Selected  x86</value>
+                           <value xml:lang="fr">Couleur x86 sélectionné</value>
+                           <value xml:lang="de">Farbe vorgewähltes x86</value>
+                           <value xml:lang="es">x86 seleccionado color</value>
+                           <value xml:lang="ru">Раскрась выделение x86</value>
+                           <value xml:lang="ja">色はx86を選んだ</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Assemblerx86.HighlightSelAssemblerx86?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N081" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~All x86</value>
+                           <value xml:lang="fr">Couleur ~tous</value>
+                           <value xml:lang="de">Farbe ~All</value>
+                           <value xml:lang="es">Colorear ~Todas</value>
+                           <value xml:lang="ru">~Всё раскрасить</value>
+                           <value xml:lang="ja">すべての色付け</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.Assemblerx86.HighlightDocAssemblerx86?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                  </node>
+               </node>
+               <node oor:name="N082" oor:op="replace">
+                  <prop oor:name="Context" oor:type="xs:string">
+                     <value/>
+                  </prop>
+                  <prop oor:name="Title" oor:type="xs:string">
+                     <value>XML</value>
+                  </prop>
+                  <node oor:name="Submenu">
+                     <node oor:name="N083" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~Current</value>
+                           <value xml:lang="fr">Couleur ~Courant</value>
+                           <value xml:lang="de">Kolorieren ~Current</value>
+                           <value xml:lang="es">Colorear ~actual</value>
+                           <value xml:lang="ru">Раскрасить ~Текущий</value>
+                           <value xml:lang="ja">色付け現在</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.XML.FMT_ColorCodeCurrentXML?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N084" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize Selected  XML</value>
+                           <value xml:lang="fr">Couleur XML sélectionné</value>
+                           <value xml:lang="de">Farbe vorgewähltes XML</value>
+                           <value xml:lang="es">XML seleccionado color</value>
+                           <value xml:lang="ru">Раскрась выделение XML</value>
+                           <value xml:lang="ja">色はXMLを選んだ</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.XML.HighlightSelXML?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                     <node oor:name="N085" oor:op="replace">
+                        <prop oor:name="Context" oor:type="xs:string">
+                           <value>com.sun.star.text.TextDocument,com.sun.star.text.WebDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                           <value xml:lang="en">Colorize ~All XML</value>
+                           <value xml:lang="fr">Couleur ~tous</value>
+                           <value xml:lang="de">Farbe ~All</value>
+                           <value xml:lang="es">Colorear ~Todas</value>
+                           <value xml:lang="ru">~Всё раскрасить</value>
+                           <value xml:lang="ja">すべての色付け</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                           <value>vnd.sun.star.script:MacroFormatterADP.XML.HighlightDocXML?language=Basic&amp;location=application</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                           <value>_self</value>
+                        </prop>
+                     </node>
+                  </node>
+               </node>
+            </node>
+         </node>
+      </node>
+
+   </node>
+</oor:component-data>

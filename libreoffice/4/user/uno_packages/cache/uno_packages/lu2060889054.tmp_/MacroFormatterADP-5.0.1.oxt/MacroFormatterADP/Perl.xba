@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script:module PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "module.dtd">
+<script:module xmlns:script="http://openoffice.org/2000/script" script:name="Perl" script:language="StarBasic">REM  *****  BASIC  *****
+Option Explicit
+
+Sub MainPerl
+  FMT_MasterColorizer(ThisComponent, &quot;PERL&quot;, &quot;CUR&quot;)
+  &apos;FMT_MasterColorizer(ThisComponent, &quot;PERL&quot;, &quot;SEL&quot;)
+  &apos;FMT_MasterColorizer(ThisComponent, &quot;PERL&quot;, &quot;DOC&quot;)
+End Sub
+
+Sub FMT_ColorCodeCurrentPerl()
+  FMT_MasterColorizer(ThisComponent, &quot;PERL&quot;, &quot;CUR&quot;)
+End Sub
+
+REM Format just the selected text
+Sub HighlightSelPerl()
+  FMT_MasterColorizer(ThisComponent, &quot;PERL&quot;, &quot;SEL&quot;)
+End Sub
+
+
+&apos;****************************************************************
+&apos;** Very simple parsing of Perl code.
+&apos;****************************************************************
+Sub FMT_ColorCodeOneRangeStringPerl(oSel, sTokens(), sAltTokens(), sCharStyles())
+  Dim oCurs    &apos;Iterate paragraphs in the selected region.
+  Dim oTCurs   &apos;Iterate the characters in a paragraph.
+  Dim oText    &apos;Text object containing the selection.
+  Dim iPos%
+  Dim iLen%
+  Dim i%       &apos;Temporary integer variable.
+  Dim sChar$   &apos;Current character
+  Dim sLine$   &apos;Current line (in lower case).
+  Dim bInPOD As Boolean
+  Dim bQuoteWord As Boolean
+  Dim sQuoteWord As String
+  Dim sStartQuoteChar As String
+  Dim sEndQuoteChar As String
+  Dim iQuoteWord%
+  Dim sLastChar$
+  
+  &apos; 0 new statement
+  &apos; 1 number
+  &apos; 2 special word
+  &apos; 3 ~!(&amp;|
+  Dim iLastThing%
+
+  bInPOD = False
+  bQuoteWord = False
+  iLastThing = 0
+  REM Position oTCurs at the start of the selection.
+  oText = oSel.getText()
+  oTCurs = oText.createTextCursorByRange(oSel.getStart())
+  oTCurs.goRight(0, False)
+
+  REM oCurs contains the first paragraph.
+  oCurs = FMT_CreateStartCursor(oText, oSel)
+
+  Do While oText.compareRegionEnds(oCurs, oSel) &gt;= 0
+    REM Now, process a single line of text!
+    REM oCurs has selected the entire paragraph.
+    REM oTCurs is at the start of the paragraph.
+    sLine = LCase(oCurs.getString())
+    iLen = Len(sLine)
+    iPos = 1
+    &apos;Print sLine
+    Do While iPos &lt;= iLen
+      REM Skip leading white space.
+      FMT_FindNextNonSpace(sLine, iPos%, iLen%)
+      If iPos &gt; iLen Then Exit Do
+      sChar = Mid(sLine, iPos, 1)
+
+      REM Is the cursor in a multi-line comment?
+      If bInPOD Then
+        If sChar = &quot;=&quot; AND iLen &gt;= iPos + 3 Then
+          If Mid(sLine, iPos+1, 3) = &quot;cut&quot; Then
+            bInPOD = False
+          End If
+        End If
+        oTCurs.gotoEndOfParagraph(True)
+        oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Comment)
+        iPos = iLen + 1
+        iLastThing = 0
+        sLastChar = &quot;&quot;
+      ElseIf bQuoteWord Then
+        REM Remember the location of the first double quote
+        REM and then find then end of the quoted text.
+        i = iPos
+        REM Move to the first delimiter quote
+        oTCurs.goRight(iPos-1, False)
+        If sEndQuoteChar = &quot;&quot; Then
+          sStartQuoteChar = sChar
+          If sChar = &quot;(&quot; Then
+            sEndQuoteChar = &quot;)&quot;
+          ELseIf sChar = &quot;{&quot; Then
+            sEndQuoteChar = &quot;}&quot;
+          ELseIf sChar = &quot;[&quot; Then
+            sEndQuoteChar = &quot;]&quot;
+          ELseIf sChar = &quot;&lt;&quot; Then
+            sEndQuoteChar = &quot;&gt;&quot;
+          Else
+            sEndQuoteChar = sChar
+          End If
+          iPos = iPos + 1
+        End If
+        If iQuoteWord = 1 AND sEndQuoteChar &lt;&gt; sStartQuoteChar Then
+          bQuoteWord = NOT FMT_MultiLineEscapedQuote(sStartQuoteChar$, &quot;\&quot;, sLine$, iPos%, iLen%)
+        Else
+          bQuoteWord = NOT FMT_MultiLineEscapedQuote(sEndQuoteChar$, &quot;\&quot;, sLine$, iPos%, iLen%)
+        End If
+        
+        If NOT bQuoteWord AND (sQuoteWord = &quot;tr&quot; OR sQuoteWord = &quot;s&quot; OR sQuoteWord = &quot;y&quot;) Then
+          iQuoteWord = iQuoteWord + 1
+          If iQuoteWord = 1 Then
+            bQuoteWord = True
+          ElseIf iQuoteWord = 2 AND sEndQuoteChar &lt;&gt; sStartQuoteChar Then
+            bQuoteWord = True
+          End If
+        End If
+
+        REM Move the cursor to the closing double quote.
+        REM Set the character style for the string.
+        REM Move the cursor back to the start of the paragraph.
+        oTCurs.goRight(iPos - i, True)
+        oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Literal)
+        oTCurs.gotoRange(oCurs.start, False)
+        iLastThing = 0
+        sLastChar = &quot;&quot;
+      ElseIf sChar = &quot;&quot;&quot;&quot; OR sChar = &quot;&apos;&quot; OR sChar = &quot;`&quot; Then
+        sStartQuoteChar = sChar
+        REM Move to the first delimiter quote
+        oTCurs.goRight(iPos-1, False)
+
+        REM Remember the location of the first double quote
+        REM and then find then end of the quoted text.
+        i = iPos
+        FMT_FindEndQuoteEscape(sLine$, iPos%, iLen%)
+
+        REM Move the cursor to the closing double quote.
+        REM Set the character style for the string.
+        REM Move the cursor back to the start of the paragraph.
+        oTCurs.goRight(iPos - i, True)
+        oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Literal)
+        oTCurs.gotoRange(oCurs.start, False)
+        iLastThing = 2
+        sLastChar = &quot;&quot;
+      ElseIf sChar = &quot;#&quot; Then
+        Rem Found a comment, mark the rest of the line.
+        REM Move the character cursor from the paragraph start
+        REM to the comment character.
+        REM Select the rest of the paragraph.
+        oTCurs.goRight(iPos-1, False)
+        oTCurs.gotoEndOfParagraph(True)
+        &apos;Print &quot;Setting (&quot; &amp; oTCurs.getString() &amp; &quot;)&quot;
+        oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Comment)
+        iPos = iLen + 1
+        iLastThing = 0
+        sLastChar = &quot;&quot;
+      ElseIf sChar = &quot;/&quot; Then
+        REM I need to guess if this is division or the &quot;m&quot; operator.
+        &apos;Print &quot;Found / and last thing = &quot; + iLastThing + &quot; last char = &quot; + sLastChar
+        If iLastThing = 0 AND sLastChar &lt;&gt; &quot;$&quot; Then
+          bQuoteWord = True
+          sQuoteWord = &quot;m&quot;
+          iQuoteWord = 0
+          sEndQuoteChar = &quot;&quot;
+          sStartQuoteChar = &quot;&quot;
+        Else
+          oTCurs.goRight(iPos - i, False)
+          oTCurs.goRight(1, True)
+          oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Special)
+          oTCurs.gotoRange(oCurs.start, False)
+          iPos = iPos + 1
+          iLastThing = 0
+          sLastChar = &quot;&quot;
+        End If
+      ElseIf sChar = &quot;=&quot; AND iPos = 1 Then
+        Rem Probably POD (documentation)
+        
+        If iLen &gt;= iPos + 3 Then
+          If Mid(sLine, iPos+1, 3) = &quot;pod&quot; Then
+            bInPOD = True
+          End If
+        End If
+        If iLen &gt;= iPos + 4 Then
+          If Mid(sLine, iPos+1, 4) = &quot;head&quot; Then
+            bInPOD = True
+          End If
+        End If
+        
+        If bInPOD Then
+          oTCurs.gotoEndOfParagraph(True)
+          oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Comment)
+          iPos = iLen + 1
+        Else
+          &apos; Equal sign but not in a POD.
+          REM We are at the first position.
+          oTCurs.goRight(1, True)
+          oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Special)
+          oTCurs.gotoRange(oCurs.start, False)
+          iPos = iPos + 1
+        End If
+        iLastThing = 0
+        sLastChar = &quot;&quot;
+      ElseIf FMT_FindNumberEnd(sLine, iPos, iLen, i) Then
+        REM Move to the number start.
+        oTCurs.goRight(iPos-1, False)
+        oTCurs.goRight(i - iPos, True)
+        If sLastChar = &quot;$&quot; Then
+          oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Ident)
+        Else
+          oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Literal)
+        End If
+        oTCurs.gotoRange(oCurs.start, False)
+        iPos = i
+        iLastThing = 1
+        sLastChar = &quot;&quot;
+      ElseIf sChar = &quot;.&quot; OR FMT_IsSpecialChar(ASC(sChar)) Then
+        i = iPos
+        oTCurs.goRight(iPos - 1, False)
+        
+        REM _ is special so that $_ and @_ are shown correctly. 
+        bCheckSpecial(Asc(&quot;_&quot;)) = True
+        bCheckSpecial(Asc(&quot;/&quot;)) = False
+        Do
+          &apos;sLastChar is the last special character
+          sLastChar = Mid(sLine, iPos, 1)
+          if sLastChar = &quot;$&quot; Then
+            bCheckSpecial(Asc(&quot;/&quot;)) = True
+          Else
+            bCheckSpecial(Asc(&quot;/&quot;)) = False
+          End If
+          iPos = iPos + 1
+          If iPos &gt; iLen Then Exit Do
+        Loop Until NOT FMT_IsSpecialChar(ASC(Mid(sLine, iPos, 1)))
+        bCheckSpecial(Asc(&quot;_&quot;)) = False
+        bCheckSpecial(Asc(&quot;/&quot;)) = True
+        
+        oTCurs.goRight(iPos - i, True)
+        oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Special)
+        oTCurs.gotoRange(oCurs.start, False)
+        &apos; We want to know if / is division or a regular expression.
+        &apos; So, we only care if the previous thing can be used in division.
+        If sLastChar = &quot;_&quot; OR sLastChar = &quot;)&quot; Then
+          iLastThing = 100
+        ElseIf sLastChar = &quot;~&quot; OR sLastChar = &quot;(&quot; OR sLastChar = &quot;!&quot; OR sLastChar = &quot;&amp;&quot; OR sLastChar = &quot;|&quot; OR sLastChar = &quot;;&quot; Then
+          iLastThing = 0
+        End If
+      Else
+        REM No special characters, so this is a variable 
+        REM or logic statement. Move to the first character.
+        i = iPos
+        oTCurs.goRight(iPos-1, False)
+        REM do not split variables based on _.
+        bCheckSpecial(Asc(&quot;_&quot;)) = False
+        bWordSep(ASC(&quot;_&quot;)) = False
+        Do
+          iPos = iPos + 1
+          If iPos &gt; iLen Then 
+            Exit Do
+          End If
+        Loop Until FMT_IsWordSep(Asc(Mid(sLine, iPos, 1)))
+        bWordSep(ASC(&quot;_&quot;)) = True
+
+        oTCurs.goRight(iPos - i, True)
+        sChar = LCase(oTCurs.getString())
+
+        If sLastChar = &quot;$&quot; OR sLastChar = &quot;@&quot; OR sLastChar = &quot;%&quot; Then
+          &apos;We have a variable
+          oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Ident)
+          iLastThing = 2
+        ElseIf FMT_ArrayHasString(sChar, sTokens()) Then
+          oTCurs.CharStyleName = sCharStyles(FMT_CSNI_KeyWord)
+          iLastThing = 0
+          REM These next commands are special!
+          If sChar = &quot;q&quot; OR sChar = &quot;qq&quot; OR sChar = &quot;qx&quot; OR sChar = &quot;qr&quot; OR sChar = &quot;m&quot; OR sChar = &quot;s&quot; OR sChar = &quot;tr&quot; OR sChar = &quot;y&quot; Then
+            bQuoteWord = True
+            sQuoteWord = sChar
+            sEndQuoteChar = &quot;&quot;
+            sStartQuoteChar = &quot;&quot;
+            iQuoteWord = 0
+          End If
+        ElseIf FMT_ArrayHasString(sChar, sAltTokens()) Then
+          oTCurs.CharStyleName = sCharStyles(FMT_CSNI_AltWord)
+        Else
+          oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Ident)
+          iLastThing = 2
+        End If
+        oTCurs.gotoRange(oCurs.start, False)
+        sLastChar = &quot;&quot;
+      End If
+    Loop
+    If Not oCurs.gotoNextParagraph(False) Then Exit Do
+    oTCurs.gotoRange(oCurs, False)
+    If NOT FMT_CursorToParEnd(oText, oSel, oCurs) Then Exit Do
+  Loop
+End Sub
+
+
+&apos;****************************************************************
+&apos;** Tokens recognized by Perl.
+&apos;****************************************************************
+Sub FMT_InitTokensPerl(sTokens())
+  sTokens() = Array(&quot;abs&quot;, &quot;accept&quot;, &quot;alarm&quot;, &quot;all&quot;, _
+    &quot;acos&quot;, &quot;acosh&quot;, &quot;acosec&quot;, &quot;acosech&quot;, &quot;acotan&quot;, &quot;acotanh&quot;, _
+    &quot;and&quot;, &quot;asec&quot;, &quot;asech&quot;, &quot;asin&quot;, &quot;asinh&quot;, &quot;atan&quot;, &quot;atanh&quot;, &quot;atan2&quot;, _
+    &quot;begin&quot;, &quot;bind&quot;, &quot;binmode&quot;, &quot;bless&quot;, &quot;bool&quot;, &quot;break&quot;, &quot;buf&quot;, _
+    &quot;caller&quot;, &quot;capitalize&quot;, &quot;ceil&quot;, &quot;chars&quot;, &quot;chdir&quot;, &quot;chmod&quot;, &quot;chomp&quot;, &quot;chop&quot;, &quot;chown&quot;, _
+    &quot;chr&quot;, &quot;chroot&quot;, &quot;circles&quot;, &quot;circumfix&quot;, &quot;class&quot;, &quot;close&quot;, &quot;closedir&quot;, &quot;cmp&quot;, _
+    &quot;complex&quot;, &quot;connect&quot;, &quot;continue&quot;, _
+    &quot;core&quot;, &quot;cos&quot;, &quot;cosh&quot;, &quot;cosec&quot;, &quot;cosech&quot;, &quot;cotan&quot;, &quot;cotanh&quot;, &quot;crypt&quot;, _
+    &quot;dbmclose&quot;, &quot;dbmopen&quot;, &quot;decode&quot;, &quot;defined&quot;, &quot;degrees&quot;, &quot;delete&quot;, &quot;die&quot;, &quot;div&quot;, &quot;do&quot;, &quot;does&quot;, &quot;dump&quot;, _
+    &quot;each&quot;, &quot;else&quot;, &quot;elsif&quot;, &quot;encode&quot;, _
+    &quot;end&quot;, &quot;endgrent&quot;, &quot;endhostent&quot;, &quot;endnetent&quot;, &quot;endprotoent&quot;, _
+    &quot;endpwent&quot;, &quot;endservent&quot;, &quot;eof&quot;, &quot;eq&quot;, &quot;eval&quot;, &quot;exec&quot;, &quot;exists&quot;, _
+    &quot;exit&quot;, &quot;exp&quot;, _
+    &quot;fcntl&quot;, &quot;fileno&quot;, &quot;flock&quot;, &quot;floor&quot;, _
+    &quot;for&quot;, &quot;foreach&quot;, &quot;fork&quot;, &quot;format&quot;, &quot;formline&quot;, _
+    &quot;gather&quot;, &quot;ge&quot;, &quot;getc&quot;, &quot;getgrent&quot;, &quot;getgrgid&quot;, &quot;getgrnam&quot;, &quot;gethostbyaddr&quot;, _
+    &quot;gethostbyname&quot;, &quot;gethostent&quot;, &quot;getlogin&quot;, &quot;getnetbyaddr&quot;, _
+    &quot;getnetbyname&quot;, &quot;getnetent&quot;, &quot;getpeername&quot;, &quot;getpgrp&quot;, _
+    &quot;getppid&quot;, &quot;getpriority&quot;, &quot;getprotobyname&quot;, &quot;getprotobynumber&quot;, _
+    &quot;getprotoent&quot;, &quot;getpwent&quot;, &quot;getpwnam&quot;, &quot;getpwuid&quot;, &quot;getservbyname&quot;, _
+    &quot;getservbyport&quot;, &quot;getservent&quot;, &quot;getsockname&quot;, &quot;getsockopt&quot;, &quot;glob&quot;, _
+    &quot;gmtime&quot;, &quot;goto&quot;, &quot;gradians&quot;, &quot;grep&quot;, &quot;gt&quot;, _
+    &quot;hex&quot;, _
+    &quot;if&quot;, &quot;import&quot;, &quot;index&quot;, &quot;infix&quot;, &quot;int&quot;, &quot;ioctl&quot;, &quot;is&quot;, _
+    &quot;join&quot;, _
+    &quot;keys&quot;, &quot;kill&quot;, _
+    &quot;last&quot;, &quot;lazy&quot;, &quot;lc&quot;, &quot;lcfirst&quot;, &quot;le&quot;, &quot;leg&quot;, &quot;length&quot;, &quot;lines&quot;, &quot;link&quot;, _
+    &quot;list&quot;, &quot;lists&quot;, &quot;listen&quot;, &quot;local&quot;, &quot;localtime&quot;, &quot;log&quot;, &quot;log10&quot;, &quot;lstat&quot;, &quot;lt&quot;, _
+    &quot;m&quot;, &quot;macro&quot;, &quot;map&quot;, &quot;max&quot;, &quot;min&quot;, &quot;mkdir&quot;, &quot;msgctl&quot;, &quot;msgget&quot;, &quot;msgrcv&quot;, &quot;msgsnd&quot;, &quot;multi&quot;, &quot;my&quot;, _
+    &quot;ne&quot;, &quot;new&quot;, &quot;next&quot;, &quot;no&quot;, &quot;not&quot;, &quot;num&quot;, _
+    &quot;oct&quot;, &quot;open&quot;, &quot;opendir&quot;, &quot;ord&quot;, &quot;our&quot;, _
+    &quot;pack&quot;, &quot;package&quot;, &quot;pipe&quot;, &quot;pop&quot;, &quot;pos&quot;, &quot;postcircumfix&quot;, &quot;postfix&quot;, &quot;prefix&quot;, &quot;print&quot;, &quot;printf&quot;, _
+    &quot;prototype&quot;, &quot;push&quot;, _
+    &quot;q&quot;, &quot;qq&quot;, &quot;qr&quot;, &quot;quasi&quot;, &quot;quotemeta&quot;, &quot;qw&quot;, &quot;qx&quot;, _
+    &quot;rand&quot;, &quot;rat&quot;, &quot;read&quot;, &quot;readdir&quot;, &quot;readlink&quot;, &quot;readpipe&quot;, &quot;recv&quot;, &quot;redo&quot;, &quot;ref&quot;, _
+    &quot;rename&quot;, &quot;require&quot;, &quot;reset&quot;, &quot;return&quot;, &quot;reverse&quot;, &quot;rewinddir&quot;, _
+    &quot;rindex&quot;, &quot;rmdir&quot;, &quot;role&quot;, &quot;round&quot;, _
+    &quot;s&quot;, &quot;say&quot;, &quot;scalar&quot;, &quot;sec&quot;, &quot;sech&quot;, &quot;seek&quot;, &quot;seekdir&quot;, &quot;select&quot;, &quot;semctl&quot;, &quot;semget&quot;, _
+    &quot;semop&quot;, &quot;send&quot;, &quot;setgrent&quot;, &quot;sethostent&quot;, &quot;setnetent&quot;, &quot;setpgrp&quot;, _
+    &quot;setpriority&quot;, &quot;setprotoent&quot;, &quot;setpwent&quot;, &quot;setservent&quot;, _
+    &quot;setsockopt&quot;, &quot;shift&quot;, &quot;shmctl&quot;, &quot;shmget&quot;, &quot;shmread&quot;, &quot;shmwrite&quot;, _
+    &quot;shutdown&quot;, &quot;sign&quot;, &quot;sin&quot;, &quot;sinh&quot;, &quot;sleep&quot;, &quot;socket&quot;, &quot;socketpair&quot;, &quot;sort&quot;, _
+    &quot;splice&quot;, &quot;split&quot;, &quot;sprintf&quot;, &quot;sqrt&quot;, &quot;srand&quot;, &quot;stat&quot;, &quot;str&quot;, &quot;strict&quot;, &quot;study&quot;, _
+    &quot;sub&quot;, &quot;subs&quot;, &quot;substr&quot;, &quot;symlink&quot;, _
+    &quot;syscall&quot;, &quot;sysopen&quot;, &quot;sysread&quot;, &quot;sysseek&quot;, _
+    &quot;system&quot;, &quot;syswrite&quot;, _
+    &quot;take&quot;, &quot;tan&quot;, &quot;tanh&quot;, &quot;tell&quot;, &quot;telldir&quot;, &quot;tie&quot;, &quot;tied&quot;, &quot;time&quot;, &quot;timelocal&quot;, _
+    &quot;times&quot;, &quot;tr&quot;, &quot;truncate&quot;, _
+    &quot;uc&quot;, &quot;ucfirst&quot;, &quot;umask&quot;, &quot;undef&quot;, &quot;unlink&quot;, &quot;unpack&quot;, _
+    &quot;unshift&quot;, &quot;untie&quot;, &quot;until&quot;, &quot;unless&quot;, &quot;use&quot;, &quot;utime&quot;, _
+    &quot;values&quot;, &quot;vars&quot;, &quot;vec&quot;, _
+    &quot;wait&quot;, &quot;waitpid&quot;, &quot;wantarray&quot;, &quot;warn&quot;, &quot;while&quot;, &quot;words&quot;, &quot;write&quot;, _
+    &quot;x&quot;, &quot;xor&quot;, _
+    &quot;y&quot;, &quot;z&quot;)
+  FMT_SortStringArrayAscending(sTokens())
+End Sub
+
+&apos;****************************************************************
+&apos;** Alternate Tokens such as system class libraries and functions
+&apos;** that you want to recognize.
+&apos;****************************************************************
+Sub FMT_InitAltTokensPerl(sAltTokens())
+  sAltTokens() = Array( &quot;abs2rel&quot;, &quot;accumulator&quot;, &quot;arg&quot;, &quot;argv&quot;, &quot;argvout&quot;, &quot;back&quot;, _
+    &quot;basename&quot;, &quot;basetime&quot;, &quot;begin&quot;, &quot;builder&quot;, &quot;bytes&quot;, &quot;can&quot;, _
+    &quot;can_ok&quot;, &quot;canonpath&quot;, &quot;carp&quot;, &quot;case_tolerant&quot;, &quot;catdir&quot;, &quot;catfile&quot;, _
+    &quot;catpath&quot;, &quot;child_error&quot;, &quot;child_error_native&quot;, &quot;clear&quot;, &quot;close&quot;, &quot;cluck&quot;, _
+    &quot;cmp_ok&quot;, &quot;compiling&quot;, &quot;confess&quot;, &quot;copy&quot;, &quot;cp&quot;, &quot;crlf&quot;, _
+    &quot;croak&quot;, &quot;curdir&quot;, &quot;cut&quot;, &quot;data&quot;, &quot;debugging&quot;, &quot;delete&quot;, _
+    &quot;devnull&quot;, &quot;diag&quot;, &quot;die&quot;, &quot;dirname&quot;, &quot;effective_group_id&quot;, &quot;effective_user_id&quot;, _
+    &quot;egid&quot;, &quot;encoding&quot;, &quot;env&quot;, &quot;env&quot;, &quot;eq_array&quot;, &quot;eq_hash&quot;, _
+    &quot;eq_set&quot;, &quot;errno&quot;, &quot;euid&quot;, &quot;eval_error&quot;, &quot;exceptions_being_caught&quot;, &quot;executable_name&quot;, _
+    &quot;exists&quot;, &quot;extend&quot;, &quot;extended_os_error&quot;, &quot;fail&quot;, &quot;false&quot;, &quot;fetch&quot;, &quot;fetchsize&quot;, _
+    &quot;file handles&quot;, &quot;file_name_is_absolute&quot;, &quot;fileparse&quot;, &quot;fileparse_set_fstype&quot;, &quot;find&quot;, &quot;finddepth&quot;, _
+    &quot;firstkey&quot;, &quot;format_formfeed&quot;, &quot;format_line_break_characters&quot;, &quot;format_lines_left&quot;, &quot;format_lines_per_page&quot;, &quot;format_name&quot;, _
+    &quot;format_page_number&quot;, &quot;format_top_name&quot;, &quot;freeze&quot;, &quot;getc&quot;, &quot;getoptions&quot;, &quot;gid&quot;, _
+    &quot;gid&quot;, &quot;head1&quot;, &quot;head2&quot;, &quot;head3&quot;, &quot;head4&quot;, &quot;home&quot;, _
+    &quot;inc&quot;, &quot;inplace_edit&quot;, &quot;input_line_number&quot;, &quot;input_record_separator&quot;, &quot;is&quot;, &quot;is_deeply&quot;, _
+    &quot;isa&quot;, &quot;isa_ok&quot;, &quot;isnt&quot;, &quot;item&quot;, &quot;last_match_end&quot;, &quot;last_match_start&quot;, _
+    &quot;last_paren_match&quot;, &quot;last_regexp_code_result&quot;, &quot;last_submatch_result&quot;, &quot;like&quot;, &quot;list_separator&quot;, &quot;logdir&quot;, _
+    &quot;longmess&quot;, &quot;match&quot;, &quot;match&quot;, &quot;misc&quot;, &quot;mkdtemp&quot;, &quot;mkpath&quot;, _
+    &quot;mkstemp&quot;, &quot;mkstemps&quot;, &quot;mktemp&quot;, &quot;mmap&quot;, &quot;move&quot;, &quot;multiline_matching&quot;, _
+    &quot;mv&quot;, &quot;nextkey&quot;, &quot;no_upwards&quot;, &quot;nr&quot;, &quot;ofmt&quot;, &quot;ofs&quot;, _
+    &quot;ok&quot;, &quot;open&quot;, &quot;ors&quot;, &quot;os_error&quot;, &quot;osname&quot;, &quot;output_auto_flush&quot;, _
+    &quot;output_autoflush&quot;, &quot;output_field_separator&quot;, &quot;output_record_separator&quot;, &quot;over&quot;, &quot;overload&quot;, &quot;pass&quot;, _
+    &quot;path&quot;, &quot;perl5db&quot;, &quot;perl5db_threaded&quot;, &quot;perl5lib&quot;, &quot;perl5opt&quot;, &quot;perl5shell&quot;, _
+    &quot;perl_allow_non_ifs_lsp&quot;, &quot;perl_debug_mstats&quot;, &quot;perl_destruct_level&quot;, &quot;perl_dl_nonlazy&quot;, &quot;perl_encoding&quot;, &quot;perl_hash_seed&quot;, _
+    &quot;perl_hash_seed_debug&quot;, &quot;perl_root&quot;, &quot;perl_signals&quot;, &quot;perl_unicode&quot;, &quot;perl_version&quot;, &quot;perldb&quot;, _
+    &quot;perlio&quot;, &quot;perlio_debug&quot;, &quot;perllib&quot;, &quot;pid&quot;, &quot;plan&quot;, &quot;pod&quot;, _
+    &quot;pop&quot;, &quot;postmatch&quot;, &quot;prematch&quot;, &quot;print&quot;, &quot;printf&quot;, &quot;process_id&quot;, _
+    &quot;program_name&quot;, &quot;push&quot;, &quot;raw&quot;, &quot;re_debug_flags&quot;, &quot;re_trie_maxbuf&quot;, &quot;read&quot;, _
+    &quot;readline&quot;, &quot;real_group_id&quot;, &quot;real_user_id&quot;, &quot;rel2abs&quot;, &quot;require_ok&quot;, &quot;rmscopy&quot;, _
+    &quot;rmtree&quot;, &quot;rootdir&quot;, &quot;rs&quot;, &quot;safe_level&quot;, &quot;shift&quot;, &quot;shortmess&quot;, _
+    &quot;sig&quot;, &quot;skip&quot;, &quot;skip:&quot;, &quot;splice&quot;, &quot;splitdir&quot;, &quot;splitpath&quot;, _
+    &quot;stderr&quot;, &quot;stdin&quot;, &quot;stdio&quot;, &quot;stdout&quot;, &quot;store&quot;, &quot;storesize&quot;, _
+    &quot;subscript_separator&quot;, &quot;subsep&quot;, &quot;system_fd_max&quot;, &quot;taint&quot;, &quot;tempdir&quot;, &quot;tempfile&quot;, _
+    &quot;thaw&quot;, &quot;tiearray&quot;, &quot;tiehandle&quot;, &quot;tiehash&quot;, &quot;tiescalar&quot;, &quot;tmpdir&quot;, _
+    &quot;tmpfile&quot;, &quot;tmpnam&quot;, &quot;todo&quot;, &quot;todo_skip&quot;, &quot;true&quot;, &quot;uid&quot;, &quot;unicode&quot;, _
+    &quot;unix&quot;, &quot;unlike&quot;, &quot;unlink0&quot;, &quot;updir&quot;, _
+    &quot;use_ok&quot;, &quot;utf8&quot;, &quot;utf8cache&quot;, &quot;utf8locale&quot;, &quot;version&quot;, &quot;warn&quot;, _
+    &quot;warning&quot;, &quot;warning_bits&quot;, &quot;wide_system_calls&quot;, &quot;win32&quot;, &quot;win32_sloppy_stat&quot;)
+  
+  FMT_SortStringArrayAscending(sAltTokens())
+End Sub
+
+&apos;****************************************************************
+&apos;** Get the character styles meant for highlighting Perl code.
+&apos;** Perl formats character styles as an identifier.
+&apos;****************************************************************
+Function FMT_GetPerlCharacterStyles()
+  FMT_GetPerlCharacterStyles() = FMT_GetBasicCharacterStyles()
+End Function
+
+
+
+</script:module>

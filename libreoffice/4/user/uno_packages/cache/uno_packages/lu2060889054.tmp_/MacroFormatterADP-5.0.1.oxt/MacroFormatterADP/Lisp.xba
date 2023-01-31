@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script:module PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "module.dtd">
+<script:module xmlns:script="http://openoffice.org/2000/script" script:name="Lisp" script:language="StarBasic">REM  *****  BASIC  *****
+OPTION Explicit
+
+REM Author: Andrew D. Pitonyak
+REM Date: February 28, 2014
+REM License: Public Domain
+
+Sub MainLisp
+  FMT_MasterColorizer(ThisComponent, &quot;Lisp&quot;, &quot;CUR&quot;)
+  &apos;FMT_MasterColorizer(ThisComponent, &quot;Lisp&quot;, &quot;DOC&quot;)
+  &apos;FMT_MasterColorizer(ThisComponent, &quot;Lisp&quot;, &quot;SEL&quot;)
+End Sub
+
+&apos;****************************************************************
+&apos;** Color code the Lisp code surrounding the view cursor.
+&apos;****************************************************************
+Sub FMT_ColorCodeCurrentLisp()
+  FMT_MasterColorizer(ThisComponent, &quot;Lisp&quot;, &quot;CUR&quot;)
+End Sub
+
+REM Highlight all code in this document.
+Sub HighlightDocLisp()
+  FMT_MasterColorizer(ThisComponent, &quot;Lisp&quot;, &quot;DOC&quot;)
+
+End Sub
+
+REM Format just the selected text
+Sub HighlightSelLisp()
+  FMT_MasterColorizer(ThisComponent, &quot;Lisp&quot;, &quot;SEL&quot;)
+End Sub
+
+&apos;****************************************************************
+&apos;** Color code the Lisp code in the oSel range.
+&apos;** Use the keywords in the sTokens() array.
+&apos;****************************************************************
+Sub FMT_ColorCodeOneRangeStringLisp(oSel, sTokens(), sAltTokens(), sCharStyles())
+  Dim oCurs    &apos;Iterate paragraphs in the selected region.
+  Dim oTCurs   &apos;Iterate the characters in a paragraph.
+  Dim oText    &apos;Text object containing the selection.
+  Dim iPos%
+  Dim iLen%
+  Dim i%       &apos;Temporary integer variable.
+  Dim sChar$   &apos;Current character
+  Dim sLine$   &apos;Current line (in lower case).
+  Dim iQParen% &apos;Count the number of parens inside a quote.
+
+  REM Position oTCurs at the start of the selection.
+  oText = oSel.getText()
+  oTCurs = oText.createTextCursorByRange(oSel.getStart())
+  oTCurs.goRight(0, False)
+  iQParen = 0
+
+  REM oCurs contains the first paragraph, but not more than oSel.
+  oCurs = FMT_CreateStartCursor(oText, oSel)
+
+  REM Verify that oCurs ends before (or at the same place)
+  REM as oSel.
+  Do While oText.compareRegionEnds(oCurs, oSel) &gt;= 0
+    REM Now, process a single line of text!
+    REM oCurs has selected the entire paragraph.
+    REM oTCurs is at the start of the paragraph.
+    sLine = LCase(oCurs.getString())
+    iLen = Len(sLine)
+    iPos = 1
+    Do While iPos &lt;= iLen
+      REM Skip leading white space.
+      FMT_FindNextNonSpace(sLine, iPos%, iLen%)
+      If iPos &gt; iLen Then Exit Do
+
+      sChar = Mid(sLine, iPos, 1)
+      
+      If iQParen &gt; 0 Then
+      
+        REM handle this here!
+        REM and then use an ElseIf for the single quote.
+        i = iPos
+        FMT_FindCloseParen(sLine, iPos, iLen, iQParen, &quot;(&quot;, &quot;)&quot;)
+        oTCurs.goRight(i - 1, False)
+        oTCurs.goRight(iPos - i + 1, True)
+        oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Literal)
+        oTCurs.gotoRange(oCurs.start, False)
+        iPos = iPos + 1
+      ElseIf sChar = &quot;;&quot; Then
+        REM Found a comment!
+        oTCurs.goRight(iPos-1, False)
+        oTCurs.gotoEndOfParagraph(True)
+        oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Comment)
+        oTCurs.gotoRange(oCurs.start, False)
+        iPos = iLen + 1
+      ElseIf sChar = &quot;&apos;&quot; Then
+        REM A string of sorts. If the next thing is &quot;(&quot; then find the end of that.
+        REM if a regular character, then find the end of those.
+        
+        REM Save the current position.
+        REM or logic statement. Move to the first character.
+        i = iPos
+        REM Colorize the single quote
+        oTCurs.goRight(i-1, False)
+        oTCurs.goRight(1, True)
+        oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Literal)
+        iPos = iPos + 1
+        If iPos &gt; iLen Then
+          REM We are done here, this is the end of the line. 
+          REM Ignore what comes next 
+        Else
+          sChar = Mid(sLine, iPos, 1)
+          If sChar = &quot;(&quot; Then
+            REM Should I ignore this if the &apos; was preceded by a \?
+            REM Find the end of the open in the outer while loop
+            REM by setting iQParen.
+            iQParen = 1
+            iPos = iPos + 1
+            FMT_FindCloseParen(sLine, iPos, iLen, iQParen, &quot;(&quot;, &quot;)&quot;)
+            oTCurs.goRight(iPos - i + 1, True)
+            oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Literal)
+            iPos = iPos + 1
+          ElseIf FMT_IsWhiteSpace(ASC(sChar)) Then
+            REM Just ignore it and move on!
+          ELSE
+            REM Find the word end and colorit.
+            iPos = i
+            Do
+              iPos = iPos + 1
+              If iPos &gt; iLen Then Exit Do
+            Loop Until FMT_IsWordSep(Asc(Mid(sLine, iPos, 1)))
+            oTCurs.goRight(iPos - i, True)
+            &apos;sChar = LCase(oTCurs.getString())
+             oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Literal)
+          End If
+        End If
+        oTCurs.gotoRange(oCurs.start, False)
+      ElseIf sChar = &quot;&quot;&quot;&quot; Then
+        REM Move to the first double quote
+        oTCurs.goRight(iPos-1, False)
+        
+        REM Remember the location of the first double quote
+        REM and then find then end of the quoted text.
+        i = iPos
+        If iPos &gt; 1 And Mid(sLine, iPos-1, 1) = &quot;\&quot; Then
+          iPos = iPos + 1
+        Else
+          FMT_FindEndQuoteEscape(sLine$, iPos%, iLen%)
+          &apos;FMT_FindEndQuoteDouble(sLine$, iPos%, iLen%)
+        End If
+
+        REM Move the cursor to the closing double quote.
+        REM Set the character style for the string.
+        REM Move the cursor back to the start of the paragraph.
+        oTCurs.goRight(iPos - i, True)
+        oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Literal)
+        oTCurs.gotoRange(oCurs.start, False)
+      ElseIf FMT_FindNumberEnd(sLine, iPos, iLen, i) Then
+        REM Move to the number start.
+        oTCurs.goRight(iPos-1, False)
+        oTCurs.goRight(i - iPos, True)
+        oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Literal)
+        oTCurs.gotoRange(oCurs.start, False)
+        iPos = i
+      ElseIf sChar = &quot;.&quot; OR FMT_IsSpecialChar(ASC(sChar)) Then
+        i = iPos
+        oTCurs.goRight(iPos - 1, False)
+
+        Do
+          iPos = iPos + 1
+          If iPos &gt; iLen Then Exit Do
+        Loop Until NOT FMT_IsSpecialChar(ASC(Mid(sLine, iPos, 1)))
+        oTCurs.goRight(iPos - i, True)
+        oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Special)
+        oTCurs.gotoRange(oCurs.start, False)
+      ElseIf sChar = &quot;_&quot; AND iPos = iLen Then
+        REM An Identifier can start with an &quot;_&quot; (I think).
+        REM It is likely that trailing spaces will be in a text
+        REM document, but we will ignore these for now!
+        oTCurs.goRight(iPos-1, False)
+        oTCurs.goRight(1, True)
+        oTCurs.CharStyleName = sCharStyles(FMT_CSNI_KeyWord)
+        oTCurs.gotoRange(oCurs.start, False)
+        iPos = iPos + 1
+      Else
+        REM No special characters, so this is a variable 
+        REM or logic statement. Move to the first character.
+        i = iPos
+        oTCurs.goRight(iPos-1, False)
+        Do
+          iPos = iPos + 1
+          If iPos &gt; iLen Then Exit Do
+        Loop Until FMT_IsWordSep(Asc(Mid(sLine, iPos, 1)))
+
+        oTCurs.goRight(iPos - i, True)
+        sChar = LCase(oTCurs.getString())
+
+        If FMT_ArrayHasString(sChar, sTokens()) Then
+          oTCurs.CharStyleName = sCharStyles(FMT_CSNI_KeyWord)
+        ElseIf FMT_ArrayHasString(sChar, sAltTokens()) Then
+          oTCurs.CharStyleName = sCharStyles(FMT_CSNI_AltWord)
+        Else
+          oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Ident)
+        End If
+
+        oTCurs.gotoRange(oCurs.start, False)
+      End If
+    Loop
+    If Not oCurs.gotoNextParagraph(False) Then Exit Do
+    oTCurs.gotoRange(oCurs, False)
+    If NOT FMT_CursorToParEnd(oText, oSel, oCurs) Then Exit Do
+  Loop
+End Sub
+
+&apos;****************************************************************
+&apos;** The following words are tokens recognized by Lisp.
+&apos;** And this is how I generated the list using clisp on Linux.
+&apos;** (let (result) 
+&apos;**  (do-external-symbols (s :common-lisp) 
+&apos;**    (push s result)) 
+&apos;**  (sort result #&apos;string&lt;))
+&apos;****************************************************************
+Sub FMT_InitTokensLisp(sTokens())
+
+  sTokens() = Array(&quot;ABORT&quot;, &quot;ABS&quot;, &quot;ACONS&quot;, &quot;ACOS&quot;, &quot;ACOSH&quot;, &quot;ADD-METHOD&quot;, &quot;ADJOIN&quot;, _
+   &quot;ADJUST-ARRAY&quot;, &quot;ADJUSTABLE-ARRAY-P&quot;, &quot;ALLOCATE-INSTANCE&quot;, &quot;ALLOW-OTHER-KEYS&quot;, _
+    &quot;ALPHA-CHAR-P&quot;, &quot;ALPHANUMERICP&quot;, &quot;AND&quot;, &quot;APPEND&quot;, &quot;APPLY&quot;, &quot;APROPOS&quot;, _
+    &quot;APROPOS-LIST&quot;, &quot;AREF&quot;, &quot;ARITHMETIC-ERROR&quot;, &quot;ARITHMETIC-ERROR-OPERANDS&quot;&quot;ARITHMETIC-ERROR-OPERATION&quot;, &quot;ARRAY&quot;, _
+    &quot;ARRAY-DIMENSION&quot;, &quot;ARRAY-DIMENSION-LIMIT&quot;, &quot;ARRAY-DIMENSIONS&quot;, &quot;ARRAY-DISPLACEMENT&quot;, &quot;ARRAY-ELEMENT-TYPE&quot;, &quot;ARRAY-HAS-FILL-POINTER-P&quot;, _
+    &quot;ARRAY-IN-BOUNDS-P&quot;, &quot;ARRAY-RANK&quot;, &quot;ARRAY-RANK-LIMIT&quot;, &quot;ARRAY-ROW-MAJOR-INDEX&quot;, &quot;ARRAY-TOTAL-SIZE&quot;, &quot;ARRAY-TOTAL-SIZE-LIMIT&quot;, _
+    &quot;ARRAYP&quot;, &quot;ASH&quot;, &quot;ASIN&quot;, &quot;ASINH&quot;, &quot;ASSERT&quot;, &quot;ASSOC&quot;, _
+    &quot;ASSOC-IF&quot;&quot;ASSOC-IF-NOT&quot;, &quot;ATAN&quot;, &quot;ATANH&quot;, &quot;ATOM&quot;, &quot;AUX&quot;, _
+    &quot;BASE-CHAR&quot;, &quot;BASE-STRING&quot;, &quot;BIGNUM&quot;, &quot;BIT&quot;, &quot;BIT-AND&quot;, &quot;BIT-ANDC1&quot;, _
+    &quot;BIT-ANDC2&quot;, &quot;BIT-EQV&quot;, &quot;BIT-IOR&quot;, &quot;BIT-NAND&quot;, &quot;BIT-NOR&quot;, &quot;BIT-NOT&quot;, _
+    &quot;BIT-ORC1&quot;, &quot;BIT-ORC2&quot;&quot;BIT-VECTOR&quot;, &quot;BIT-VECTOR-P&quot;, &quot;BIT-XOR&quot;, &quot;BLOCK&quot;, _
+    &quot;BODY&quot;, &quot;BOOLE&quot;, &quot;BOOLE-1&quot;, &quot;BOOLE-2&quot;, &quot;BOOLE-AND&quot;, &quot;BOOLE-ANDC1&quot;, _
+    &quot;BOOLE-ANDC2&quot;, &quot;BOOLE-C1&quot;, &quot;BOOLE-C2&quot;, &quot;BOOLE-CLR&quot;, &quot;BOOLE-EQV&quot;, &quot;BOOLE-IOR&quot;, _
+    &quot;BOOLE-NAND&quot;&quot;BOOLE-NOR&quot;, &quot;BOOLE-ORC1&quot;, &quot;BOOLE-ORC2&quot;, &quot;BOOLE-SET&quot;, &quot;BOOLE-XOR&quot;, _
+    &quot;BOOLEAN&quot;, &quot;BOTH-CASE-P&quot;, &quot;BOUNDP&quot;, &quot;BREAK&quot;, &quot;BREAK-ON-SIGNALS&quot;, &quot;BROADCAST-STREAM&quot;, _
+    &quot;BROADCAST-STREAM-STREAMS&quot;, &quot;BUILT-IN-CLASS&quot;, &quot;BUTLAST&quot;, &quot;BYTE&quot;&quot;BYTE-POSITION&quot;, &quot;BYTE-SIZE&quot;, _
+    &quot;CAAAAR&quot;, &quot;CAAADR&quot;, &quot;CAAAR&quot;, &quot;CAADAR&quot;, &quot;CAADDR&quot;, &quot;CAADR&quot;, _
+    &quot;CAAR&quot;, &quot;CADAAR&quot;, &quot;CADADR&quot;, &quot;CADAR&quot;, &quot;CADDAR&quot;, &quot;CADDDR&quot;, _
+    &quot;CADDR&quot;, &quot;CADR&quot;, &quot;CALL-ARGUMENTS-LIMIT&quot;, &quot;CALL-METHOD&quot;&quot;CALL-NEXT-METHOD&quot;, &quot;CAR&quot;, _
+    &quot;CASE&quot;, &quot;CATCH&quot;, &quot;CCASE&quot;, &quot;CDAAAR&quot;, &quot;CDAADR&quot;, &quot;CDAAR&quot;, _
+    &quot;CDADAR&quot;, &quot;CDADDR&quot;, &quot;CDADR&quot;, &quot;CDAR&quot;, &quot;CDDAAR&quot;, &quot;CDDADR&quot;, _
+    &quot;CDDAR&quot;, &quot;CDDDAR&quot;, &quot;CDDDDR&quot;, &quot;CDDDR&quot;, &quot;CDDR&quot;, &quot;CDR&quot;, _
+    &quot;CEILING&quot;, &quot;CELL-ERROR&quot;&quot;CELL-ERROR-NAME&quot;, &quot;CERROR&quot;, &quot;CHANGE-CLASS&quot;, &quot;CHAR&quot;, _
+    &quot;CHAR-CODE&quot;, &quot;CHAR-CODE-LIMIT&quot;, &quot;CHAR-DOWNCASE&quot;, &quot;CHAR-EQUAL&quot;, &quot;CHAR-GREATERP&quot;, &quot;CHAR-INT&quot;, _
+    &quot;CHAR-LESSP&quot;, &quot;CHAR-NAME&quot;, &quot;CHAR-NOT-EQUAL&quot;&quot;CHAR-NOT-GREATERP&quot;, &quot;CHAR-NOT-LESSP&quot;, &quot;CHAR-UPCASE&quot;, _
+    &quot;CHARACTER&quot;, &quot;CHARACTERP&quot;, &quot;CHECK-TYPE&quot;, &quot;CIS&quot;, &quot;CLASS&quot;, &quot;CLASS-NAME&quot;, _
+    &quot;CLASS-OF&quot;, &quot;CLEAR-INPUT&quot;&quot;CLEAR-OUTPUT&quot;, &quot;CLOSE&quot;, &quot;CLRHASH&quot;, &quot;CODE-CHAR&quot;, _
+    &quot;COERCE&quot;, &quot;COMPILATION-SPEED&quot;, &quot;COMPILE&quot;, &quot;COMPILE-FILE&quot;, &quot;COMPILE-FILE-PATHNAME&quot;, &quot;COMPILE-FILE-PATHNAME&quot;, _
+    &quot;COMPILE-FILE-TRUENAME&quot;, &quot;COMPILE-PRINT&quot;, &quot;COMPILE-VERBOSE&quot;, &quot;COMPILED-FUNCTION&quot;, &quot;COMPILED-FUNCTION-P&quot;, &quot;COMPILER-MACRO&quot;, _
+    &quot;COMPILER-MACRO-FUNCTION&quot;, &quot;COMPLEMENT&quot;, &quot;COMPLEX&quot;, &quot;COMPLEXP&quot;, &quot;COMPUTE-APPLICABLE-METHODS&quot;, &quot;COMPUTE-RESTARTS&quot;, _
+    &quot;CONCATENATE&quot;, &quot;CONCATENATED-STREAM&quot;, &quot;CONCATENATED-STREAM-STREAMS&quot;&quot;COND&quot;, &quot;CONDITION&quot;, &quot;CONJUGATE&quot;, _
+    &quot;CONS&quot;, &quot;CONSP&quot;, &quot;CONSTANTLY&quot;, &quot;CONSTANTP&quot;, &quot;CONTINUE&quot;, &quot;CONTROL-ERROR&quot;, _
+    &quot;COPY-ALIST&quot;, &quot;COPY-LIST&quot;, &quot;COPY-PPRINT-DISPATCH&quot;, &quot;COPY-READTABLE&quot;, &quot;COPY-SEQ&quot;&quot;COPY-STRUCTURE&quot;, _
+    &quot;COPY-SYMBOL&quot;, &quot;COPY-TREE&quot;, &quot;COS&quot;, &quot;COSH&quot;, &quot;COUNT&quot;, &quot;COUNT-IF&quot;, _
+    &quot;COUNT-IF-NOT&quot;, &quot;CTYPECASE&quot;, &quot;DEBUG&quot;, &quot;DEBUG-IO&quot;, &quot;DEBUGGER-HOOK&quot;, &quot;DECF&quot;, _
+    &quot;DECLAIM&quot;, &quot;DECLARATION&quot;, &quot;DECLARE&quot;, &quot;DECODE-FLOAT&quot;, &quot;DECODE-UNIVERSAL-TIME&quot;&quot;DEFAULT-PATHNAME-DEFAULTS&quot;, _
+    &quot;DEFCLASS&quot;, &quot;DEFCONSTANT&quot;, &quot;DEFGENERIC&quot;, &quot;DEFINE-COMPILER-MACRO&quot;, &quot;DEFINE-CONDITION&quot;, &quot;DEFINE-METHOD-COMBINATION&quot;, _
+    &quot;DEFINE-MODIFY-MACRO&quot;, &quot;DEFINE-SETF-EXPANDER&quot;, &quot;DEFINE-SYMBOL-MACRO&quot;&quot;DEFMACRO&quot;, &quot;DEFMETHOD&quot;, &quot;DEFPACKAGE&quot;, _
+    &quot;DEFPARAMETER&quot;, &quot;DEFSETF&quot;, &quot;DEFSTRUCT&quot;, &quot;DEFTYPE&quot;, &quot;DEFUN&quot;, &quot;DEFVAR&quot;, _
+    &quot;DELETE&quot;, &quot;DELETE-DUPLICATES&quot;, &quot;DELETE-FILE&quot;, &quot;DELETE-IF&quot;, &quot;DELETE-IF-NOT&quot;, &quot;DELETE-PACKAGE&quot;, _
+    &quot;DENOMINATOR&quot;, &quot;DEPOSIT-FIELD&quot;, &quot;DESCRIBE&quot;, &quot;DESCRIBE-OBJECT&quot;, &quot;DESTRUCTURING-BIND&quot;, &quot;DIGIT-CHAR&quot;, _
+    &quot;DIGIT-CHAR-P&quot;, &quot;DIRECTORY&quot;, &quot;DIRECTORY-NAMESTRING&quot;, &quot;DISASSEMBLE&quot;, &quot;DIVISION-BY-ZERO&quot;, &quot;DO&quot;, _
+    &quot;DO&quot;, &quot;DO-ALL-SYMBOLS&quot;, &quot;DO-EXTERNAL-SYMBOLS&quot;, &quot;DO-SYMBOLS&quot;, &quot;DOCUMENTATION&quot;, &quot;DOLIST&quot;, _
+    &quot;DOTIMES&quot;, &quot;DOUBLE-FLOAT&quot;, &quot;DOUBLE-FLOAT-EPSILON&quot;, &quot;DOUBLE-FLOAT-NEGATIVE-EPSILON&quot;, &quot;DPB&quot;, &quot;DRIBBLE&quot;, _
+    &quot;DYNAMIC-EXTENT&quot;, &quot;ECASE&quot;, &quot;ECHO-STREAM&quot;, &quot;ECHO-STREAM-INPUT-STREAM&quot;, &quot;ECHO-STREAM-OUTPUT-STREAM&quot;, &quot;ED&quot;, _
+    &quot;EIGHTH&quot;, &quot;ELT&quot;, &quot;ENCODE-UNIVERSAL-TIME&quot;, &quot;END-OF-FILE&quot;, &quot;ENDP&quot;, &quot;ENOUGH-NAMESTRING&quot;, _
+    &quot;ENSURE-DIRECTORIES-EXIST&quot;, &quot;ENSURE-GENERIC-FUNCTION&quot;, &quot;ENVIRONMENT&quot;, &quot;EQ&quot;, &quot;EQL&quot;, &quot;EQUAL&quot;, _
+    &quot;EQUALP&quot;, &quot;ERROR&quot;, &quot;ERROR-OUTPUT&quot;, &quot;ETYPECASE&quot;, &quot;EVAL&quot;, &quot;EVAL-WHEN&quot;, _
+    &quot;EVENP&quot;, &quot;EVERY&quot;, &quot;EXP&quot;, &quot;EXPORT&quot;, &quot;EXPT&quot;, &quot;EXTENDED-CHAR&quot;, _
+    &quot;FBOUNDP&quot;, &quot;FCEILING&quot;&quot;FDEFINITION&quot;, &quot;FEATURES&quot;, &quot;FFLOOR&quot;, &quot;FIFTH&quot;, _
+    &quot;FILE-AUTHOR&quot;, &quot;FILE-ERROR&quot;, &quot;FILE-ERROR-PATHNAME&quot;, &quot;FILE-LENGTH&quot;, &quot;FILE-NAMESTRING&quot;, &quot;FILE-POSITION&quot;, _
+    &quot;FILE-STREAM&quot;, &quot;FILE-STRING-LENGTH&quot;, &quot;FILE-WRITE-DATE&quot;&quot;FILL&quot;, &quot;FILL-POINTER&quot;, &quot;FIND&quot;, _
+    &quot;FIND-ALL-SYMBOLS&quot;, &quot;FIND-CLASS&quot;, &quot;FIND-IF&quot;, &quot;FIND-IF-NOT&quot;, &quot;FIND-METHOD&quot;, &quot;FIND-PACKAGE&quot;, _
+    &quot;FIND-RESTART&quot;, &quot;FIND-SYMBOL&quot;, &quot;FINISH-OUTPUT&quot;, &quot;FIRST&quot;, &quot;FIXNUM&quot;, &quot;FLET&quot;, _
+    &quot;FLOAT&quot;&quot;FLOAT-DIGITS&quot;, &quot;FLOAT-PRECISION&quot;, &quot;FLOAT-RADIX&quot;, &quot;FLOAT-SIGN&quot;, &quot;FLOATING-POINT-INEXACT&quot;, _
+    &quot;FLOATING-POINT-INVALID-OPERATION&quot;, &quot;FLOATING-POINT-OVERFLOW&quot;, &quot;FLOATING-POINT-UNDERFLOW&quot;&quot;FLOATP&quot;, &quot;FLOOR&quot;, &quot;FMAKUNBOUND&quot;, _
+    &quot;FORCE-OUTPUT&quot;, &quot;FORMAT&quot;, &quot;FORMATTER&quot;, &quot;FOURTH&quot;, &quot;FRESH-LINE&quot;, &quot;FROUND&quot;, _
+    &quot;FTRUNCATE&quot;, &quot;FTYPE&quot;, &quot;FUNCALL&quot;, &quot;FUNCTION&quot;, &quot;FUNCTION-KEYWORDS&quot;, &quot;FUNCTION-LAMBDA-EXPRESSION&quot;, _
+    &quot;FUNCTIONP&quot;, &quot;GCD&quot;, &quot;GENERIC-FUNCTION&quot;, &quot;GENSYM&quot;, &quot;GENSYM-COUNTER&quot;, &quot;GENTEMP&quot;, _
+    &quot;GET&quot;, &quot;GET-DECODED-TIME&quot;, &quot;GET-DISPATCH-MACRO-CHARACTER&quot;, &quot;GET-INTERNAL-REAL-TIME&quot;, &quot;GET-INTERNAL-RUN-TIME&quot;&quot;GET-MACRO-CHARACTER&quot;, _
+    &quot;GET-OUTPUT-STREAM-STRING&quot;, &quot;GET-PROPERTIES&quot;, &quot;GET-SETF-EXPANSION&quot;, &quot;GET-UNIVERSAL-TIME&quot;, &quot;GETF&quot;, &quot;GETHASH&quot;, _
+    &quot;GO&quot;, &quot;GRAPHIC-CHAR-P&quot;, &quot;HANDLER-BIND&quot;, &quot;HANDLER-CASE&quot;&quot;HASH-TABLE&quot;, &quot;HASH-TABLE-COUNT&quot;, _
+    &quot;HASH-TABLE-P&quot;, &quot;HASH-TABLE-REHASH-SIZE&quot;, &quot;HASH-TABLE-REHASH-THRESHOLD&quot;, &quot;HASH-TABLE-SIZE&quot;, &quot;HASH-TABLE-TEST&quot;, &quot;HOST-NAMESTRING&quot;, _
+    &quot;IDENTITY&quot;, &quot;IF&quot;&quot;IGNORABLE&quot;, &quot;IGNORE&quot;, &quot;IGNORE-ERRORS&quot;, &quot;IMAGPART&quot;, _
+    &quot;IMPORT&quot;, &quot;IN-PACKAGE&quot;, &quot;INCF&quot;, &quot;INITIALIZE-INSTANCE&quot;, &quot;INLINE&quot;, &quot;INPUT-STREAM-P&quot;, _
+    &quot;INSPECT&quot;, &quot;INTEGER&quot;, &quot;INTEGER-DECODE-FLOAT&quot;, &quot;INTEGER-LENGTH&quot;&quot;INTEGERP&quot;, &quot;INTERACTIVE-STREAM-P&quot;, _
+    &quot;INTERN&quot;, &quot;INTERNAL-TIME-UNITS-PER-SECOND&quot;, &quot;INTERSECTION&quot;, &quot;INVALID-METHOD-ERROR&quot;, &quot;INVOKE-DEBUGGER&quot;, &quot;INVOKE-RESTART&quot;, _
+    &quot;INVOKE-RESTART-INTERACTIVELY&quot;, &quot;ISQRT&quot;, &quot;KEY&quot;, &quot;KEYWORD&quot;, &quot;KEYWORDP&quot;, &quot;LABELS&quot;, _
+    &quot;LAMBDA&quot;, &quot;LAMBDA-LIST-KEYWORDS&quot;, &quot;LAMBDA-PARAMETERS-LIMIT&quot;, &quot;LAST&quot;, &quot;LCM&quot;, &quot;LDB&quot;, _
+    &quot;LDB-TEST&quot;, &quot;LDIFF&quot;&quot;LEAST-NEGATIVE-DOUBLE-FLOAT&quot;, &quot;LEAST-NEGATIVE-LONG-FLOAT&quot;, &quot;LEAST-NEGATIVE-NORMALIZED-DOUBLE-FLOAT&quot;, &quot;LEAST-NEGATIVE-NORMALIZED-LONG-FLOAT&quot;, _
+    &quot;LEAST-NEGATIVE-NORMALIZED-SHORT-FLOAT&quot;, &quot;LEAST-NEGATIVE-NORMALIZED-SINGLE-FLOAT&quot;, &quot;LEAST-NEGATIVE-SHORT-FLOAT&quot;, &quot;LEAST-NEGATIVE-SINGLE-FLOAT&quot;&quot;LEAST-POSITIVE-DOUBLE-FLOAT&quot;, &quot;LEAST-POSITIVE-LONG-FLOAT&quot;, _
+    &quot;LEAST-POSITIVE-NORMALIZED-DOUBLE-FLOAT&quot;, &quot;LEAST-POSITIVE-NORMALIZED-LONG-FLOAT&quot;&quot;LEAST-POSITIVE-NORMALIZED-SHORT-FLOAT&quot;, &quot;LEAST-POSITIVE-NORMALIZED-SINGLE-FLOAT&quot;, &quot;LEAST-POSITIVE-SHORT-FLOAT&quot;, &quot;LEAST-POSITIVE-SINGLE-FLOAT&quot;, _
+    &quot;LENGTH&quot;, &quot;LET&quot;&quot;LET&quot;, &quot;LISP-IMPLEMENTATION-TYPE&quot;, &quot;LISP-IMPLEMENTATION-VERSION&quot;, &quot;LIST&quot;, _
+    &quot;LIST&quot;, &quot;LIST-ALL-PACKAGES&quot;, &quot;LIST-LENGTH&quot;, &quot;LISTEN&quot;, &quot;LISTP&quot;, &quot;LOAD&quot;, _
+    &quot;LOAD-LOGICAL-PATHNAME-TRANSLATIONS&quot;&quot;LOAD-PATHNAME&quot;&quot;LOAD-PRINT&quot;, &quot;LOAD-TIME-VALUE&quot;, &quot;LOAD-TRUENAME&quot;, &quot;LOAD-VERBOSE&quot;, _
+    &quot;LOCALLY&quot;, &quot;LOG&quot;, &quot;LOGAND&quot;, &quot;LOGANDC1&quot;, &quot;LOGANDC2&quot;, &quot;LOGBITP&quot;, _
+    &quot;LOGCOUNT&quot;, &quot;LOGEQV&quot;, &quot;LOGICAL-PATHNAME&quot;, &quot;LOGICAL-PATHNAME-TRANSLATIONS&quot;, &quot;LOGIOR&quot;, &quot;LOGNAND&quot;, _
+    &quot;LOGNOR&quot;, &quot;LOGNOT&quot;&quot;LOGORC1&quot;, &quot;LOGORC2&quot;, &quot;LOGTEST&quot;, &quot;LOGXOR&quot;, _
+    &quot;LONG-FLOAT&quot;, &quot;LONG-FLOAT-EPSILON&quot;, &quot;LONG-FLOAT-NEGATIVE-EPSILON&quot;, &quot;LONG-SITE-NAME&quot;, &quot;LOOP&quot;, &quot;LOOP-FINISH&quot;, _
+    &quot;LOWER-CASE-P&quot;, &quot;MACHINE-INSTANCE&quot;&quot;MACHINE-TYPE&quot;, &quot;MACHINE-VERSION&quot;, &quot;MACRO-FUNCTION&quot;, &quot;MACROEXPAND&quot;, _
+    &quot;MACROEXPAND-1&quot;, &quot;MACROEXPAND-HOOK&quot;, &quot;MACROLET&quot;, &quot;MAKE-ARRAY&quot;, &quot;MAKE-BROADCAST-STREAM&quot;, &quot;MAKE-CONCATENATED-STREAM&quot;, _
+    &quot;MAKE-CONDITION&quot;&quot;MAKE-DISPATCH-MACRO-CHARACTER&quot;, &quot;MAKE-ECHO-STREAM&quot;, &quot;MAKE-HASH-TABLE&quot;, &quot;MAKE-INSTANCE&quot;, &quot;MAKE-INSTANCES-OBSOLETE&quot;, _
+    &quot;MAKE-LIST&quot;, &quot;MAKE-LOAD-FORM&quot;, &quot;MAKE-LOAD-FORM-SAVING-SLOTS&quot;&quot;MAKE-METHOD&quot;, &quot;MAKE-PACKAGE&quot;, &quot;MAKE-PATHNAME&quot;, _
+    &quot;MAKE-RANDOM-STATE&quot;, &quot;MAKE-SEQUENCE&quot;, &quot;MAKE-STRING&quot;, &quot;MAKE-STRING-INPUT-STREAM&quot;, &quot;MAKE-STRING-OUTPUT-STREAM&quot;, &quot;MAKE-SYMBOL&quot;, _
+    &quot;MAKE-SYNONYM-STREAM&quot;, &quot;MAKE-TWO-WAY-STREAM&quot;, &quot;MAKUNBOUND&quot;, &quot;MAP&quot;, &quot;MAP-INTO&quot;, &quot;MAPC&quot;, _
+    &quot;MAPCAN&quot;, &quot;MAPCAR&quot;, &quot;MAPCON&quot;, &quot;MAPHASH&quot;, &quot;MAPL&quot;, &quot;MAPLIST&quot;, _
+    &quot;MASK-FIELD&quot;, &quot;MAX&quot;, &quot;MEMBER&quot;, &quot;MEMBER-IF&quot;, &quot;MEMBER-IF-NOT&quot;&quot;MERGE&quot;, _
+    &quot;MERGE-PATHNAMES&quot;, &quot;METHOD&quot;, &quot;METHOD-COMBINATION&quot;, &quot;METHOD-COMBINATION-ERROR&quot;, &quot;METHOD-QUALIFIERS&quot;, &quot;MIN&quot;, _
+    &quot;MINUSP&quot;, &quot;MISMATCH&quot;, &quot;MOD&quot;, &quot;MODULES&quot;, &quot;MOST-NEGATIVE-DOUBLE-FLOAT&quot;&quot;MOST-NEGATIVE-FIXNUM&quot;, _
+    &quot;MOST-NEGATIVE-LONG-FLOAT&quot;, &quot;MOST-NEGATIVE-SHORT-FLOAT&quot;, &quot;MOST-NEGATIVE-SINGLE-FLOAT&quot;, &quot;MOST-POSITIVE-DOUBLE-FLOAT&quot;, &quot;MOST-POSITIVE-FIXNUM&quot;&quot;MOST-POSITIVE-LONG-FLOAT&quot;, _
+    &quot;MOST-POSITIVE-SHORT-FLOAT&quot;, &quot;MOST-POSITIVE-SINGLE-FLOAT&quot;, &quot;MUFFLE-WARNING&quot;, &quot;MULTIPLE-VALUE-BIND&quot;, &quot;MULTIPLE-VALUE-CALL&quot;, &quot;MULTIPLE-VALUE-LIST&quot;, _
+    &quot;MULTIPLE-VALUE-PROG1&quot;, &quot;MULTIPLE-VALUE-SETQ&quot;, &quot;MULTIPLE-VALUES-LIMIT&quot;, &quot;NAME-CHAR&quot;, &quot;NAMESTRING&quot;, &quot;NBUTLAST&quot;, _
+    &quot;NCONC&quot;, &quot;NEXT-METHOD-P&quot;, &quot;NIL&quot;, &quot;NINTERSECTION&quot;, &quot;NINTH&quot;, &quot;NO-APPLICABLE-METHOD&quot;, _
+    &quot;NO-NEXT-METHOD&quot;, &quot;NOT&quot;, &quot;NOTANY&quot;, &quot;NOTEVERY&quot;, &quot;NOTINLINE&quot;, &quot;NRECONC&quot;, _
+    &quot;NREVERSE&quot;, &quot;NSET-DIFFERENCE&quot;, &quot;NSET-EXCLUSIVE-OR&quot;, &quot;NSTRING-CAPITALIZE&quot;, &quot;NSTRING-DOWNCASE&quot;, &quot;NSTRING-UPCASE&quot;, _
+    &quot;NSUBLIS&quot;&quot;NSUBST&quot;, &quot;NSUBST-IF&quot;, &quot;NSUBST-IF-NOT&quot;, &quot;NSUBSTITUTE&quot;, &quot;NSUBSTITUTE-IF&quot;, _
+    &quot;NSUBSTITUTE-IF-NOT&quot;, &quot;NTH&quot;, &quot;NTH-VALUE&quot;, &quot;NTHCDR&quot;, &quot;NULL&quot;, &quot;NUMBER&quot;, _
+    &quot;NUMBERP&quot;, &quot;NUMERATOR&quot;, &quot;NUNION&quot;, &quot;ODDP&quot;, &quot;OPEN&quot;, &quot;OPEN-STREAM-P&quot;, _
+    &quot;OPTIMIZE&quot;, &quot;OPTIONAL&quot;, &quot;OR&quot;, &quot;OTHERWISE&quot;, &quot;OUTPUT-STREAM-P&quot;, &quot;PACKAGE&quot;, _
+    &quot;PACKAGE&quot;, &quot;PACKAGE-ERROR&quot;, &quot;PACKAGE-ERROR-PACKAGE&quot;, &quot;PACKAGE-NAME&quot;, &quot;PACKAGE-NICKNAMES&quot;, &quot;PACKAGE-SHADOWING-SYMBOLS&quot;, _
+    &quot;PACKAGE-USE-LIST&quot;&quot;PACKAGE-USED-BY-LIST&quot;, &quot;PACKAGEP&quot;, &quot;PAIRLIS&quot;, &quot;PARSE-ERROR&quot;, &quot;PARSE-INTEGER&quot;, _
+    &quot;PARSE-NAMESTRING&quot;, &quot;PATHNAME&quot;, &quot;PATHNAME-DEVICE&quot;, &quot;PATHNAME-DIRECTORY&quot;, &quot;PATHNAME-HOST&quot;, &quot;PATHNAME-MATCH-P&quot;, _
+    &quot;PATHNAME-NAME&quot;, &quot;PATHNAME-TYPE&quot;, &quot;PATHNAME-VERSION&quot;, &quot;PATHNAMEP&quot;, &quot;PEEK-CHAR&quot;, &quot;PHASE&quot;, _
+    &quot;PI&quot;, &quot;PLUSP&quot;, &quot;POP&quot;, &quot;POSITION&quot;, &quot;POSITION-IF&quot;, &quot;POSITION-IF-NOT&quot;, _
+    &quot;PPRINT&quot;, &quot;PPRINT-DISPATCH&quot;&quot;PPRINT-EXIT-IF-LIST-EXHAUSTED&quot;, &quot;PPRINT-FILL&quot;, &quot;PPRINT-INDENT&quot;, &quot;PPRINT-LINEAR&quot;, _
+    &quot;PPRINT-LOGICAL-BLOCK&quot;, &quot;PPRINT-NEWLINE&quot;, &quot;PPRINT-POP&quot;, &quot;PPRINT-TAB&quot;, &quot;PPRINT-TABULAR&quot;, &quot;PRIN1&quot;, _
+    &quot;PRIN1-TO-STRING&quot;, &quot;PRINC&quot;, &quot;PRINC-TO-STRING&quot;, &quot;PRINT&quot;, &quot;PRINT-ARRAY&quot;, &quot;PRINT-BASE&quot;, _
+    &quot;PRINT-CASE&quot;, &quot;PRINT-CIRCLE&quot;, &quot;PRINT-ESCAPE&quot;&quot;PRINT-GENSYM&quot;, &quot;PRINT-LENGTH&quot;, &quot;PRINT-LEVEL&quot;, _
+    &quot;PRINT-LINES&quot;, &quot;PRINT-MISER-WIDTH&quot;, &quot;PRINT-NOT-READABLE&quot;, &quot;PRINT-NOT-READABLE-OBJECT&quot;, &quot;PRINT-OBJECT&quot;, &quot;PRINT-PPRINT-DISPATCH&quot;, _
+    &quot;PRINT-PRETTY&quot;, &quot;PRINT-RADIX&quot;, &quot;PRINT-READABLY&quot;&quot;PRINT-RIGHT-MARGIN&quot;, &quot;PRINT-UNREADABLE-OBJECT&quot;, &quot;PROBE-FILE&quot;, _
+    &quot;PROCLAIM&quot;, &quot;PROG&quot;&quot;PROG&quot;, &quot;PROG1&quot;, &quot;PROG2&quot;, &quot;PROGN&quot;, _
+    &quot;PROGRAM-ERROR&quot;, &quot;PROGV&quot;, &quot;PROVIDE&quot;, &quot;PSETF&quot;, &quot;PSETQ&quot;, &quot;PUSH&quot;, _
+    &quot;PUSHNEW&quot;, &quot;QUERY-IO&quot;, &quot;QUOTE&quot;, &quot;RANDOM&quot;, &quot;RANDOM-STATE&quot;, &quot;RANDOM-STATE&quot;, _
+    &quot;RANDOM-STATE-P&quot;, &quot;RASSOC&quot;, &quot;RASSOC-IF&quot;, &quot;RASSOC-IF-NOT&quot;, &quot;RATIO&quot;, &quot;RATIONAL&quot;, _
+    &quot;RATIONALIZE&quot;, &quot;RATIONALP&quot;, &quot;READ&quot;, &quot;READ-BASE&quot;, &quot;READ-BYTE&quot;, &quot;READ-CHAR&quot;, _
+    &quot;READ-CHAR-NO-HANG&quot;, &quot;READ-DEFAULT-FLOAT-FORMAT&quot;, &quot;READ-DELIMITED-LIST&quot;, &quot;READ-EVAL&quot;, &quot;READ-FROM-STRING&quot;, &quot;READ-LINE&quot;, _
+    &quot;READ-PRESERVING-WHITESPACE&quot;, &quot;READ-SEQUENCE&quot;&quot;READ-SUPPRESS&quot;, &quot;READER-ERROR&quot;, &quot;READTABLE&quot;, &quot;READTABLE&quot;, _
+    &quot;READTABLE-CASE&quot;, &quot;READTABLEP&quot;, &quot;REAL&quot;, &quot;REALP&quot;, &quot;REALPART&quot;, &quot;REDUCE&quot;, _
+    &quot;REINITIALIZE-INSTANCE&quot;, &quot;REM&quot;, &quot;REMF&quot;, &quot;REMHASH&quot;, &quot;REMOVE&quot;, &quot;REMOVE-DUPLICATES&quot;, _
+    &quot;REMOVE-IF&quot;&quot;REMOVE-IF-NOT&quot;, &quot;REMOVE-METHOD&quot;, &quot;REMPROP&quot;, &quot;RENAME-FILE&quot;, &quot;RENAME-PACKAGE&quot;, _
+    &quot;REPLACE&quot;, &quot;REQUIRE&quot;, &quot;REST&quot;, &quot;REST&quot;, &quot;RESTART&quot;, &quot;RESTART-BIND&quot;, _
+    &quot;RESTART-CASE&quot;, &quot;RESTART-NAME&quot;, &quot;RETURN&quot;, &quot;RETURN-FROM&quot;&quot;REVAPPEND&quot;, &quot;REVERSE&quot;, _
+    &quot;ROOM&quot;, &quot;ROTATEF&quot;, &quot;ROUND&quot;, &quot;ROW-MAJOR-AREF&quot;, &quot;RPLACA&quot;, &quot;RPLACD&quot;, _
+    &quot;SAFETY&quot;, &quot;SATISFIES&quot;, &quot;SBIT&quot;, &quot;SCALE-FLOAT&quot;, &quot;SCHAR&quot;, &quot;SEARCH&quot;, _
+    &quot;SECOND&quot;, &quot;SEQUENCE&quot;, &quot;SERIOUS-CONDITION&quot;, &quot;SET&quot;&quot;SET-DIFFERENCE&quot;, &quot;SET-DISPATCH-MACRO-CHARACTER&quot;, _
+    &quot;SET-EXCLUSIVE-OR&quot;, &quot;SET-MACRO-CHARACTER&quot;, &quot;SET-PPRINT-DISPATCH&quot;, &quot;SET-SYNTAX-FROM-CHAR&quot;, &quot;SETF&quot;, &quot;SETQ&quot;, _
+    &quot;SEVENTH&quot;, &quot;SHADOW&quot;&quot;SHADOWING-IMPORT&quot;, &quot;SHARED-INITIALIZE&quot;, &quot;SHIFTF&quot;, &quot;SHORT-FLOAT&quot;, _
+    &quot;SHORT-FLOAT-EPSILON&quot;, &quot;SHORT-FLOAT-NEGATIVE-EPSILON&quot;, &quot;SHORT-SITE-NAME&quot;, &quot;SIGNAL&quot;, &quot;SIGNED-BYTE&quot;, &quot;SIGNUM&quot;, _
+    &quot;SIMPLE-ARRAY&quot;&quot;SIMPLE-BASE-STRING&quot;, &quot;SIMPLE-BIT-VECTOR&quot;, &quot;SIMPLE-BIT-VECTOR-P&quot;, &quot;SIMPLE-CONDITION&quot;, &quot;SIMPLE-CONDITION-FORMAT-ARGUMENTS&quot;, _
+    &quot;SIMPLE-CONDITION-FORMAT-CONTROL&quot;, &quot;SIMPLE-ERROR&quot;&quot;SIMPLE-STRING&quot;, &quot;SIMPLE-STRING-P&quot;, &quot;SIMPLE-TYPE-ERROR&quot;, &quot;SIMPLE-VECTOR&quot;, _
+    &quot;SIMPLE-VECTOR-P&quot;, &quot;SIMPLE-WARNING&quot;, &quot;SIN&quot;, &quot;SINGLE-FLOAT&quot;, &quot;SINGLE-FLOAT-EPSILON&quot;&quot;SINGLE-FLOAT-NEGATIVE-EPSILON&quot;, _
+    &quot;SINH&quot;, &quot;SIXTH&quot;, &quot;SLEEP&quot;, &quot;SLOT-BOUNDP&quot;, &quot;SLOT-EXISTS-P&quot;, &quot;SLOT-MAKUNBOUND&quot;, _
+    &quot;SLOT-MISSING&quot;, &quot;SLOT-UNBOUND&quot;, &quot;SLOT-VALUE&quot;, &quot;SOFTWARE-TYPE&quot;, &quot;SOFTWARE-VERSION&quot;&quot;SOME&quot;, _
+    &quot;SORT&quot;, &quot;SPACE&quot;, &quot;SPECIAL&quot;, &quot;SPECIAL-OPERATOR-P&quot;, &quot;SPEED&quot;, &quot;SQRT&quot;, _
+    &quot;STABLE-SORT&quot;, &quot;STANDARD&quot;, &quot;STANDARD-CHAR&quot;, &quot;STANDARD-CHAR-P&quot;, &quot;STANDARD-CLASS&quot;, &quot;STANDARD-GENERIC-FUNCTION&quot;, _
+    &quot;STANDARD-INPUT&quot;&quot;STANDARD-METHOD&quot;, &quot;STANDARD-OBJECT&quot;, &quot;STANDARD-OUTPUT&quot;, &quot;STEP&quot;, &quot;STORAGE-CONDITION&quot;, _
+    &quot;STORE-VALUE&quot;, &quot;STREAM&quot;, &quot;STREAM-ELEMENT-TYPE&quot;, &quot;STREAM-ERROR&quot;, &quot;STREAM-ERROR-STREAM&quot;, &quot;STREAM-EXTERNAL-FORMAT&quot;, _
+    &quot;STREAMP&quot;&quot;STRING&quot;, &quot;STRING-CAPITALIZE&quot;, &quot;STRING-DOWNCASE&quot;, &quot;STRING-EQUAL&quot;, &quot;STRING-GREATERP&quot;, _
+    &quot;STRING-LEFT-TRIM&quot;, &quot;STRING-LESSP&quot;, &quot;STRING-NOT-EQUAL&quot;, &quot;STRING-NOT-GREATERP&quot;, &quot;STRING-NOT-LESSP&quot;&quot;STRING-RIGHT-TRIM&quot;, _
+    &quot;STRING-STREAM&quot;, &quot;STRING-TRIM&quot;, &quot;STRING-UPCASE&quot;, &quot;STRINGP&quot;, &quot;STRUCTURE&quot;, &quot;STRUCTURE-CLASS&quot;, _
+    &quot;STRUCTURE-OBJECT&quot;, &quot;STYLE-WARNING&quot;, &quot;SUBLIS&quot;, &quot;SUBSEQ&quot;, &quot;SUBSETP&quot;, &quot;SUBST&quot;, _
+    &quot;SUBST-IF&quot;, &quot;SUBST-IF-NOT&quot;, &quot;SUBSTITUTE&quot;, &quot;SUBSTITUTE-IF&quot;, &quot;SUBSTITUTE-IF-NOT&quot;, &quot;SUBTYPEP&quot;, _
+    &quot;SVREF&quot;, &quot;SXHASH&quot;, &quot;SYMBOL&quot;&quot;SYMBOL-FUNCTION&quot;, &quot;SYMBOL-MACROLET&quot;, &quot;SYMBOL-NAME&quot;, _
+    &quot;SYMBOL-PACKAGE&quot;, &quot;SYMBOL-PLIST&quot;, &quot;SYMBOL-VALUE&quot;, &quot;SYMBOLP&quot;, &quot;SYNONYM-STREAM&quot;, &quot;SYNONYM-STREAM-SYMBOL&quot;, _
+    &quot;T&quot;, &quot;TAGBODY&quot;, &quot;TAILP&quot;, &quot;TAN&quot;, &quot;TANH&quot;&quot;TENTH&quot;, _
+    &quot;TERMINAL-IO&quot;, &quot;TERPRI&quot;, &quot;THE&quot;, &quot;THIRD&quot;, &quot;THROW&quot;, &quot;TIME&quot;, _
+    &quot;TRACE&quot;, &quot;TRACE-OUTPUT&quot;, &quot;TRANSLATE-LOGICAL-PATHNAME&quot;, &quot;TRANSLATE-PATHNAME&quot;, &quot;TREE-EQUAL&quot;, &quot;TRUENAME&quot;, _
+    &quot;TRUNCATE&quot;, &quot;TWO-WAY-STREAM&quot;, &quot;TWO-WAY-STREAM-INPUT-STREAM&quot;&quot;TWO-WAY-STREAM-OUTPUT-STREAM&quot;, &quot;TYPE&quot;, &quot;TYPE-ERROR&quot;, _
+    &quot;TYPE-ERROR-DATUM&quot;, &quot;TYPE-ERROR-EXPECTED-TYPE&quot;, &quot;TYPE-OF&quot;, &quot;TYPECASE&quot;, &quot;TYPEP&quot;, &quot;UNBOUND-SLOT&quot;, _
+    &quot;UNBOUND-SLOT-INSTANCE&quot;&quot;UNBOUND-VARIABLE&quot;, &quot;UNDEFINED-FUNCTION&quot;, &quot;UNEXPORT&quot;, &quot;UNINTERN&quot;, &quot;UNION&quot;, _
+    &quot;UNLESS&quot;, &quot;UNREAD-CHAR&quot;, &quot;UNSIGNED-BYTE&quot;, &quot;UNTRACE&quot;, &quot;UNUSE-PACKAGE&quot;, &quot;UNWIND-PROTECT&quot;, _
+    &quot;UPDATE-INSTANCE-FOR-DIFFERENT-CLASS&quot;, &quot;UPDATE-INSTANCE-FOR-REDEFINED-CLASS&quot;, &quot;UPGRADED-ARRAY-ELEMENT-TYPE&quot;, &quot;UPGRADED-COMPLEX-PART-TYPE&quot;, &quot;UPPER-CASE-P&quot;, &quot;USE-PACKAGE&quot;, _
+    &quot;USE-VALUE&quot;, &quot;USER-HOMEDIR-PATHNAME&quot;, &quot;VALUES&quot;, &quot;VALUES-LIST&quot;, &quot;VARIABLE&quot;, &quot;VECTOR&quot;, _
+    &quot;VECTOR-POP&quot;, &quot;VECTOR-PUSH&quot;, &quot;VECTOR-PUSH-EXTEND&quot;, &quot;VECTORP&quot;, &quot;WARN&quot;, &quot;WARNING&quot;, _
+    &quot;WHEN&quot;, &quot;WHOLE&quot;, &quot;WILD-PATHNAME-P&quot;&quot;WITH-ACCESSORS&quot;, &quot;WITH-COMPILATION-UNIT&quot;, &quot;WITH-CONDITION-RESTARTS&quot;, _
+    &quot;WITH-HASH-TABLE-ITERATOR&quot;, &quot;WITH-INPUT-FROM-STRING&quot;, &quot;WITH-OPEN-FILE&quot;, &quot;WITH-OPEN-STREAM&quot;&quot;WITH-OUTPUT-TO-STRING&quot;, &quot;WITH-PACKAGE-ITERATOR&quot;, _
+    &quot;WITH-SIMPLE-RESTART&quot;, &quot;WITH-SLOTS&quot;, &quot;WITH-STANDARD-IO-SYNTAX&quot;, &quot;WRITE&quot;, &quot;WRITE-BYTE&quot;, &quot;WRITE-CHAR&quot;, _
+    &quot;WRITE-LINE&quot;, &quot;WRITE-SEQUENCE&quot;&quot;WRITE-STRING&quot;, &quot;WRITE-TO-STRING&quot;, &quot;Y-OR-N-P&quot;, &quot;YES-OR-NO-P&quot;, _
+    &quot;ZEROP&quot; )
+    FMT_SortStringArrayAscending(sTokens())
+End Sub
+
+&apos;****************************************************************
+&apos;** Alternate Tokens such as system class libraries and functions
+&apos;** that you want to recognize.
+&apos;****************************************************************
+Sub FMT_InitAltTokensLisp(sAltTokens())
+  sAltTokens() = Array()
+  FMT_SortStringArrayAscending(sAltTokens())
+End Sub
+
+&apos;****************************************************************
+&apos;** Get the character styles meant for highlighting  code.
+&apos;** Special characters are formatted as a keyword.
+&apos;****************************************************************
+Function FMT_GetLispCharacterStyles()
+  FMT_GetLispCharacterStyles() = FMT_GetBasicCharacterStyles()
+End Function
+
+
+</script:module>

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script:module PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "module.dtd">
+<script:module xmlns:script="http://openoffice.org/2000/script" script:name="Go" script:language="StarBasic">REM  *****  BASIC  *****
+Option Explicit
+
+REM Author: Andrew D. Pitonyak
+REM Date: August 28, 2015
+REM License: Public Domain
+REM I appreciate knowing about changes:
+
+Sub MainGo
+  FMT_MasterColorizer(ThisComponent, &quot;GO&quot;, &quot;CUR&quot;)
+  &apos;FMT_MasterColorizer(ThisComponent, &quot;GO&quot;, &quot;SEL&quot;)
+  &apos;FMT_MasterColorizer(ThisComponent, &quot;GO&quot;, &quot;DOC&quot;)
+End Sub
+
+Sub FMT_ColorCodeCurrentGo()
+  FMT_MasterColorizer(ThisComponent, &quot;GO&quot;, &quot;CUR&quot;)
+End Sub
+
+REM Format just the selected text
+Sub HighlightSelGo()
+  FMT_MasterColorizer(ThisComponent, &quot;GO&quot;, &quot;SEL&quot;)
+End Sub
+
+&apos;****************************************************************
+&apos;** Very simple parsing of C++ code.
+&apos;****************************************************************
+Sub FMT_ColorCodeOneRangeStringGo(oSel, sTokens(), sAltTokens(), sCharStyles())
+  Dim oCurs    &apos;Iterate paragraphs in the selected region.
+  Dim oTCurs   &apos;Iterate the characters in a paragraph.
+  Dim oText    &apos;Text object containing the selection.
+  Dim iPos%
+  Dim iLen%
+  Dim i%       &apos;Temporary integer variable.
+  Dim sChar$   &apos;Current character
+  Dim sLine$   &apos;Current line (in lower case).
+  Dim bComment As Boolean
+  Dim bIsAsterick As Boolean
+
+  REM We are not currently processing a comment.
+  bComment = False
+  REM Position oTCurs at the start of the selection.
+  oText = oSel.getText()
+  oTCurs = oText.createTextCursorByRange(oSel.getStart())
+  oTCurs.goRight(0, False)
+
+  REM oCurs contains the first paragraph.
+  oCurs = FMT_CreateStartCursor(oText, oSel)
+
+  Do While oText.compareRegionEnds(oCurs, oSel) &gt;= 0
+    REM Now, process a single line of text!
+    REM oCurs has selected the entire paragraph.
+    REM oTCurs is at the start of the paragraph.
+    sLine = LCase(oCurs.getString())
+    iLen = Len(sLine)
+    iPos = 1
+    Do While iPos &lt;= iLen
+      REM Skip leading white space.
+      FMT_FindNextNonSpace(sLine, iPos%, iLen%)
+      If iPos &gt; iLen Then Exit Do
+      sChar = Mid(sLine, iPos, 1)
+
+      REM Is the cursor in a multi-line comment?
+      If bComment Then
+        i = iPos
+        Do while iPos &lt;= iLen
+          REM Skip NON &apos;*&apos; characters
+          Do 
+            If Mid(sLine, iPos, 1) &lt;&gt; &quot;*&quot; Then Exit do
+            iPos = iPos + 1
+          Loop Until iPos &gt; iLen
+
+          REM Check for &quot;*&quot;
+          bIsAsterick = False
+          If iPos &lt;= iLen Then
+            Do While Mid(sLine, iPos, 1) = &quot;*&quot;
+              bIsAsterick = True
+              iPos = iPos + 1
+              If iPos &gt; iLen Then Exit Do
+            Loop
+          End If
+
+          REM Check for trailing &quot;/&quot;
+          If iPos &lt;= iLen Then
+            iPos = iPos + 1
+            If Mid(sLine, iPos-1, 1) = &quot;/&quot; Then
+              REM Found the end of the comment
+              bComment = False
+              Exit Do
+            End If
+          End if
+        Loop
+        oTCurs.goRight(i-1, False)
+        oTCurs.goRight(iPos - i, True)
+        oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Comment)
+        oTCurs.gotoStartOfParagraph(False)
+      ElseIf sChar = &quot;/&quot; AND iPos &lt; iLen Then
+        Rem Might be a comment.
+        If Mid(sLine, iPos+1, 1) = &quot;*&quot; Then
+          REM This starts a multi-line comment.
+          REM The fastest way to find the end comment is with the
+          REM built in searching capability. Unfortunately, I can 
+          REM not then manually set iPos so I will not do this.
+          bComment = True
+          oTCurs.goRight(iPos-1, False)
+          oTCurs.goRight(2, True)
+          oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Comment)
+          iPos = iPos + 2
+          oTCurs.gotoStartOfParagraph(False)
+        ElseIf Mid(sLine, iPos+1, 1) = &quot;/&quot; Then
+          REM This starts a single line comment.
+          oTCurs.goRight(iPos-1, False)
+          oTCurs.gotoEndOfParagraph(True)
+          oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Comment)
+          iPos = iLen + 1
+        Else
+          REM This is not a comment.
+          oTCurs.goRight(iPos-1, False)
+          oTCurs.gotoEndOfParagraph(True)
+          &apos;oTCurs.CharStyleName = sCharStyles(FMT_CSNI_KeyWord)
+          oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Ident)
+          iPos = iPos + 1
+        End If
+      ElseIf sChar = &quot;&quot;&quot;&quot; OR sChar = &quot;`&quot; Then
+        REM Move to the first string quote
+        oTCurs.goRight(iPos-1, False)
+        
+        REM Remember the location of the first string quote
+        REM and then find then end of the quoted text.
+        i = iPos
+        FMT_FindEndQuoteEscape(sLine$, iPos%, iLen%)
+        
+        REM Move the cursor to the closing string quote.
+        REM Set the character style for the string.
+        REM Move the cursor back to the start of the paragraph.
+        oTCurs.goRight(iPos - i, True)
+        oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Literal)
+        oTCurs.gotoRange(oCurs.start, False)
+      ElseIf FMT_FindNumberEnd_Extended(sLine, iPos, iLen, i, &quot;&quot;) Then
+        REM Move to the number start.
+        oTCurs.goRight(iPos-1, False)
+        oTCurs.goRight(i - iPos, True)
+        oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Literal)
+        oTCurs.gotoRange(oCurs.start, False)
+        iPos = i
+      ElseIf sChar = &quot;.&quot; OR FMT_IsSpecialChar(ASC(sChar)) Then
+        i = iPos
+        oTCurs.goRight(iPos - 1, False)
+
+        Do
+          iPos = iPos + 1
+          If iPos &gt; iLen Then Exit Do
+        Loop Until NOT FMT_IsSpecialChar(ASC(Mid(sLine, iPos, 1)))
+        oTCurs.goRight(iPos - i, True)
+        oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Special)
+        oTCurs.gotoRange(oCurs.start, False)
+      Else
+        REM No special characters, so this is a variable 
+        REM or logic statement. Move to the first character.
+        i = iPos
+        oTCurs.goRight(iPos-1, False)
+        Do
+          iPos = iPos + 1
+          If iPos &gt; iLen Then 
+            Exit Do
+          End If
+        Loop Until FMT_IsWordSep(Asc(Mid(sLine, iPos, 1)))
+        oTCurs.goRight(iPos - i, True)
+        sChar = LCase(oTCurs.getString())
+
+        If FMT_ArrayHasString(sChar, sTokens()) Then
+          oTCurs.CharStyleName = sCharStyles(FMT_CSNI_KeyWord)
+        ElseIf FMT_ArrayHasString(sChar, sAltTokens()) Then
+          oTCurs.CharStyleName = sCharStyles(FMT_CSNI_AltWord)
+        Else
+          oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Ident)
+        End If
+
+        oTCurs.gotoRange(oCurs.start, False)
+      End If
+    Loop
+    If Not oCurs.gotoNextParagraph(False) Then Exit Do
+    oTCurs.gotoRange(oCurs, False)
+    If NOT FMT_CursorToParEnd(oText, oSel, oCurs) Then Exit Do
+  Loop
+End Sub
+
+&apos;****************************************************************
+&apos;** Tokens recognized by c++
+&apos;****************************************************************
+Sub FMT_InitTokensGo(sTokens())
+  sTokens() = Array(&quot;boolean&quot;, &quot;break&quot;, &quot;byte&quot;, _
+    &quot;case&quot;, &quot;chan&quot;, &quot;complex128&quot;, &quot;complex64&quot;, &quot;const&quot;, &quot;continue&quot;, _
+    &quot;default&quot;, &quot;defer&quot;, &quot;else&quot;, _
+    &quot;fallthrough&quot;, &quot;false&quot;, &quot;float32&quot;, &quot;float64&quot;, &quot;for&quot;, &quot;func&quot;, _
+    &quot;go&quot;, &quot;goto&quot;, _
+    &quot;if&quot;, &quot;import&quot;, &quot;int&quot;, &quot;int16&quot;, &quot;int32&quot;, &quot;int64&quot;, &quot;int8&quot;, &quot;interface&quot;, &quot;iota&quot;, _
+    &quot;map&quot;, &quot;nil&quot;, &quot;package&quot;, &quot;range&quot;, &quot;return&quot;, &quot;rune&quot;, _
+    &quot;select&quot;, &quot;string&quot;, &quot;struct&quot;, &quot;switch&quot;, &quot;true&quot;, &quot;type&quot;, _
+    &quot;uint&quot;, &quot;uint16&quot;, &quot;uint32&quot;, &quot;uint64&quot;, &quot;uint8&quot;, &quot;uintptr&quot;, &quot;var&quot;)
+  FMT_SortStringArrayAscending(sTokens())
+End Sub
+
+&apos;****************************************************************
+&apos;** Alternate Tokens such as system class libraries and functions
+&apos;** that you want to recognize. These are built-in functions.
+&apos;****************************************************************
+Sub FMT_InitAltTokensGo(sAltTokens())
+  sAltTokens() = Array(&quot;append&quot;, &quot;cap&quot;, &quot;close&quot;, &quot;complex&quot;, &quot;copy&quot;, _
+    &quot;delete&quot;, &quot;errorf&quot;, &quot;formatter&quot;, &quot;fprintf&quot;, &quot;fprintln&quot;, &quot;fscan&quot;, &quot;fscanf&quot;, &quot;fscanln&quot;, _
+    &quot;gostringer&quot;, _
+    &quot;imag&quot;, &quot;len&quot;, &quot;make&quot;, &quot;new&quot;, _
+    &quot;panic&quot;, &quot;print&quot;, &quot;printf&quot;, &quot;println&quot;, _
+    &quot;real&quot;, &quot;recover&quot;, _
+    &quot;scan&quot;, &quot;scanstate&quot;, &quot;scanner&quot;, &quot;scanf&quot;, &quot;scanln&quot;, &quot;sprint&quot;, &quot;sprintf&quot;, &quot;sprintln&quot;, _
+    &quot;sscan&quot;, &quot;sscanf&quot;, &quot;sscanln&quot;, &quot;state&quot;, &quot;stringer&quot;)
+  FMT_SortStringArrayAscending(sAltTokens())
+End Sub
+
+
+&apos;****************************************************************
+&apos;** Get the character styles meant for highlighting Go code.
+&apos;** Format special characters with the Base color.
+&apos;****************************************************************
+Function FMT_GetGoCharacterStyles()
+  CreateGoCharStyles()
+  FMT_GetGoCharacterStyles() =  Array( &quot;_GoComment&quot;, _
+      &quot;_GoLiteral&quot;, &quot;_GoKeyWord&quot;, _
+      &quot;_GoIdent&quot;, &quot;_OOoComputerSpecial&quot;, &quot;_GoNumber&quot;, &quot;_GoAltKeyWord&quot;)
+End Function
+
+</script:module>

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script:module PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "module.dtd">
+<script:module xmlns:script="http://openoffice.org/2000/script" script:name="Assemblerx86" script:language="StarBasic">REM  *****  BASIC  *****
+Option Explicit
+
+Sub MainAssemblerX86
+  call FMT_MasterColorizer(ThisComponent, &quot;X86&quot;, &quot;CUR&quot;)
+  &apos;FMT_MasterColorizer(ThisComponent, &quot;X86&quot;, &quot;DOC&quot;)
+  &apos;FMT_MasterColorizer(ThisComponent, &quot;X86&quot;, &quot;SEL&quot;)
+End Sub
+
+&apos;****************************************************************
+&apos;** Color code the Assembler code surrounding the view cursor.
+&apos;****************************************************************
+Sub FMT_ColorCodeCurrentAssemblerX86()
+  call FMT_MasterColorizer(ThisComponent, &quot;X86&quot;, &quot;CUR&quot;)
+End Sub
+
+REM Highlight all code in this document.
+Sub HighlightDocAssemblerX86()
+  call FMT_MasterColorizer(ThisComponent, &quot;X86&quot;, &quot;DOC&quot;)
+
+End Sub
+
+REM Format just the selected text
+Sub HighlightSelAssemblerX86()
+  call FMT_MasterColorizer(ThisComponent, &quot;X86&quot;, &quot;SEL&quot;)
+End Sub
+
+
+Sub FMT_InitTokensAssemblerX86_Instructions(sTokens())
+  sTokens() = Array( &quot;aaa&quot;, &quot;aad&quot;, &quot;aam&quot;, &quot;aas&quot;, &quot;adc&quot;, &quot;add&quot;, &quot;addpd&quot;, &quot;addps&quot;, &quot;addsd&quot;, _
+   &quot;addss&quot;, &quot;addsubpd&quot;, &quot;addsubps&quot;, &quot;aesdec&quot;, &quot;aesdeclast&quot;, &quot;aesenc&quot;, &quot;aesenclast&quot;, &quot;aesimc&quot;, &quot;aeskeygenassist&quot;, _
+   &quot;and&quot;, &quot;andnpd&quot;, &quot;andnps&quot;, &quot;andpd&quot;, &quot;andps&quot;, &quot;arpl&quot;, &quot;blendpd&quot;, &quot;blendps&quot;, &quot;blendvpd&quot;, _
+   &quot;blendvps&quot;, &quot;bound&quot;, &quot;bsf&quot;, &quot;bsr&quot;, &quot;bswap&quot;, &quot;bt&quot;, &quot;btc&quot;, &quot;btr&quot;, &quot;bts&quot;, _
+   &quot;call&quot;, &quot;cbw&quot;, &quot;cdq&quot;, &quot;clc&quot;, &quot;cld&quot;, &quot;clflush&quot;, &quot;clgi&quot;, &quot;cli&quot;, &quot;clts&quot;, _
+   &quot;cmc&quot;, &quot;cmova&quot;, &quot;cmovae&quot;, &quot;cmovb&quot;, &quot;cmovbe&quot;, &quot;cmovc&quot;, &quot;cmove&quot;, &quot;cmovg&quot;, &quot;cmovge&quot;, _
+   &quot;cmovl&quot;, &quot;cmovle&quot;, &quot;cmovna&quot;, &quot;cmovnae&quot;, &quot;cmovnb&quot;, &quot;cmovnbe&quot;, &quot;cmovnc&quot;, &quot;cmovne&quot;, &quot;cmovng&quot;, _
+   &quot;cmovnge&quot;, &quot;cmovnl&quot;, &quot;cmovnle&quot;, &quot;cmovno&quot;, &quot;cmovnp&quot;, &quot;cmovns&quot;, &quot;cmovnz&quot;, &quot;cmovo&quot;, &quot;cmovp&quot;, _
+   &quot;cmovpe&quot;, &quot;cmovpo&quot;, &quot;cmovs&quot;, &quot;cmovz&quot;, &quot;cmp&quot;, &quot;cmppd&quot;, &quot;cmpps&quot;, &quot;cmpsb&quot;, &quot;cmpsd&quot;, _
+   &quot;cmpsd*&quot;, &quot;cmpss&quot;, &quot;cmpsw&quot;, &quot;cmpxchg&quot;, &quot;cmpxchg16b&quot;, &quot;cmpxchg8b&quot;, &quot;comisd&quot;, &quot;comiss&quot;, &quot;cpuid&quot;, _
+   &quot;crc32&quot;, &quot;cvtdq2pd&quot;, &quot;cvtdq2ps&quot;, &quot;cvtpd2dq&quot;, &quot;cvtpd2pi&quot;, &quot;cvtpd2ps&quot;, &quot;cvtpi2pd&quot;, &quot;cvtpi2ps&quot;, &quot;cvtps2dq&quot;, _
+   &quot;cvtps2pd&quot;, &quot;cvtps2pi&quot;, &quot;cvtsd2si&quot;, &quot;cvtsd2ss&quot;, &quot;cvtsi2sd&quot;, &quot;cvtsi2ss&quot;, &quot;cvtss2sd&quot;, &quot;cvtss2si&quot;, &quot;cvttpd2dq&quot;, _
+   &quot;cvttpd2pi&quot;, &quot;cvttps2dq&quot;, &quot;cvttps2pi&quot;, &quot;cvttsd2si&quot;, &quot;cvttss2si&quot;, &quot;cwd&quot;, &quot;cwde&quot;, &quot;daa&quot;, &quot;das&quot;, _
+   &quot;dec&quot;, &quot;div&quot;, &quot;divpd&quot;, &quot;divps&quot;, &quot;divsd&quot;, &quot;divss&quot;, &quot;dppd&quot;, &quot;dpps&quot;, &quot;emms&quot;, _
+   &quot;enter&quot;, &quot;esc&quot;, &quot;extractps&quot;, &quot;extrq&quot;, &quot;f2xm1&quot;, &quot;fabs&quot;, &quot;fadd&quot;, &quot;faddp&quot;, &quot;fbld&quot;, _
+   &quot;fbstp&quot;, &quot;fchs&quot;, &quot;fclex&quot;, &quot;fcmovb&quot;, &quot;fcmovbe&quot;, &quot;fcmove&quot;, &quot;fcmovnb&quot;, &quot;fcmovnbe&quot;, &quot;fcmovne&quot;, _
+   &quot;fcmovnu&quot;, &quot;fcmovu&quot;, &quot;fcom&quot;, &quot;fcomi&quot;, &quot;fcomip&quot;, &quot;fcomp&quot;, &quot;fcompp&quot;, &quot;fcos&quot;, &quot;fdecstp&quot;, _
+   &quot;fdisi&quot;, &quot;fdiv&quot;, &quot;fdivp&quot;, &quot;fdivr&quot;, &quot;fdivrp&quot;, &quot;femms&quot;, &quot;feni&quot;, &quot;ffree&quot;, &quot;ffreep&quot;, _
+   &quot;fiadd&quot;, &quot;ficom&quot;, &quot;ficomp&quot;, &quot;fidiv&quot;, &quot;fidivr&quot;, &quot;fild&quot;, &quot;fimul&quot;, &quot;fincstp&quot;, &quot;finit&quot;, _
+   &quot;fist&quot;, &quot;fistp&quot;, &quot;fisttp&quot;, &quot;fisub&quot;, &quot;fisubr&quot;, &quot;fld&quot;, &quot;fld1&quot;, &quot;fldcw&quot;, &quot;fldenv&quot;, _
+   &quot;fldenvd&quot;, &quot;fldenvw&quot;, &quot;fldl2e&quot;, &quot;fldl2t&quot;, &quot;fldlg2&quot;, &quot;fldln2&quot;, &quot;fldpi&quot;, &quot;fldz&quot;, &quot;fmul&quot;, _
+   &quot;fmulp&quot;, &quot;fnclex&quot;, &quot;fndisi&quot;, &quot;fneni&quot;, &quot;fninit&quot;, &quot;fnop&quot;, &quot;fnsave&quot;, &quot;fnsaved&quot;, &quot;fnsavew&quot;, _
+   &quot;fnstcw&quot;, &quot;fnstenv&quot;, &quot;fnstenvd&quot;, &quot;fnstenvw&quot;, &quot;fnstsw&quot;, &quot;fpatan&quot;, &quot;fprem&quot;, &quot;fprem1&quot;, &quot;fptan&quot;, _
+   &quot;frndint&quot;, &quot;frstor&quot;, &quot;frstord&quot;, &quot;frstorw&quot;, &quot;fsave&quot;, &quot;fsaved&quot;, &quot;fsavew&quot;, &quot;fscale&quot;, &quot;fsetpm&quot;, _
+   &quot;fsin&quot;, &quot;fsincos&quot;, &quot;fsqrt&quot;, &quot;fst&quot;, &quot;fstcw&quot;, &quot;fstenv&quot;, &quot;fstenvd&quot;, &quot;fstenvw&quot;, &quot;fstp&quot;, _
+   &quot;fstsw&quot;, &quot;fsub&quot;, &quot;fsubp&quot;, &quot;fsubr&quot;, &quot;fsubrp&quot;, &quot;ftst&quot;, &quot;fucom&quot;, &quot;fucomi&quot;, &quot;fucomip&quot;, _
+   &quot;fucomp&quot;, &quot;fucompp&quot;, &quot;fwait&quot;, &quot;fxam&quot;, &quot;fxch&quot;, _
+   &quot;fxrstor&quot;, _
+   &quot;fxsave&quot;, _
+   &quot;fxtract&quot;, &quot;fyl2x&quot;, _
+   &quot;fyl2xp1&quot;, &quot;haddpd&quot;, &quot;haddps&quot;, &quot;hlt&quot;, &quot;hsubpd&quot;, &quot;hsubps&quot;, &quot;idiv&quot;, &quot;imul&quot;, &quot;in&quot;, _
+   &quot;inc&quot;, &quot;ins&quot;, &quot;insb&quot;, &quot;insd&quot;, &quot;insertps&quot;, &quot;insertq&quot;, &quot;insw&quot;, &quot;int&quot;, &quot;into&quot;, _
+   &quot;invd&quot;, &quot;invlpg&quot;, &quot;iret&quot;, &quot;iretd&quot;, &quot;iretf&quot;, &quot;ja&quot;, &quot;jae&quot;, &quot;jb&quot;, &quot;jbe&quot;, _
+   &quot;jc&quot;, &quot;jcxz&quot;, &quot;je&quot;, &quot;jecxz&quot;, &quot;jg&quot;, &quot;jge&quot;, &quot;jl&quot;, &quot;jle&quot;, &quot;jmp&quot;, _
+   &quot;jna&quot;, &quot;jnae&quot;, &quot;jnb&quot;, &quot;jnbe&quot;, &quot;jnc&quot;, &quot;jne&quot;, &quot;jng&quot;, &quot;jnge&quot;, &quot;jnl&quot;, _
+   &quot;jnle&quot;, &quot;jno&quot;, &quot;jnp&quot;, &quot;jns&quot;, &quot;jnz&quot;, &quot;jo&quot;, &quot;jp&quot;, &quot;jpe&quot;, &quot;jpo&quot;, _
+   &quot;js&quot;, &quot;jz&quot;, &quot;lahf&quot;, &quot;lar&quot;, &quot;lddqu&quot;, &quot;ldmxcsr&quot;, &quot;lds&quot;, &quot;lea&quot;, &quot;leave&quot;, _
+   &quot;les&quot;, &quot;lfence&quot;, &quot;lfs&quot;, &quot;lgdt&quot;, &quot;lgs&quot;, &quot;lidt&quot;, &quot;lldt&quot;, &quot;lmsw&quot;, &quot;loadall&quot;, _
+   &quot;lock&quot;, &quot;lodsb&quot;, &quot;lodsd&quot;, &quot;lodsw&quot;, &quot;loop&quot;, &quot;loopd&quot;, &quot;loope&quot;, &quot;looped&quot;, &quot;loopew&quot;, _
+   &quot;loopne&quot;, &quot;loopned&quot;, &quot;loopnew&quot;, &quot;loopnz&quot;, &quot;loopnzd&quot;, &quot;loopnzw&quot;, &quot;loopw&quot;, &quot;loopz&quot;, &quot;loopzd&quot;, _
+   &quot;loopzw&quot;, &quot;lsl&quot;, &quot;lss&quot;, &quot;ltr&quot;, &quot;lzcnt&quot;, &quot;maskmovdqu&quot;, &quot;maskmovq&quot;, &quot;maxpd&quot;, &quot;maxps&quot;, _
+   &quot;maxsd&quot;, &quot;maxss&quot;, &quot;mfence&quot;, &quot;minpd&quot;, &quot;minps&quot;, &quot;minsd&quot;, &quot;minss&quot;, &quot;monitor&quot;, &quot;mov&quot;, _
+   &quot;movapd&quot;, &quot;movaps&quot;, &quot;movd&quot;, &quot;movddup&quot;, &quot;movdq2q&quot;, &quot;movdqa&quot;, &quot;movdqu&quot;, &quot;movhlps&quot;, &quot;movhpd&quot;, _
+   &quot;movhps&quot;, &quot;movlhps&quot;, &quot;movlpd&quot;, &quot;movlps&quot;, &quot;movmskpd&quot;, &quot;movmskps&quot;, &quot;movntdq&quot;, &quot;movntdqa&quot;, &quot;movnti&quot;, _
+   &quot;movntpd&quot;, &quot;movntps&quot;, &quot;movntq&quot;, &quot;movntsd&quot;, &quot;movntss&quot;, &quot;movq&quot;, &quot;movq2dq&quot;, &quot;movsb&quot;, &quot;movsd&quot;, _
+   &quot;movshdup&quot;, &quot;movsldup&quot;, &quot;movss&quot;, &quot;movsw&quot;, &quot;movsx&quot;, &quot;movupd&quot;, &quot;movups&quot;, &quot;movzx&quot;, &quot;mpsadbw&quot;, _
+   &quot;mul&quot;, &quot;mulpd&quot;, &quot;mulps&quot;, &quot;mulsd&quot;, &quot;mulss&quot;, &quot;mwait&quot;, &quot;neg&quot;, &quot;nop&quot;, &quot;not&quot;, _
+   &quot;or&quot;, &quot;orpd&quot;, &quot;orps&quot;, &quot;out&quot;, &quot;outs&quot;, &quot;pabsb&quot;, &quot;pabsd&quot;, &quot;pabsw&quot;, &quot;packssdw&quot;, _
+   &quot;packsswb&quot;, &quot;packusdw&quot;, &quot;packuswb&quot;, &quot;paddb&quot;, &quot;paddd&quot;, &quot;paddq&quot;, &quot;paddsb&quot;, &quot;paddsiw&quot;, &quot;paddsw&quot;, _
+   &quot;paddusb&quot;, &quot;paddusw&quot;, &quot;paddw&quot;, &quot;palignr&quot;, &quot;pand&quot;, &quot;pandn&quot;, &quot;pause&quot;, &quot;paveb&quot;, &quot;pavgb&quot;, _
+   &quot;pavgb m&quot;, &quot;pavgusb&quot;, &quot;pavgw&quot;, &quot;pavgw m&quot;, &quot;pblendvb&quot;, &quot;pblendw&quot;, &quot;pcmpeqb&quot;, &quot;pcmpeqd&quot;, &quot;pcmpeqq&quot;, _
+   &quot;pcmpeqw&quot;, &quot;pcmpestri&quot;, &quot;pcmpestrm&quot;, &quot;pcmpgtb&quot;, &quot;pcmpgtd&quot;, &quot;pcmpgtq&quot;, &quot;pcmpgtw&quot;, &quot;pcmpistri&quot;, &quot;pcmpistrm&quot;, _
+   &quot;pdistib&quot;, &quot;pextrb&quot;, &quot;pextrd&quot;, &quot;pextrq&quot;, &quot;pextrw&quot;, &quot;pf2id&quot;, &quot;pf2iw&quot;, &quot;pfacc&quot;, &quot;pfadd&quot;, _
+   &quot;pfcmpeq&quot;, &quot;pfcmpge&quot;, &quot;pfcmpgt&quot;, &quot;pfmax&quot;, &quot;pfmin&quot;, &quot;pfmul&quot;, &quot;pfnacc&quot;, &quot;pfpnacc&quot;, &quot;pfrcp&quot;, _
+   &quot;pfrcpit1&quot;, &quot;pfrcpit2&quot;, &quot;pfrcpv&quot;, &quot;pfrsqit1&quot;, &quot;pfrsqrt&quot;, &quot;pfrsqrtv&quot;, &quot;pfsub&quot;, &quot;pfsubr&quot;, &quot;phaddd&quot;, _
+   &quot;phaddsw&quot;, &quot;phaddw&quot;, &quot;phminposuw&quot;, &quot;phsubd&quot;, &quot;phsubsw&quot;, &quot;phsubw&quot;, &quot;pi2fd&quot;, &quot;pi2fw&quot;, &quot;pinsrb&quot;, _
+   &quot;pinsrd&quot;, &quot;pinsrq&quot;, &quot;pinsrw&quot;, &quot;pmachriw&quot;, &quot;pmaddubsw&quot;, &quot;pmaddwd&quot;, &quot;pmagw&quot;, &quot;pmaxsb&quot;, &quot;pmaxsd&quot;, _
+   &quot;pmaxsw&quot;, &quot;pmaxub&quot;, &quot;pmaxud&quot;, &quot;pmaxuw&quot;, &quot;pminsb&quot;, &quot;pminsd&quot;, &quot;pminsw&quot;, &quot;pminub&quot;, &quot;pminud&quot;, _
+   &quot;pminuw&quot;, &quot;pmovmskb&quot;, &quot;pmovsxbd&quot;, &quot;pmovsxbq&quot;, &quot;pmovsxbw&quot;, &quot;pmovsxdq&quot;, &quot;pmovsxwd&quot;, &quot;pmovsxwq&quot;, &quot;pmovzxbd&quot;, _
+   &quot;pmovzxbq&quot;, &quot;pmovzxbw&quot;, &quot;pmovzxdq&quot;, &quot;pmovzxwd&quot;, &quot;pmovzxwq&quot;, &quot;pmuldq&quot;, &quot;pmulhriw&quot;, &quot;pmulhrsw&quot;, &quot;pmulhrw&quot;, _
+   &quot;pmulhuw&quot;, &quot;pmulhw&quot;, &quot;pmulld&quot;, &quot;pmullw&quot;, &quot;pmuludq&quot;, &quot;pmvgezb&quot;, &quot;pmvlzb&quot;, &quot;pmvnzb&quot;, &quot;pmvzb&quot;, _
+   &quot;pop&quot;, &quot;popa&quot;, &quot;popad&quot;, &quot;popcnt&quot;, &quot;popf&quot;, &quot;popfd&quot;, &quot;por&quot;, &quot;prefetch&quot;, &quot;prefetch0&quot;, _
+   &quot;prefetch1&quot;, &quot;prefetch2&quot;, &quot;prefetchnta&quot;, &quot;prefetchw&quot;, &quot;psadbw&quot;, &quot;pshufb&quot;, &quot;pshufd&quot;, &quot;pshufhw&quot;, &quot;pshuflw&quot;, _
+   &quot;pshufw&quot;, &quot;psignb&quot;, &quot;psignd&quot;, &quot;psignw&quot;, &quot;pslld&quot;, &quot;pslldq&quot;, &quot;psllq&quot;, &quot;psllw&quot;, &quot;psrad&quot;, _
+   &quot;psraw&quot;, &quot;psrld&quot;, &quot;psrldq&quot;, &quot;psrlq&quot;, &quot;psrlw&quot;, &quot;psubb&quot;, &quot;psubd&quot;, &quot;psubq&quot;, &quot;psubsb&quot;, _
+   &quot;psubsiw&quot;, &quot;psubsw&quot;, &quot;psubusb&quot;, &quot;psubusw&quot;, &quot;psubw&quot;, &quot;pswapd&quot;, &quot;ptest&quot;, &quot;punpckhbw&quot;, &quot;punpckhdq&quot;, _
+   &quot;punpckhqdq&quot;, &quot;punpckhwd&quot;, &quot;punpcklbw&quot;, &quot;punpckldq&quot;, &quot;punpcklqdq&quot;, &quot;punpcklwd&quot;, &quot;push&quot;, &quot;pusha&quot;, &quot;pushad&quot;, _
+   &quot;pushf&quot;, &quot;pushfd&quot;, &quot;pxor&quot;, &quot;rcl&quot;, &quot;rcpps&quot;, &quot;rcpss&quot;, &quot;rcr&quot;, &quot;rdmsr&quot;, &quot;rdpmc&quot;, _
+   &quot;rdtsc&quot;, &quot;rdtscp&quot;, &quot;rep&quot;, &quot;repe&quot;, &quot;repne&quot;, &quot;repnz&quot;, &quot;repz&quot;, &quot;ret&quot;, &quot;retf&quot;, _
+   &quot;retn&quot;, &quot;rol&quot;, &quot;ror&quot;, &quot;roundpd&quot;, &quot;roundps&quot;, &quot;roundsd&quot;, &quot;roundss&quot;, &quot;rsm&quot;, &quot;rsqrtps&quot;, _
+   &quot;rsqrtss&quot;, &quot;sahf&quot;, &quot;sal&quot;, &quot;sar&quot;, &quot;sbb&quot;, &quot;scasb&quot;, &quot;scasd&quot;, &quot;scasw&quot;, &quot;seta&quot;, _
+   &quot;setae&quot;, &quot;setb&quot;, &quot;setbe&quot;, &quot;setc&quot;, &quot;sete&quot;, &quot;setg&quot;, &quot;setge&quot;, &quot;setl&quot;, &quot;setle&quot;, _
+   &quot;setna&quot;, &quot;setnae&quot;, &quot;setnb&quot;, &quot;setnbe&quot;, &quot;setnc&quot;, &quot;setne&quot;, &quot;setng&quot;, &quot;setnge&quot;, &quot;setnl&quot;, _
+   &quot;setnle&quot;, &quot;setno&quot;, &quot;setnp&quot;, &quot;setns&quot;, &quot;setnz&quot;, &quot;seto&quot;, &quot;setp&quot;, &quot;setpe&quot;, &quot;setpo&quot;, _
+   &quot;sets&quot;, &quot;setz&quot;, &quot;sfence&quot;, &quot;sgdt&quot;, &quot;shl&quot;, &quot;shld&quot;, &quot;shr&quot;, &quot;shrd&quot;, &quot;shufpd&quot;, _
+   &quot;shufps&quot;, &quot;sidt&quot;, &quot;skinit&quot;, &quot;sldt&quot;, &quot;smsw&quot;, &quot;sqrtpd&quot;, &quot;sqrtps&quot;, &quot;sqrtsd&quot;, &quot;sqrtss&quot;, _
+   &quot;stc&quot;, &quot;std&quot;, &quot;stgi&quot;, &quot;sti&quot;, &quot;stmxcsr&quot;, &quot;stosb&quot;, &quot;stosw&quot;, &quot;stosx&quot;, &quot;str&quot;, _
+   &quot;sub&quot;, &quot;subpd&quot;, &quot;subps&quot;, &quot;subsd&quot;, &quot;subss&quot;, &quot;syscall&quot;, &quot;sysenter&quot;, &quot;sysexit&quot;, &quot;sysret&quot;, _
+   &quot;test&quot;, &quot;ucomisd&quot;, &quot;ucomiss&quot;, &quot;ud2&quot;, &quot;unpckhpd&quot;, &quot;unpckhps&quot;, &quot;unpcklpd&quot;, &quot;unpcklps&quot;, &quot;verr&quot;, _
+   &quot;verw&quot;, &quot;vfmaddpd&quot;, &quot;vfmaddps&quot;, &quot;vfmaddsd&quot;, &quot;vfmaddss&quot;, &quot;vfmaddsubpd&quot;, &quot;vfmaddsubps&quot;, &quot;vfmsubaddpd&quot;, &quot;vfmsubaddps&quot;, _
+   &quot;vfmsubpd&quot;, &quot;vfmsubps&quot;, &quot;vfmsubsd&quot;, &quot;vfmsubss&quot;, &quot;vfnmaddpd&quot;, &quot;vfnmaddps&quot;, &quot;vfnmaddsd&quot;, &quot;vfnmaddss&quot;, &quot;vfnmsubpd&quot;, _
+   &quot;vfnmsubps&quot;, &quot;vfnmsubsd&quot;, &quot;vfnmsubss&quot;, &quot;vmcall&quot;, &quot;vmclear&quot;, &quot;vmlaunch&quot;, &quot;vmload&quot;, &quot;vmmcall&quot;, &quot;vmptrld&quot;, _
+   &quot;vmptrst&quot;, &quot;vmread&quot;, &quot;vmresume&quot;, &quot;vmrun&quot;, &quot;vmsave&quot;, &quot;vmwrite&quot;, &quot;vmxoff&quot;, &quot;vmxon&quot;, &quot;wait&quot;, _
+   &quot;wbinvd&quot;, &quot;wrmsr&quot;, &quot;xadd&quot;, &quot;xchg&quot;, &quot;xlat&quot;, &quot;xor&quot;, &quot;xorpd&quot;, &quot;xorps&quot; )
+    call FMT_SortStringArrayAscending(sTokens())
+End Sub
+
+Sub FMT_InitTokensAssemblerX86_Directives(sTokens())
+  sTokens() = Array( &quot;.186&quot;, &quot;.286&quot;, &quot;.286p&quot;, &quot;.287&quot;, &quot;.2byte&quot;, &quot;.386&quot;, &quot;.386p&quot;, &quot;.387&quot;, _
+    &quot;.486&quot;, &quot;.486p&quot;, &quot;.4byte&quot;, &quot;.586&quot;, &quot;.586p&quot;, &quot;.686&quot;, &quot;.686p&quot;, &quot;.8086&quot;, &quot;.8087&quot;, &quot;.8byte&quot;, _
+    &quot;.align&quot;, &quot;.alpha&quot;, &quot;.ascii&quot;, &quot;.bcd&quot;, &quot;.break&quot;, &quot;.bss&quot;, &quot;.byte&quot;, _
+    &quot;.code&quot;, &quot;.comm&quot;, &quot;.const&quot;, &quot;.continue&quot;, &quot;.cref&quot;, _
+    &quot;.data?&quot;, &quot;.data&quot;, &quot;.data&quot;, &quot;.dosseg&quot;, &quot;.double&quot;, _
+    &quot;.else&quot;, &quot;.elseif&quot;, &quot;.endif&quot;, &quot;.endw&quot;, &quot;.err&quot;, &quot;.err2&quot;, &quot;.errb&quot;, &quot;.errdef&quot;, &quot;.errdif&quot;, _
+    &quot;.errdifi&quot;, &quot;.erre&quot;, &quot;.erridn&quot;, &quot;.erridni&quot;, &quot;.errnb&quot;, &quot;.errndef&quot;, &quot;.errnz&quot;, &quot;.even&quot;, _
+    &quot;.exit&quot;, &quot;.ext&quot;, &quot;.fardata?&quot;, &quot;.fardata&quot;, &quot;.file&quot;, &quot;.float&quot;, &quot;.global&quot;, &quot;.group&quot;, _
+    &quot;.hidden&quot;, &quot;.ident&quot;, &quot;.if&quot;, &quot;.lcomm&quot;, &quot;.list&quot;, &quot;.listall&quot;, &quot;.listif&quot;, &quot;.listmacro&quot;, _
+    &quot;.listmacroall&quot;, &quot;.local&quot;, &quot;.long&quot;, &quot;.model&quot;, &quot;.no87&quot;, &quot;.nocref&quot;, &quot;.nolist&quot;, &quot;.nolistif&quot;, _
+    &quot;.nolistmacro&quot;, &quot;.popsection&quot;, &quot;.previous&quot;, &quot;.pushsection&quot;, &quot;.quad&quot;, &quot;.radix&quot;, &quot;.rel&quot;, &quot;.repeat&quot;, _
+    &quot;.section&quot;, &quot;.seq&quot;, &quot;.set&quot;, &quot;.skip&quot;, &quot;.sleb128&quot;, &quot;.stack&quot;, &quot;.startup&quot;, &quot;.string&quot;, _
+    &quot;.symbolic&quot;, &quot;.tbss&quot;, &quot;.tcomm&quot;, &quot;.tdata&quot;, &quot;.text&quot;, &quot;.tfcond&quot;, &quot;.uleb128&quot;, &quot;.until&quot;, _
+    &quot;.untilcxz&quot;, &quot;.value&quot;, &quot;.weak&quot;, &quot;.while&quot;, &quot;.zero&quot;, &quot;align&quot;, &quot;assume&quot;, &quot;byte&quot;, _
+    &quot;casemap&quot;, &quot;catstr&quot;, &quot;clist&quot;, &quot;code&quot;, &quot;comm&quot;, &quot;comment&quot;, _
+    &quot;db&quot;, &quot;dd&quot;, &quot;dq&quot;, &quot;dword&quot;, &quot;dup&quot;, &quot;dw&quot;, _
+    &quot;echo&quot;, &quot;else&quot;, &quot;elsec&quot;, &quot;elseif&quot;, &quot;elseif2&quot;, _
+    &quot;end&quot;, &quot;endc&quot;, &quot;endif&quot;, &quot;endm&quot;, &quot;endp&quot;, &quot;ends&quot;, &quot;equ&quot;, &quot;equates&quot;, &quot;even&quot;, _
+    &quot;exitm&quot;, &quot;extern&quot;, &quot;externdef&quot;, _
+    &quot;fail&quot;, &quot;fields&quot;, &quot;flat&quot;, &quot;for&quot;, &quot;forc&quot;, &quot;fword&quot;, &quot;goto&quot;, &quot;group&quot;, _
+    &quot;if&quot;, &quot;if2&quot;, &quot;ifb&quot;, &quot;ifc&quot;, &quot;ifcc&quot;, &quot;ifdef&quot;, &quot;ifdif&quot;, &quot;ific&quot;, &quot;ifdifi&quot;, &quot;ife&quot;, &quot;ifidn&quot;, _
+    &quot;ifidni&quot;, &quot;ifinc&quot;, &quot;ifnb&quot;, &quot;ifnc&quot;, &quot;ifndef&quot;, _
+    &quot;include&quot;, &quot;includelib&quot;, &quot;instr&quot;, &quot;invoke&quot;, &quot;label&quot;, &quot;large&quot;, _
+    &quot;list&quot;, &quot;listf&quot;, _
+    &quot;local&quot;, &quot;macro&quot;, &quot;macros&quot;, &quot;mc&quot;, &quot;md&quot;, &quot;mex&quot;, _
+    &quot;name&quot;, &quot;nolist&quot;, &quot;nomc&quot;, &quot;nomd&quot;, &quot;nomex&quot;, &quot;none&quot;, &quot;noobj&quot;, &quot;nopage&quot;, &quot;nouna&quot;, _
+    &quot;obj&quot;, &quot;offset&quot;, &quot;opt&quot;, &quot;option&quot;, &quot;org&quot;, &quot;page&quot;, &quot;pagewidth&quot;, &quot;para&quot;, &quot;popcontext&quot;, &quot;proc&quot;, _
+    &quot;proto&quot;, &quot;ptr&quot;, &quot;public&quot;, &quot;purge&quot;, &quot;pushcontext&quot;, &quot;qword&quot;, _
+    &quot;real10&quot;, &quot;real4&quot;, &quot;real8&quot;, &quot;repeat&quot;, _
+    &quot;sbyte&quot;, &quot;scope&quot;, &quot;sdword&quot;, &quot;section&quot;, &quot;segment&quot;, &quot;sizestr&quot;, _
+    &quot;small&quot;, &quot;spc&quot;, &quot;stdcall&quot;, &quot;struc&quot;, &quot;substr&quot;, &quot;subtitle&quot;, _
+    &quot;sword&quot;, &quot;sym&quot;, _
+    &quot;tbyte&quot;, &quot;textequ&quot;, &quot;tiny&quot;, &quot;title&quot;, &quot;ttl&quot;, &quot;typedef&quot;, _
+    &quot;una&quot;, &quot;use16&quot;, &quot;use32&quot;, &quot;use64&quot;, &quot;use8&quot;, &quot;uses&quot;, _
+    &quot;while&quot;, &quot;word&quot;, &quot;xdef&quot;, &quot;xref&quot; )
+  FMT_SortStringArrayAscending(sTokens())  
+End Sub
+
+Sub FMT_InitTokensAssemblerX86_Operators(sTokens())
+  FMT_InitTokensAssembler8085_Operators(sTokens())
+End Sub
+
+
+Sub FMT_InitTokensAssemblerX86_Registers(sTokens())
+  sTokens() = Array( &quot;ac&quot;, &quot;af&quot;, &quot;ah&quot;, &quot;al&quot;, &quot;ax&quot;, _
+   &quot;bh&quot;, &quot;bl&quot;, &quot;bp&quot;, &quot;bx&quot;, _
+   &quot;cf&quot;, &quot;ch&quot;, &quot;cl&quot;, _
+   &quot;cr0&quot;, &quot;cr1&quot;, &quot;cr2&quot;, &quot;cr3&quot;, &quot;cr4&quot;, _
+   &quot;cs&quot;, &quot;cx&quot;, _
+   &quot;df&quot;, &quot;dh&quot;, &quot;di&quot;, &quot;dl&quot;, _
+   &quot;dr0&quot;, &quot;dr1&quot;, &quot;dr2&quot;, &quot;dr3&quot;, &quot;dr4&quot;, &quot;dr5&quot;, &quot;dr6&quot;, &quot;dr7&quot;, _
+   &quot;ds&quot;, &quot;dx&quot;, _
+   &quot;eac&quot;, &quot;eax&quot;, &quot;ebp&quot;, &quot;ebx&quot;, &quot;ecx&quot;, &quot;edi&quot;, &quot;edx&quot;, &quot;eip&quot;, &quot;epb&quot;, &quot;es&quot;, &quot;esi&quot;, &quot;esp&quot;, &quot;esp&quot;, _
+   &quot;fs&quot;, &quot;gdtr&quot;, &quot;gs&quot;, &quot;id&quot;, &quot;idtr&quot;, &quot;if&quot;, &quot;iopl&quot;, &quot;ip&quot;, &quot;ldtr&quot;, _
+   &quot;mm0&quot;, &quot;mm1&quot;, &quot;mm2&quot;, &quot;mm3&quot;, &quot;mm4&quot;, &quot;mm5&quot;, &quot;mm6&quot;, &quot;mm7&quot;, &quot;nt&quot;, &quot;of&quot;, _
+   &quot;pf&quot;, &quot;rbpeax&quot;, &quot;rf&quot;, &quot;sf&quot;, &quot;si&quot;, &quot;sp&quot;, &quot;ss&quot;, &quot;st&quot;, _
+   &quot;tf&quot;, &quot;tr&quot;, &quot;tr3&quot;, &quot;tr4&quot;, &quot;tr5&quot;, &quot;tr6&quot;, &quot;tr7&quot;, _
+   &quot;vif&quot;, &quot;vip&quot;, &quot;vm&quot;, _
+   &quot;xmm0&quot;, &quot;xmm1&quot;, &quot;xmm2&quot;, &quot;xmm3&quot;, &quot;xmm4&quot;, &quot;xmm5&quot;, &quot;xmm6&quot;, &quot;xmm7&quot;, &quot;zf&quot; )
+    FMT_SortStringArrayAscending(sTokens())
+End Sub
+
+
+
+</script:module>

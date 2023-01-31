@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script:module PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "module.dtd">
+<script:module xmlns:script="http://openoffice.org/2000/script" script:name="SQL" script:language="StarBasic">REM  *****  BASIC  *****
+OPTION Explicit
+
+REM Author: Andrew D. Pitonyak
+REM Date: May 28, 2014
+REM License: Public Domain
+
+Sub MainSQL
+  FMT_MasterColorizer(ThisComponent, &quot;SQL&quot;, &quot;CUR&quot;)
+  &apos;FMT_MasterColorizer(ThisComponent, &quot;SQL&quot;, &quot;DOC&quot;)
+  &apos;FMT_MasterColorizer(ThisComponent, &quot;SQL&quot;, &quot;SEL&quot;)
+End Sub
+
+&apos;****************************************************************
+&apos;** Color code the SQL code surrounding the view cursor.
+&apos;****************************************************************
+Sub FMT_ColorCodeCurrentSQL()
+  FMT_MasterColorizer(ThisComponent, &quot;SQL&quot;, &quot;CUR&quot;)
+End Sub
+
+REM Highlight all code in this document.
+Sub HighlightDocSQL()
+  FMT_MasterColorizer(ThisComponent, &quot;SQL&quot;, &quot;DOC&quot;)
+
+End Sub
+
+REM Format just the selected text
+Sub HighlightSelSQL()
+  FMT_MasterColorizer(ThisComponent, &quot;SQL&quot;, &quot;SEL&quot;)
+End Sub
+
+&apos;****************************************************************
+&apos;** Color code the SQL code in the oSel range.
+&apos;** Use the keywords in the sTokens() array.
+&apos;****************************************************************
+Sub FMT_ColorCodeOneRangeStringSQL(oSel, sTokens(), sAltTokens(), sCharStyles())
+  Dim oCurs    &apos;Iterate paragraphs in the selected region.
+  Dim oTCurs   &apos;Iterate the characters in a paragraph.
+  Dim oText    &apos;Text object containing the selection.
+  Dim iPos%
+  Dim iLen%
+  Dim i%       &apos;Temporary integer variable.
+  Dim sChar$   &apos;Current character
+  Dim sLine$   &apos;Current line (in lower case).
+  Dim bComment As Boolean
+  Dim bIsAsterick As Boolean
+  Dim bWasAsterick As Boolean
+  Dim sRawLeader$
+
+  REM We are not currently processing a comment.
+  bComment = False
+  REM Position oTCurs at the start of the selection.
+  oText = oSel.getText()
+  oTCurs = oText.createTextCursorByRange(oSel.getStart())
+  oTCurs.goRight(0, False)
+
+  REM oCurs contains the first paragraph.
+  oCurs = FMT_CreateStartCursor(oText, oSel)
+
+  Do While oText.compareRegionEnds(oCurs, oSel) &gt;= 0
+    REM Now, process a single line of text!
+    REM oCurs has selected the entire paragraph.
+    REM oTCurs is at the start of the paragraph.
+    sLine = LCase(oCurs.getString())
+    iLen = Len(sLine)
+    iPos = 1
+    Do While iPos &lt;= iLen
+      REM Skip leading white space.
+      FMT_FindNextNonSpace(sLine, iPos%, iLen%)
+      If iPos &gt; iLen Then Exit Do
+      sChar = Mid(sLine, iPos, 1)
+
+      REM Is the cursor in a multi-line comment?
+      If bComment Then
+        i = iPos
+        bWasAsterick = False
+        Do while iPos &lt;= iLen
+          sChar = Mid(sLine, iPos, 1)
+          iPos = iPos + 1
+          If sChar = &quot;/&quot; AND bWasAsterick Then
+            bComment = False
+            Exit Do
+          ElseIf sChar = &quot;*&quot; Then
+            bWasAsterick = True
+          Else
+            bWasAsterick = False
+          End If
+        Loop
+        
+        oTCurs.goRight(i-1, False)
+        oTCurs.goRight(iPos - i, True)
+        oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Comment)
+        oTCurs.gotoStartOfParagraph(False)
+      ElseIf sChar = &quot;/&quot; AND iPos &lt; iLen Then
+        Rem Might be a comment.
+        If Mid(sLine, iPos+1, 1) = &quot;*&quot; Then
+          REM This starts a multi-line comment.
+          REM The fastest way to find the end comment is with the
+          REM built in searching capability. Unfortunately, I can 
+          REM not then manually set iPos so I will not do this.
+          bComment = True
+          oTCurs.goRight(iPos-1, False)
+          oTCurs.goRight(2, True)
+          oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Comment)
+          iPos = iPos + 2
+          oTCurs.gotoStartOfParagraph(False)
+        ElseIf Mid(sLine, iPos+1, 1) = &quot;/&quot; Then
+          REM This starts a single line comment.
+          oTCurs.goRight(iPos-1, False)
+          oTCurs.gotoEndOfParagraph(True)
+          oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Comment)
+          iPos = iLen + 1
+        Else
+          REM This is not a comment.
+          oTCurs.goRight(iPos-1, False)
+          oTCurs.gotoEndOfParagraph(True)
+          &apos;oTCurs.CharStyleName = sCharStyles(FMT_CSNI_KeyWord)
+          oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Ident)
+          iPos = iPos + 1
+        End If
+      ElseIf sChar = &quot;-&quot; AND iPos &lt; iLen Then
+        Rem Might be a comment.
+        If Mid(sLine, iPos+1, 1) = &quot;-&quot; Then
+          REM This starts a single line comment.
+          oTCurs.goRight(iPos-1, False)
+          oTCurs.gotoEndOfParagraph(True)
+          oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Comment)
+          iPos = iLen + 1
+        Else
+          REM This is not a comment.
+          oTCurs.goRight(iPos-1, False)
+          oTCurs.gotoEndOfParagraph(True)
+          &apos;oTCurs.CharStyleName = sCharStyles(FMT_CSNI_KeyWord)
+          oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Special)
+          iPos = iPos + 1
+        End If
+      ElseIf sChar = &quot;&quot;&quot;&quot; OR sChar = &quot;&apos;&quot; Then
+        REM Move to the first double quote
+        oTCurs.goRight(iPos-1, False)
+
+        REM Remember the location of the first double quote
+        REM and then find then end of the quoted text.
+        i = iPos
+        FMT_FindEndQuoteEscape(sLine$, iPos%, iLen%)
+          
+        REM Move the cursor to the closing double quote.
+        REM Set the character style for the string.
+        REM Move the cursor back to the start of the paragraph.
+        oTCurs.goRight(iPos - i, True)
+        oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Literal)
+        oTCurs.gotoRange(oCurs.start, False)
+      ElseIf FMT_FindNumberEnd_Extended(sLine, iPos, iLen, i, &quot;&quot;) Then
+        REM Move to the number start.
+        oTCurs.goRight(iPos-1, False)
+        oTCurs.goRight(i - iPos, True)
+        oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Literal)
+        oTCurs.gotoRange(oCurs.start, False)
+        iPos = i
+      ElseIf sChar = &quot;.&quot; OR FMT_IsSpecialChar(ASC(sChar)) Then
+        i = iPos
+        oTCurs.goRight(iPos - 1, False)
+
+        Do
+          iPos = iPos + 1
+          If iPos &gt; iLen Then Exit Do
+        Loop Until NOT FMT_IsSpecialChar(ASC(Mid(sLine, iPos, 1)))
+        oTCurs.goRight(iPos - i, True)
+        oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Special)
+        oTCurs.gotoRange(oCurs.start, False)
+      Else
+        REM No special characters, so this is a variable 
+        REM or logic statement. Move to the first character.
+        i = iPos
+        oTCurs.goRight(iPos-1, False)
+        Do
+          iPos = iPos + 1
+          If iPos &gt; iLen Then 
+            Exit Do
+          End If
+        Loop Until FMT_IsWordSep(Asc(Mid(sLine, iPos, 1)))
+        oTCurs.goRight(iPos - i, True)
+        sChar = LCase(oTCurs.getString())
+
+        If FMT_ArrayHasString(sChar, sTokens()) Then
+          oTCurs.CharStyleName = sCharStyles(FMT_CSNI_KeyWord)
+        ElseIf FMT_ArrayHasString(sChar, sAltTokens()) Then
+          oTCurs.CharStyleName = sCharStyles(FMT_CSNI_AltWord)
+        Else
+          oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Ident)
+        End If
+
+        oTCurs.gotoRange(oCurs.start, False)
+      End If
+    Loop
+    If Not oCurs.gotoNextParagraph(False) Then Exit Do
+    oTCurs.gotoRange(oCurs, False)
+    If NOT FMT_CursorToParEnd(oText, oSel, oCurs) Then Exit Do
+  Loop
+End Sub
+
+&apos;****************************************************************
+&apos;** The following words are tokens recognized by the SQL IDE.
+&apos;** This listis in alphabetical order. I got this list from 
+&apos;** the file: basic/source/comp/tokens.cxx.
+&apos;** Multi-word tokens such as &quot;end enum&quot; are redundant because
+&apos;** the code recognizes single words. Both words are in the list
+&apos;** already, so in the worst case, this will simply slow down
+&apos;** the search because there are extra words.
+&apos;****************************************************************
+Sub FMT_InitTokensSQL(sTokens())
+  &apos; I removed the keywords a, c, g, k, m, 
+  sTokens() = Array(&quot;abort&quot;, &quot;abs&quot;, &quot;absolute&quot;, &quot;access&quot;, &quot;action&quot;, _
+  &quot;ada&quot;, &quot;add&quot;, &quot;admin&quot;,&quot;after&quot;, &quot;aggregate&quot;, &quot;alias&quot;, _
+  &quot;all&quot;, &quot;allocate&quot;, &quot;also&quot;, &quot;alter&quot;, &quot;always&quot;,&quot;analyse&quot;, _
+  &quot;analyze&quot;, &quot;and&quot;, &quot;any&quot;, &quot;are&quot;, &quot;array&quot;, &quot;as&quot;, &quot;asc&quot;, _
+  &quot;asensitive&quot;,&quot;assertion&quot;, &quot;assignment&quot;, &quot;asymmetric&quot;, _
+  &quot;at&quot;, &quot;atomic&quot;, &quot;attribute&quot;, &quot;attributes&quot;, &quot;audit&quot;, _
+  &quot;authorization&quot;,&quot;auto_increment&quot;, &quot;avg&quot;, &quot;avg_row_length&quot;, _
+  &quot;backup&quot;, &quot;backward&quot;,&quot;before&quot;, &quot;begin&quot;, &quot;bernoulli&quot;, &quot;between&quot; , _
+  &quot;bigint&quot;, &quot;binary&quot;, &quot;bit&quot;, &quot;bit_length&quot;,&quot;bitvar&quot;, &quot;blob&quot;, &quot;bool&quot;, _
+  &quot;boolean&quot;, &quot;both&quot;, &quot;breadth&quot;, &quot;break&quot;, &quot;browse&quot;,&quot;bulk&quot;, &quot;by&quot;, _
+  &quot;cache&quot;, &quot;call&quot;, &quot;called&quot;, &quot;cardinality&quot;, &quot;cascade&quot;,&quot;cascaded&quot;, _
+  &quot;case&quot;, &quot;cast&quot;, &quot;catalog&quot;, &quot;catalog_name&quot;, &quot;ceil&quot;, &quot;ceiling&quot;,&quot;chain&quot;, _
+  &quot;change&quot;, &quot;char&quot;, &quot;char_length&quot;, &quot;character&quot;,&quot;character_length&quot;, _
+  &quot;character_set_catalog&quot;, &quot;character_set_name&quot;,&quot;character_set_schema&quot;, _
+  &quot;characteristics&quot;, &quot;characters&quot;, &quot;check&quot;, &quot;checkalloc&quot;, &quot;checkcatalog&quot;, _
+  &quot;checkconstraints&quot;, &quot;checkdb&quot;, &quot;checked&quot;, &quot;checkfilegroup&quot;, &quot;checkident&quot;, &quot;checkpoint&quot;, _
+  &quot;checksum&quot;, &quot;checktable&quot;, &quot;class&quot;, &quot;class_origin&quot;, &quot;cleantable&quot;, &quot;clob&quot;,&quot;close&quot;, &quot;cluster&quot;, _
+  &quot;clustered&quot;, &quot;coalesce&quot;, &quot;cobol&quot;, &quot;collate&quot;, &quot;collation&quot;,_
+  &quot;collation_catalog&quot;, &quot;collation_name&quot;, &quot;collation_schema&quot;, &quot;collect&quot;,_
+  &quot;column&quot;, &quot;column_name&quot;, &quot;columns&quot;, &quot;command_function&quot;,_
+  &quot;command_function_code&quot;, &quot;comment&quot;, &quot;commit&quot;, &quot;committed&quot;,_
+  &quot;completion&quot;, &quot;compress&quot;, &quot;compute&quot;, &quot;concurrencyviolation&quot;, &quot;condition&quot;, &quot;condition_number&quot;,_
+  &quot;connect&quot;, &quot;connection&quot;, &quot;connections&quot;, &quot;connection_name&quot;, &quot;constraint&quot;,&quot;constraint_catalog&quot;, _
+  &quot;constraint_name&quot;, &quot;constraint_schema&quot;,&quot;constraints&quot;, &quot;constructor&quot;, _
+  &quot;contains&quot;, &quot;containstable&quot;, &quot;continue&quot;,&quot;conversion&quot;, &quot;convert&quot;, &quot;copy&quot;, _
+  &quot;corr&quot;, &quot;corresponding&quot;, &quot;count&quot;,&quot;covar_pop&quot;, &quot;covar_samp&quot;, &quot;cpu_busy&quot;, &quot;create&quot;, _
+  &quot;createdb&quot;, &quot;createrole&quot;,&quot;createuser&quot;, &quot;cross&quot;, &quot;csv&quot;, &quot;cube&quot;, _
+  &quot;cume_dist&quot;, &quot;current&quot;, &quot;current_date&quot;,&quot;current_default_transform_group&quot;, _
+  &quot;current_path&quot;, &quot;current_role&quot;,&quot;current_time&quot;, &quot;current_timestamp&quot;,_
+  &quot;current_transform_group_for_type&quot;, &quot;current_user&quot;, &quot;cursor&quot;,_
+  &quot;cursor_name&quot;, &quot;cursor_rows&quot;, &quot;cycle&quot;, &quot;data&quot;, &quot;database&quot;, &quot;databases&quot;, _
+  &quot;date&quot;, &quot;datefirst&quot;, _
+  &quot;datetime&quot;,&quot;datetime_interval_code&quot;, &quot;datetime_interval_precision&quot;, _
+  &quot;day&quot;,&quot;day_hour&quot;, &quot;day_microsecond&quot;, &quot;day_minute&quot;, &quot;day_second&quot;,_
+  &quot;dayofmonth&quot;, &quot;dayofweek&quot;, &quot;dayofyear&quot;, &quot;dbcc&quot;, &quot;dbrepair&quot;, &quot;dbreindex&quot;, &quot;dbts&quot;, &quot;deallocate&quot;, _
+  &quot;dec&quot;, &quot;decimal&quot;,&quot;declare&quot;, &quot;default&quot;, &quot;defaults&quot;, &quot;deferrable&quot;, _
+  &quot;deferred&quot;, &quot;defined&quot;,&quot;definer&quot;, &quot;degree&quot;, &quot;delay_key_write&quot;, _
+  &quot;delayed&quot;, &quot;delete&quot;, &quot;delimiter&quot;,&quot;delimiters&quot;, _
+  &quot;dense_rank&quot;, &quot;deny&quot;, &quot;depth&quot;, &quot;deref&quot;, &quot;derived&quot;, _
+  &quot;desc&quot;,&quot;describe&quot;, &quot;descriptor&quot;, &quot;destroy&quot;, &quot;destructor&quot;, _
+  &quot;deterministic&quot;,&quot;diagnostics&quot;, &quot;dictionary&quot;, &quot;disable&quot;, _
+  &quot;disconnect&quot;, &quot;disk&quot;, &quot;dispatch&quot;,&quot;distinct&quot;, &quot;distinctrow&quot;, _
+  &quot;distributed&quot;, &quot;div&quot;, &quot;do&quot;, &quot;domain&quot;, &quot;double&quot;,&quot;drop&quot;, &quot;dropcleanbuffers&quot;, _
+  &quot;dual&quot;, &quot;dummy&quot;, &quot;dump&quot;, &quot;dynamic&quot;, &quot;dynamic_function&quot;,_
+  &quot;dynamic_function_code&quot;, &quot;each&quot;, &quot;element&quot;, &quot;else&quot;, _
+  &quot;elseif&quot;, &quot;enable&quot;,&quot;enclosed&quot;, &quot;encoding&quot;, &quot;encrypted&quot;, _
+  &quot;end&quot;, &quot;end-exec&quot;, &quot;enum&quot;, &quot;equals&quot;,&quot;errlvl&quot;, &quot;error&quot;, &quot;escape&quot;, _
+  &quot;escaped&quot;, &quot;every&quot;, &quot;except&quot;, &quot;exception&quot;, &quot;exclude&quot;,_
+  &quot;excluding&quot;, &quot;exclusive&quot;, &quot;exec&quot;, &quot;execute&quot;, &quot;existing&quot;, _
+  &quot;exists&quot;, &quot;exit&quot;, &quot;exp&quot;, &quot;explain&quot;, &quot;external&quot;, &quot;extract&quot;, _
+  &quot;false&quot;, &quot;fetch&quot;, &quot;fetch_status&quot;, &quot;fields&quot;, &quot;file&quot;,&quot;fillfactor&quot;, &quot;filter&quot;, _
+  &quot;final&quot;, &quot;first&quot;, &quot;float&quot;, &quot;float4&quot;, &quot;float8&quot;, &quot;floor&quot;,_
+  &quot;flush&quot;, &quot;following&quot;, &quot;for&quot;, &quot;force&quot;, &quot;foreign&quot;, _
+  &quot;fortran&quot;, &quot;forward&quot;,&quot;found&quot;, &quot;free&quot;, &quot;freeproccache&quot;, &quot;freetext&quot;, _
+  &quot;freetexttable&quot;, &quot;freeze&quot;, &quot;from&quot;, &quot;full&quot;, &quot;fulltext&quot;,_
+  &quot;function&quot;, &quot;fusion&quot;, &quot;general&quot;, &quot;generated&quot;, &quot;get&quot;, _
+  &quot;global&quot;, &quot;go&quot;,&quot;goto&quot;, &quot;grant&quot;, &quot;granted&quot;, &quot;grants&quot;, _
+  &quot;greatest&quot;, &quot;group&quot;, &quot;grouping&quot;, &quot;handler&quot;,&quot;having&quot;, _
+  &quot;header&quot;, &quot;heap&quot;, &quot;help&quot;, &quot;hierarchy&quot;, &quot;high_priority&quot;, &quot;hold&quot;, _
+  &quot;holdlock&quot;, &quot;host&quot;, &quot;hosts&quot;, &quot;hour&quot;, &quot;hour_microsecond&quot;, _
+  &quot;hour_minute&quot;,&quot;hour_second&quot;, &quot;identified&quot;, &quot;identity&quot;, _
+  &quot;identity_insert&quot;, &quot;identitycol&quot;, &quot;idle&quot;, &quot;if&quot;, &quot;ignore&quot;,&quot;ilike&quot;, _
+  &quot;immediate&quot;, &quot;immutable&quot;, &quot;implementation&quot;, &quot;implicit&quot;, _
+  &quot;in&quot;,&quot;include&quot;, &quot;including&quot;, &quot;increment&quot;, &quot;index&quot;, &quot;indexdefrag&quot;, _
+  &quot;indicator&quot;, &quot;infile&quot;, &quot;infix&quot;, &quot;inherit&quot;,&quot;inherits&quot;, _
+  &quot;initial&quot;, &quot;initialize&quot;, &quot;initially&quot;, &quot;inner&quot;, &quot;inout&quot;, _
+  &quot;input&quot;,&quot;inputbuffer&quot;, &quot;insensitive&quot;, &quot;insert&quot;, &quot;insert_id&quot;, &quot;instance&quot;, _
+  &quot;instantiable&quot;, &quot;instead&quot;, &quot;int&quot;, &quot;int1&quot;, &quot;int2&quot;, &quot;int3&quot;, _
+  &quot;int4&quot;, &quot;int8&quot;, &quot;integer&quot;, &quot;intersect&quot;, &quot;intersection&quot;, _
+  &quot;interval&quot;, &quot;into&quot;, &quot;invoker&quot;, &quot;io_busy&quot;, &quot;is&quot;, &quot;isam&quot;, &quot;isnull&quot;, _
+  &quot;isolation&quot;, &quot;iterate&quot;,&quot;join&quot;, &quot;key&quot;, &quot;key_member&quot;, _
+  &quot;key_type&quot;, &quot;keys&quot;, &quot;kill&quot;, &quot;lancompiler&quot;, &quot;langid&quot;, &quot;language&quot;, _
+  &quot;large&quot;, &quot;last&quot;, &quot;last_insert_id&quot;, &quot;lateral&quot;, &quot;leading&quot;, &quot;least&quot;,&quot;leave&quot;, &quot;left&quot;, _
+  &quot;length&quot;, &quot;less&quot;, &quot;level&quot;, &quot;like&quot;, &quot;limit&quot;, &quot;lineno&quot;, &quot;lines&quot;,&quot;listen&quot;, &quot;ln&quot;, &quot;load&quot;, _
+  &quot;local&quot;, &quot;localtime&quot;, &quot;localtimestamp&quot;, &quot;location&quot;,&quot;locator&quot;, &quot;lock&quot;, &quot;lock_timeout&quot;, &quot;login&quot;, &quot;logs&quot;, _
+  &quot;long&quot;, &quot;longblob&quot;, &quot;longtext&quot;, &quot;loop&quot;,&quot;low_priority&quot;, &quot;lower&quot;, &quot;map&quot;, &quot;match&quot;, _
+  &quot;matched&quot;, &quot;max&quot;, &quot;max_connections&quot;, &quot;max_precision&quot;, &quot;max_rows&quot;,&quot;maxextents&quot;, &quot;maxvalue&quot;, &quot;mediumblob&quot;, &quot;mediumint&quot;, _
+  &quot;mediumtext&quot;,&quot;member&quot;, &quot;merge&quot;, &quot;message_length&quot;, &quot;message_octet_length&quot;, _
+  &quot;message_text&quot;, &quot;method&quot;, &quot;middleint&quot;, &quot;min&quot;, &quot;min_rows&quot;, &quot;minus&quot;, &quot;minute&quot;, &quot;minute_microsecond&quot;, &quot;minute_second&quot;, &quot;minvalue&quot;, _
+  &quot;mlslabel&quot;, &quot;mod&quot;,&quot;mode&quot;, &quot;modifies&quot;, &quot;modify&quot;, &quot;module&quot;, &quot;month&quot;, &quot;monthname&quot;, &quot;more&quot;,&quot;move&quot;, &quot;multiset&quot;, &quot;mumps&quot;, &quot;myisam&quot;, _
+  &quot;name&quot;, &quot;names&quot;, &quot;national&quot;,&quot;natural&quot;, &quot;nchar&quot;, &quot;nclob&quot;, &quot;nestlevel&quot;, &quot;nesting&quot;, &quot;new&quot;, &quot;newalloc&quot;, _
+  &quot;next&quot;, &quot;no&quot;,&quot;no_write_to_binlog&quot;, &quot;noaudit&quot;, _
+  &quot;nocheck&quot;, &quot;nocompress&quot;, &quot;nocreatedb&quot;,&quot;nocreaterole&quot;, &quot;nocreateuser&quot;, &quot;noinherit&quot;, &quot;nologin&quot;, &quot;nonclustered&quot;,&quot;none&quot;, &quot;normalize&quot;, _
+  &quot;normalized&quot;, &quot;nosuperuser&quot;, &quot;not&quot;, &quot;nothing&quot;,&quot;notify&quot;, &quot;notnull&quot;, &quot;nowait&quot;, &quot;null&quot;, &quot;nullable&quot;, &quot;nullif&quot;, &quot;nulls&quot;, &quot;number&quot;, _
+  &quot;numeric&quot;, &quot;object&quot;, &quot;octet_length&quot;, &quot;octets&quot;, &quot;of&quot;, &quot;off&quot;, &quot;offline&quot;, &quot;offset&quot;, &quot;offsets&quot;, &quot;oids&quot;, &quot;old&quot;, &quot;on&quot;, &quot;online&quot;, &quot;only&quot;, _
+  &quot;open&quot;, &quot;opendatasource&quot;,&quot;openquery&quot;, &quot;openrowset&quot;, &quot;opentran&quot;, _
+  &quot;openxml&quot;, &quot;operation&quot;, &quot;operator&quot;, &quot;optimize&quot;,&quot;option&quot;, &quot;optionally&quot;, &quot;options&quot;, _
+  &quot;or&quot;, &quot;order&quot;, &quot;ordering&quot;, &quot;ordinality&quot;,&quot;others&quot;, &quot;out&quot;, &quot;outer&quot;, &quot;outfile&quot;, &quot;output&quot;, &quot;outputbuffer&quot;, _
+  &quot;over&quot;, &quot;overlaps&quot;, &quot;overlay&quot;,&quot;overriding&quot;, _
+  &quot;owner&quot;, &quot;pack_keys&quot;, &quot;pack_received&quot;, &quot;pack_sent&quot;, &quot;packet_errors&quot;, &quot;pad&quot;, &quot;parameter&quot;, &quot;parameter_mode&quot;,&quot;parameter_name&quot;, &quot;parameter_ordinal_position&quot;,&quot;parameter_specific_catalog&quot;, _
+  &quot;parameter_specific_name&quot;,&quot;parameter_specific_schema&quot;, &quot;parameters&quot;, &quot;partial&quot;, &quot;partition&quot;, &quot;pascal&quot;, &quot;password&quot;, &quot;path&quot;, &quot;pctfree&quot;, _
+  &quot;percent&quot;, &quot;percent_rank&quot;, &quot;percentile_cont&quot;, &quot;percentile_disc&quot;, &quot;pintable&quot;, _
+  &quot;placing&quot;, &quot;plan&quot;, &quot;pli&quot;, &quot;position&quot;, &quot;postfix&quot;, &quot;power&quot;,&quot;preceding&quot;, _
+  &quot;precision&quot;, &quot;prefix&quot;, &quot;preorder&quot;, &quot;prepare&quot;, &quot;prepared&quot;,&quot;preserve&quot;, &quot;primary&quot;, &quot;print&quot;, &quot;prior&quot;, &quot;privileges&quot;, _
+  &quot;proc&quot;, &quot;proccache&quot;, &quot;procedural&quot;,_
+  &quot;procedure&quot;, &quot;procid&quot;, &quot;process&quot;, &quot;processlist&quot;, &quot;public&quot;, &quot;purge&quot;, &quot;quote&quot;, &quot;raid0&quot;,&quot;raiserror&quot;, &quot;range&quot;, &quot;rank&quot;, &quot;raw&quot;, &quot;read&quot;, &quot;reads&quot;, _
+  &quot;readtext&quot;, &quot;real&quot;,&quot;recheck&quot;, &quot;reconfigure&quot;, &quot;recursive&quot;, &quot;ref&quot;, &quot;references&quot;, &quot;referencing&quot;,&quot;regexp&quot;, &quot;regr_avgx&quot;, &quot;regr_avgy&quot;, _
+  &quot;regr_count&quot;, &quot;regr_intercept&quot;,&quot;regr_r2&quot;, &quot;regr_slope&quot;, &quot;regr_sxx&quot;, &quot;regr_sxy&quot;, &quot;regr_syy&quot;, &quot;reindex&quot;,&quot;relative&quot;, &quot;release&quot;, _
+  &quot;reload&quot;, &quot;remserver&quot;, &quot;rename&quot;, &quot;repeat&quot;, &quot;repeatable&quot;, &quot;replace&quot;,&quot;replication&quot;, &quot;require&quot;, &quot;reset&quot;, &quot;resignal&quot;, &quot;resource&quot;, &quot;restart&quot;,_
+  &quot;restore&quot;, &quot;restrict&quot;, &quot;result&quot;, &quot;return&quot;, &quot;returned_cardinality&quot;, &quot;returned_length&quot;, &quot;returned_octet_length&quot;, _
+  &quot;returned_sqlstate&quot;, &quot;returns&quot;, &quot;revoke&quot;,&quot;right&quot;, &quot;rlike&quot;, &quot;role&quot;, &quot;rollback&quot;, &quot;rollup&quot;, &quot;routine&quot;, _
+  &quot;routine_catalog&quot;,&quot;routine_name&quot;, &quot;routine_schema&quot;, &quot;row&quot;, _
+  &quot;rowcount&quot;, &quot;rowguidcol&quot;, &quot;rowid&quot;, &quot;rowlock&quot;, &quot;rownum&quot;, &quot;rows&quot;, &quot;row_count&quot;, &quot;row_number&quot;, _
+  &quot;rule&quot;, &quot;save&quot;,&quot;savepoint&quot;, &quot;scale&quot;, &quot;schema&quot;, &quot;schema_name&quot;, &quot;schemas&quot;, &quot;scope&quot;,_
+  &quot;scope_catalog&quot;, &quot;scope_name&quot;, &quot;scope_schema&quot;, &quot;scroll&quot;, &quot;search&quot;,&quot;second&quot;, &quot;second_microsecond&quot;, &quot;section&quot;, _
+  &quot;security&quot;, &quot;select&quot;, &quot;self&quot;,&quot;sensitive&quot;, &quot;separator&quot;, &quot;sequence&quot;, &quot;serializable&quot;, _
+  &quot;servername&quot;, &quot;server_name&quot;,&quot;servicename&quot;, &quot;session&quot;, _
+  &quot;session_user&quot;, &quot;set&quot;, &quot;setof&quot;, &quot;sets&quot;, &quot;setuser&quot;, &quot;share&quot;, &quot;show&quot;, &quot;showcontig&quot;, &quot;show_statistics&quot;, _
+  &quot;shrinkdatabase&quot;, &quot;shrinkfile&quot;, &quot;shutdown&quot;, &quot;signal&quot;, &quot;similar&quot;, &quot;simple&quot;, _
+  &quot;size&quot;, &quot;smallint&quot;, &quot;some&quot;, &quot;soname&quot;, &quot;source&quot;, &quot;space&quot;, &quot;spatial&quot;, &quot;specific&quot;, &quot;specific_name&quot;, &quot;specifictype&quot;, &quot;spid&quot;, _
+  &quot;sql&quot;,&quot;sql_big_result&quot;, &quot;sql_big_selects&quot;, &quot;sql_big_tables&quot;,&quot;sql_calc_found_rows&quot;, &quot;sql_log_off&quot;, &quot;sql_log_update&quot;,_
+  &quot;sql_low_priority_updates&quot;, &quot;sql_select_limit&quot;, &quot;sql_small_result&quot;,&quot;sql_warnings&quot;, &quot;sqlca&quot;, &quot;sqlcode&quot;, &quot;sqlerror&quot;, _
+  &quot;sqlexception&quot;, &quot;sqlperf&quot;, &quot;sqlstate&quot;,&quot;sqlwarning&quot;, &quot;sqrt&quot;, &quot;ssl&quot;, &quot;stable&quot;, &quot;start&quot;, &quot;starting&quot;, &quot;state&quot;, &quot;statement&quot;, &quot;static&quot;, _
+  &quot;statistics&quot;, &quot;status&quot;, &quot;stddev_pop&quot;, &quot;stddev_samp&quot;, &quot;stdin&quot;,&quot;stdout&quot;, &quot;storage&quot;, &quot;straight_join&quot;, &quot;strict&quot;, &quot;string&quot;, _
+  &quot;structure&quot;, &quot;style&quot;, &quot;subclass_origin&quot;, &quot;sublist&quot;, &quot;submultiset&quot;, &quot;substring&quot;, &quot;successful&quot;,&quot;sum&quot;, &quot;superuser&quot;, _
+  &quot;symmetric&quot;, &quot;synonym&quot;, &quot;sysdate&quot;, &quot;sysid&quot;, &quot;system&quot;,&quot;system_user&quot;, &quot;table&quot;, &quot;table_name&quot;, &quot;tables&quot;, &quot;tablesample&quot;, _
+  &quot;tablespace&quot;, _
+  &quot;tablock&quot;, &quot;tablockx&quot;, _
+  &quot;temp&quot;, &quot;template&quot;, &quot;temporary&quot;, &quot;terminate&quot;, &quot;terminated&quot;, &quot;text&quot;,&quot;textsize&quot;, &quot;than&quot;, &quot;then&quot;, &quot;ties&quot;, _
+  &quot;time&quot;, &quot;timestamp&quot;, &quot;timeticks&quot;, &quot;timezone_hour&quot;,&quot;timezone_minute&quot;, &quot;tinyblob&quot;, &quot;tinyint&quot;, &quot;tinytext&quot;, &quot;to&quot;, &quot;toast&quot;, &quot;top&quot;,_
+  &quot;top_level_count&quot;, &quot;total_errors&quot;, &quot;total_read&quot;, &quot;total_write&quot;, &quot;traceoff&quot;, &quot;traceon&quot;, &quot;tracestatus&quot;, &quot;trailing&quot;, _
+  &quot;tran&quot;, &quot;transaction&quot;, &quot;transaction_active&quot;, &quot;transactions_committed&quot;, _
+  &quot;transactions_rolled_back&quot;, &quot;transcount&quot;, &quot;transform&quot;,&quot;transforms&quot;, &quot;translate&quot;, &quot;translation&quot;, &quot;treat&quot;, &quot;trigger&quot;,_
+  &quot;trigger_catalog&quot;, &quot;trigger_name&quot;, &quot;trigger_schema&quot;, &quot;trim&quot;, &quot;true&quot;,&quot;truncate&quot;, &quot;trusted&quot;, &quot;tsequal&quot;, _
+  &quot;type&quot;, &quot;uescape&quot;, &quot;uid&quot;, &quot;unbounded&quot;,&quot;uncommitted&quot;, &quot;under&quot;, &quot;undo&quot;, &quot;unencrypted&quot;, &quot;union&quot;, &quot;unique&quot;,&quot;unknown&quot;, &quot;unlisten&quot;, _
+  &quot;unlock&quot;, &quot;unnamed&quot;, &quot;unnest&quot;, &quot;unpintable&quot;, &quot;unsigned&quot;, &quot;until&quot;, _
+  &quot;update&quot;, &quot;updatetext&quot;, &quot;updateusage&quot;, &quot;upper&quot;, &quot;usage&quot;, &quot;use&quot;, &quot;user&quot;, &quot;useroptions&quot;, _
+  &quot;user_defined_type_catalog&quot;, &quot;user_defined_type_code&quot;,&quot;user_defined_type_name&quot;, &quot;user_defined_type_schema&quot;, &quot;using&quot;,_
+  &quot;utc_date&quot;, &quot;utc_time&quot;, &quot;utc_timestamp&quot;, &quot;vacuum&quot;, &quot;valid&quot;, &quot;validate&quot;,&quot;validator&quot;, &quot;value&quot;, &quot;values&quot;, &quot;var_pop&quot;, _
+  &quot;version&quot;, _
+  &quot;var_samp&quot;, &quot;varbinary&quot;,&quot;varchar&quot;, &quot;varchar2&quot;, &quot;varcharacter&quot;, &quot;variable&quot;, &quot;variables&quot;, &quot;varying&quot;, &quot;verbose&quot;,&quot;view&quot;, _
+  &quot;volatile&quot;, &quot;waitfor&quot;, &quot;when&quot;, &quot;whenever&quot;, &quot;where&quot;, &quot;while&quot;,&quot;width_bucket&quot;, &quot;window&quot;, &quot;with&quot;, &quot;within&quot;, &quot;without&quot;, _
+  &quot;work&quot;, &quot;write&quot;,&quot;writetext&quot;, &quot;x509&quot;, &quot;xor&quot;, &quot;year&quot;, &quot;year_month&quot;, &quot;zerofill&quot;, &quot;zone&quot;)
+  FMT_SortStringArrayAscending(sTokens())
+End Sub
+
+&apos;****************************************************************
+&apos;** Alternate Tokens such as system class libraries and functions
+&apos;** that you want to recognize.
+&apos;****************************************************************
+Sub FMT_InitAltTokensSQL(sAltTokens())
+  sAltTokens() = Array()
+  FMT_SortStringArrayAscending(sAltTokens())
+End Sub
+
+&apos;****************************************************************
+&apos;** Get the character styles meant for highlighting StarBasic code.
+&apos;** Special characters are formatted as a keyword.
+&apos;****************************************************************
+Function FMT_GetSQLCharacterStyles()
+  CreateStarSQLCharStyles()
+  FMT_GetSQLCharacterStyles() = Array( &quot;_OOoSQLComment&quot;, _
+      &quot;_OOoSQLLiteral&quot;, &quot;_OOoSQLKeyWord&quot;, _
+      &quot;_OOoSQLIdent&quot;, &quot;_OOoSQLSpecial&quot;, &quot;_OOoComputerNumber&quot;, &quot;_OOoComputerAltKeyWord&quot;)
+End Function
+
+</script:module>

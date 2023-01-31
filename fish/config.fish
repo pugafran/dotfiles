@@ -18,8 +18,9 @@ alias l='ls -lah'
 alias ..='cd ..'
 alias q='exit'
 alias btw='neofetch'
-alias lt='tree -A -C'
-alias lta='tree -A -a -C'
+alias t='tree -C'
+alias gap='git add ./;git commit -m "Auto update";git push'
+alias col='column -t -s ";"'
 
 #Maintenance
 alias kill_orphans='echo; echo "----------KILLING ORPHANS----------";sudo pacman -Qtdq | sudo pacman -Rns -'

@@ -1,0 +1,883 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script:module PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "module.dtd">
+<script:module xmlns:script="http://openoffice.org/2000/script" script:name="Styles" script:language="StarBasic">REM  *****  BASIC  *****
+Option Explicit
+
+REM Author: Andrew D. Pitonyak
+REM Date: June 14, 2009
+REM License: Public Domain
+REM I appreciate knowing about changes:
+
+Sub Main
+  &apos;CreateParStyles()
+  &apos;CreateStarBasicCharStyles()
+  &apos;CreateJavaCharStyles()
+  &apos;Inspect   ThisComponent.StyleFamilies.getByName(&quot;CharacterStyles&quot;).getByIndex(0)
+  &apos;DisplayName
+  &apos;Name
+  &apos;MsgBox Join(getSortedStyleNames(ThisComponent, &quot;CharacterStyles&quot;, True, True), CHR$(10))
+  Print DochasFontName(ThisComponent, &quot;Courier New&quot;)
+End Sub
+
+&apos;********************************************************************
+&apos;** Get a sorted list of style names. 
+&apos;** oDoc - The styles are taken from this Text document.
+&apos;** sType - Style type: CharacterStyles, ParagraphStyles.
+&apos;** useName - If true, the internal names are returned.
+&apos;** useDisplayName - If true, localized display names are used.
+&apos;********************************************************************
+Function getSortedStyleNames(oDoc, sType$, useName, useDisplayName)
+  Dim oStyles
+  Dim i%, n%
+  Dim names() As String
+  Dim s$
+
+  n = 0
+  oStyles = oDoc.StyleFamilies.getByName(sType)
+  ReDim names(2 * oStyles.getCount()) As String
+  For i = 0 To oStyles.getCount() - 1
+    If useName Then
+      s = oStyles.getByIndex(i).Name
+      If FMT_InsertSortedArray(n, s, names()) Then
+        n = n + 1
+      End If
+    End If
+    If useDisplayName Then
+      s = oStyles.getByIndex(i).DisplayName
+      If FMT_InsertSortedArray(n, s, names()) Then
+        n = n + 1
+      End If
+    End If
+  Next
+  ReDim Preserve names(n-1) As String
+  getSortedStyleNames() = names()
+End Function
+
+&apos;****************************************************************
+&apos;** Create the required paragraph styles.
+&apos;****************************************************************
+Sub CreateParStyles
+  Dim oProps()
+  Dim tabStopLoc%
+  Dim sNextStyle$
+  Dim sFontName$
+  Dim fParSmallCharHeight As double
+  Dim fParNormalCharHeight As double
+  Dim oDoc
+  Dim oConfigAccess
+  Dim i%
+  
+  oDoc = FMT_FindTextDoc()
+  oConfigAccess = FMT_ConfigAccessStyles(False)
+  sNextStyle = getNextStyleName(oConfigAccess)
+  If NOT DocHasParStyle(oDoc, sNextStyle) Then
+    i = MsgBox(&quot;Current document does not have paragraph style &apos;&quot; &amp; _
+         sNextStyle &amp; &quot;&apos; would you like to configure the formatter?&quot;, _
+         35
+    If i &lt;&gt; 6 Then
+      Exit Sub
+    End If
+    RunCfgFmtDlg()
+    REM Get a new configuration access object so that it will reference 
+    REM any updated values.
+    oConfigAccess = FMT_ConfigAccessStyles(False)
+    sNextStyle = getNextStyleName(oConfigAccess)
+    If NOT DocHasParStyle(oDoc, sNextStyle) Then
+      MsgBox(&quot;Current document does not have paragraph style &apos;&quot; &amp; _
+         sNextStyle &amp; &quot;&apos; Exiting now.&quot;
+      Exit Sub
+    End If
+  End If
+  
+  fParSmallCharHeight = getSmallCharHeight(oConfigAccess)
+  fParNormalCharHeight = getNormalCharHeight(oConfigAccess)
+  
+  sFontName = getFontName(oConfigAccess)
+  If NOT DocHasFontName(oDoc, sFontName) Then
+    i = MsgBox(&quot;Document does not have font name &apos;&quot; &amp; _
+         sName &amp; &quot;&apos; would you like to configure the formatter?&quot;, _
+         35
+    If i = 7 Then
+      Exit Sub
+    End If
+    If i = 6 Then
+      RunCfgFmtDlg()
+      REM Get a new configuration access object so that it will reference 
+      REM any updated values.
+      oConfigAccess = FMT_ConfigAccessStyles(False)
+      sFontName = getFontName(oConfigAccess)
+    End If
+    If NOT DocHasFontName(oDoc, sFontName) Then
+      i = MsgBox(&quot;Document still does not have font name &apos;&quot; &amp; _
+           sName &amp; &quot;&apos; would you like to continue?&quot;, _
+           35
+      If i &lt;&gt; 6 Then
+        Exit Sub
+      End If
+    End If
+  End If
+
+  REM Tab stops are set in the paragraph style
+  &apos; 1/4 of an inch
+  &apos;tabStopLoc% = 2540 / 4
+  tabStopLoc% = getTabWidth(oConfigAccess)
+  
+  REM Main paragraph stle for &quot;small&quot; text.
+  REM There is no space above or below the stlye. 
+  REM The first line of code uses _code_first_line
+  REM The last line of code uses _code_last_line.
+  oProps() = Array(CreateProperty(&quot;ParaTopMargin&quot;, CLng(0)), _
+    CreateProperty(&quot;ParaBottomMargin&quot;, CLng(0)), _
+    CreateProperty(&quot;ParaLeftMargin&quot;, CLng(0)), _
+    CreateProperty(&quot;ParaRightMargin&quot;, CLng(0)), _
+    CreateProperty(&quot;ParaFirstLineIndent&quot;, CLng(0)), _
+    CreateProperty(&quot;FollowStyle&quot;, &quot;_code&quot;), _
+    CreateProperty(&quot;CharFontName&quot;,sFontName), _
+    CreateProperty(&quot;CharFontStyleName&quot;, &quot;Bold&quot;), _
+    CreateProperty(&quot;ParaTabStops&quot;, tabStopLoc), _
+    CreateProperty(&quot;ParaLineNumberCount&quot;, False), _
+    CreateProperty(&quot;WritingMode&quot;, com.sun.star.text.WritingMode.LR_TB), _
+    CreateProperty(&quot;CharAutoKerning&quot;, False), _
+    CreateProperty(&quot;CharWeight&quot;, 150.0), _
+    CreateProperty(&quot;CharHeight&quot;, fParSmallCharHeight) )
+  CreateParStyle(&quot;_code&quot;, oProps())
+  
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_code&quot;), _
+    CreateProperty(&quot;ParaTopMargin&quot;, CLng(2540 * 0.05)), _
+    CreateProperty(&quot;ParaBottomMargin&quot;, CLng(0)), _
+    CreateProperty(&quot;ParaLeftMargin&quot;, CLng(0)), _
+    CreateProperty(&quot;ParaRightMargin&quot;, CLng(0)), _
+    CreateProperty(&quot;ParaFirstLineIndent&quot;, CLng(0)), _
+    CreateProperty(&quot;CharFontName&quot;,sFontName), _
+    CreateProperty(&quot;CharFontStyleName&quot;, &quot;Bold&quot;), _
+    CreateProperty(&quot;ParaTabStops&quot;, tabStopLoc), _
+    CreateProperty(&quot;ParaLineNumberCount&quot;, False), _
+    CreateProperty(&quot;WritingMode&quot;, com.sun.star.text.WritingMode.LR_TB), _
+    CreateProperty(&quot;CharAutoKerning&quot;, False), _
+    CreateProperty(&quot;CharWeight&quot;, 150.0), _
+    CreateProperty(&quot;CharHeight&quot;, fParSmallCharHeight), _
+    CreateProperty(&quot;FollowStyle&quot;, &quot;_code&quot;) )
+  CreateParStyle(&quot;_code_first_line&quot;, oProps())
+
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_code&quot;), _
+    CreateProperty(&quot;ParaTopMargin&quot;, CLng(0)), _
+    CreateProperty(&quot;ParaBottomMargin&quot;, CLng(2540 * 0.05)), _
+    CreateProperty(&quot;ParaLeftMargin&quot;, CLng(0)), _
+    CreateProperty(&quot;ParaRightMargin&quot;, CLng(0)), _
+    CreateProperty(&quot;ParaFirstLineIndent&quot;, CLng(0)), _
+    CreateProperty(&quot;CharFontName&quot;,sFontName), _
+    CreateProperty(&quot;CharFontStyleName&quot;, &quot;Bold&quot;), _
+    CreateProperty(&quot;ParaTabStops&quot;, tabStopLoc), _
+    CreateProperty(&quot;ParaLineNumberCount&quot;, False), _
+    CreateProperty(&quot;WritingMode&quot;, com.sun.star.text.WritingMode.LR_TB), _
+    CreateProperty(&quot;CharAutoKerning&quot;, False), _
+    CreateProperty(&quot;CharWeight&quot;, 150.0), _
+    CreateProperty(&quot;CharHeight&quot;, fParSmallCharHeight), _
+    CreateProperty(&quot;FollowStyle&quot;, sNextStyle) )
+  CreateParStyle(&quot;_code_last_line&quot;, oProps())
+
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_code&quot;), _
+    CreateProperty(&quot;ParaTopMargin&quot;, CLng(2540 * 0.05)), _
+    CreateProperty(&quot;ParaBottomMargin&quot;, CLng(2540 * 0.05)), _
+    CreateProperty(&quot;ParaLeftMargin&quot;, CLng(0)), _
+    CreateProperty(&quot;ParaRightMargin&quot;, CLng(0)), _
+    CreateProperty(&quot;ParaFirstLineIndent&quot;, CLng(0)), _
+    CreateProperty(&quot;CharFontName&quot;,sFontName), _
+    CreateProperty(&quot;CharFontStyleName&quot;, &quot;Bold&quot;), _
+    CreateProperty(&quot;ParaTabStops&quot;, tabStopLoc), _
+    CreateProperty(&quot;ParaLineNumberCount&quot;, False), _
+    CreateProperty(&quot;WritingMode&quot;, com.sun.star.text.WritingMode.LR_TB), _
+    CreateProperty(&quot;CharAutoKerning&quot;, False), _
+    CreateProperty(&quot;CharWeight&quot;, 150.0), _
+    CreateProperty(&quot;CharHeight&quot;, fParSmallCharHeight), _
+    CreateProperty(&quot;FollowStyle&quot;, sNextStyle) )
+  CreateParStyle(&quot;_code_one_line&quot;, oProps())
+
+
+  oProps() = Array(CreateProperty(&quot;ParaTopMargin&quot;, CLng(0)), _
+    CreateProperty(&quot;ParaBottomMargin&quot;, CLng(2540 * 0.03)), _
+    CreateProperty(&quot;ParaLeftMargin&quot;, CLng(2540 * 0.20)), _
+    CreateProperty(&quot;ParaRightMargin&quot;, CLng(0)), _
+    CreateProperty(&quot;ParaFirstLineIndent&quot;, CLng(0)), _
+    CreateProperty(&quot;CharFontName&quot;,sFontName), _
+    CreateProperty(&quot;ParaTabStops&quot;, tabStopLoc), _
+    CreateProperty(&quot;ParaLineNumberCount&quot;, False), _
+    CreateProperty(&quot;WritingMode&quot;, com.sun.star.text.WritingMode.LR_TB), _
+    CreateProperty(&quot;CharAutoKerning&quot;, False), _
+    CreateProperty(&quot;CharHeight&quot;, fParNormalCharHeight) )
+  CreateParStyle(&quot;_OOoComputerCode&quot;, oProps())
+
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerCode&quot;), _
+    CreateProperty(&quot;ParaTopMargin&quot;, CLng(0)), _
+    CreateProperty(&quot;ParaBottomMargin&quot;, CLng(2540 * 0.10)), _
+    CreateProperty(&quot;ParaLeftMargin&quot;, CLng(2540 * 0.20)), _
+    CreateProperty(&quot;ParaRightMargin&quot;, CLng(0)), _
+    CreateProperty(&quot;ParaFirstLineIndent&quot;, CLng(0)), _
+    CreateProperty(&quot;CharFontName&quot;,sFontName), _
+    CreateProperty(&quot;ParaTabStops&quot;, tabStopLoc), _
+    CreateProperty(&quot;ParaLineNumberCount&quot;, False), _
+    CreateProperty(&quot;WritingMode&quot;, com.sun.star.text.WritingMode.LR_TB), _
+    CreateProperty(&quot;CharAutoKerning&quot;, False), _
+    CreateProperty(&quot;CharHeight&quot;, fParNormalCharHeight), _
+    CreateProperty(&quot;FollowStyle&quot;, sNextStyle) )
+  CreateParStyle(&quot;_OOoComputerCodeLastLine&quot;, oProps())
+
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerCode&quot;), _
+    CreateProperty(&quot;ParaTopMargin&quot;, CLng(0)), _
+    CreateProperty(&quot;ParaBottomMargin&quot;, CLng(2540 * 0.03)), _
+    CreateProperty(&quot;ParaLeftMargin&quot;, CLng(2540 * 0.10)), _
+    CreateProperty(&quot;ParaRightMargin&quot;, CLng(2540 * 0.10)), _
+    CreateProperty(&quot;ParaFirstLineIndent&quot;, CLng(0)), _
+    CreateProperty(&quot;CharFontName&quot;,sFontName), _
+    CreateProperty(&quot;ParaTabStops&quot;, tabStopLoc), _
+    CreateProperty(&quot;ParaLineNumberCount&quot;, False), _
+    CreateProperty(&quot;WritingMode&quot;, com.sun.star.text.WritingMode.LR_TB), _
+    CreateProperty(&quot;CharAutoKerning&quot;, False), _
+    CreateProperty(&quot;CharHeight&quot;, fParNormalCharHeight), _
+    CreateProperty(&quot;FollowStyle&quot;, &quot;_OOoComputerCodeInTable&quot;) )
+  CreateParStyle(&quot;_OOoComputerCodeInTable&quot;, oProps())
+
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerCode&quot;), _
+    CreateProperty(&quot;ParaTopMargin&quot;, CLng(0)), _
+    CreateProperty(&quot;ParaBottomMargin&quot;, CLng(2540 * 0.08)), _
+    CreateProperty(&quot;ParaLeftMargin&quot;, CLng(2540 * 0.10)), _
+    CreateProperty(&quot;ParaRightMargin&quot;, CLng(2540 * 0.10)), _
+    CreateProperty(&quot;ParaFirstLineIndent&quot;, CLng(0)), _
+    CreateProperty(&quot;CharFontName&quot;,sFontName), _
+    CreateProperty(&quot;ParaTabStops&quot;, tabStopLoc), _
+    CreateProperty(&quot;ParaLineNumberCount&quot;, False), _
+    CreateProperty(&quot;WritingMode&quot;, com.sun.star.text.WritingMode.LR_TB), _
+    CreateProperty(&quot;CharAutoKerning&quot;, False), _
+    CreateProperty(&quot;CharHeight&quot;, fParNormalCharHeight), _
+    CreateProperty(&quot;FollowStyle&quot;, sNextStyle) )
+  CreateParStyle(&quot;_OOoComputerCodeLastLineInTable&quot;, oProps())
+End Sub
+
+&apos;****************************************************************
+&apos;** Create base character styles
+&apos;****************************************************************
+Function CreateBaseCharStyles() As Boolean
+  Dim oProps()
+  Dim oConfigAccess
+  Dim sFontName$
+  Dim oDoc
+  Dim i%
+  
+  oDoc = FMT_FindTextDoc()
+  oConfigAccess = FMT_ConfigAccessStyles(False)
+  sFontName = getFontName(oConfigAccess)
+  
+  If NOT DocHasFontName(oDoc, sFontName) Then
+    i = MsgBox(&quot;Document does not have font name &apos;&quot; &amp; _
+         sFontName &amp; &quot;&apos; would you like to configure the formatter?&quot;, _
+         35
+    If i = 7 Then
+      CreateBaseCharStyles() = False
+      Exit Function
+    End If
+    If i = 6 Then
+      RunCfgFmtDlg()
+      oConfigAccess = FMT_ConfigAccessStyles(False)
+      sFontName = getFontName(oConfigAccess)
+    End If
+    If NOT DocHasFontName(oDoc, sFontName) Then
+      i = MsgBox(&quot;Document still does not have font name &apos;&quot; &amp; _
+         sFontName &amp; &quot;&apos; would you like to continue?&quot;, _
+         35
+      If i &lt;&gt; 6 Then
+        CreateBaseCharStyles() = False
+        Exit Function
+      End If
+    End If
+  End If
+  
+  REM Base style for all. 
+  REM computer code that is not color coded and used in regular text
+  REM uses this style.
+  oProps() = Array(CreateProperty(&quot;CharFontName&quot;, sFontName), _
+    CreateProperty(&quot;CharColor&quot;, RGB(0, 0, 0)), _
+    CreateProperty(&quot;CharNoHyphenation&quot;, True) )
+
+  CreateCharacterStyle(&quot;OOoComputerCode&quot;, oProps())
+    
+  REM Base style for normal listings.
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;OOoComputerCode&quot;))
+  
+  CreateCharacterStyle(&quot;_OOoComputerBase&quot;, oProps())
+  
+ 
+  REM If you do not want something to have a language, which prevents
+  REM a spell check, set CharLocale to noLocale.
+  Dim noLocale As New com.sun.star.lang.Locale
+  noLocale.Country = &quot;&quot;
+  noLocale.Language = &quot;zxx&quot;
+
+  REM Comments use the default locale, which means that the spell checker
+  REM will check them. The rest, do not set a locale.
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerBase&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(76, 76, 76)))
+  CreateCharacterStyle(&quot;_OOoComputerComment&quot;, oProps())
+  
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerBase&quot;), _
+    CreateProperty(&quot;CharLocale&quot;, noLocale))
+  CreateCharacterStyle(&quot;_OOoComputerBaseNoLocale&quot;, oProps())
+  
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerBaseNoLocale&quot;))
+  CreateCharacterStyle(&quot;_OOoComputerSpecial&quot;, oProps())
+  
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerBase&quot;), _
+    CreateProperty(&quot;CharLocale&quot;, noLocale), _
+    CreateProperty(&quot;CharColor&quot;, RGB(255, 0, 0)))
+  CreateCharacterStyle(&quot;_OOoComputerLiteral&quot;, oProps())
+  
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerBase&quot;), _
+    CreateProperty(&quot;CharLocale&quot;, noLocale), _
+    CreateProperty(&quot;CharColor&quot;, RGB(255, 50, 0)))
+  CreateCharacterStyle(&quot;_OOoComputerNumber&quot;, oProps())
+  
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerBase&quot;), _
+    CreateProperty(&quot;CharLocale&quot;, noLocale), _
+    CreateProperty(&quot;CharColor&quot;, RGB(0, 0, 128)))
+  CreateCharacterStyle(&quot;_OOoComputerKeyWord&quot;, oProps())
+
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerBase&quot;), _
+    CreateProperty(&quot;CharLocale&quot;, noLocale), _
+    CreateProperty(&quot;CharColor&quot;, RGB(50, 0, 128)))
+  CreateCharacterStyle(&quot;_OOoComputerAltKeyWord&quot;, oProps())
+
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerBase&quot;), _
+    CreateProperty(&quot;CharLocale&quot;, noLocale), _
+    CreateProperty(&quot;CharColor&quot;, RGB(0, 128, 0)))
+  CreateCharacterStyle(&quot;_OOoComputerIdent&quot;, oProps())
+  
+  CreateBaseCharStyles() = True
+End Function
+
+Function CreateAssemblerCharStyles()
+  Dim oProps()
+
+  If NOT CreateBaseCharStyles() Then
+    CreateAssemblerCharStyles() = False
+    Exit Function
+  End If
+
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerComment&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(108, 108, 108)))
+  CreateCharacterStyle(&quot;_OOoAssemblerComment&quot;, oProps())
+  
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerLiteral&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(127, 0, 127)))
+  CreateCharacterStyle(&quot;_OOoAssemblerLiteral&quot;, oProps())
+
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerKeyWord&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(0, 0, 127)))
+  CreateCharacterStyle(&quot;_OOoAssemblerInstruction&quot;, oProps())
+
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerKeyWord&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(0, 128, 255)))
+  CreateCharacterStyle(&quot;_OOoAssemblerDirective&quot;, oProps())
+
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerSpecial&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(0, 128, 0)))
+    &apos;CreateProperty(&quot;CharColor&quot;, RGB(51, 153, 108)))
+  CreateCharacterStyle(&quot;_OOoAssemblerSpecialChar&quot;, oProps())
+
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerKeyWord&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(64, 0, 255)))
+  CreateCharacterStyle(&quot;_OOoAssemblerRegister&quot;, oProps())
+
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerKeyWord&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(0, 64, 255)))
+  CreateCharacterStyle(&quot;_OOoAssemblerOperator&quot;, oProps())
+
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerIdent&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(0, 0, 0)))
+  CreateCharacterStyle(&quot;_OOoAssemblerIdent&quot;, oProps())
+  CreateAssemblerCharStyles() = True
+End FUnction
+
+&apos;****************************************************************
+&apos;** Create character styles for StarBasic using the same colors
+&apos;** as the OOo IDE.
+&apos;****************************************************************
+Function CreateStarBasicCharStyles()
+  CreateStarBasicCharStyles() = CreateBaseCharStyles()
+End Function
+
+
+&apos;****************************************************************
+&apos;** Create character styles for Bash
+&apos;****************************************************************
+Function CreateBashCharStyles()
+  Dim oProps()
+
+  If NOT CreateBaseCharStyles() Then
+    CreateStarBasicCharStyles() = False
+    Exit Function
+  End If
+
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerComment&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(76, 76, 76)))
+  CreateCharacterStyle(&quot;_BashComment&quot;, oProps())
+  
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerLiteral&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(255, 0, 0)))
+  CreateCharacterStyle(&quot;_BashLiteral&quot;, oProps())
+  
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerKeyWord&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(0, 0, 255)))
+  CreateCharacterStyle(&quot;_BashKeyWord&quot;, oProps())
+
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerAltKeyWord&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(0, 0, 160)))
+  CreateCharacterStyle(&quot;_BashAltKeyword&quot;, oProps())
+
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerIdent&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(0, 128, 0)))
+  CreateCharacterStyle(&quot;_BashIdent&quot;, oProps())
+
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerBase&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(172, 0, 0)))
+  CreateCharacterStyle(&quot;_BashNumber&quot;, oProps())
+
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerSpecial&quot;))
+  CreateCharacterStyle(&quot;_BashSpecial&quot;, oProps())
+
+
+  CreateBashCharStyles() = True
+End Function
+
+
+
+Function CreateStarSQLCharStyles()
+  Dim oProps()
+
+  If NOT CreateBaseCharStyles() Then
+    CreateStarSQLCharStyles() = False
+    Exit Function
+  End If
+
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerComment&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(76, 76, 76)))
+  CreateCharacterStyle(&quot;_OOoSQLComment&quot;, oProps())
+  
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerLiteral&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(255, 0, 0)))
+  CreateCharacterStyle(&quot;_OOoSQLLiteral&quot;, oProps())
+  
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerKeyWord&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(0, 0, 128)))
+  CreateCharacterStyle(&quot;_OOoSQLKeyWord&quot;, oProps())
+
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerBase&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(0, 128, 0)))
+  CreateCharacterStyle(&quot;_OOoSQLIdent&quot;, oProps())
+  CreateStarSQLCharStyles() = True
+
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerSpecial&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(0, 0, 0)))
+  CreateCharacterStyle(&quot;_OOoSQLSpecial&quot;, oProps())
+  
+  CreateStarSQLCharStyles() = True
+End Function
+
+&apos;****************************************************************
+&apos;** Create character styles for Java using the same colors as Eclipse
+&apos;****************************************************************
+Function CreateJavaCharStyles()
+  Dim oProps()
+
+  If NOT CreateBaseCharStyles() Then
+    CreateJavaCharStyles() = False
+    Exit Function
+  End If
+
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerComment&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(153, 204, 255)))
+  CreateCharacterStyle(&quot;_JavaComment&quot;, oProps())
+  
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerLiteral&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(0, 0, 255)))
+  CreateCharacterStyle(&quot;_JavaLiteral&quot;, oProps())
+  
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerNumber&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(0, 0, 255)))
+  CreateCharacterStyle(&quot;_JavaNumber&quot;, oProps())
+  
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerKeyWord&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(153, 40, 76)))
+  CreateCharacterStyle(&quot;_JavaKeyWord&quot;, oProps())
+
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerAltKeyWord&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(153, 30, 153)))
+  CreateCharacterStyle(&quot;_JavaAltKeyWord&quot;, oProps())
+  
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerIdent&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(0, 0, 0)))
+  CreateCharacterStyle(&quot;_JavaIdent&quot;, oProps())
+  
+  CreateJavaCharStyles() = True
+End Function
+
+Function CreateSquirrelCharStyles()
+  Dim oProps()
+
+  If NOT CreateBaseCharStyles() Then
+    CreateSquirrelCharStyles() = False
+    Exit Function
+  End If
+
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerComment&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(153, 204, 255)))
+  CreateCharacterStyle(&quot;_SquirrelComment&quot;, oProps())
+  
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerLiteral&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(0, 0, 255)))
+  CreateCharacterStyle(&quot;_SquirrelLiteral&quot;, oProps())
+  
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerNumber&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(0, 0, 255)))
+  CreateCharacterStyle(&quot;_SquirrelNumber&quot;, oProps())
+  
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerKeyWord&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(153, 40, 76)))
+  CreateCharacterStyle(&quot;_SquirrelKeyWord&quot;, oProps())
+
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerAltKeyWord&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(153, 30, 153)))
+  CreateCharacterStyle(&quot;_SquirrelAltKeyWord&quot;, oProps())
+  
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerIdent&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(0, 0, 0)))
+  CreateCharacterStyle(&quot;_SquirrelIdent&quot;, oProps())
+  
+  CreateSquirrelCharStyles() = True
+End Function
+
+
+&apos;****************************************************************
+&apos;** Create character styles for Go using the same colors as Eclipse
+&apos;****************************************************************
+Function CreateGoCharStyles()
+  Dim oProps()
+
+  If NOT CreateBaseCharStyles() Then
+    CreateGoCharStyles() = False
+    Exit Function
+  End If
+
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerComment&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(76, 76, 76)))
+  CreateCharacterStyle(&quot;_GoComment&quot;, oProps())
+  
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerLiteral&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(255, 0, 0)))
+  CreateCharacterStyle(&quot;_GoLiteral&quot;, oProps())
+  
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerNumber&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(255, 0, 0)))
+  CreateCharacterStyle(&quot;_GoNumber&quot;, oProps())
+  
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerKeyWord&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(30, 35, 153)))
+  CreateCharacterStyle(&quot;_GoKeyWord&quot;, oProps())
+
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerAltKeyWord&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(3, 80, 43)))
+  CreateCharacterStyle(&quot;_GoAltKeyWord&quot;, oProps())
+  
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerIdent&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(0, 0, 0)))
+  CreateCharacterStyle(&quot;_GoIdent&quot;, oProps())
+  
+  CreateGoCharStyles() = True
+End Function
+
+
+
+
+&apos;****************************************************************
+&apos;** Create character styles for PHP using the same colors as KOMODO
+&apos;****************************************************************
+Function CreatePHPCharStyles()
+  Dim oProps()
+
+  If NOT CreateBaseCharStyles() Then
+    CreatePHPCharStyles() = False
+    Exit Function
+  End If
+
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerComment&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(153, 204, 255)))
+  CreateCharacterStyle(&quot;_PHPComment&quot;, oProps())
+  
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerLiteral&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(51, 51, 153)))
+  CreateCharacterStyle(&quot;_PHPLiteral&quot;, oProps())
+  
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerKeyWord&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(153, 51, 153)))
+  CreateCharacterStyle(&quot;_PHPKeyWord&quot;, oProps())
+
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerIdent&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(51, 51, 153)))
+  CreateCharacterStyle(&quot;_PHPIdent&quot;, oProps())
+  
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerNumber&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(139, 0, 0)))
+  CreateCharacterStyle(&quot;_PHPNumber&quot;, oProps())
+  
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerSpecial&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(0, 0, 0)))
+  CreateCharacterStyle(&quot;_PHPSpecial&quot;, oProps())
+  
+  CreatePHPCharStyles() = True
+End Function
+
+
+&apos;****************************************************************
+&apos;** Create character styles for XML
+&apos;****************************************************************
+Function CreateXMLCharStyles()
+  Dim oProps()
+
+  REM If you do not want something to have a language, which prevents
+  REM a spell check, set CharLocale to noLocale.
+  Dim noLocale As New com.sun.star.lang.Locale
+  noLocale.Country = &quot;&quot;
+  noLocale.Language = &quot;zxx&quot;
+
+  If NOT CreateBaseCharStyles() Then
+    CreateXMLCharStyles() = False
+    Exit Function
+  End If
+
+  oProps() = Array( CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerBase&quot;) )
+  CreateCharacterStyle(&quot;_XMLContent&quot;, oProps())
+
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerComment&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(76, 76, 76)))
+  CreateCharacterStyle(&quot;_XMLComment&quot;, oProps())
+  
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerLiteral&quot;), _
+    CreateProperty(&quot;CharColor&quot;, RGB(255, 0, 0)))
+  CreateCharacterStyle(&quot;_XMLLiteral&quot;, oProps())
+  
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerBase&quot;), _
+    CreateProperty(&quot;CharLocale&quot;, noLocale), _
+    CreateProperty(&quot;CharColor&quot;, RGB(0, 0, 128)))
+  CreateCharacterStyle(&quot;_XMLAttribute&quot;, oProps())
+
+  &apos;Entity is dark golden rod. I could use golden rod instead (218, 165, 32).
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerBase&quot;), _
+    CreateProperty(&quot;CharLocale&quot;, noLocale), _
+    CreateProperty(&quot;CharColor&quot;, RGB(184, 134, 11)))
+  CreateCharacterStyle(&quot;_XMLEntity&quot;, oProps())
+
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerKeyWord&quot;), _
+    CreateProperty(&quot;CharLocale&quot;, noLocale), _
+    CreateProperty(&quot;CharColor&quot;, RGB(0, 128, 0)))
+  CreateCharacterStyle(&quot;_XMLKeyWord&quot;, oProps())
+
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerBase&quot;), _
+    CreateProperty(&quot;CharLocale&quot;, noLocale), _
+    CreateProperty(&quot;CharColor&quot;, RGB(138, 43, 226)))
+  CreateCharacterStyle(&quot;_XMLBracket&quot;, oProps())
+
+  oProps() = Array(CreateProperty(&quot;ParentStyle&quot;, &quot;_OOoComputerBase&quot;), _
+    CreateProperty(&quot;CharLocale&quot;, noLocale), _
+    CreateProperty(&quot;CharWeight&quot;, com.sun.star.awt.FontWeight.BOLD))
+  CreateCharacterStyle(&quot;_XMLElement&quot;, oProps())
+  
+  CreateXMLCharStyles() = True
+End Function
+
+&apos;****************************************************************
+&apos;** Create a character style if it does not exist.
+&apos;** 
+&apos;****************************************************************
+Sub CreateCharacterStyle(sStyleName$, oProps())
+  Dim i%
+  Dim oFamilies
+  Dim oStyle
+  Dim oStyles
+  
+  oFamilies = ThisComponent.StyleFamilies
+  oStyles = oFamilies.getByName(&quot;CharacterStyles&quot;)
+  If oStyles.HasByName(sStyleName) Then
+    &apos;PrintColor(oStyles.getByName(sStyleName).CharColor)
+    Exit Sub
+  End If
+  oStyle = ThisComponent.createInstance(&quot;com.sun.star.style.CharacterStyle&quot;)
+  For i=LBound(oProps) To UBound(oProps)
+    If oProps(i).Name = &quot;ParentStyle&quot; Then
+    
+      If oStyles.HasByName(oProps(i).Value) Then
+        oStyle.ParentStyle = oProps(i).Value
+      Else
+        Print &quot;Parent character style (&quot; &amp; oProps(i).Value &amp; _
+              &quot;) does not exist, ignoring parent.&quot;
+      End If    
+      oStyle.ParentStyle = oProps(i).Value
+    Else
+      oStyle.setPropertyValue(oProps(i).Name, oProps(i).Value)
+    End If
+  Next
+  oStyles.insertByName(sStyleName, oStyle)
+End Sub
+
+&apos;****************************************************************
+&apos;** Create a paragraph style if it does not exist.
+&apos;****************************************************************
+Sub CreateParStyle(sStyleName$, oProps())
+  Dim i%, j%
+  Dim oFamilies
+  Dim oStyle
+  Dim oStyles
+  Dim tabStops%
+  
+  oFamilies = ThisComponent.StyleFamilies
+  oStyles = oFamilies.getByName(&quot;ParagraphStyles&quot;)
+  If oStyles.HasByName(sStyleName) Then
+    Exit Sub
+  End If
+  oStyle = ThisComponent.createInstance(&quot;com.sun.star.style.ParagraphStyle&quot;)
+  For i=LBound(oProps) To UBound(oProps)
+    If oProps(i).Name = &quot;ParentStyle&quot; Then
+      If oStyles.HasByName(oProps(i).Value) Then
+        oStyle.ParentStyle = oProps(i).Value
+      Else
+        Print &quot;Parent paragraph style (&quot; &amp; oProps(i).Value &amp; _
+              &quot;) does not exist, ignoring parent&quot;
+      End If
+    ElseIf oProps(i).Name = &quot;ParaTabStops&quot; Then
+      tabStops = oProps(i).Value
+      Dim tab(0 To 19) As New com.sun.star.style.TabStop
+      For j =LBound(tab) To UBound(tab)
+        tab(j).Alignment = com.sun.star.style.TabAlign.LEFT
+        tab(j).DecimalChar = ASC(&quot;.&quot;)
+        tab(j).FillChar = 32
+        tab(j).Position = (j+1) * tabStops
+      Next
+      oStyle.ParaTabStops = tab
+    ElseIf oProps(i).Name = &quot;FollowStyle&quot; Then
+      If oStyles.HasByName(oProps(i).Value) OR oProps(i).Value = sStyleName Then
+        oStyle.setPropertyValue(oProps(i).Name, oProps(i).Value)
+      Else
+        Print &quot;Next paragraph style (&quot; &amp; oProps(i).Value &amp; _
+              &quot;) does not exist, ignoring for style &quot; &amp; sStyleName
+      End If
+    Else
+      oStyle.setPropertyValue(oProps(i).Name, oProps(i).Value)
+    End If
+  Next
+  oStyles.insertByName(sStyleName, oStyle)
+End Sub
+
+
+&apos;****************************************************************
+&apos;** General utility function that I use to inspect color values 
+&apos;** in styles.
+&apos;****************************************************************
+Sub PrintColor(n As Long)
+  MsgBox &quot;(&quot; &amp; Red(n) &amp; &quot;, &quot; &amp; Green(n) &amp; &quot;, &quot; &amp; Blue(n) &amp; &quot;)&quot;
+End Sub
+
+Function findDefaultStyle(bCharStyle As Boolean, sNames())
+  findDefaultStyle = &quot;&quot;
+  Dim oStyles
+  Dim i%
+  Dim oVC
+  Dim s$
+  
+  If bCharStyle Then
+    oStyles = ThisComponent.StyleFamilies.getByName(&quot;CharacterStyles&quot;)
+  Else
+    oStyles = ThisComponent.StyleFamilies.getByName(&quot;ParagraphStyles&quot;)
+  End If
+  
+  For i = LBound(sNames()) To UBound(sNames())
+    If oStyles.HasByName(sNames(i)) Then
+      findDefaultStyle() = sNames(i)
+      Exit Function
+    End If
+  Next
+  
+  REM still have not found the default character style.
+  REM I have two choices, leave it blank or guess.
+  oVC = ThisComponent.CurrentController.getViewCursor()
+  If bCharStyle Then 
+    findDefaultStyle() = oVC.CharStyleName
+  Else 
+    findDefaultStyle() =  oVC.paraStyleName
+  End If
+  REM This still might be empty.
+End Function
+
+&apos;****************************************************************
+&apos;** Does the document have a paragraph style named sName?
+&apos;****************************************************************
+Function DocHasParStyle(oDoc, sName$) As Boolean
+  Dim oStyles
+  oStyles = oDoc.StyleFamilies.getByName(&quot;ParagraphStyles&quot;)
+  DocHasParStyle() = oStyles.hasByName(sName)
+End Function
+
+Function DocHasCharStyle(oDoc, sName$) As Boolean
+  Dim oStyles
+  oStyles = oDoc.StyleFamilies.getByName(&quot;CharacterStyles&quot;)
+  DocHasCharStyle() = oStyles.hasByName(sName)
+End Function
+
+
+Function DocHasFontName(oDoc, sName$) As Boolean
+  Dim oWindow
+  Dim oFonts()
+  Dim i%
+  
+  oWindow  = oDoc.getCurrentController().getFrame().getContainerWindow()
+  oFonts() = oWindow.getFontDescriptors()
+  For i = LBound(oFonts()) To UBound(oFonts())
+    If oFonts(i).Name = sName Then
+      DocHasFontName() = True
+      Exit Function
+    End If
+  Next
+  DocHasFontName() = False
+End Function
+
+Function defaultNames()
+  &apos;en = Default
+  &apos;es = Predeterminado
+  &apos;fr = Starndard
+  &apos;Russian = Базовый
+  defaultNames() = Array( &quot;Default&quot;, _
+   &quot;Predeterminado&quot;, &quot;Базовый&quot;, &quot;Standard&quot; )
+End Function
+
+Function VerifyParNames(styleName$, sStyles()) As Boolean
+  VerifyParNames = True
+  If NOT FMT_ArrayHasString(styleName$, sStyles()) Then
+    MsgBox &quot;No code found&quot; &amp; CHR$(10) &amp; _
+           &quot;You must use a &apos;CODE&apos; paragraph style&quot; &amp; CHR$(10) &amp; _
+           &quot;AndrewMacro.odt uses these styles&quot; &amp; CHR$(10) &amp; _
+           &quot;-------------------------------------&quot; &amp; CHR$(10) &amp; _
+           Join(sStyles(), CHR$(10))
+    VerifyParNames = False
+  End If
+End Function
+
+Function VerifyCharNames(oDoc, sCharStyles()) As Boolean
+  Dim i%
+  VerifyCharNames = True
+  For i = LBound(sCharStyles()) To UBound(sCharStyles())
+    If NOT DocHasCharStyle(oDoc, sCharStyles(i)) Then
+      MsgBox &quot;Aborting because character style &quot; &amp; sCharStyles(i) &amp; _
+        &quot; does not exist in the current document.&quot;
+      VerifyCharNames = False
+      Exit Function
+    End If
+  Next
+End Function
+
+</script:module>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script:module PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "module.dtd">
+<script:module xmlns:script="http://openoffice.org/2000/script" script:name="objc" script:language="StarBasic">REM  *****  BASIC  *****
+Option Explicit
+
+REM Author: Andrew D. Pitonyak
+REM Date: March 01, 2015
+REM License: Public Domain
+REM I appreciate knowing about changes
+REM I have not tested objective C in any way, this is mostly a place holder.
+
+Sub MainObjC
+  FMT_MasterColorizer(ThisComponent, &quot;ObjC&quot;, &quot;CUR&quot;)
+  &apos;FMT_MasterColorizer(ThisComponent, &quot;ObjC&quot;, &quot;SEL&quot;)
+  &apos;FMT_MasterColorizer(ThisComponent, &quot;ObjC&quot;, &quot;DOC&quot;)
+End Sub
+
+Sub FMT_ColorCodeCurrentObjC()
+  FMT_MasterColorizer(ThisComponent, &quot;ObjC&quot;, &quot;CUR&quot;)
+End Sub
+
+REM Format just the selected text
+Sub HighlightSelObjC()
+  FMT_MasterColorizer(ThisComponent, &quot;ObjC&quot;, &quot;SEL&quot;)
+End Sub
+
+
+&apos;****************************************************************
+&apos;** Very simple parsing of ObjC code.
+&apos;****************************************************************
+Sub FMT_ColorCodeOneRangeStringObjC(oSel, sTokens(), sAltTokens(), sCharStyles())
+  FMT_ColorCodeOneRangeStringJava(oSel, sTokens(), sAltTokens(), sCharStyles())
+End Sub
+
+&apos;****************************************************************
+&apos;** Tokens recognized by ObjC.
+&apos;****************************************************************
+Sub FMT_InitTokensObjC(sTokens())
+  sTokens() = Array(&quot;assign&quot;, &quot;atomic&quot;, &quot;auto&quot;, &quot;autoreleasepool&quot;, _
+    &quot;bool&quot;, &quot;break&quot;, &quot;bycopy&quot;, &quot;byref&quot;, _
+    &quot;case&quot;, &quot;catch&quot;, &quot;char&quot;, &quot;class&quot;, &quot;compatibility_alias&quot;, &quot;complex&quot;, &quot;continue&quot;, _
+    &quot;default&quot;, &quot;defs&quot;, &quot;do&quot;, &quot;double&quot;, &quot;dynamic&quot;, _
+    &quot;else&quot;, &quot;encode&quot;, &quot;end&quot;, &quot;enum&quot;, &quot;extern&quot;, _
+    &quot;finally&quot;, &quot;float&quot;, &quot;for&quot;, &quot;goto&quot;, _
+    &quot;id&quot;, &quot;if&quot;, &quot;imaginary&quot;, &quot;imp&quot;, &quot;implementation&quot;, &quot;import&quot;, &quot;in&quot;, &quot;inline&quot;, &quot;inout&quot;, &quot;int&quot;, &quot;interface&quot;, _
+    &quot;long&quot;, &quot;nil&quot;, &quot;no&quot;, &quot;nonatomic&quot;, &quot;null&quot;, &quot;oneway&quot;, &quot;optional&quot;, &quot;out&quot;, _
+    &quot;package&quot;, &quot;private&quot;, &quot;property&quot;, &quot;protected&quot;, &quot;protocol&quot;, &quot;public&quot;, _
+    &quot;register&quot;, &quot;required&quot;, &quot;restrict&quot;, &quot;retain&quot;, &quot;return&quot;, _
+    &quot;sel&quot;, &quot;selector&quot;, &quot;self&quot;, &quot;short&quot;, &quot;signed&quot;, &quot;sizeof&quot;, &quot;static&quot;, _
+    &quot;string&quot;, &quot;strong&quot;, &quot;struct&quot;, &quot;super&quot;, &quot;switch&quot;, &quot;synchronized&quot;, &quot;synthesize&quot;, _
+    &quot;throw&quot;, &quot;try&quot;, &quot;typedef&quot;, &quot;union&quot;, &quot;unsigned&quot;, &quot;void&quot;, &quot;volatile&quot;, &quot;while&quot;, &quot;yes&quot;)
+  FMT_SortStringArrayAscending(sTokens())
+End Sub
+
+&apos;****************************************************************
+&apos;** Alternate Tokens such as system class libraries and functions
+&apos;** that you want to recognize.
+&apos;****************************************************************
+Sub FMT_InitAltTokensObjC(sAltTokens())
+  sAltTokens() = Array()
+  FMT_SortStringArrayAscending(sAltTokens())
+End Sub
+
+&apos;****************************************************************
+&apos;** Get the character styles meant for highlighting ObjC code.
+&apos;** ObjC formats character styles as an identifier.
+&apos;****************************************************************
+Function FMT_GetObjCCharacterStyles()
+  FMT_GetObjCCharacterStyles() = FMT_GetCppCharacterStyles()
+End Function
+
+</script:module>

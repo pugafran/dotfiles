@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script:module PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "module.dtd">
+<script:module xmlns:script="http://openoffice.org/2000/script" script:name="CfgFmtCode" script:language="StarBasic">REM  *****  BASIC  *****
+Option Explicit
+
+Private oDlg
+
+Sub testIt()
+  &apos; CM in an inch = 100.0 / 39.37007874
+  &apos;Print 635.0 * 39.37007874 / 10000
+  &apos;Print 635.0 / 1000.0
+  RunCfgFmtDlg
+  Exit Sub
+  Dim oConfigAccess As Object
+  oConfigAccess = FMT_ConfigAccessStyles(False)
+  &apos;Inspect oConfigAccess.getByName(&quot;ParSmallCharHeight&quot;)
+  
+  Print getNextStyleName(oConfigAccess)
+  Print getFontName(oConfigAccess)
+  Print getTabWidth(oConfigAccess)
+  Print getNormalCharHeight(oConfigAccess)
+  Print getSmallCharHeight(oConfigAccess)
+  Print getUnitsName(oConfigAccess)
+End Sub
+
+Sub RunCfgFmtDlg
+  Dim oConfigAccess
+  Dim oControl
+  Dim oModel
+  Dim dTabWidth As Double
+  Dim sNextStyle As String
+  Dim s$
+  Dim oStyles
+  Dim i%
+  Dim sFontName
+  Dim sUnits As String
+  Dim oDoc As Object
+
+  oDoc = FMT_FindTextDoc()
+  
+  If IsNullOrEmpty(oDoc) Then
+    MsgBox &quot;This macro checks the paragraph styles in the current text document, but the current document is not a text document. &quot; &amp; _
+           &quot;Please run this macro while the current document is a text document.&quot;
+    Exit Sub
+  End If
+  
+  oConfigAccess = FMT_ConfigAccessStyles(False)
+  GlobalScope.DialogLibraries.loadLibrary(&quot;MacroFormatterADP&quot;)
+  oDlg = CreateUnoDialog(GlobalScope.DialogLibraries.MacroFormatterADP.CfgFmtDlg)
+  
+  Rem Save the progress bar for later use!
+  Rem I start it at -1 just to show that it can be done
+  oDlg.getControl(&quot;ParSmallCharHeight&quot;).getModel().Value = getSmallCharHeight(oConfigAccess)
+  oDlg.getControl(&quot;ParNormalCharHeight&quot;).getModel().Value = getNormalCharHeight(oConfigAccess)
+  
+  dTabWidth = getTabWidth(oConfigAccess)
+  sUnits = LCase(getUnitsName(oConfigAccess))
+  sNextStyle = getNextStyleName(oConfigAccess)
+  sFontName = getFontName(oConfigAccess)
+  
+  oStyles = oDoc.StyleFamilies.getByName(&quot;ParagraphStyles&quot;)
+  If NOT oStyles.hasByName(sNextStyle) Then
+    s = s &amp; &quot;The initial next style name &apos;&quot; &amp; sNextStyle &amp; &quot;&apos; does not exist in the current document.&quot; &amp; CHR$(10)
+    Dim dStyle$
+    dStyle = findDefaultStyle(False, defaultNames())
+    If oStyles.hasByName(dStyle) Then
+      s = s &amp; &quot;Set different next style &apos;&quot; &amp; dStyle &amp; &quot;&apos; instead.&quot; &amp; CHR$(10)
+    Else
+      dStyle = oStyles.getByIndex(0).DisplayName
+      s = s &amp; &quot;Set different next style to the first style &apos;&quot; &amp; dStyle &amp; &quot;&apos; instead.&quot; &amp; CHR$(10)
+    End If
+    sNextStyle = dStyle
+  End If
+  
+  if (sUnits = &quot;cm&quot;) Then
+    oDlg.getControl(&quot;TabWidth&quot;).getModel().Value = dTabWidth / 1000.0
+    oDlg.getControl(&quot;rbUnit1&quot;).getModel().State = 0
+    oDlg.getControl(&quot;rbUnit2&quot;).getModel().State = 1
+  Else
+    sUnits = &quot;in&quot;
+    oDlg.getControl(&quot;TabWidth&quot;).getModel().Value = dTabWidth / 2540.0
+    oDlg.getControl(&quot;rbUnit1&quot;).getModel().State = 1
+    oDlg.getControl(&quot;rbUnit2&quot;).getModel().State = 0
+  End If
+  
+  oControl = oDlg.getControl(&quot;ParNextStyleName&quot;)
+  
+  Dim useName As Boolean
+  Dim useDisplayName As Boolean
+  useName = False
+  useDisplayName = True
+  oControl.addItems(getSortedStyleNames(oDoc, &quot;ParagraphStyles&quot;, useName, useDisplayName), 0)
+  oControl.setText(sNextStyle)
+
+  oControl = oDlg.getControl(&quot;ParNextStyleName&quot;)
+  Dim x()
+  x() = SortedFontNames(oDoc, False)
+  oControl = oDlg.getControl(&quot;FontName&quot;)
+  oControl.addItems(x(), 0)
+  oControl.setText(sFontName)
+  Dim b As Boolean
+  b = False
+  For i = LBound(x()) To UBound(x())
+    If x(i) = sFontName Then 
+      b = True
+      Exit For
+    End If
+  Next
+  If NOT b Then
+    s = s &amp; &quot;The initial font name &apos;&quot; &amp; sFontName &amp; &quot;&apos; does not exist&quot;
+  End If
+  
+  If s = &quot;&quot; Then
+    s = &quot;There are no warnings because the initial font name &apos;&quot; &amp; sFontname &amp; _
+        &quot;&apos; and the initial paragraph style &apos;&quot; &amp; sNextStyle &amp; _
+        &quot;&apos; both exist in the current document.&quot;
+  End If
+  oDlg.getControl(&quot;Info&quot;).getModel().Text = s
+  oDlg.execute()
+End Sub
+
+Sub CloseDialog
+  Dim oConfigAccess
+  Dim s$
+  oConfigAccess = FMT_ConfigAccessStyles(True)
+  s = updateFromDialog(oConfigAccess, oDlg, True)
+  If s = &quot;&quot; Then
+    MsgBox &quot;Nothing changed or updated&quot;
+  Else
+    MsgBox &quot;Items updated &quot; &amp; CHR$(10) &amp; s
+  End If
+  oDlg.endExecute()
+End Sub
+
+Function updateFromDialog(oConfigAccess, dlg, doWork As Boolean) As String
+  Dim s$
+  Dim dNew As Double
+  Dim sUnit$
+  Dim x()
+
+  dNew = dlg.getControl(&quot;TabWidth&quot;).getModel().Value
+  If dlg.getControl(&quot;rbUnit1&quot;).getModel().State = 1 Then
+    sUnit$ = &quot;in&quot;
+    dNew = dnew * 2540
+  Else
+    sUnit$ = &quot;cm&quot;
+    dNew = dnew * 1000
+  End If
+
+  x() = Array (updateString(sUnit, getUnitsName(oConfigAccess), oConfigAccess, &quot;Units&quot;, doWork), _
+    updateLong(CLng(dNew), CLng(getTabWidth(oConfigAccess)), oConfigAccess, &quot;TabWidth&quot;, doWork), _
+    updateString(dlg.getControl(&quot;ParNextStyleName&quot;).getModel().Text, getNextStyleName(oConfigAccess), oConfigAccess, &quot;ParNextStyleName&quot;, doWork), _
+    updateString(dlg.getControl(&quot;FontName&quot;).getModel().Text, getFontName(oConfigAccess), oConfigAccess, &quot;FontName&quot;, doWork), _
+    updateDouble(dlg.getControl(&quot;ParNormalCharHeight&quot;).getModel().Value, getNormalCharHeight(oConfigAccess), oConfigAccess, &quot;ParNormalCharHeight&quot;, doWork), _
+    updateDouble(dlg.getControl(&quot;ParSmallCharHeight&quot;).getModel().Value, getSmallCharHeight(oConfigAccess), oConfigAccess, &quot;ParSmallCharHeight&quot;, doWork))
+    
+  If Join(x(), &quot;&quot;) = &quot;&quot; Then
+    updateFromDialog() = &quot;&quot;
+  else 
+    oConfigAccess.commitChanges()
+    updateFromDialog() = Join(x(), CHR$(10))
+  End If
+End Function
+
+&apos;********************************************************************
+&apos;** Update a double value in the 
+&apos;********************************************************************
+Function updateDouble(newValue As Double, oldValue As Double, _
+             oConfigAccess, cfgName$, doWork As Boolean) As String
+  updateDouble() = &quot;&quot;
+  If newValue &lt;&gt; oldValue Then
+    updateDouble() = cfgName &amp; &quot; changed from &quot; &amp; oldValue &amp; &quot; to &quot; &amp; newValue
+    If doWork Then
+       If NOT IsNullOrEmpty(oConfigAccess) Then
+         oConfigAccess.setPropertyValue(cfgName, newValue)
+       End If
+    End If
+  End If
+End Function
+
+Function updateLong(newValue As Long, oldValue As Long, oConfigAccess, cfgName$, doWork As Boolean) As String
+  updateLong() = &quot;&quot;
+  If newValue &lt;&gt; oldValue Then
+    updateLong() = cfgName &amp; &quot; changed from &quot; &amp; oldValue &amp; &quot; to &quot; &amp; newValue
+    If doWork Then
+       If NOT IsNullOrEmpty(oConfigAccess) Then
+         oConfigAccess.setPropertyValue(cfgName, newValue)
+       End If
+    End If
+  End If
+End Function
+
+Function updateString(newValue As String, oldValue As String, oConfigAccess, cfgName$, doWork As Boolean) As String
+  updateString() = &quot;&quot;
+  If newValue &lt;&gt; oldValue Then
+    updateString() = cfgName &amp; &quot; changed from &quot; &amp; oldValue &amp; &quot; to &quot; &amp; newValue
+    If doWork Then
+       If NOT IsNullOrEmpty(oConfigAccess) Then
+         oConfigAccess.setPropertyValue(cfgName, newValue)
+       End If
+    End If
+  End If
+End Function
+
+
+Sub NewUnits(oEvent)
+  Dim state1%, state2%
+  Dim newValue As Double
+  If oEvent.Source.getModel().Name = &quot;rbUnit1&quot; Then
+    newValue = oDlg.getControl(&quot;TabWidth&quot;).getModel().Value
+    oDlg.getControl(&quot;TabWidth&quot;).getModel().Value = newValue / 2.54
+  Else
+    newValue = oDlg.getControl(&quot;TabWidth&quot;).getModel().Value
+    oDlg.getControl(&quot;TabWidth&quot;).getModel().Value = newValue * 2.54
+  End If
+End Sub
+
+
+Function getNextStyleName(oConfigAccess) As String
+  Dim oStyle
+  Dim oStyles
+  
+  getNextStyleName() = &quot;OOoTextBody&quot;
+  If NOT IsNullOrEmpty(oConfigAccess) Then
+    getNextStyleName() = oConfigAccess.getByName(&quot;ParNextStyleName&quot;)
+  End If
+End Function
+
+Function getFontName(oConfigAccess) As String
+  Dim oStyle
+  Dim oStyles
+  
+  getFontName() = &quot;Courier New&quot;
+  If NOT IsNullOrEmpty(oConfigAccess) Then
+    getFontName() = oConfigAccess.getByName(&quot;FontName&quot;)
+  Else
+    oStyles = FMT_FindTextDoc().StyleFamilies.getByName(&quot;ParagraphStyles&quot;)
+    If oStyles.hasByName(&quot;_OOoComputerCodeLastLine&quot;) Then
+      oStyle = oStyles.getByName(&quot;_OOoComputerCodeLastLine&quot;)
+      getFontName() = oStyle.getPropertyValue(&quot;CharFontName&quot;)
+    End If
+  End If
+End Function
+
+Function getTabWidth(oConfigAccess) As Long
+  Dim oStyle
+  Dim oStyles
+  Dim oTabs
+  
+  getTabWidth() = 635
+  If NOT IsNullOrEmpty(oConfigAccess) Then
+    getTabWidth() = oConfigAccess.getByName(&quot;TabWidth&quot;)
+  Else
+    oStyles = FMT_FindTextDoc().StyleFamilies.getByName(&quot;ParagraphStyles&quot;)
+    If oStyles.hasByName(&quot;_code&quot;) Then
+      oStyle = oStyles.getByName(&quot;_code&quot;)
+      oTabs = oStyle.ParaTabStops
+      If Not IsNullOrEmpty(oTabs) Then 
+        If UBound(oTabs) &gt; 4 Then 
+          getTabWidth() = oTabs(0).Position
+        End If
+      End If
+    End If
+  End If
+End Function
+
+Function getNormalCharHeight(oConfigAccess) As Double
+  Dim oStyle
+  Dim oStyles
+  
+  getNormalCharHeight() = 9
+  If NOT IsNullOrEmpty(oConfigAccess) Then
+    getNormalCharHeight() = oConfigAccess.getByName(&quot;ParNormalCharHeight&quot;)
+  Else
+    oStyles = FMT_FindTextDoc().StyleFamilies.getByName(&quot;ParagraphStyles&quot;)
+    If oStyles.hasByName(&quot;_OOoComputerCodeLastLine&quot;) Then
+      oStyle = oStyles.getByName(&quot;_OOoComputerCodeLastLine&quot;)
+      getNormalCharHeight() = oStyle.getPropertyValue(&quot;CharHeight&quot;)
+    End If
+  End If
+End Function
+
+Function getSmallCharHeight(oConfigAccess) As Double
+  Dim oStyle
+  Dim oStyles
+  
+  getSmallCharHeight() = 8
+  If NOT IsNullOrEmpty(oConfigAccess) Then
+    getSmallCharHeight() = oConfigAccess.getByName(&quot;ParSmallCharHeight&quot;)
+  Else
+    oStyles = FMT_FindTextDoc().StyleFamilies.getByName(&quot;ParagraphStyles&quot;)
+    If oStyles.hasByName(&quot;_code&quot;) Then
+      oStyle = oStyles.getByName(&quot;_code&quot;)
+      getSmallCharHeight() = oStyle.getPropertyValue(&quot;CharHeight&quot;)
+    End If
+  End If
+End Function
+
+Function getUnitsName(oConfigAccess) As String
+  Dim oStyle
+  Dim oStyles
+  
+  getUnitsName() = &quot;in&quot;
+  If NOT IsNullOrEmpty(oConfigAccess) Then
+    getUnitsName() = oConfigAccess.getByName(&quot;Units&quot;)
+  End If
+End Function
+
+Function IsNullOrEmpty(x) As Boolean
+  IsNullOrEmpty() = IsNull(x) OR IsEmpty(x)
+End Function
+
+Function SortedFontNames(oDoc, bDuplicates As Boolean)
+  Dim oWindow          &apos;Container window AWT XDevice interface.
+  Dim oFonts()         &apos;Array of awt FontDescriptor structures.
+  Dim nIndex() As Long &apos;Indirect sorted index into.
+  Dim sName$           &apos;Font name.
+  Dim i&amp;               &apos;General index variable.
+  Dim j&amp;               &apos;General index variable.
+  Dim n&amp;               &apos;General utility variable.
+  Dim k&amp;               &apos;General utility variable.
+  Dim bChanged As Boolean
+  Dim sNames() As String
+
+  oWindow  = oDoc.getCurrentController().getFrame().getContainerWindow()
+  oFonts() = oWindow.getFontDescriptors()
+  ReDim nIndex(UBound(oFonts()))
+  n = UBound(oFonts())
+  REM First, obtain an index into the unique values.
+  For i = 0 to n
+    nIndex(i) = i
+  Next
+
+  REM Sort the data!
+  For i = 0 To n-1
+    bChanged = False
+    For j = 1 To n-i
+      If oFonts(nIndex(j-1)).Name &gt; oFonts(nIndex(j)).Name Then
+        k = nIndex(j-1)
+        nIndex(j-1) = nIndex(j)
+        nIndex(j) = k
+        bChanged = True
+      End If
+    Next
+    If NOT bChanged Then Exit For
+  Next
+
+  REM Copy the font descriptor.
+  sName = &quot;&quot;
+  ReDim sNames(n) As String
+  j = -1
+  For i = 0 To n
+    If bDuplicates OR (sName &lt;&gt; oFonts(nIndex(i)).Name) Then
+      j = j + 1
+      sName = oFonts(nIndex(i)).Name
+      sNames(j) = sName
+    End If
+  Next
+  REM Bug alert, if I do NOT perform a ReDim Preserve, then the returned 
+  REM value is Empty; even if the array does not change in size.
+  ReDim Preserve sNames(j) As String
+  SortedFontNames = sNames()
+End Function
+
+&apos;******************************************************
+&apos;** Get configuration access for the macro formatter.
+&apos;** The only purpose is to encapsulate the name for configuration
+&apos;** access. 
+&apos;******************************************************
+Function FMT_ConfigAccessStyles(ByVal bWriteAccess As Boolean)
+  Dim s$
+  s$ = &quot;/org.pitonyak.addon.MacroFormatterADP/Config/DefaultStyles&quot;
+  FMT_ConfigAccessStyles() = GetConfigAccess( s$, bWriteAccess )
+End Function
+
+REM This routine written by Danny Brewer...
+Function GetConfigAccess( ByVal cNodePath As String,_
+                     ByVal bWriteAccess As Boolean,_
+                     Optional bEnableSync,_
+                     Optional bLazyWrite ) As Object
+  Dim oConfigProvider
+  Dim cServiceName$
+  Dim oConfigAccess
+  
+   If IsMissing( bEnableSync ) Then
+      bEnableSync = True
+   EndIf
+   If IsMissing( bLazyWrite ) Then
+      bLazyWrite = False
+   EndIf
+
+&apos;   If bWriteAccess  And  bEnableSync Then
+      oConfigProvider = GetProcessServiceManager().createInstanceWithArguments(_
+                     &quot;com.sun.star.configuration.ConfigurationProvider&quot;,_
+                     Array( CreateProperty( &quot;enableasync&quot;, bEnableSync ) ) )
+&apos;   Else
+&apos;      oConfigProvider = createUnoService( &quot;com.sun.star.configuration.ConfigurationProvider&quot; )
+&apos;   EndIf
+   
+   If bWriteAccess Then
+      cServiceName = &quot;com.sun.star.configuration.ConfigurationUpdateAccess&quot;
+   Else
+      cServiceName = &quot;com.sun.star.configuration.ConfigurationAccess&quot;
+   EndIf
+   
+   oConfigAccess = oConfigProvider.createInstanceWithArguments( cServiceName,_
+      Array( CreateProperty( &quot;nodepath&quot;, cNodePath ),_
+            CreateProperty( &quot;lazywrite&quot;, bLazyWrite ) ) )
+   
+   GetConfigAccess() = oConfigAccess
+End Function
+
+
+</script:module>

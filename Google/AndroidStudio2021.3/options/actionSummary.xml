@@ -1,25 +1,190 @@
 <application>
   <component name="ActionsLocalSummary">
+    <e n="$Delete">
+      <i c="10" l="1666639616092" />
+    </e>
+    <e n="$Paste">
+      <i c="1" l="1666633752034" />
+    </e>
+    <e n="$Undo">
+      <i c="99" l="1666640722694" />
+    </e>
+    <e n="Android.DeviceManager">
+      <i c="2" l="1666633416365" />
+    </e>
+    <e n="CloseAllEditorsButActive">
+      <i c="1" l="1666630945745" />
+    </e>
+    <e n="CodeCompletion">
+      <i c="32" l="1666640325517" />
+    </e>
+    <e n="CreateLibraryFromFile">
+      <i c="1" l="1666639962673" />
+    </e>
     <e n="EditorBackSpace">
-      <i c="17" l="1666621523666" />
+      <i c="1117" l="1666640730257" />
+    </e>
+    <e n="EditorChooseLookupItem">
+      <i c="102" l="1666640731441" />
+    </e>
+    <e n="EditorChooseLookupItemReplace">
+      <i c="5" l="1666634352017" />
+    </e>
+    <e n="EditorCopy">
+      <i c="12" l="1666640718321" />
+    </e>
+    <e n="EditorCut">
+      <i c="12" l="1666640192407" />
+    </e>
+    <e n="EditorDelete">
+      <i c="54" l="1666640017700" />
+    </e>
+    <e n="EditorDown">
+      <i c="692" l="1666640732221" />
+    </e>
+    <e n="EditorDownWithSelection">
+      <i c="3" l="1666640111887" />
+    </e>
+    <e n="EditorEnter">
+      <i c="168" l="1666640716454" />
+    </e>
+    <e n="EditorEscape">
+      <i c="21" l="1666639468589" />
+    </e>
+    <e n="EditorLeft">
+      <i c="667" l="1666640727027" />
+    </e>
+    <e n="EditorLeftWithSelection">
+      <i c="190" l="1666640114513" />
+    </e>
+    <e n="EditorPaste">
+      <i c="20" l="1666640723525" />
+    </e>
+    <e n="EditorRight">
+      <i c="548" l="1666640726697" />
+    </e>
+    <e n="EditorRightWithSelection">
+      <i c="172" l="1666640728094" />
+    </e>
+    <e n="EditorSplitLine">
+      <i c="1" l="1666636028835" />
+    </e>
+    <e n="EditorTab">
+      <i c="14" l="1666635797598" />
+    </e>
+    <e n="EditorToggleInsertState">
+      <i c="4" l="1666630580956" />
+    </e>
+    <e n="EditorUp">
+      <i c="295" l="1666640723258" />
+    </e>
+    <e n="EditorUpWithSelection">
+      <i c="15" l="1666640717804" />
     </e>
     <e n="ExpandRegion">
       <i c="3" l="1666621520273" />
     </e>
+    <e n="ImplementMethods">
+      <i c="1" l="1666631305452" />
+    </e>
+    <e n="Kotlin.NewFile">
+      <i c="3" l="1666639423914" />
+    </e>
+    <e n="NewProject">
+      <i c="1" l="1666633622620" />
+    </e>
+    <e n="NextTemplateVariable">
+      <i c="1" l="1666634349880" />
+    </e>
+    <e n="OpenFile">
+      <i c="2" l="1666639323177" />
+    </e>
+    <e n="OpenModuleSettings">
+      <i c="1" l="1666639860697" />
+    </e>
+    <e n="QuickJavaDoc">
+      <i c="1" l="1666640153295" />
+    </e>
+    <e n="ResourceExplorer.open">
+      <i c="1" l="1666629748393" />
+    </e>
+    <e n="Run">
+      <i c="8" l="1666640768148" />
+    </e>
+    <e n="RunAnything">
+      <i c="4" l="1666640719443" />
+    </e>
+    <e n="SearchEverywhere">
+      <i c="2" l="1666632735650" />
+    </e>
     <e n="SettingsEntryPoint">
       <i c="1" l="1666621613310" />
+    </e>
+    <e n="ShowIntentionActions">
+      <i c="29" l="1666640231136" />
     </e>
     <e n="ShowSettings">
       <i c="1" l="1666621614897" />
     </e>
+    <e n="Stop">
+      <i c="3" l="1666640000658" />
+    </e>
+    <e n="ToggleLineBreakpoint">
+      <i c="2" l="1666640092945" />
+    </e>
     <e n="WelcomeScreen.CreateNewProject">
       <i c="1" l="1666621261325" />
+    </e>
+    <e n="com.android.tools.idea.configurations.TargetMenuAction">
+      <i c="2" l="1666638629618" />
+    </e>
+    <e n="com.android.tools.idea.gradle.structure.configurables.ui.ToolWindowHeader$3">
+      <i c="1" l="1666639892845" />
+    </e>
+    <e n="com.android.tools.idea.run.deployment.SelectDeviceAction">
+      <i c="1" l="1666640759753" />
+    </e>
+    <e n="com.android.tools.idea.ui.resourcemanager.explorer.ResourceExplorerListView$ListModeButton">
+      <i c="1" l="1666629762547" />
+    </e>
+    <e n="com.intellij.completion.ml.sorting.RankingSupport$MLEnabledNotification$1">
+      <i c="1" l="1666631020502" />
+    </e>
+    <e n="com.intellij.ide.actions.ToggleToolbarAction">
+      <i c="1" l="1666629761367" />
+    </e>
+    <e n="com.intellij.ide.actions.runAnything.ui.RunAnythingScrollingUtil$2">
+      <i c="2" l="1666640719784" />
     </e>
     <e n="com.intellij.notification.NotificationAction$Simple">
       <i c="1" l="1666621408937" />
     </e>
+    <e n="com.intellij.openapi.fileEditor.impl.tabActions.CloseTab">
+      <i c="8" l="1666640747279" />
+    </e>
+    <e n="com.intellij.openapi.project.DumbAwareAction$SimpleDumbAwareAction">
+      <i c="3" l="1666640720352" />
+    </e>
     <e n="com.intellij.openapi.wm.impl.ToolWindowHeader$HideAction">
-      <i c="1" l="1666621403080" />
+      <i c="14" l="1666640830713" />
+    </e>
+    <e n="com.intellij.openapi.wm.impl.ToolWindowImpl$HideAction">
+      <i c="1" l="1666629758289" />
+    </e>
+    <e n="com.intellij.openapi.wm.impl.ToolWindowImpl$RemoveStripeButtonAction">
+      <i c="1" l="1666629764473" />
+    </e>
+    <e n="com.intellij.ui.AnActionButton$AnActionButtonWrapper">
+      <i c="1" l="1666639866895" />
+    </e>
+    <e n="com.intellij.ui.ScrollingUtil$ListMoveDownAction">
+      <i c="1" l="1666632735823" />
+    </e>
+    <e n="com.intellij.ui.ScrollingUtil$ListMoveUpAction">
+      <i c="1" l="1666632736079" />
+    </e>
+    <e n="org.jetbrains.android.actions.CreateMultiRootResourceFileAction">
+      <i c="1" l="1666630708031" />
     </e>
   </component>
 </application>

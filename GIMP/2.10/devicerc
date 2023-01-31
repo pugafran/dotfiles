@@ -3,10 +3,9 @@
 (GimpDeviceInfo "Core Pointer"
     (icon-name "gimp-cursor")
     (name "Core Pointer")
-    (tool-options "GimpColorPickerOptions"
-        (tool "gimp-color-picker-tool")
-        (foreground (color-rgb 0.094117648899555206 0.10196078568696976 0.10588235408067703)))
-    (use-fg-bg yes)
+    (tool-options "GimpRegionSelectOptions"
+        (tool "gimp-fuzzy-select-tool"))
+    (use-fg-bg no)
     (use-opacity-paint-mode no)
     (use-brush no)
     (use-dynamics no)

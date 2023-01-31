@@ -1,6 +1,9 @@
 * {
-	bg:	#222D3150;
-	orange:	#F5AF19;
+	tp: 	#00000000;
+	bg:	#282A2EFF;
+	orange:	#FB9F1A;
+	cyan:  	#8ABEB7;
+	lightcyan:  	#9BCDE8;
 	white:	#FFFFFF;
 	
 
@@ -14,41 +17,55 @@
 }
 
 window {
-	anchor:		north;
-	location:	north;
-	width:		100%;
+	border:		1px 1px 1px 1px;
+	border-radius:	10px;
+
+	background: 	@tp;
+	anchor:		center;
+	location:	center;
+	width:		30%;
 	padding: 	4px;
 	children:	[ horibox ];
 }
 
 horibox {
-	orientation:	horizontal;
+	background: 	@tp;
+	orientation:	vertical;
 	children:	[ prompt, entry, listview ];
 }
 
+entry {
+	background: 	@tp;
+	color: @lightcyan;
+}
+
 listview {
-	layout:		horizontal;
+	background: 	@tp;
+	layout:		vertical;
 	spacing:	5px;
-	lines:		100;
+	lines:		10;
 }
 
 entry {
+	background: 	@tp;
 	expand:		false;
 	width:		10em;
 	padding: 	3px;
 }
 
 element {
+	background: 	@tp;
 	padding: 	0px 2px;
 	text-color:	@white;
 }
 
 element selected {
+	background: 	@tp;
 	background-color:	@selected-normal-background;
 	text-color:		@orange;
 }
 
 prompt {
 	spacing: 	3;
-	text-color: 	@orange;
+	text-color: 	@cyan;
 }

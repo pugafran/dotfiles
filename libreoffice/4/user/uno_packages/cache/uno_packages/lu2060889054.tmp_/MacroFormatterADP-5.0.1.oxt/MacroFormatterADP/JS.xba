@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script:module PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "module.dtd">
+<script:module xmlns:script="http://openoffice.org/2000/script" script:name="JS" script:language="StarBasic">REM  *****  BASIC  *****
+OPTION Explicit
+
+REM Author: Andrew D. Pitonyak
+REM Date: March 01, 2015
+REM License: Public Domain
+
+Sub MainJS
+  FMT_MasterColorizer(ThisComponent, &quot;JS&quot;, &quot;CUR&quot;)
+  &apos;FMT_MasterColorizer(ThisComponent, &quot;JS&quot;, &quot;DOC&quot;)
+  &apos;FMT_MasterColorizer(ThisComponent, &quot;JS&quot;, &quot;SEL&quot;)
+End Sub
+
+&apos;****************************************************************
+&apos;** Color code the JavaScript code surrounding the view cursor.
+&apos;****************************************************************
+Sub FMT_ColorCodeCurrentJS()
+  FMT_MasterColorizer(ThisComponent, &quot;JS&quot;, &quot;CUR&quot;)
+End Sub
+
+REM Highlight all code in this document.
+Sub HighlightDocJS()
+  FMT_MasterColorizer(ThisComponent, &quot;JS&quot;, &quot;DOC&quot;)
+
+End Sub
+
+REM Format just the selected text
+Sub HighlightSelJS()
+  FMT_MasterColorizer(ThisComponent, &quot;JS&quot;, &quot;SEL&quot;)
+End Sub
+
+&apos;****************************************************************
+&apos;** Color code the JS code in the oSel range.
+&apos;** Use the keywords in the sTokens() array.
+&apos;****************************************************************
+Sub FMT_ColorCodeOneRangeStringJS(oSel, sTokens(), sAltTokens(), sCharStyles())
+  FMT_ColorCodeOneRangeStringJava(oSel, sTokens(), sAltTokens(), sCharStyles())
+End Sub
+
+&apos;****************************************************************
+&apos;** The following words are tokens recognized by JS.
+&apos;****************************************************************
+Sub FMT_InitTokensJS(sTokens())
+
+  sTokens() = Array(&quot;abstract&quot;, &quot;arguments&quot;, &quot;await&quot;, _
+    &quot;boolean&quot;, &quot;break&quot;, &quot;byte&quot;, _
+    &quot;case&quot;, &quot;catch&quot;, &quot;char&quot;, &quot;class&quot;, &quot;const&quot;, &quot;continue&quot;, _
+    &quot;debugger&quot;, &quot;default&quot;, &quot;delete&quot;, &quot;do&quot;, &quot;double&quot;, _
+    &quot;else&quot;, &quot;enum&quot;, &quot;eval&quot;, &quot;export&quot;, &quot;extends&quot;, _
+    &quot;false&quot;, &quot;final&quot;, &quot;finally&quot;, &quot;float&quot;, &quot;for&quot;, &quot;function&quot;, _
+    &quot;goto&quot;, _
+    &quot;if&quot;, &quot;implements&quot;, &quot;import&quot;, &quot;in&quot;, &quot;int&quot;, &quot;instanceof&quot;, &quot;interface&quot;, _
+    &quot;let&quot;, &quot;long&quot;, &quot;native&quot;, &quot;new&quot;, &quot;null&quot;, _
+    &quot;package&quot;, &quot;private&quot;, &quot;protected&quot;, &quot;public&quot;, &quot;return&quot;, _
+    &quot;short&quot;, &quot;static&quot;, &quot;super&quot;, &quot;switch&quot;, &quot;synchronized&quot;, _
+    &quot;this&quot;, &quot;throw&quot;, &quot;throws&quot;, &quot;transient&quot;, &quot;true&quot;, &quot;try&quot;, &quot;typeof&quot;, _
+    &quot;var&quot;, &quot;void&quot;, &quot;volatile&quot;, &quot;while&quot;, &quot;with&quot;, &quot;yield&quot;)
+    FMT_SortStringArrayAscending(sTokens())
+End Sub
+
+&apos;****************************************************************
+&apos;** Alternate Tokens such as system class libraries and functions
+&apos;** that you want to recognize. I added some math methods, but, we don&apos;t want
+&apos;** to encode all of the library methods.
+&apos;****************************************************************
+Sub FMT_InitAltTokensJS(sAltTokens())
+  sAltTokens() = Array(&quot;date&quot;, &quot;date.now&quot;, &quot;date.parse&quot;, &quot;date.utc&quot;, &quot;decodeuri&quot;, &quot;decodeuricomponent&quot;, _
+  &quot;encodeuri&quot;, &quot;encodeuricomponent&quot;, &quot;escape&quot;, &quot;eval&quot;, _
+  &quot;isfinite&quot;, &quot;isnan&quot;, _
+  &quot;math&quot;, &quot;math.abs&quot;, &quot;math.acos&quot;, &quot;math.acosh&quot;, &quot;math.asin&quot;, &quot;math.asinh&quot;, &quot;math.atan&quot;, &quot;math.atanh&quot;, &quot;math.atan2&quot;, _
+  &quot;math.cbrt&quot;, &quot;math.ceil&quot;, &quot;math.clz32&quot;, _
+  &quot;math.cos&quot;, &quot;math.e&quot;, &quot;math.exp&quot;, &quot;math.expm1&quot;, &quot;math.floor&quot;, &quot;math.fround&quot;, &quot;math.hypot&quot;, &quot;math.imul&quot;, _
+  &quot;math.ln10&quot;, &quot;math.ln2&quot;, &quot;math.log&quot;, &quot;math.log1p&quot;, &quot;math.log10&quot;, &quot;math.log10e&quot;, &quot;math.log2&quot;, &quot;math.log2e&quot;, _
+  &quot;math.max&quot;, &quot;math.min&quot;, &quot;math.pi&quot;, &quot;math.pow&quot;, &quot;math.random&quot;, _
+  &quot;math.sign&quot;, &quot;math.sin&quot;, &quot;math.sinh&quot;, &quot;math.sqrt&quot;, &quot;math.sqrt1_2&quot;, &quot;math.sqrt2&quot;, _
+  &quot;math.tan&quot;, &quot;math.tanh&quot;, &quot;math.tosource&quot;, &quot;math.trunc&quot;, _
+  &quot;number&quot;, &quot;number.epsilon&quot;, &quot;number.max_safe_integer&quot;, &quot;number.max_value&quot;, &quot;number.min_safe_integer&quot;, _
+  &quot;number.min_value&quot;, &quot;number.nan&quot;, &quot;number.negative_infinity&quot;, &quot;number.positive_infinity&quot;, _
+  &quot;number.isnan&quot;, &quot;number.isfinite&quot;, &quot;number.isinteger&quot;, &quot;number.issafeinteger&quot;, &quot;number.parsefloat&quot;, &quot;number.parseint&quot;, _
+  &quot;parsefloat&quot;, &quot;parseint&quot;, _
+  &quot;string&quot;, &quot;string.fromcharcode&quot;, &quot;string.fromcodepoint&quot;, &quot;string.length&quot;, &quot;string.raw&quot;, _
+  &quot;unescape&quot;, &quot;uneval&quot; )
+  FMT_SortStringArrayAscending(sAltTokens())
+End Sub
+
+&apos;****************************************************************
+&apos;** Get the character styles meant for highlighting  code.
+&apos;** Special characters are formatted as a keyword.
+&apos;****************************************************************
+Function FMT_GetJSCharacterStyles()
+  FMT_GetJSCharacterStyles() = FMT_GetBasicCharacterStyles()
+End Function
+
+
+</script:module>

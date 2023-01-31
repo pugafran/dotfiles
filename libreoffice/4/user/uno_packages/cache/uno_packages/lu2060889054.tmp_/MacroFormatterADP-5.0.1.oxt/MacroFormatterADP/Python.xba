@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script:module PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "module.dtd">
+<script:module xmlns:script="http://openoffice.org/2000/script" script:name="Python" script:language="StarBasic">REM  *****  BASIC  *****
+Option Explicit
+
+Sub MainPython
+  FMT_MasterColorizer(ThisComponent, &quot;PYTHON&quot;, &quot;CUR&quot;)
+  &apos;FMT_MasterColorizer(ThisComponent, &quot;PYTHON&quot;, &quot;SEL&quot;)
+  &apos;FMT_MasterColorizer(ThisComponent, &quot;PYTHON&quot;, &quot;DOC&quot;)
+End Sub
+
+Sub FMT_ColorCodeCurrentPython()
+  FMT_MasterColorizer(ThisComponent, &quot;PYTHON&quot;, &quot;CUR&quot;)
+End Sub
+
+REM Format just the selected text
+Sub HighlightSelPython()
+  FMT_MasterColorizer(ThisComponent, &quot;PYTHON&quot;, &quot;SEL&quot;)
+End Sub
+
+
+&apos;****************************************************************
+&apos;** Very simple parsing of Python code.
+&apos;****************************************************************
+Sub FMT_ColorCodeOneRangeStringPython(oSel, sTokens(), sAltTokens(), sCharStyles())
+  &apos; Which language is closest to Python? Use that parser. 
+  &apos; You likely only require something close enough (if you know what I mean).
+  &apos; For example, understanding that a new line has started ususlly does not matter.
+  &apos; Code to handle multi-line comments, however, is usually language specific. 
+  &apos; In this case, the &quot;#&quot; character should be recognized as a single line comment.
+  &apos; Also, I have never bothered to support inline escape charcters either, other than
+  &apos; to not have a problem with &quot;\&quot;&quot; representing a string with a double quote character.
+  &apos; So, do not bother trying to handle syntax errors, just happily color code based on minimal 
+  &apos; information.
+  Dim oCurs    &apos;Iterate paragraphs in the selected region.
+  Dim oTCurs   &apos;Iterate the characters in a paragraph.
+  Dim oText    &apos;Text object containing the selection.
+  Dim iPos%
+  Dim iLen%
+  Dim i%       &apos;Temporary integer variable.
+  Dim sChar$   &apos;Current character
+  Dim sLine$   &apos;Current line (in lower case).
+  Dim bComment As Boolean
+  Dim bIsAsterick As Boolean
+
+  REM We are not currently processing a comment.
+  bComment = False
+  REM Position oTCurs at the start of the selection.
+  oText = oSel.getText()
+  oTCurs = oText.createTextCursorByRange(oSel.getStart())
+  oTCurs.goRight(0, False)
+
+  REM oCurs contains the first paragraph.
+  oCurs = FMT_CreateStartCursor(oText, oSel)
+
+  Do While oText.compareRegionEnds(oCurs, oSel) &gt;= 0
+    REM Now, process a single line of text!
+    REM oCurs has selected the entire paragraph.
+    REM oTCurs is at the start of the paragraph.
+    sLine = LCase(oCurs.getString())
+    iLen = Len(sLine)
+    iPos = 1
+    Do While iPos &lt;= iLen
+      REM Skip leading white space.
+      FMT_FindNextNonSpace(sLine, iPos%, iLen%)
+      If iPos &gt; iLen Then Exit Do
+      sChar = Mid(sLine, iPos, 1)
+
+      REM Is the cursor in a multi-line comment?
+      If bComment Then
+        &apos;Does Pythong support multi-line comments?
+      ElseIf sChar = &quot;#&quot; Then
+        Rem Found a comment, mark the rest of the line.
+        REM Move the character cursor from the paragraph start
+        REM to the comment character.
+        REM Select the rest of the paragraph.
+        oTCurs.goRight(iPos-1, False)
+        oTCurs.gotoEndOfParagraph(True)
+        &apos;Print &quot;Setting (&quot; &amp; oTCurs.getString() &amp; &quot;)&quot;
+        oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Comment)
+        iPos = iLen + 1
+      ElseIf sChar = &quot;&quot;&quot;&quot; OR sChar = &quot;&apos;&quot; Then
+        REM Move to the first double quote
+        oTCurs.goRight(iPos-1, False)
+
+        REM Remember the location of the first double quote
+        REM and then find then end of the quoted text.
+        i = iPos
+        FMT_FindEndQuoteEscape(sLine$, iPos%, iLen%)
+
+        REM Move the cursor to the closing double quote.
+        REM Set the character style for the string.
+        REM Move the cursor back to the start of the paragraph.
+        oTCurs.goRight(iPos - i, True)
+        oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Literal)
+        oTCurs.gotoRange(oCurs.start, False)
+      ElseIf FMT_FindNumberEnd(sLine, iPos, iLen, i) Then
+        REM Move to the number start.
+        oTCurs.goRight(iPos-1, False)
+        oTCurs.goRight(i - iPos, True)
+        oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Literal)
+        oTCurs.gotoRange(oCurs.start, False)
+        iPos = i
+      ElseIf sChar = &quot;.&quot; OR FMT_IsSpecialChar(ASC(sChar)) Then
+        i = iPos
+        oTCurs.goRight(iPos - 1, False)
+
+        Do
+          iPos = iPos + 1
+          If iPos &gt; iLen Then Exit Do
+        Loop Until NOT FMT_IsSpecialChar(ASC(Mid(sLine, iPos, 1)))
+        oTCurs.goRight(iPos - i, True)
+        oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Special)
+        oTCurs.gotoRange(oCurs.start, False)
+      Else
+        REM No special characters, so this is a variable 
+        REM or logic statement. Move to the first character.
+        i = iPos
+        oTCurs.goRight(iPos-1, False)
+        Do
+          iPos = iPos + 1
+          If iPos &gt; iLen Then 
+            Exit Do
+          End If
+        Loop Until FMT_IsWordSep(Asc(Mid(sLine, iPos, 1)))
+
+        oTCurs.goRight(iPos - i, True)
+        sChar = LCase(oTCurs.getString())
+
+        If FMT_ArrayHasString(sChar, sTokens()) Then
+          oTCurs.CharStyleName = sCharStyles(FMT_CSNI_KeyWord)
+        ElseIf FMT_ArrayHasString(sChar, sAltTokens()) Then
+          oTCurs.CharStyleName = sCharStyles(FMT_CSNI_AltWord)
+        Else
+          oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Ident)
+        End If
+
+        oTCurs.gotoRange(oCurs.start, False)
+      End If
+    Loop
+    If Not oCurs.gotoNextParagraph(False) Then Exit Do
+    oTCurs.gotoRange(oCurs, False)
+    If NOT FMT_CursorToParEnd(oText, oSel, oCurs) Then Exit Do
+  Loop
+End Sub
+
+
+&apos;****************************************************************
+&apos;** Tokens recognized by Python.
+&apos;****************************************************************
+Sub FMT_InitTokensPython(sTokens())
+  sTokens() = Array( &quot;and&quot;, &quot;as&quot;, &quot;assert&quot;, _
+    &quot;break&quot;, &quot;class&quot;, &quot;continue&quot;, _
+    &quot;def&quot;, &quot;del&quot;, _
+    &quot;elif&quot;, &quot;else&quot;, &quot;except&quot;, &quot;exec&quot;, _
+    &quot;finally&quot;, &quot;for&quot;, &quot;from&quot;, &quot;global&quot;, _
+    &quot;if&quot;, &quot;import&quot;, &quot;in&quot;, &quot;is&quot;, _
+    &quot;lambda&quot;, &quot;none&quot;, &quot;nonlocal&quot;, &quot;not&quot;, &quot;or&quot;, _
+    &quot;pass&quot;, &quot;print&quot;, &quot;raise&quot;, &quot;return&quot;, _
+    &quot;try&quot;, &quot;while&quot;, &quot;with&quot;, _
+    &quot;yield&quot;)
+  FMT_SortStringArrayAscending(sTokens())
+End Sub
+
+&apos;****************************************************************
+&apos;** Alternate Tokens such as system class libraries and functions
+&apos;** that you want to recognize.
+&apos;****************************************************************
+Sub FMT_InitAltTokensPython(sAltTokens())
+  sAltTokens() = Array( &quot;abs&quot;, &quot;add&quot;, &quot;all&quot;, &quot;any&quot;, &quot;append&quot;, &quot;ascii&quot;, _
+    &quot;bin&quot;, &quot;bool&quot;, &quot;bytearray&quot;, &quot;bytes&quot;, &quot;callable&quot;, &quot;capitalize&quot;, _
+    &quot;casefold&quot;, &quot;center&quot;, &quot;chr&quot;, &quot;classmethod&quot;, &quot;clear&quot;, &quot;close&quot;, _
+    &quot;compile&quot;, &quot;complex&quot;, &quot;copy&quot;, &quot;count&quot;, &quot;delattr&quot;, &quot;detach&quot;, _
+    &quot;dict&quot;, &quot;difference&quot;, &quot;difference_update&quot;, &quot;dir&quot;, &quot;discard&quot;, &quot;divmod&quot;, _
+    &quot;encode&quot;, &quot;endswith&quot;, &quot;enumerate&quot;, &quot;eval&quot;, &quot;exec&quot;, &quot;expandtabs&quot;, _
+    &quot;extend&quot;, &quot;false&quot;, &quot;fileno&quot;, &quot;filter&quot;, &quot;find&quot;, &quot;float&quot;, _
+    &quot;flush&quot;, &quot;format&quot;, &quot;format_map&quot;, &quot;fromkeys&quot;, &quot;frozenset&quot;, &quot;get&quot;, _
+    &quot;getattr&quot;, &quot;globals&quot;, &quot;hasattr&quot;, &quot;hash&quot;, &quot;help&quot;, &quot;hex&quot;, _
+    &quot;id&quot;, &quot;index&quot;, &quot;input&quot;, &quot;insert&quot;, &quot;int&quot;, &quot;intersection&quot;, _
+    &quot;intersection_update&quot;, &quot;isalnum&quot;, &quot;isalpha&quot;, &quot;isatty&quot;, &quot;isdecimal&quot;, &quot;isdigit&quot;, _
+    &quot;isdisjoint&quot;, &quot;isidentifier&quot;, &quot;isinstance&quot;, &quot;islower&quot;, &quot;isnumeric&quot;, &quot;isprintable&quot;, _
+    &quot;isspace&quot;, &quot;issubclass&quot;, &quot;issubset&quot;, &quot;issuperset&quot;, &quot;istitle&quot;, &quot;isupper&quot;, _
+    &quot;items&quot;, &quot;iter&quot;, &quot;join&quot;, &quot;keys&quot;, &quot;len&quot;, &quot;list&quot;, _
+    &quot;ljust&quot;, &quot;locals&quot;, &quot;lower&quot;, &quot;lstrip&quot;, &quot;maketrans&quot;, &quot;map&quot;, _
+    &quot;max&quot;, &quot;memoryview&quot;, &quot;min&quot;, &quot;next&quot;, &quot;object&quot;, &quot;oct&quot;, _
+    &quot;open&quot;, &quot;ord&quot;, &quot;partition&quot;, &quot;pop&quot;, &quot;popitem&quot;, &quot;pow&quot;, _
+    &quot;print&quot;, &quot;property&quot;, &quot;range&quot;, &quot;read&quot;, &quot;readable&quot;, &quot;readline&quot;, _
+    &quot;readlines&quot;, &quot;remove&quot;, &quot;remove&quot;, &quot;replace&quot;, &quot;repr&quot;, &quot;reverse&quot;, _
+    &quot;reversed&quot;, &quot;rfind&quot;, &quot;rindex&quot;, &quot;rjust&quot;, &quot;round&quot;, &quot;rpartition&quot;, _
+    &quot;rsplit&quot;, &quot;rstrip&quot;, &quot;seek&quot;, &quot;seekable&quot;, &quot;set&quot;, &quot;setattr&quot;, _
+    &quot;setdefault&quot;, &quot;slice&quot;, &quot;sort&quot;, &quot;sorted&quot;, &quot;split&quot;, &quot;splitlines&quot;, _
+    &quot;startswith&quot;, &quot;staticmethod&quot;, &quot;str&quot;, &quot;strip&quot;, &quot;sum&quot;, &quot;super&quot;, _
+    &quot;swapcase&quot;, &quot;symmetric_difference&quot;, &quot;symmetric_difference_update&quot;, &quot;tell&quot;, &quot;title&quot;, &quot;translate&quot;, _
+    &quot;true&quot;, &quot;truncate&quot;, &quot;tuple&quot;, &quot;type&quot;, &quot;union&quot;, &quot;update&quot;, _
+    &quot;upper&quot;, &quot;values&quot;, &quot;vars&quot;, &quot;writable&quot;, &quot;write&quot;, &quot;writelines&quot;, _
+    &quot;zfill&quot;, &quot;zip&quot;)
+  FMT_SortStringArrayAscending(sAltTokens())
+End Sub
+
+&apos;****************************************************************
+&apos;** Get the character styles meant for highlighting Python code.
+&apos;** Python formats character styles as an identifier.
+&apos;****************************************************************
+Function FMT_GetPythonCharacterStyles()
+  FMT_GetPythonCharacterStyles() = FMT_GetBasicCharacterStyles()
+End Function
+
+</script:module>

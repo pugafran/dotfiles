@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script:module PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "module.dtd">
+<script:module xmlns:script="http://openoffice.org/2000/script" script:name="XML" script:language="StarBasic">REM  *****  BASIC  *****
+Option Explicit
+
+REM Author: Andrew D. Pitonyak
+REM Date: August 26, 2015
+REM License: Public Domain
+REM I appreciate knowing about changes:
+
+Private const FMT_XML_Attribute = 0
+Private const FMT_XML_Comment   = 1
+Private const FMT_XML_Content   = 2
+Private const FMT_XML_Element   = 3
+Private const FMT_XML_Entity    = 4
+Private const FMT_XML_KeyWord   = 5
+Private const FMT_XML_Literal   = 6
+Private const FMT_XML_Equals    = 7
+Private const FMT_XML_Brackets  = 7
+
+REM State values
+Private const XML_ST_PorcInst   = 1  &apos;Processing instruction ?
+Private const XML_ST_Prolog     = 2  &apos;Non-Comment prolog element !
+Private const XML_ST_FndElem    = 3  &apos;Find an element
+Private const XML_ST_FndAttr    = 4  &apos;Find an attribute
+Private const XML_ST_FndAttrEq  = 5  &apos;Find = after attribute
+Private const XML_ST_FndAttrVal = 6  &apos;Find attribute value
+Private const XML_ST_FndQuote   = 7 
+Private const XML_ST_LT         = 8  &apos;Found a &lt;
+Private const XML_ST_CloseElem  =11  &apos;Close an element /
+Private const XML_ST_InElem     =12  &apos;In an element
+
+
+Sub MainXML
+  FMT_MasterColorizer(ThisComponent, &quot;XML&quot;, &quot;CUR&quot;)
+  &apos;FMT_MasterColorizer(ThisComponent, &quot;XML&quot;, &quot;SEL&quot;)
+  &apos;FMT_MasterColorizer(ThisComponent, &quot;XML&quot;, &quot;DOC&quot;)
+End Sub
+
+Sub FMT_ColorCodeCurrentXML()
+  FMT_MasterColorizer(ThisComponent, &quot;XML&quot;, &quot;CUR&quot;)
+End Sub
+
+REM Format just the selected text
+Sub HighlightSelXML()
+  FMT_MasterColorizer(ThisComponent, &quot;XML&quot;, &quot;SEL&quot;)
+End Sub
+
+&apos;****************************************************************
+&apos;** Very simple parsing of XML code.
+&apos;****************************************************************
+Sub FMT_ColorCodeOneRangeStringXML(oSel, sTokens(), sAltTokens(), sCharStyles())
+  Dim oCurs     &apos;Iterate paragraphs in the selected region.
+  Dim oTCurs    &apos;Iterate the characters in a paragraph.
+  Dim oText     &apos;Text object containing the selection.
+  Dim iPos%     &apos;Position in the current line.
+  Dim iLen%     &apos;Length of the current line.
+  Dim i%        &apos;Temporary integer variable.
+  Dim sChar$    &apos;Current character
+  Dim sLine$    &apos;Current line (in lower case).
+  Dim iComment% &apos;Track nested comments (could use the stack)
+  Dim sQuote$   &apos;Which quote character was found?
+  Dim iTmp1%
+  Dim iTmp2%
+  Dim iTmp3%
+
+  Dim iStack (0 To 200) As Integer
+  Dim iStackSize%
+
+  iComment = 0        &apos; Level in a comment
+  iStackSize = 0
+
+  REM Position oTCurs at the start of the selection.
+  oText = oSel.getText()
+  oTCurs = oText.createTextCursorByRange(oSel.getStart())
+  oTCurs.goRight(0, False)
+
+  REM oCurs contains the first paragraph.
+  oCurs = FMT_CreateStartCursor(oText, oSel)
+
+  Do While oText.compareRegionEnds(oCurs, oSel) &gt;= 0
+    REM Now, process a single line of text!
+    REM oCurs has selected the entire paragraph.
+    REM oTCurs is at the start of the paragraph.
+    sLine = LCase(oCurs.getString())
+    iLen = Len(sLine)
+    iPos = 1
+    Do While iPos &lt;= iLen
+      REM Skip leading white space.
+      FMT_FindNextNonSpace(sLine, iPos%, iLen%)
+      If iPos &gt; iLen Then Exit Do
+
+      &apos; Does this line start a comment?
+      If InStr(iPos, sLine, &quot;&lt;!--&quot;) = iPos Then
+        iComment = iComment + 1
+        FMT_SetStyleForChars(oTCurs, iPos, 4, FMT_XML_Comment, sCharStyles())
+        iPos = iPos + 4
+      End If
+
+      If iPos &gt; iLen Then Exit Do
+      &apos; Remove next line
+      sChar = Mid(sLine, iPos, 1)
+      &apos;DumpStack(iStack%(), iStackSize%, sLine$, iPos%)
+      &apos; Handle comments!
+      If iComment &gt; 0 Then
+        i = iPos
+        Do While iPos &lt;= iLen AND iComment &gt; 0
+          iTmp1 = InStr(iPos, sLine, &quot;&lt;!--&quot;)
+          iTmp2 = InStr(iPos, sLine, &quot;--&gt;&quot;)
+          If iTmp1 &gt; 0 AND iTmp1 &lt; iTmp2 Then
+            &apos; There is a start before the end.
+            iPos = iTmp1 + 4
+            iComment = iComment + 1
+          ElseIf iTmp2 &gt; 0 Then
+            &apos; There is an end before a start
+            iPos = iTmp2 + 4
+            iComment = iComment - 1
+          Else
+            &apos; No start
+            iPos = iLen + 1
+          End If
+        Loop
+        FMT_SetStyleForChars(oTCurs, i, iPos-i, FMT_XML_Comment, sCharStyles())
+      ElseIf InStr(iPos, sLine, &quot;?&gt;&quot;) = iPos Then
+        FMT_SetStyleForChars(oTCurs, iPos-1, 2, FMT_XML_Brackets, sCharStyles())
+        iPos = iPos + 2
+        FMT_PopStackUntil(iStack(), iStackSize, XML_ST_PorcInst)
+      ElseIf InStr(iPos, sLine, &quot;&lt;/&quot;) = iPos Then
+        FMT_SetStyleForChars(oTCurs, iPos-1, 2, FMT_XML_Brackets, sCharStyles())
+        iPos = iPos + 2
+        FMT_PopStackUntil(iStack(), iStackSize, XML_ST_InElem)
+        FMT_PushStack(iStack(), iStackSize, XML_ST_CloseElem)
+        FMT_PushStack(iStack(), iStackSize, XML_ST_FndElem)
+      ElseIf sChar = &quot;&lt;&quot; Then
+        REM This can be so many different things.
+        FMT_SetStyleForChars(oTCurs, iPos-1, 1, FMT_XML_Brackets, sCharStyles())
+        FMT_PushStack(iStack%(), iStackSize, XML_ST_LT)
+        iPos = iPos + 1
+        If iPos &gt; iLen Then
+          &apos; Starts an element, and the &lt; ends a line.
+          FMT_PushStack(iStack%(), iStackSize, XML_ST_FndElem)
+          oTCurs.gotoEndOfParagraph(False)
+          Exit Do
+        End If
+
+        sChar = Mid(sLine, iPos, 1)
+        If sChar = &quot;?&quot; Then
+          &apos; Processing Instruction
+          FMT_SetStyleForChars(oTCurs, iPos-1, 1, FMT_XML_Brackets, sCharStyles())
+          iPos = iPos + 1
+          iStack%(iStackSize - 1) = XML_ST_PorcInst
+          FMT_PushStack(iStack%(), iStackSize, XML_ST_FndElem)
+        ElseIf sChar = &quot;!&quot; Then
+          &apos; This is not a comment, because comments are
+          &apos; detected elsewhere
+          FMT_SetStyleForChars(oTCurs, iPos-1, 1, FMT_XML_Brackets, sCharStyles())
+          iStack%(iStackSize - 1) = XML_ST_Prolog
+          FMT_PushStack(iStack%(), iStackSize, XML_ST_FndElem)
+          iPos = iPos + 1
+        Else
+          FMT_PushStack(iStack%(), iStackSize, XML_ST_FndElem)
+        End If
+      ElseIf sChar = &quot;&gt;&quot; Then
+        FMT_SetStyleForChars(oTCurs, iPos-1, 1, FMT_XML_Brackets, sCharStyles())
+        iPos = iPos + 1
+        Do While iStackSize &gt; 0
+          iTmp1 = FMT_PeekStack(iStack%(), iStackSize)
+          If iTmp1 = XML_ST_PorcInst OR _
+             iTmp1 = XML_ST_Prolog OR _
+             iTmp1 = XML_ST_CloseElem         Then
+            FMT_PopStack(iStack%(), iStackSize)
+            Exit Do
+          ElseIf iTmp1 = XML_ST_LT Then
+            &apos; Went from in an element such as &apos;&lt;x a=&quot;blh&quot; &apos; to &apos;&lt;x&gt;I am here&apos;
+            iStack(iStackSize - 1) = XML_ST_InElem
+            Exit Do
+          Else
+            FMT_PopStack(iStack%(), iStackSize)
+          End If
+        Loop
+      ElseIf sChar = &quot;/&quot; AND FMT_PeekStack(iStack(), iStackSize) &lt;&gt; XML_ST_FndQuote Then
+        &apos; Not in a comment, and not at an opening element.
+        FMT_SetStyleForChars(oTCurs, iPos-1, 1, FMT_XML_Brackets, sCharStyles())
+        Do While iStackSize &gt; 0
+          iTmp1 = FMT_PopStack(iStack(), iStackSize)
+          If iTMp1 = XML_ST_LT OR iTMp1 = XML_ST_InElem Then
+            Exit Do
+          End If
+        Loop
+        FMT_PushStack(iStack%(), iStackSize, XML_ST_CloseElem)
+        iPos = iPos + 1
+      ElseIf sChar = &quot;&amp;&quot; Then
+        &apos; Found an XML Entity.
+        &apos; Find the ending &quot;;&quot;
+         iTmp1 = InStr(iPos, sLine, &quot;;&quot;)
+         If iTmp1 &lt; iPos Then
+           &apos; It is not on this line, so just ignore it; the XML is malformed I think.
+           FMT_SetStyleForChars(oTCurs, iPos-1, 1, FMT_XML_Brackets, sCharStyles())
+           iPos = iPos + 1
+         Else
+           &apos; Colorize from iPos to the semicolon
+           FMT_SetStyleForChars(oTCurs, iPos-1, iTmp1 - iPos + 1, FMT_XML_Entity, sCharStyles())
+           iPos = iTmp1 + 1
+         End If
+      Else
+        iTmp1 = FMT_PeekStack(iStack%(), iStackSize)
+        If iTmp1 = XML_ST_FndElem or iTmp1 = XML_ST_FndAttr Then
+          If Mid(sLine, iPos, 1) = &quot;]&quot; OR Mid(sLine, iPos, 1) = &quot;[&quot; Then
+            FMT_SetStyleForChars(oTCurs, iPos-1, 1, FMT_XML_Brackets, sCharStyles())
+            iPos = iPos + 1
+          Else
+            iTmp2 = FMT_XMLElmentEnd(sLine, iPos, iLen)
+            If iTmp2 &gt;= iPos Then
+              iTmp3 = iTmp2 - iPos + 1
+              If FMT_ArrayHasString(Mid(sLine, iPos, iTmp3), sTokens()) Then
+                FMT_SetStyleForChars(oTCurs, iPos-1, iTmp3, FMT_XML_KeyWord, sCharStyles())
+              Else
+                FMT_SetStyleForChars(oTCurs, iPos-1, iTmp3, FMT_XML_Element, sCharStyles())
+              End If
+              iPos = iTmp2 + 1
+            Else
+              &apos; This is an error
+              iPos = iPos + 1
+            End If
+            iStack(iStackSize - 1) = iTmp1 + 1
+          End If
+        ElseIf iTmp1 = XML_ST_FndAttrEq Then
+          &apos; Looking for the attributes &quot;=&quot; sign.
+          If Mid(sLine, iPos, 1) = &quot;=&quot; Then
+            FMT_SetStyleForChars(oTCurs, iPos-1, 1, FMT_XML_Equals, sCharStyles())
+            iStack(iStackSize - 1) = XML_ST_FndAttrVal
+            iPos = iPos + 1
+          ElseIf Mid(sLine, iPos, 1) = &quot;&quot;&quot;&quot; OR Mid(sLine, iPos, 1) = &quot;&apos;&quot; Then
+            &apos;This could be an error, 
+            &apos;but I am not tracking well enough to know.
+            iStack(iStackSize - 1) = XML_ST_FndAttrVal
+          Else
+            iStack(iStackSize - 1) = XML_ST_FndAttr
+          End if
+        ElseIf iTmp1 = XML_ST_FndAttrVal Then
+          &apos; Looking for the attributes.
+          sQuote = Mid(sLine, iPos, 1)
+          If sQuote = &quot;&apos;&quot; OR sQuote = &quot;&quot;&quot;&quot; Then
+            FMT_SetStyleForChars(oTCurs, iPos-1, 1, FMT_XML_Literal, sCharStyles())
+            iStack(iStackSize - 1) = XML_ST_FndQuote
+            iPos = iPos + 1
+          Else
+            iTmp2 = FMT_XMLElmentEnd(sLine, iPos, iLen)
+            If iTmp2 &gt;= iPos Then
+              iTmp3 = iTmp2 - iPos + 1
+              FMT_SetStyleForChars(oTCurs, iPos-1, iTmp3, FMT_XML_Literal, sCharStyles())
+              iPos = iTmp2 + 1
+            Else
+              &apos; This is an error
+              iPos = iPos + 1
+            End If
+            iStack(iStackSize - 1) = XML_ST_FndAttr
+          End if
+        ElseIf iTmp1 = XML_ST_FndQuote Then
+          iTmp3 = iPos
+          Do While iPos &lt;= iLen
+            sChar = Mid(sLine, iPos, 1)
+            iPos = iPos + 1
+            If sChar = sQuote OR sChar = &quot;&amp;&quot; Then
+              Exit Do
+            End If
+          Loop
+          FMT_SetStyleForChars(oTCurs, iTmp3 - 1, iPos-iTmp3, FMT_XML_Literal, sCharStyles())
+          If sChar = sQuote Then
+            iStack(iStackSize - 1) = XML_ST_FndAttr
+          ElseIf sChar = &quot;&amp;&quot; Then
+            iPos = iPos - 1
+            iTmp2 = InStr(iPos, sLine, &quot;;&quot;)
+            If iTmp2 &lt; 0 Then iTmp2 = iLen - 1
+            If iTmp2 &gt; iPos Then
+              FMT_SetStyleForChars(oTCurs, iPos - 1, iTmp2-iPos+1, FMT_XML_Entity, sCharStyles())
+              iPos = iTmp2 + 1
+            Else
+              iPos = iPos + 1
+            End If
+          End If
+        ElseIf iTmp1 = XML_ST_InElem Then
+          &apos; Inside an XML statement, but past the white space
+          &apos; Only two things can get us out; an entity, or &lt;.
+          iTmp2 = InStr(iPos, sLine, &quot;&lt;&quot;)
+          iTmp3 = InStr(iPos, sLine, &quot;&amp;&quot;)
+          
+          If iTmp3 &lt; iTmp2 AND iTmp3 &gt; 0 Then 
+            iTmp2 = iTmp3
+          ElseIf iTmp2 &lt; 1 Then 
+            iTmp2 = iTmp3
+          End If
+          If iTmp2 &gt; 0 Then
+            FMT_SetStyleForChars(oTCurs, iPos-1, iTmp2-iPos, FMT_XML_Content, sCharStyles())
+            iPos = iTmp2
+          Else
+            &apos;I should never get here
+            iPos = iPos + 1
+          End If
+        Else
+          &apos;What are we looking for?
+          &apos;Increment to avoid an infinite loop on error.
+          iPos = iPos + 1
+        End If
+      End If
+      oTCurs.gotoRange(oCurs.start, False)
+    Loop
+    If Not oCurs.gotoNextParagraph(False) Then Exit Do
+    oTCurs.gotoRange(oCurs, False)
+    If NOT FMT_CursorToParEnd(oText, oSel, oCurs) Then Exit Do
+  Loop
+End Sub
+
+
+Sub DumpStack(iStack%(), iStackSize%, sLine$, iPos%)
+  Dim s$
+  Dim i%
+  s = &quot;Pos &quot; &amp; iPos
+  s = s &amp; &quot; (&quot; &amp; Mid(sLine, iPos, 1) &amp; &quot;) &quot;
+  s = s &amp; &quot; for &quot; &amp; sLine &amp; CHR$(10)
+  For i = LBound(iStack()) To iStackSize - 1
+    s = s &amp; iStack(i) &amp; &quot;  &quot; &amp; StateToString(iStack(i)) &amp; CHR$(10)
+  Next
+  MsgBox s
+End Sub
+
+Function StateToString(iState%) As String
+  Select Case iState
+    Case XML_ST_PorcInst
+      StateToString = &quot;XML_ST_PorcInst&quot;
+    Case XML_ST_Prolog
+      StateToString = &quot;XML_ST_Prolog&quot;
+    Case XML_ST_FndElem
+      StateToString = &quot;XML_ST_FndElem&quot;
+    Case XML_ST_FndAttr
+      StateToString = &quot;XML_ST_FndAttr&quot;
+    Case XML_ST_FndAttrEq
+      StateToString = &quot;XML_ST_FndAttrEq&quot;
+    Case XML_ST_FndAttrVal
+      StateToString = &quot;XML_ST_FndAttrVal&quot;
+    Case XML_ST_FndQuote
+      StateToString = &quot;XML_ST_FndQuote&quot;
+    Case XML_ST_LT
+      StateToString = &quot;XML_ST_LT&quot;
+    Case XML_ST_CloseElem
+      StateToString = &quot;XML_ST_CloseElem&quot;
+    Case XML_ST_InElem
+      StateToString = &quot;XML_ST_InElem&quot;
+    Case Else
+      StateToString = &quot;Invalid&quot;
+  End Select
+End Function
+
+
+&apos;****************************************************************
+&apos;** Tokens recognized by XML
+&apos;****************************************************************
+Sub FMT_InitTokensXML(sTokens())
+  sTokens() = Array( &quot;#fixed&quot;, &quot;#implied&quot;, _
+    &quot;#pcdata&quot;, &quot;#required&quot;, _
+    &quot;any&quot;, &quot;attlist&quot;, &quot;cdata&quot;, &quot;charset&quot;, _
+    &quot;default&quot;, &quot;doctype&quot;, &quot;element&quot;, _
+    &quot;empty&quot;, &quot;encoding&quot;, &quot;entities&quot;, &quot;entity&quot;, _
+    &quot;euc-jp&quot;, &quot;euc-kr&quot;, &quot;href&quot;, _
+    &quot;id&quot;, &quot;idref&quot;, &quot;idrefs&quot;, &quot;ignore&quot;, &quot;include&quot;, _
+    &quot;iso-10646-ucs-2&quot;, &quot;iso-10646-ucs-4&quot;, &quot;iso-2022-jp&quot;, _
+    &quot;iso-8859-1&quot;, &quot;iso-8859-2&quot;, _
+    &quot;media&quot;, &quot;ndata&quot;, &quot;nmtoken&quot;, &quot;nmtokens&quot;, &quot;notation&quot;, _
+    &quot;preserve&quot;, &quot;public&quot;, _
+    &quot;shift_jis&quot;, &quot;standalone&quot;, &quot;system&quot;, &quot;title&quot;, &quot;type&quot;, _
+    &quot;utf-16&quot;, &quot;utf-8&quot;, &quot;utf-8&quot;, &quot;version&quot;, _
+    &quot;xml&quot;, &quot;xml-stylesheet&quot;, &quot;xml:lang&quot;, &quot;xml:space&quot;, _
+    &quot;xsd:anyuri&quot;, &quot;xsd:base64binary&quot;, &quot;xsd:boolean&quot;, &quot;xsd:byte&quot;, _
+    &quot;xsd:date&quot;, &quot;xsd:datetime&quot;, &quot;xsd:decimal&quot;, &quot;xsd:double&quot;, _
+    &quot;xsd:float&quot;, _
+    &quot;xsd:gday&quot;, &quot;xsd:gmonth&quot;, &quot;xsd:gmonthday&quot;, &quot;xsd:gyear&quot;, _
+    &quot;xsd:gyearmonth&quot;, &quot;xsd:hexbinary&quot;, _
+    &quot;xsd:int&quot;, &quot;xsd:integer&quot;, &quot;xsd:language&quot;, &quot;xsd:long&quot;, _
+    &quot;xsd:name&quot;, &quot;xsd:ncname&quot;, &quot;xsd:negativeinteger&quot;, &quot;xsd:nmtoken&quot;, _
+    &quot;xsd:nonnegativeinteger&quot;, &quot;xsd:nonpositiveinteger&quot;, _
+    &quot;xsd:normalizedstring&quot;, &quot;xsd:positiveinteger&quot;, _
+    &quot;xsd:short&quot;, &quot;xsd:string&quot;, &quot;xsd:time&quot;, &quot;xsd:token&quot;, _
+    &quot;xsd:unsignedbyte&quot;, &quot;xsd:unsignedint&quot;, _
+    &quot;xsd:unsignedlong&quot;, &quot;xsd:unsignedshort&quot; )
+  FMT_SortStringArrayAscending(sTokens())
+End Sub
+
+&apos;****************************************************************
+&apos;** Get the character styles meant for highlighting XML code.
+&apos;** Format special characters with the Base color.
+&apos;****************************************************************
+Function FMT_GetXMLCharacterStyles()
+  CreateXMLCharStyles()
+  FMT_GetXMLCharacterStyles() = Array( &quot;_XMLAttribute&quot;, _
+    &quot;_XMLComment&quot;, &quot;_XMLContent&quot;, &quot;_XMLElement&quot;, _
+    &quot;_XMLEntity&quot;,  &quot;_XMLKeyWord&quot;, &quot;_XMLLiteral&quot;, &quot;_XMLBracket&quot; )
+End Function
+
+</script:module>

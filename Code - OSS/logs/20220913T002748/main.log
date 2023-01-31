@@ -1,4 +1,0 @@
-[2022-09-13 00:27:49.007] [main] [info] update#ctor - updates are disabled as there is no update URL
-[2022-09-13 00:27:50.412] [main] [info] Starting extension host with pid 45517 (fork() took 5 ms).
-[2022-09-13 00:28:01.001] [main] [info] Waiting for extension host with pid 45517 to exit.
-[2022-09-13 00:28:01.012] [main] [info] Extension host with pid 45517 exited with code: 0, signal: null.

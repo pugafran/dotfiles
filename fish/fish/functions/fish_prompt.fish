@@ -137,7 +137,7 @@ function fish_prompt
     # git
     set -l prompt_git (fish_git_prompt '%s')
     test -n "$prompt_git"
-    and _nim_prompt_wrapper $lineColor 'Git ' $prompt_git 
+    and _nim_prompt_wrapper $lineColor 'Git' $prompt_git 
 
     # Battery status
     type -q acpi

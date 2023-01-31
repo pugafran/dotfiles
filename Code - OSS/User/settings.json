@@ -1,8 +1,0 @@
-{
-    "workbench.colorTheme": "Tron Legacy",
-    "editor.fontFamily": "'Cascadia Code PL', 'Droid Sans Mono', 'monospace', monospace",
-    "[css]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "editor.formatOnSave": true
-}

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script:module PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "module.dtd">
+<script:module xmlns:script="http://openoffice.org/2000/script" script:name="Utilities" script:language="StarBasic">REM  *****  BASIC  *****
+Option Explicit
+
+REM Author: Andrew D. Pitonyak
+REM Date: June 14, 2009
+REM License: Public Domain
+
+Sub Main
+End Sub
+
+&apos;****************************************************************
+&apos;** Assumes that the cursor is in a paragraph using a &quot;code&quot;
+&apos;** paragraph style.
+&apos;** Move the cursor to the first paragraph using a code specific
+&apos;** style.
+&apos;****************************************************************
+Sub FMT_CursorToFirstCodeParagraph(oCurs, sStyles())
+
+  oCurs.gotoStartOfParagraph(False)
+&apos;  This check should be done before calling this routine.
+&apos;  If NOT FMT_ArrayHasString(oCurs.ParaStyleName, sStyles()) Then
+&apos;    Print &quot;The text cursor must be in a code segement&quot;
+&apos;    Exit sub
+&apos;  End If
+
+  REM Find the first paragraph that is computer code.
+  Do While FMT_ArrayHasString(oCurs.ParaStyleName, sStyles())
+    If NOT oCurs.gotoPreviousParagraph(False) Then Exit Do
+  Loop
+
+  If NOT FMT_ArrayHasString(oCurs.ParaStyleName, sStyles()) Then
+    oCurs.gotoNextParagraph(False)
+  End If
+  oCurs.gotoStartOfParagraph(False)
+End Sub
+
+&apos;****************************************************************
+&apos;** Move the cursor to the last paragraph using a code specific
+&apos;** style.
+&apos;****************************************************************
+Sub FMT_CursorToLastCodeParagraph(oCurs, sStyles())
+
+  REM Find the last paragraph that is part of the computer code.
+  Do While FMT_ArrayHasString(oCurs.ParaStyleName, sStyles())
+    If NOT oCurs.gotoNextParagraph(False) Then Exit Do
+  Loop
+
+  If NOT FMT_ArrayHasString(oCurs.ParaStyleName, sStyles()) Then
+    oCurs.gotoPreviousParagraph(False)
+  End If
+  oCurs.gotoEndOfParagraph(False)
+End Sub
+
+&apos;****************************************************************
+&apos;** Given a cursor, select a range around the cursor that
+&apos;** uses the required paragraph styles.
+&apos;****************************************************************
+Sub FMT_FindCodeAroundCursor(oCurs, sStyles())
+  Dim oEndCurs
+
+  REM Find the last paragraph that is part of the computer code.
+  oEndCurs = oCurs.getText().createTextCursorByRange(oCurs)
+  FMT_CursorToLastCodeParagraph(oEndCurs, sStyles())
+  FMT_CursorToFirstCodeParagraph(oCurs, sStyles())
+
+  REM Select the entire range.
+  oCurs.gotoRange(oEndCurs, True)
+End Sub
+
+
+&apos;****************************************************************
+&apos;** Treat the array iStack() as a stack. It is assumed that the
+&apos;** stack is already dimensioned. The value x is added, and n is
+&apos;** incremented.
+&apos;****************************************************************
+Sub FMT_PushStack(iStack%(), n%, x%)
+  If n = UBound(iStack()) Then
+    ReDim Preserve iStack(0 To n + 100) As Integer
+  End If
+  iStack(n) = x
+  n = n + 1
+End Sub
+
+&apos;****************************************************************
+&apos;** Treat the array iStack() as a stack. Pull the last value from 
+&apos;** the stack. 
+&apos;****************************************************************
+Function FMT_PopStack(iStack%(), n%) As Integer
+  If n &gt; LBound(iStack()) Then
+    n = n - 1
+  End If
+  FMT_PopStack = iStack(n)
+End Function
+
+Function FMT_PopStackUntil(iStack%(), n%, x%) As Integer
+  Do While n &gt; LBound(iStack())
+    n = n - 1
+    If iStack(n) = x Then Exit Do
+  Loop
+  FMT_PopStackUntil = iStack(n)
+End Function
+
+&apos;****************************************************************
+&apos;** Treat the array iStack() as a stack. Peek at the last value on
+&apos;** the stack. 
+&apos;****************************************************************
+Function FMT_PeekStack(iStack%(), n%) As Integer
+  If n &gt; LBound(iStack()) Then
+    FMT_PeekStack = iStack(n-1)
+  Else
+    FMT_PeekStack = -1
+  End If
+End Function
+
+&apos;****************************************************************
+&apos;** Jump forward nSkip chars, then set nchars to the specified 
+&apos;** character style.
+&apos;****************************************************************
+Sub FMT_SetStyleForChars(oCurs, nSkip%, nChars%, nStyle, Styles())
+  oCurs.goRight(nSkip, False)
+  oCurs.goRight(nChars, True)
+  oCurs.CharStyleName = Styles(nStyle)
+  oCurs.gotoStartOfParagraph(False)
+End Sub
+
+&apos;****************************************************************
+&apos;** Create a text cursor that starts where the selection starts
+&apos;** and then selects either the entire selection, or the rest of
+&apos;** the current paragraph, which ever is smaller.
+&apos;****************************************************************
+Function FMT_CreateStartCursor(oText, oSel)
+  Dim oCurs
+  oCurs = oText.createTextCursorByRange(oSel.getStart())
+  oCurs.gotoEndOfParagraph(True)
+  If oText.compareRegionEnds(oCurs, oSel) = -1 Then
+    oCurs.gotoRange(oSel, False)
+  End If
+  FMT_CreateStartCursor = oCurs
+End Function
+
+Function FMT_CursorToParEnd(oText, oSel, oCurs) As Boolean
+  &apos; This should never happen, but, if it does, fail out.
+  If NOT oCurs.gotoEndOfParagraph(True) Then
+    FMT_CursorToParEnd = False
+    Exit Function
+  End If
+  &apos; Oops, we went to far, try to backup.
+  If oText.compareRegionEnds(oCurs, oSel) = -1 Then
+    oCurs.gotoStartOfParagraph(False)
+    oCurs.gotoRange(oSel.getEnd(), True)
+  End If
+  FMT_CursorToParEnd = True
+End Function
+
+&apos;****************************************************************
+&apos;** Create and return a PropertyValue structure.
+&apos;****************************************************************
+Function CreateProperty( Optional cName As String, Optional uValue ) As com.sun.star.beans.PropertyValue
+   Dim oPropertyValue As New com.sun.star.beans.PropertyValue
+   If Not IsMissing( cName ) Then
+      oPropertyValue.Name = cName
+   EndIf
+   If Not IsMissing( uValue ) Then
+      oPropertyValue.Value = uValue
+   EndIf
+   CreateProperty() = oPropertyValue
+End Function 
+
+&apos;****************************************************************
+&apos;** The colorize macros assume that a text document is current.
+&apos;** This macro verifies that ThisComponent exists and is a text
+&apos;** document. Sometimes, ThisComponent will contain a &quot;bad&quot; value.
+&apos;** To see this, focus the IDE, then focus a text document, now
+&apos;** close the text document so that the IDE has focus. Now, run
+&apos;** your macro. If ThisComponent is not valid, then search until
+&apos;** a valid text document is found.
+&apos;****************************************************************
+Function FMT_FindTextDoc()
+  &apos; At least one component appears to NOT support the SupportsService
+  &apos; method - because the call fails sometimes. 
+  On Error Resume Next
+  Dim oDocs As Object
+  Dim oDoc As Object
+
+  FMT_FindTextDoc() = oDoc
+  Dim x As Boolean
+  x = False
+  x = ThisComponent.SupportsService(&quot;com.sun.star.text.TextDocument&quot;)
+  If x Then
+    FMT_FindTextDoc() = ThisComponent
+    Exit Function
+  End If
+
+  oDocs = StarDesktop.getComponents().createEnumeration()
+  Do While oDocs.hasMoreElements()
+    oDoc = oDocs.nextElement()
+    x = oDoc.SupportsService(&quot;com.sun.star.text.TextDocument&quot;)
+    If x Then
+      FMT_FindTextDoc() = oDoc
+      Exit Function
+    End If
+  Loop
+End Function
+
+
+</script:module>

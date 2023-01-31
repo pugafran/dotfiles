@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script:module PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "module.dtd">
+<script:module xmlns:script="http://openoffice.org/2000/script" script:name="Bat" script:language="StarBasic">REM  *****  BASIC  *****
+OPTION Explicit
+
+REM Author: Andrew D. Pitonyak
+REM Date: February 28, 2014
+REM License: Public Domain
+
+Sub MainBat
+  FMT_MasterColorizer(ThisComponent, &quot;Bat&quot;, &quot;CUR&quot;)
+  &apos;FMT_MasterColorizer(ThisComponent, &quot;Bat&quot;, &quot;DOC&quot;)
+  &apos;FMT_MasterColorizer(ThisComponent, &quot;Bat&quot;, &quot;SEL&quot;)
+End Sub
+
+&apos;****************************************************************
+&apos;** Color code the Bat code surrounding the view cursor.
+&apos;****************************************************************
+Sub FMT_ColorCodeCurrentBat()
+  FMT_MasterColorizer(ThisComponent, &quot;Bat&quot;, &quot;CUR&quot;)
+End Sub
+
+REM Highlight all code in this document.
+Sub HighlightDocBat()
+  FMT_MasterColorizer(ThisComponent, &quot;Bat&quot;, &quot;DOC&quot;)
+
+End Sub
+
+REM Format just the selected text
+Sub HighlightSelBat()
+  FMT_MasterColorizer(ThisComponent, &quot;Bat&quot;, &quot;SEL&quot;)
+End Sub
+
+&apos;****************************************************************
+&apos;** Color code the Bat code in the oSel range.
+&apos;** Use the keywords in the sTokens() array.
+&apos;****************************************************************
+Sub FMT_ColorCodeOneRangeStringBat(oSel, sTokens(), sAltTokens(), sCharStyles())
+  Dim oCurs    &apos;Iterate paragraphs in the selected region.
+  Dim oTCurs   &apos;Iterate the characters in a paragraph.
+  Dim oText    &apos;Text object containing the selection.
+  Dim iPos%
+  Dim iLen%
+  Dim i%       &apos;Temporary integer variable.
+  Dim sChar$   &apos;Current character
+  Dim sLine$   &apos;Current line (in lower case).
+
+  REM Position oTCurs at the start of the selection.
+  oText = oSel.getText()
+  oTCurs = oText.createTextCursorByRange(oSel.getStart())
+  oTCurs.goRight(0, False)
+
+  REM oCurs contains the first paragraph, but not more than oSel.
+  oCurs = FMT_CreateStartCursor(oText, oSel)
+
+  REM Verify that oCurs ends before (or at the same place)
+  REM as oSel.
+  Do While oText.compareRegionEnds(oCurs, oSel) &gt;= 0
+    REM Now, process a single line of text!
+    REM oCurs has selected the entire paragraph.
+    REM oTCurs is at the start of the paragraph.
+    sLine = LCase(oCurs.getString())
+    iLen = Len(sLine)
+    iPos = 1
+    Do While iPos &lt;= iLen
+      REM Skip leading white space.
+      FMT_FindNextNonSpace(sLine, iPos%, iLen%)
+      If iPos &gt; iLen Then Exit Do
+
+      sChar = Mid(sLine, iPos, 1)
+      If sChar = &quot;&apos;&quot; Then
+        Rem Found a comment, mark the rest of the line.
+        REM Move the character cursor from the paragraph start
+        REM to the single quote character.
+        REM Select the rest of the paragraph.
+        oTCurs.goRight(iPos-1, False)
+        oTCurs.gotoEndOfParagraph(True)
+        oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Comment)
+        iPos = iLen + 1
+      ElseIf sChar = &quot;&quot;&quot;&quot; Then
+        REM Move to the first double quote
+        oTCurs.goRight(iPos-1, False)
+
+        REM Remember the location of the first double quote
+        REM and then find then end of the quoted text.
+        i = iPos
+        FMT_FindEndQuoteDouble(sLine$, iPos%, iLen%)
+
+        REM Move the cursor to the closing double quote.
+        REM Set the character style for the string.
+        REM Move the cursor back to the start of the paragraph.
+        oTCurs.goRight(iPos - i, True)
+        oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Literal)
+        oTCurs.gotoRange(oCurs.start, False)
+      ElseIf FMT_FindNumberEnd(sLine, iPos, iLen, i) Then
+        REM Move to the number start.
+        oTCurs.goRight(iPos-1, False)
+        oTCurs.goRight(i - iPos, True)
+        oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Literal)
+        oTCurs.gotoRange(oCurs.start, False)
+        iPos = i
+      ElseIf sChar = &quot;.&quot; OR FMT_IsSpecialChar(ASC(sChar)) Then
+        i = iPos
+        oTCurs.goRight(iPos - 1, False)
+
+        Do
+          iPos = iPos + 1
+          If iPos &gt; iLen Then Exit Do
+        Loop Until NOT FMT_IsSpecialChar(ASC(Mid(sLine, iPos, 1)))
+        oTCurs.goRight(iPos - i, True)
+        oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Special)
+        oTCurs.gotoRange(oCurs.start, False)
+      ElseIf sChar = &quot;_&quot; AND iPos = iLen Then
+        REM An Identifier can start with an &quot;_&quot; (I think).
+        REM It is likely that trailing spaces will be in a text
+        REM document, but we will ignore these for now!
+        oTCurs.goRight(iPos-1, False)
+        oTCurs.goRight(1, True)
+        oTCurs.CharStyleName = sCharStyles(FMT_CSNI_KeyWord)
+        oTCurs.gotoRange(oCurs.start, False)
+        iPos = iPos + 1
+      Else
+        REM No special characters, so this is a variable 
+        REM or logic statement. Move to the first character.
+        i = iPos
+        oTCurs.goRight(iPos-1, False)
+        Do
+          iPos = iPos + 1
+          If iPos &gt; iLen Then Exit Do
+        Loop Until FMT_IsWordSep(Asc(Mid(sLine, iPos, 1)))
+
+        oTCurs.goRight(iPos - i, True)
+        sChar = LCase(oTCurs.getString())
+
+        REM This could be a problem for a variable named
+        REM &quot;rem.doit.var&quot;. The Bat IDE misses this as well
+        REM so I am not concerned.
+        If sChar = &quot;rem&quot; Then
+          REM Mark the Rem itself
+          oTCurs.CharStyleName = sCharStyles(FMT_CSNI_KeyWord)
+          REM Mark to the end as a comment
+          oTCurs.goRight(0, False)
+          oTCurs.gotoEndOfParagraph(True)
+          oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Comment)
+          iPos = iLen + 1
+        ElseIf FMT_ArrayHasString(sChar, sTokens()) Then
+          oTCurs.CharStyleName = sCharStyles(FMT_CSNI_KeyWord)
+        ElseIf FMT_ArrayHasString(sChar, sAltTokens()) Then
+          oTCurs.CharStyleName = sCharStyles(FMT_CSNI_AltWord)
+        Else
+          oTCurs.CharStyleName = sCharStyles(FMT_CSNI_Ident)
+        End If
+
+        oTCurs.gotoRange(oCurs.start, False)
+      End If
+    Loop
+    If Not oCurs.gotoNextParagraph(False) Then Exit Do
+    oTCurs.gotoRange(oCurs, False)
+    If NOT FMT_CursorToParEnd(oText, oSel, oCurs) Then Exit Do
+  Loop
+End Sub
+
+&apos;****************************************************************
+&apos;** The following words are tokens recognized by the Bat IDE.
+&apos;** This listis in alphabetical order. I got this list from 
+&apos;** the file: Bat/source/comp/tokens.cxx.
+&apos;** Multi-word tokens such as &quot;end enum&quot; are redundant because
+&apos;** the code recognizes single words. Both words are in the list
+&apos;** already, so in the worst case, this will simply slow down
+&apos;** the search because there are extra words.
+&apos;****************************************************************
+Sub FMT_InitTokensBat(sTokens())
+  sTokens() = Array(&quot;aciniupd&quot;, &quot;ansi.sys&quot;, &quot;append&quot;, &quot;arp&quot;, &quot;assoc&quot;, &quot;at&quot;, &quot;attrib&quot;, &quot;autofail&quot;, _
+    &quot;backup&quot;, &quot;basica&quot;, &quot;bcdedit&quot;, &quot;bootcfg&quot;, &quot;break&quot;, _
+    &quot;cacls&quot;, &quot;call&quot;, &quot;cd&quot;, &quot;cdburn&quot;, &quot;certreq&quot;, &quot;certutil&quot;, _
+    &quot;change&quot;, &quot;chcp&quot;, &quot;chdir&quot;, &quot;chglogon&quot;, &quot;chgport&quot;, &quot;chgusr&quot;, &quot;chkdsk&quot;, &quot;chkntfs&quot;, &quot;choice&quot;, _
+    &quot;cipher&quot;, &quot;cleanmgr&quot;, &quot;cls&quot;, &quot;cmd&quot;, &quot;cmdkey&quot;, _
+    &quot;color&quot;, &quot;command&quot;, &quot;comp&quot;, &quot;compact&quot;, &quot;comspec&quot;, &quot;control&quot;, &quot;convert&quot;, &quot;copy&quot;, _
+    &quot;cprofile&quot;, &quot;cscript&quot;, &quot;csvde&quot;, &quot;ctty&quot;, _
+    &quot;date&quot;, &quot;debug&quot;, &quot;defrag&quot;, &quot;del&quot;, &quot;deltree&quot;, &quot;devcon&quot;, &quot;dhcploc&quot;, &quot;diantz&quot;, &quot;dir&quot;, _
+    &quot;diskcomp&quot;, &quot;diskcopy&quot;, &quot;diskpart&quot;, &quot;doskey&quot;, &quot;dpath&quot;, &quot;driverquery&quot;, &quot;dsadd&quot;, _
+    &quot;dsget&quot;, &quot;dsmod&quot;, &quot;dsmove&quot;, &quot;dsquery&quot;, &quot;dsrm&quot;, &quot;dvdburn&quot;, _
+    &quot;echo&quot;, &quot;edit&quot;, &quot;edlin&quot;, &quot;endlocal&quot;, &quot;epal&quot;, &quot;erase&quot;, &quot;eventcreate&quot;, _
+    &quot;eventquery.vbs&quot;, &quot;eventtriggers&quot;, &quot;exit&quot;, &quot;expand&quot;, &quot;explorer&quot;, &quot;extract&quot;, &quot;exe2bin&quot;, _
+    &quot;fastopen&quot;, &quot;fc&quot;, &quot;fdisk&quot;, &quot;filever&quot;, &quot;find&quot;, &quot;findramd&quot;, &quot;findstr&quot;, &quot;for&quot;, _
+    &quot;forcedos&quot;, &quot;forfiles&quot;, &quot;format&quot;, &quot;fsutil&quot;, &quot;ftp&quot;, &quot;ftype&quot;, _
+    &quot;getmac&quot;, &quot;gettype&quot;, &quot;goto&quot;, &quot;gpresult&quot;, &quot;graftabl&quot;, &quot;gwbasic&quot;, _
+    &quot;help&quot;, _
+    &quot;icacls&quot;, &quot;iexpress&quot;, &quot;if&quot;, &quot;ifconfig&quot;, &quot;inuse&quot;, &quot;ipconfig&quot;, &quot;jt&quot;, _
+    &quot;label&quot;, &quot;lfnfor&quot;, &quot;lh&quot;, &quot;loadhigh&quot;, &quot;lock&quot;, &quot;logman&quot;, &quot;logoff&quot;, _
+    &quot;makecab&quot;, &quot;md&quot;, &quot;mem&quot;, &quot;mkdir&quot;, &quot;mklink&quot;, &quot;mode&quot;, &quot;more&quot;, &quot;mountvol&quot;, &quot;move&quot;, &quot;msd&quot;, &quot;msg&quot;, &quot;msiexec&quot;, &quot;msinfo32&quot;, _
+    &quot;nbtstat&quot;, &quot;net&quot;, &quot;netdom&quot;, &quot;netsh&quot;, &quot;netstat&quot;, &quot;nltest&quot;, &quot;notepad&quot;, &quot;nslookup&quot;, &quot;ntbackup&quot;, _
+    &quot;ocsetup&quot;, &quot;odbcconf&quot;, &quot;openfiles&quot;, _
+    &quot;path&quot;, &quot;pathping&quot;, &quot;pause&quot;, &quot;pentnt&quot;, &quot;ping&quot;, &quot;ping6&quot;, &quot;pkgmgr&quot;, &quot;popd&quot;, &quot;powercfg&quot;, &quot;print&quot;, &quot;printui&quot;, &quot;prncfg&quot;, _
+    &quot;prndrvr&quot;, &quot;prnjobs&quot;, &quot;prnmngr&quot;, &quot;prnport&quot;, &quot;prnqctl&quot;, &quot;prompt&quot;, &quot;pubprn&quot;, &quot;pushd&quot;, _
+    &quot;qappsrv&quot;, &quot;qbasic&quot;, &quot;qchain&quot;, &quot;qfarm&quot;, &quot;qprocess&quot;, &quot;qserver&quot;, &quot;query&quot;, &quot;quser&quot;, &quot;qwinsta&quot;, _
+    &quot;rasdial&quot;, &quot;rasphone&quot;, &quot;rd&quot;, &quot;readline&quot;, &quot;recimg&quot;, &quot;recover&quot;, &quot;reg&quot;, &quot;regedit&quot;, &quot;regedt32&quot;, _
+    &quot;regini&quot;, &quot;regsvr32&quot;, &quot;rem&quot;, &quot;ren&quot;, &quot;rename&quot;, &quot;replace&quot;, &quot;reset&quot;, &quot;restore&quot;, &quot;rmdir&quot;, &quot;robocopy&quot;,_
+    &quot;route&quot;, &quot;runas&quot;, &quot;rundll&quot;, &quot;rundll32&quot;, _
+    &quot;sc&quot;, &quot;schtasks&quot;, &quot;secedit&quot;, &quot;set&quot;, &quot;setlocal&quot;, &quot;sfc&quot;, &quot;shadow&quot;, &quot;shell&quot;, &quot;shift&quot;, &quot;shutdown&quot;, _
+    &quot;sort&quot;, &quot;start&quot;, &quot;subinacl&quot;, &quot;subst&quot;, &quot;systeminfo&quot;, _
+    &quot;taskkill&quot;, &quot;tasklist&quot;, &quot;time&quot;, &quot;title&quot;, &quot;tracert&quot;, &quot;tracert6&quot;, &quot;tracerte&quot;, &quot;tree&quot;, &quot;truename&quot;, _
+    &quot;tscon&quot;, &quot;tsdiscon&quot;, &quot;tskill&quot;, &quot;tsprof&quot;, &quot;tsshutdn&quot;, &quot;type&quot;, &quot;tzchange&quot;, _
+    &quot;unlock&quot;, _
+    &quot;ver&quot;, &quot;verify&quot;, &quot;vhdmount&quot;, &quot;vol&quot;, _
+    &quot;winmsd&quot;, &quot;winmsdp&quot;, &quot;wmic&quot;, &quot;wscript&quot;, &quot;wupdmgr&quot;, _
+    &quot;xcacls&quot;, &quot;xcopy&quot;)
+    FMT_SortStringArrayAscending(sTokens())
+End Sub
+
+&apos;****************************************************************
+&apos;** Alternate Tokens such as system class libraries and functions
+&apos;** that you want to recognize. These keywords are supported by
+&apos;** TakeCommand
+&apos;****************************************************************
+Sub FMT_InitAltTokensBat(sAltTokens())
+  sAltTokens() = Array(&quot;activate&quot;, &quot;alias&quot;, &quot;beep&quot;, &quot;break&quot;, &quot;cancel&quot;, &quot;case&quot;, &quot;cdd&quot;, _
+    &quot;default&quot;, &quot;delay&quot;, &quot;dirhistory&quot;, &quot;dirs&quot;, &quot;do&quot;, &quot;drawbox&quot;, &quot;drawhline&quot;, &quot;drawvline&quot;, _
+    &quot;echos&quot;, &quot;echoserr&quot;, &quot;ejectmedia&quot;, &quot;endswitch&quot;, &quot;eset&quot;, &quot;except&quot;, &quot;ffind&quot;, &quot;free&quot;, _
+    &quot;global&quot;, &quot;gosub&quot;, &quot;history&quot;, &quot;iff&quot;, &quot;in&quot;, &quot;inkey&quot;, &quot;input&quot;, &quot;keybd&quot;, &quot;keys&quot;, &quot;keystack&quot;, _
+    &quot;list&quot;, &quot;loadmedia&quot;, &quot;log&quot;, &quot;memory&quot;, &quot;mklnk&quot;, &quot;msgbox&quot;, &quot;on&quot;, &quot;option&quot;, _
+    &quot;pdir&quot;, &quot;plugin&quot;, &quot;popd&quot;, &quot;prompt&quot;, &quot;pushd&quot;, _
+    &quot;querybox&quot;, &quot;quit&quot;, &quot;rd&quot;, &quot;reboot&quot;, &quot;return&quot;, _
+    &quot;screen&quot;, &quot;scrput&quot;, &quot;select&quot;, &quot;setdos&quot;, &quot;seterror&quot;, &quot;setlocal&quot;, &quot;shift&quot;, &quot;shralias&quot;, &quot;switch&quot;, _
+    &quot;tcfilter&quot;, &quot;tctoolbar&quot;, &quot;tee&quot;, &quot;text&quot;, &quot;timer&quot;, &quot;title&quot;, &quot;touch&quot;, _
+    &quot;unalias&quot;, &quot;unset&quot;, &quot;vscrput&quot;, &quot;which&quot;, &quot;window&quot;, &quot;y&quot;)
+  FMT_SortStringArrayAscending(sAltTokens())
+End Sub
+
+&apos;****************************************************************
+&apos;** Get the character styles meant for highlighting StarBat code.
+&apos;** Special characters are formatted as a keyword.
+&apos;****************************************************************
+Function FMT_GetBatCharacterStyles()
+  FMT_GetBatCharacterStyles() = FMT_GetBasicCharacterStyles()
+End Function
+
+
+</script:module>

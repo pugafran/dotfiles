@@ -1,9 +1,9 @@
 # GIMP user context
 
-(tool "gimp-color-picker-tool")
+(tool "gimp-fuzzy-select-tool")
 (paint-info "gimp-paintbrush")
-(foreground (color-rgb 0.094117648899555206 0.10196078568696976 0.10588235408067703))
-(brush "2. Hardness 050")
+(foreground (color-rgb 1 0.89273356401384052 0))
+(brush "2. Block 01")
 (dynamics "Dynamics Off")
 (mybrush "100% Opaque")
 (pattern "Pine")
