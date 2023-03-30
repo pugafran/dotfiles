@@ -142,7 +142,7 @@ function fish_prompt
     # Battery status
     type -q acpi
     and test (acpi -a 2> /dev/null | string match -r off)
-    and _nim_prompt_wrapper $lineColor B (acpi -b | cut -d' ' -f 4-) 
+    and _nim_prompt_wrapper $lineColor B (acpi -b | cut -d' ' -f 4 | cut -d ',' -f 1) 
 
     # New line
     echo

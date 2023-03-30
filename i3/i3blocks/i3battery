@@ -1,0 +1,10 @@
+[module/battery]
+type = internal/battery
+
+full-at = 100
+low-at = 10
+
+battery = BAT0
+adapter = ADP1
+
+poll-interval = 5
