@@ -64,7 +64,8 @@ bindsym mod1+mod2+KP_6 exec "dbus-send --print-reply --dest=org.mpris.MediaPlaye
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -269,10 +270,6 @@ bindsym $mod+r mode "resize"
 
 bindsym $mod+Shift+S exec flameshot gui
 
-exec setxkbmap -layout es
-exec ~/.fehbg
-exec picom
-
 set $wacomA $(xsetwacom --list devices | tr -s [:blank:] ';' | cut -d ';' -f 9 | head -n 1)
 set $wacomB $(xsetwacom --list devices | tr -s [:blank:] ';' | cut -d ';' -f 9 | tail -n 1)
 exec xsetwacom --set $wacomA MapToOutput DP-2
@@ -287,4 +284,7 @@ exec xsetwacom --set $wacomB Area 0 0 15200 8550
 
 exec export ZDOTDIR=$HOME/.config/zsh
 
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec --no-startup-id polybar
+exec setxkbmap -layout es
+exec ~/.fehbg
+exec picom
