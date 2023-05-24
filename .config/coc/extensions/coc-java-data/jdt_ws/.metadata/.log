@@ -1,0 +1,3293 @@
+!SESSION 2023-05-15 15:28:18.982 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=20.0.1
+java.vendor=N/A
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en
+Command-line arguments:  -data /home/alex/.config/coc/extensions/coc-java-data/jdt_ws
+
+This is a continuation of log file /home/alex/.config/coc/extensions/coc-java-data/jdt_ws/.metadata/.bak_0.log
+Created Time: 2023-05-15 15:28:19.878
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:19.878
+!MESSAGE Initializing Java Language Server 1.19.0.202301170526
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:19.890
+!MESSAGE Static Commands: []
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:19.890
+!MESSAGE Non-Static Commands: [java.edit.organizeImports, java.project.refreshDiagnostics, java.project.import, java.navigate.openTypeHierarchy, java.project.removeFromSourcePath, java.project.listSourcePaths, java.project.resolveStackTraceLocation, java.project.getAll, java.reloadBundles, java.project.isTestFile, java.edit.handlePasteEvent, java.project.getClasspaths, java.navigate.resolveTypeHierarchy, java.edit.stringFormatting, java.project.getSettings, java.project.updateSourceAttachment, java.project.resolveWorkspaceSymbol, java.project.upgradeGradle, java.project.createModuleInfo, java.protobuf.generateSources, java.project.resolveSourceAttachment, java.project.addToSourcePath, java.completion.onDidSelect]
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:19.894
+!MESSAGE Starting org.eclipse.m2e.core
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:19.894
+!MESSAGE Started org.eclipse.m2e.core 1ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:20.336
+!MESSAGE ProjectRegistryRefreshJob finished 442ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:20.336
+!MESSAGE Starting org.eclipse.buildship.core
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:20.350
+!MESSAGE Started org.eclipse.buildship.core 13ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:20.377
+!MESSAGE RepositoryRegistryUpdateJob finished 22ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:20.377
+!MESSAGE >> initialized
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:20.754
+!MESSAGE Workspace initialized in 400ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:20.769
+!MESSAGE >> initialization job finished
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:20.770
+!MESSAGE >> workspace/didChangeConfiguration
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:20.775
+!MESSAGE >> java/buildWorkspace (incremental)
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:20.777
+!MESSAGE >> New configuration: {java={enabled=true, home=/usr/lib/jvm/java-20-openjdk, jdt={ls={directory=null, statusIcons=null, java={home=null}, vmargs=-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -Xlog:disable, lombokSupport={enabled=true}, protobufSupport={enabled=true}, androidSupport={enabled=false}}}, errors={incompleteClasspath={severity=warning}}, configuration={checkProjectSettingsExclusions=false, updateBuildConfiguration=interactive, maven={userSettings=null, globalSettings=null, notCoveredPluginExecutionSeverity=warning}, workspaceCacheLimit=90.0, runtimes=[]}, trace={server=off}, import={maven={enabled=true, offline={enabled=false}}, gradle={enabled=true, wrapper={enabled=true}, version=null, home=null, java={home=null}, offline={enabled=false}, arguments=null, jvmArguments=null, user={home=null}, annotationProcessing={enabled=true}}, exclusions=[**/node_modules/**, **/.metadata/**, **/archetype-resources/**, **/META-INF/maven/**], generatesMetadataFilesAtProjectRoot=false}, maven={downloadSources=false, updateSnapshots=false}, eclipse={downloadSources=false}, referencesCodeLens={enabled=false}, signatureHelp={enabled=true, description={enabled=false}}, implementationsCodeLens={enabled=false}, format={enabled=true, settings={url=null, profile=null}, comments={enabled=true}, onType={enabled=true}}, saveActions={organizeImports=false}, project={referencedLibraries=[lib/**/*.jar], importOnFirstTimeStartup=automatic, importHint=true, resourceFilters=[node_modules, \.git], encoding=ignore}, contentProvider={preferred=null}, autobuild={enabled=true}, maxConcurrentBuilds=1.0, recommendations={dependency={analytics={show=true}}}, completion={maxResults=0.0, enabled=true, guessMethodArguments=true, favoriteStaticMembers=[org.junit.Assert.*, org.junit.Assume.*, org.junit.jupiter.api.Assertions.*, org.junit.jupiter.api.Assumptions.*, org.junit.jupiter.api.DynamicContainer.*, org.junit.jupiter.api.DynamicTest.*, org.mockito.Mockito.*, org.mockito.ArgumentMatchers.*, org.mockito.Answers.*], filteredTypes=[java.awt.*, com.sun.*, sun.*, jdk.*, org.graalvm.*, io.micrometer.shaded.*], importOrder=[#, java, javax, org, com, ], postfix={enabled=true}, matchCase=off}, foldingRange={enabled=true}, progressReports={enabled=true}, codeGeneration={hashCodeEquals={useJava7Objects=false, useInstanceof=false}, useBlocks=false, generateComments=false, toString={template=${object.className} [${member.name()}=${member.value}, ${otherMembers}], codeStyle=STRING_CONCATENATION, skipNullValues=false, listArrayContents=true, limitElements=0.0}, insertionLocation=afterCursor}, selectionRange={enabled=true}, showBuildStatusOnStart={enabled=notification}, server={launchMode=Standard}, sources={organizeImports={starThreshold=99.0, staticStarThreshold=99.0}}, imports={gradle={wrapper={checksums=[]}}}, templates={fileHeader=[], typeComment=[]}, references={includeAccessors=true, includeDecompiledSources=true}, typeHierarchy={lazyLoad=false}, settings={url=null}, symbols={includeSourceMethodDeclarations=false}, quickfix={showAt=line}, inlayHints={parameterNames={enabled=literals, exclusions=[]}}, codeAction={sortMembers={avoidVolatileChanges=true}}, compile={nullAnalysis={nonnull=[javax.annotation.Nonnull, org.eclipse.jdt.annotation.NonNull, org.springframework.lang.NonNull], nullable=[javax.annotation.Nullable, org.eclipse.jdt.annotation.Nullable, org.springframework.lang.Nullable], mode=interactive}}, cleanup={actionsOnSave=[]}, sharedIndexes={enabled=auto, location=}}}
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:20.778
+!MESSAGE >> document/didOpen
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:20.792
+!MESSAGE >> Updating classpath for project SistemasDistribuidos_afa16e5a
+
+!ENTRY org.eclipse.jdt.ls.core 4 0 2023-05-15 15:28:21.043
+!MESSAGE Error occured while building workspace. Details: 
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 8
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 9
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 10
+ message: ConnectionFactory cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 30
+ message: ConnectionFactory cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 30
+ message: Connection cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 32
+ message: Channel cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 33
+ message: Channel cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 62
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Estadis.java; line: 4
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Estadis.java; line: 5
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Estadis.java; line: 6
+ message: Envelope cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 63
+ message: AMQP cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 63
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 4
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 5
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 6
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 7
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 8
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 9
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 10
+ message: ConnectionFactory cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 53
+ message: ConnectionFactory cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 53
+ message: Connection cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 56
+ message: Channel cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 57
+ message: Consumer cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 61
+ message: DefaultConsumer cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 61
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:21.181
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:21.183
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:21.188
+!MESSAGE Reconciled 1. Took 0 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:21.283
+!MESSAGE begin problem for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:21.283
+!MESSAGE 19 problems reported for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:21.287
+!MESSAGE Validated 1. Took 89 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:21.299
+!MESSAGE >> build jobs finished
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:21.312
+!MESSAGE >> registerWatchers'
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:21.314
+!MESSAGE >> registerFeature 'workspace/didChangeWatchedFiles'
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:21.315
+!MESSAGE >> watchers registered
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:21.330
+!MESSAGE >> workspace/executeCommand java.project.getAll
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:21.331
+!MESSAGE >> workspace/executeCommand java.project.getAll
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:21.334
+!MESSAGE >> workspace/executeCommand java.project.getSettings
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:21.335
+!MESSAGE >> workspace/executeCommand java.project.getClasspaths
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:24.370
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:24.396
+!MESSAGE Reconciled 1. Took 8 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:24.889
+!MESSAGE begin problem for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:24.889
+!MESSAGE 19 problems reported for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:24.890
+!MESSAGE Validated 1. Took 92 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:25.260
+!MESSAGE >> document/willSaveWaitUntil
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:25.301
+!MESSAGE >> document/didSave
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:25.400
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:25.676
+!MESSAGE Reconciled 1. Took 0 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:26.210
+!MESSAGE begin problem for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:26.210
+!MESSAGE 19 problems reported for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:26.212
+!MESSAGE Validated 1. Took 85 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:51.042
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:51.053
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:51.059
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:51.062
+!MESSAGE Reconciled 1. Took 8 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:51.224
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:51.315
+!MESSAGE Reconciled 1. Took 29 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:51.353
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:51.431
+!MESSAGE Reconciled 1. Took 12 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:51.651
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:51.655
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:51.656
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:51.721
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:52.247
+!MESSAGE begin problem for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:52.248
+!MESSAGE 19 problems reported for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:52.248
+!MESSAGE Validated 1. Took 76 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:55.585
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:55.594
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:55.656
+!MESSAGE Reconciled 1. Took 5 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:55.656
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:55.733
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:55.760
+!MESSAGE Reconciled 1. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:55.860
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:55.914
+!MESSAGE Reconciled 1. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:56.083
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:56.088
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:56.116
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:56.152
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:56.174
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:56.176
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:56.176
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:56.239
+!MESSAGE Reconciled 1. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:56.309
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:56.312
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:56.318
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:56.375
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:56.376
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:56.442
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:56.464
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:56.469
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:56.472
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:56.533
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:57.006
+!MESSAGE begin problem for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:57.007
+!MESSAGE 19 problems reported for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:28:57.007
+!MESSAGE Validated 1. Took 74 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:02.139
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:02.146
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:02.167
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:02.208
+!MESSAGE Reconciled 1. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:02.277
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:02.311
+!MESSAGE Reconciled 1. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:02.340
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:02.362
+!MESSAGE Reconciled 1. Took 6 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:02.437
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:02.466
+!MESSAGE Reconciled 1. Took 4 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:02.551
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:02.556
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:02.558
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:02.621
+!MESSAGE Reconciled 1. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:02.658
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:02.664
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:02.683
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:02.686
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:02.705
+!MESSAGE Reconciled 1. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:02.779
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:02.808
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:02.871
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:02.876
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:02.878
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:02.910
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:03.097
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:03.100
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:03.107
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:03.162
+!MESSAGE Reconciled 1. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:03.173
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:03.242
+!MESSAGE Reconciled 1. Took 6 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:03.658
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:03.722
+!MESSAGE begin problem for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:03.722
+!MESSAGE 19 problems reported for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:03.723
+!MESSAGE Validated 1. Took 80 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:03.788
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:03.959
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:03.985
+!MESSAGE Reconciled 1. Took 9 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:04.444
+!MESSAGE begin problem for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:04.444
+!MESSAGE 19 problems reported for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:04.445
+!MESSAGE Validated 1. Took 59 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:05.030
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:05.103
+!MESSAGE Reconciled 1. Took 6 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:05.381
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:05.384
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:05.391
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:05.446
+!MESSAGE Reconciled 1. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:05.476
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:05.478
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:05.478
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:05.491
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:05.628
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:05.632
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:05.647
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:05.678
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:05.695
+!MESSAGE Reconciled 1. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:05.937
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:06.005
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:06.075
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:06.144
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:06.267
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:06.289
+!MESSAGE Reconciled 1. Took 5 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:06.367
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:06.438
+!MESSAGE Reconciled 1. Took 5 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:06.566
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:06.569
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:06.580
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:06.635
+!MESSAGE Reconciled 1. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:06.776
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:06.780
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:06.783
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:06.798
+!MESSAGE Reconciled 1. Took 5 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:07.266
+!MESSAGE begin problem for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:07.266
+!MESSAGE 19 problems reported for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:07.267
+!MESSAGE Validated 1. Took 68 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:09.218
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:09.225
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:09.240
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:09.240
+!MESSAGE Reconciled 1. Took 6 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:09.293
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:09.347
+!MESSAGE Reconciled 1. Took 5 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:09.366
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:09.387
+!MESSAGE Reconciled 1. Took 6 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:09.448
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:09.493
+!MESSAGE Reconciled 1. Took 4 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:09.498
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:09.502
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:09.504
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:09.519
+!MESSAGE Reconciled 1. Took 5 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:09.653
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:09.655
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:09.659
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:09.699
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:09.718
+!MESSAGE Reconciled 1. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:09.771
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:09.792
+!MESSAGE Reconciled 1. Took 5 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:09.885
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:09.909
+!MESSAGE Reconciled 1. Took 5 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:09.992
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:09.993
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:10.060
+!MESSAGE Reconciled 1. Took 5 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:10.110
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:10.178
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:10.305
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:10.373
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:10.812
+!MESSAGE begin problem for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:10.812
+!MESSAGE 19 problems reported for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:10.813
+!MESSAGE Validated 1. Took 39 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:11.204
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:11.208
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:11.210
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:11.271
+!MESSAGE Reconciled 1. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:11.691
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:11.737
+!MESSAGE begin problem for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:11.737
+!MESSAGE 19 problems reported for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:11.738
+!MESSAGE Validated 1. Took 64 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:11.739
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:11.742
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:11.806
+!MESSAGE Reconciled 1. Took 5 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:11.820
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:11.840
+!MESSAGE Reconciled 1. Took 5 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:11.858
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:11.925
+!MESSAGE Reconciled 1. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:11.976
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:11.981
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:11.983
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:12.030
+!MESSAGE Reconciled 1. Took 4 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:12.286
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:12.291
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:12.305
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:12.345
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:12.412
+!MESSAGE Reconciled 1. Took 4 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:12.840
+!MESSAGE begin problem for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:12.840
+!MESSAGE 19 problems reported for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:12.841
+!MESSAGE Validated 1. Took 28 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:12.917
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:12.934
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:12.937
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:12.945
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:12.952
+!MESSAGE Reconciled 1. Took 4 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:13.017
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:13.086
+!MESSAGE Reconciled 1. Took 4 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:13.109
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:13.111
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:13.112
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:13.135
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:13.163
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:13.165
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:13.168
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:13.213
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:13.229
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:13.246
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:13.314
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:13.336
+!MESSAGE Reconciled 1. Took 5 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:13.367
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:13.370
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:13.377
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:13.384
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:13.471
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:13.475
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:13.477
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:13.538
+!MESSAGE Reconciled 1. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:13.747
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:13.817
+!MESSAGE Reconciled 1. Took 4 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:13.991
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:13.997
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:14.001
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:14.015
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:14.017
+!MESSAGE Reconciled 1. Took 5 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:14.247
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:14.267
+!MESSAGE Reconciled 1. Took 4 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:14.750
+!MESSAGE begin problem for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:14.750
+!MESSAGE 19 problems reported for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:14.752
+!MESSAGE Validated 1. Took 60 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:14.834
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:14.844
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:14.912
+!MESSAGE Reconciled 1. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:15.252
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:15.256
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:15.270
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:15.314
+!MESSAGE Reconciled 1. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:15.820
+!MESSAGE begin problem for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:15.820
+!MESSAGE 19 problems reported for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:15.821
+!MESSAGE Validated 1. Took 55 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:16.815
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:18.229
+!MESSAGE >> document/willSaveWaitUntil
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:18.274
+!MESSAGE >> document/didSave
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:18.373
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:18.549
+!MESSAGE Reconciled 1. Took 0 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:19.000
+!MESSAGE begin problem for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:19.000
+!MESSAGE 19 problems reported for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:19.000
+!MESSAGE Validated 1. Took 50 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:20.163
+!MESSAGE >> document/willSaveWaitUntil
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:20.184
+!MESSAGE >> document/didSave
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 15:29:20.199
+!MESSAGE >> document/didClose
+!SESSION 2023-05-15 16:04:00.291 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=20.0.1
+java.vendor=N/A
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en
+Command-line arguments:  -data /home/alex/.config/coc/extensions/coc-java-data/jdt_ws
+
+!ENTRY org.eclipse.core.resources 2 10035 2023-05-15 16:04:00.723
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:01.089
+!MESSAGE class org.eclipse.jdt.ls.core.internal.JavaLanguageServerPlugin is started
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:01.165
+!MESSAGE Main thread is waiting
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:01.194
+!MESSAGE >> initialize
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:01.195
+!MESSAGE Initializing Java Language Server 1.19.0.202301170526
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:01.208
+!MESSAGE Static Commands: []
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:01.208
+!MESSAGE Non-Static Commands: [java.edit.organizeImports, java.project.refreshDiagnostics, java.project.import, java.navigate.openTypeHierarchy, java.project.removeFromSourcePath, java.project.listSourcePaths, java.project.resolveStackTraceLocation, java.project.getAll, java.reloadBundles, java.project.isTestFile, java.edit.handlePasteEvent, java.project.getClasspaths, java.navigate.resolveTypeHierarchy, java.edit.stringFormatting, java.project.getSettings, java.project.updateSourceAttachment, java.project.resolveWorkspaceSymbol, java.project.upgradeGradle, java.project.createModuleInfo, java.protobuf.generateSources, java.project.resolveSourceAttachment, java.project.addToSourcePath, java.completion.onDidSelect]
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:01.211
+!MESSAGE Starting org.eclipse.m2e.core
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:01.211
+!MESSAGE Started org.eclipse.m2e.core 1ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:01.636
+!MESSAGE ProjectRegistryRefreshJob finished 425ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:01.636
+!MESSAGE Starting org.eclipse.buildship.core
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:01.649
+!MESSAGE Started org.eclipse.buildship.core 13ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:01.661
+!MESSAGE >> initialized
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:01.663
+!MESSAGE RepositoryRegistryUpdateJob finished 10ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:01.955
+!MESSAGE Workspace initialized in 302ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:01.966
+!MESSAGE >> initialization job finished
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:01.967
+!MESSAGE >> workspace/didChangeConfiguration
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:01.972
+!MESSAGE >> java/buildWorkspace (incremental)
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:01.974
+!MESSAGE >> New configuration: {java={enabled=true, home=/usr/lib/jvm/java-20-openjdk, jdt={ls={directory=null, statusIcons=null, java={home=null}, vmargs=-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -Xlog:disable, lombokSupport={enabled=true}, protobufSupport={enabled=true}, androidSupport={enabled=false}}}, errors={incompleteClasspath={severity=warning}}, configuration={checkProjectSettingsExclusions=false, updateBuildConfiguration=interactive, maven={userSettings=null, globalSettings=null, notCoveredPluginExecutionSeverity=warning}, workspaceCacheLimit=90.0, runtimes=[]}, trace={server=off}, import={maven={enabled=true, offline={enabled=false}}, gradle={enabled=true, wrapper={enabled=true}, version=null, home=null, java={home=null}, offline={enabled=false}, arguments=null, jvmArguments=null, user={home=null}, annotationProcessing={enabled=true}}, exclusions=[**/node_modules/**, **/.metadata/**, **/archetype-resources/**, **/META-INF/maven/**], generatesMetadataFilesAtProjectRoot=false}, maven={downloadSources=false, updateSnapshots=false}, eclipse={downloadSources=false}, referencesCodeLens={enabled=false}, signatureHelp={enabled=true, description={enabled=false}}, implementationsCodeLens={enabled=false}, format={enabled=true, settings={url=null, profile=null}, comments={enabled=true}, onType={enabled=true}}, saveActions={organizeImports=false}, project={referencedLibraries=[lib/**/*.jar], importOnFirstTimeStartup=automatic, importHint=true, resourceFilters=[node_modules, \.git], encoding=ignore}, contentProvider={preferred=null}, autobuild={enabled=true}, maxConcurrentBuilds=1.0, recommendations={dependency={analytics={show=true}}}, completion={maxResults=0.0, enabled=true, guessMethodArguments=true, favoriteStaticMembers=[org.junit.Assert.*, org.junit.Assume.*, org.junit.jupiter.api.Assertions.*, org.junit.jupiter.api.Assumptions.*, org.junit.jupiter.api.DynamicContainer.*, org.junit.jupiter.api.DynamicTest.*, org.mockito.Mockito.*, org.mockito.ArgumentMatchers.*, org.mockito.Answers.*], filteredTypes=[java.awt.*, com.sun.*, sun.*, jdk.*, org.graalvm.*, io.micrometer.shaded.*], importOrder=[#, java, javax, org, com, ], postfix={enabled=true}, matchCase=off}, foldingRange={enabled=true}, progressReports={enabled=true}, codeGeneration={hashCodeEquals={useJava7Objects=false, useInstanceof=false}, useBlocks=false, generateComments=false, toString={template=${object.className} [${member.name()}=${member.value}, ${otherMembers}], codeStyle=STRING_CONCATENATION, skipNullValues=false, listArrayContents=true, limitElements=0.0}, insertionLocation=afterCursor}, selectionRange={enabled=true}, showBuildStatusOnStart={enabled=notification}, server={launchMode=Standard}, sources={organizeImports={starThreshold=99.0, staticStarThreshold=99.0}}, imports={gradle={wrapper={checksums=[]}}}, templates={fileHeader=[], typeComment=[]}, references={includeAccessors=true, includeDecompiledSources=true}, typeHierarchy={lazyLoad=false}, settings={url=null}, symbols={includeSourceMethodDeclarations=false}, quickfix={showAt=line}, inlayHints={parameterNames={enabled=literals, exclusions=[]}}, codeAction={sortMembers={avoidVolatileChanges=true}}, compile={nullAnalysis={nonnull=[javax.annotation.Nonnull, org.eclipse.jdt.annotation.NonNull, org.springframework.lang.NonNull], nullable=[javax.annotation.Nullable, org.eclipse.jdt.annotation.Nullable, org.springframework.lang.Nullable], mode=interactive}}, cleanup={actionsOnSave=[]}, sharedIndexes={enabled=auto, location=}}}
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:01.975
+!MESSAGE >> document/didOpen
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:02.029
+!MESSAGE >> Updating classpath for project SistemasDistribuidos_afa16e5a
+
+!ENTRY org.eclipse.jdt.ls.core 4 0 2023-05-15 16:04:02.327
+!MESSAGE Error occured while building workspace. Details: 
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 8
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 9
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 10
+ message: ConnectionFactory cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 30
+ message: ConnectionFactory cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 30
+ message: Connection cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 32
+ message: Channel cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 33
+ message: Channel cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 62
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Estadis.java; line: 4
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Estadis.java; line: 5
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Estadis.java; line: 6
+ message: Envelope cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 63
+ message: AMQP cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 63
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 4
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 5
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 6
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 7
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 8
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 9
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 10
+ message: ConnectionFactory cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 53
+ message: ConnectionFactory cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 53
+ message: Connection cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 56
+ message: Channel cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 57
+ message: Consumer cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 61
+ message: DefaultConsumer cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 61
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:02.465
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:02.468
+!MESSAGE Reconciled 1. Took 0 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:02.561
+!MESSAGE begin problem for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:02.561
+!MESSAGE 19 problems reported for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:02.566
+!MESSAGE Validated 1. Took 88 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:02.579
+!MESSAGE >> build jobs finished
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:02.591
+!MESSAGE >> registerWatchers'
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:02.592
+!MESSAGE >> registerFeature 'workspace/didChangeWatchedFiles'
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:02.593
+!MESSAGE >> watchers registered
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:02.608
+!MESSAGE >> workspace/executeCommand java.project.getAll
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:02.609
+!MESSAGE >> workspace/executeCommand java.project.getAll
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:02.611
+!MESSAGE >> workspace/executeCommand java.project.getClasspaths
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:02.612
+!MESSAGE >> workspace/executeCommand java.project.getSettings
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:02.977
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:04.212
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:04.284
+!MESSAGE Reconciled 1. Took 15 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:04.532
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:04.575
+!MESSAGE Reconciled 1. Took 5 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:04.866
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:04.883
+!MESSAGE Reconciled 1. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:05.196
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:05.265
+!MESSAGE Reconciled 1. Took 9 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:05.298
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:05.760
+!MESSAGE begin problem for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:05.760
+!MESSAGE 19 problems reported for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:05.761
+!MESSAGE Validated 1. Took 94 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:07.684
+!MESSAGE >> document/willSaveWaitUntil
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 16:04:07.724
+!MESSAGE >> document/didClose
+!SESSION 2023-05-15 23:22:29.489 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=20.0.1
+java.vendor=N/A
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en
+Command-line arguments:  -data /home/alex/.config/coc/extensions/coc-java-data/jdt_ws
+
+!ENTRY org.eclipse.core.resources 2 10035 2023-05-15 23:22:29.944
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:30.340
+!MESSAGE class org.eclipse.jdt.ls.core.internal.JavaLanguageServerPlugin is started
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:30.418
+!MESSAGE Main thread is waiting
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:30.451
+!MESSAGE >> initialize
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:30.453
+!MESSAGE Initializing Java Language Server 1.19.0.202301170526
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:30.469
+!MESSAGE Static Commands: []
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:30.470
+!MESSAGE Non-Static Commands: [java.edit.organizeImports, java.project.refreshDiagnostics, java.project.import, java.navigate.openTypeHierarchy, java.project.removeFromSourcePath, java.project.listSourcePaths, java.project.resolveStackTraceLocation, java.project.getAll, java.reloadBundles, java.project.isTestFile, java.edit.handlePasteEvent, java.project.getClasspaths, java.navigate.resolveTypeHierarchy, java.edit.stringFormatting, java.project.getSettings, java.project.updateSourceAttachment, java.project.resolveWorkspaceSymbol, java.project.upgradeGradle, java.project.createModuleInfo, java.protobuf.generateSources, java.project.resolveSourceAttachment, java.project.addToSourcePath, java.completion.onDidSelect]
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:30.478
+!MESSAGE Starting org.eclipse.m2e.core
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:30.479
+!MESSAGE Started org.eclipse.m2e.core 0ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:30.946
+!MESSAGE ProjectRegistryRefreshJob finished 466ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:30.946
+!MESSAGE Starting org.eclipse.buildship.core
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:30.961
+!MESSAGE Started org.eclipse.buildship.core 15ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:30.972
+!MESSAGE >> initialized
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:30.985
+!MESSAGE RepositoryRegistryUpdateJob finished 21ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:31.293
+!MESSAGE Workspace initialized in 329ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:31.304
+!MESSAGE >> initialization job finished
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:31.304
+!MESSAGE >> workspace/didChangeConfiguration
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:31.310
+!MESSAGE >> java/buildWorkspace (incremental)
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:31.312
+!MESSAGE >> New configuration: {java={enabled=true, home=/usr/lib/jvm/java-20-openjdk, jdt={ls={directory=null, statusIcons=null, java={home=null}, vmargs=-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -Xlog:disable, lombokSupport={enabled=true}, protobufSupport={enabled=true}, androidSupport={enabled=false}}}, errors={incompleteClasspath={severity=warning}}, configuration={checkProjectSettingsExclusions=false, updateBuildConfiguration=interactive, maven={userSettings=null, globalSettings=null, notCoveredPluginExecutionSeverity=warning}, workspaceCacheLimit=90.0, runtimes=[]}, trace={server=off}, import={maven={enabled=true, offline={enabled=false}}, gradle={enabled=true, wrapper={enabled=true}, version=null, home=null, java={home=null}, offline={enabled=false}, arguments=null, jvmArguments=null, user={home=null}, annotationProcessing={enabled=true}}, exclusions=[**/node_modules/**, **/.metadata/**, **/archetype-resources/**, **/META-INF/maven/**], generatesMetadataFilesAtProjectRoot=false}, maven={downloadSources=false, updateSnapshots=false}, eclipse={downloadSources=false}, referencesCodeLens={enabled=false}, signatureHelp={enabled=true, description={enabled=false}}, implementationsCodeLens={enabled=false}, format={enabled=true, settings={url=null, profile=null}, comments={enabled=true}, onType={enabled=true}}, saveActions={organizeImports=false}, project={referencedLibraries=[lib/**/*.jar], importOnFirstTimeStartup=automatic, importHint=true, resourceFilters=[node_modules, \.git], encoding=ignore}, contentProvider={preferred=null}, autobuild={enabled=true}, maxConcurrentBuilds=1.0, recommendations={dependency={analytics={show=true}}}, completion={maxResults=0.0, enabled=true, guessMethodArguments=true, favoriteStaticMembers=[org.junit.Assert.*, org.junit.Assume.*, org.junit.jupiter.api.Assertions.*, org.junit.jupiter.api.Assumptions.*, org.junit.jupiter.api.DynamicContainer.*, org.junit.jupiter.api.DynamicTest.*, org.mockito.Mockito.*, org.mockito.ArgumentMatchers.*, org.mockito.Answers.*], filteredTypes=[java.awt.*, com.sun.*, sun.*, jdk.*, org.graalvm.*, io.micrometer.shaded.*], importOrder=[#, java, javax, org, com, ], postfix={enabled=true}, matchCase=off}, foldingRange={enabled=true}, progressReports={enabled=true}, codeGeneration={hashCodeEquals={useJava7Objects=false, useInstanceof=false}, useBlocks=false, generateComments=false, toString={template=${object.className} [${member.name()}=${member.value}, ${otherMembers}], codeStyle=STRING_CONCATENATION, skipNullValues=false, listArrayContents=true, limitElements=0.0}, insertionLocation=afterCursor}, selectionRange={enabled=true}, showBuildStatusOnStart={enabled=notification}, server={launchMode=Standard}, sources={organizeImports={starThreshold=99.0, staticStarThreshold=99.0}}, imports={gradle={wrapper={checksums=[]}}}, templates={fileHeader=[], typeComment=[]}, references={includeAccessors=true, includeDecompiledSources=true}, typeHierarchy={lazyLoad=false}, settings={url=null}, symbols={includeSourceMethodDeclarations=false}, quickfix={showAt=line}, inlayHints={parameterNames={enabled=literals, exclusions=[]}}, codeAction={sortMembers={avoidVolatileChanges=true}}, compile={nullAnalysis={nonnull=[javax.annotation.Nonnull, org.eclipse.jdt.annotation.NonNull, org.springframework.lang.NonNull], nullable=[javax.annotation.Nullable, org.eclipse.jdt.annotation.Nullable, org.springframework.lang.Nullable], mode=interactive}}, cleanup={actionsOnSave=[]}, sharedIndexes={enabled=auto, location=}}}
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:31.314
+!MESSAGE >> document/didOpen
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:31.327
+!MESSAGE >> Updating classpath for project SistemasDistribuidos_afa16e5a
+
+!ENTRY org.eclipse.jdt.ls.core 4 0 2023-05-15 23:22:31.553
+!MESSAGE Error occured while building workspace. Details: 
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 8
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 9
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 10
+ message: ConnectionFactory cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 30
+ message: ConnectionFactory cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 30
+ message: Connection cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 32
+ message: Channel cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 33
+ message: Channel cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 62
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Estadis.java; line: 4
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Estadis.java; line: 5
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Estadis.java; line: 6
+ message: Envelope cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 63
+ message: AMQP cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 63
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 4
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 5
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 6
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 7
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 8
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 9
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 10
+ message: ConnectionFactory cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 53
+ message: ConnectionFactory cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 53
+ message: Connection cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 56
+ message: Channel cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 57
+ message: Consumer cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 61
+ message: DefaultConsumer cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 61
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:31.697
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:31.706
+!MESSAGE Reconciled 1. Took 0 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:31.810
+!MESSAGE begin problem for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:31.811
+!MESSAGE 19 problems reported for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:31.817
+!MESSAGE Validated 1. Took 102 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:31.837
+!MESSAGE >> build jobs finished
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:31.859
+!MESSAGE >> registerWatchers'
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:31.860
+!MESSAGE >> registerFeature 'workspace/didChangeWatchedFiles'
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:31.862
+!MESSAGE >> watchers registered
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:31.878
+!MESSAGE >> workspace/executeCommand java.project.getAll
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:31.879
+!MESSAGE >> workspace/executeCommand java.project.getAll
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:31.884
+!MESSAGE >> workspace/executeCommand java.project.getSettings
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:31.885
+!MESSAGE >> workspace/executeCommand java.project.getClasspaths
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:34.122
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:34.322
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:36.598
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:36.605
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:36.671
+!MESSAGE Reconciled 1. Took 15 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:36.760
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:36.797
+!MESSAGE >> document/resolveCompletionItem
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:37.045
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:37.080
+!MESSAGE Reconciled 1. Took 9 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:37.173
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:37.248
+!MESSAGE Reconciled 1. Took 9 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:37.777
+!MESSAGE begin problem for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:37.778
+!MESSAGE 19 problems reported for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:37.778
+!MESSAGE Validated 1. Took 80 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:38.250
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:38.324
+!MESSAGE Reconciled 1. Took 7 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:38.760
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:38.782
+!MESSAGE Reconciled 1. Took 6 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:38.956
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:39.024
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:39.126
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:39.198
+!MESSAGE Reconciled 1. Took 7 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:39.481
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:39.551
+!MESSAGE Reconciled 1. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:39.580
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:39.945
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:39.950
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:39.952
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:39.966
+!MESSAGE Reconciled 1. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:40.221
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:40.408
+!MESSAGE begin problem for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:40.408
+!MESSAGE 19 problems reported for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:40.410
+!MESSAGE Validated 1. Took 43 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:41.139
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:41.207
+!MESSAGE Reconciled 1. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:41.239
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:41.339
+!MESSAGE >> document/willSaveWaitUntil
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:41.362
+!MESSAGE >> document/didSave
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:41.462
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:41.664
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:41.700
+!MESSAGE begin problem for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:41.700
+!MESSAGE 19 problems reported for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:41.700
+!MESSAGE Validated 1. Took 43 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:41.996
+!MESSAGE Reconciled 1. Took 0 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:42.544
+!MESSAGE begin problem for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:42.545
+!MESSAGE 19 problems reported for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:42.546
+!MESSAGE Validated 1. Took 100 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:47.371
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:48.873
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:49.896
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:50.100
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:51.641
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:51.713
+!MESSAGE Reconciled 1. Took 6 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:51.785
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:51.819
+!MESSAGE Reconciled 1. Took 5 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:51.915
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:51.921
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:51.923
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:51.972
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:52.485
+!MESSAGE begin problem for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:52.485
+!MESSAGE 19 problems reported for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:52.486
+!MESSAGE Validated 1. Took 63 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:53.420
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:53.629
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:54.711
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:56.355
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:56.428
+!MESSAGE Reconciled 1. Took 9 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:56.493
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:56.533
+!MESSAGE Reconciled 1. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:56.586
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:56.589
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:56.590
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:56.604
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:57.104
+!MESSAGE begin problem for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:57.104
+!MESSAGE 19 problems reported for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:57.105
+!MESSAGE Validated 1. Took 51 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:57.478
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:57.682
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:58.125
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:58.328
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:59.197
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:59.267
+!MESSAGE Reconciled 1. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:59.343
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:59.374
+!MESSAGE Reconciled 1. Took 6 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:59.536
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:59.540
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:59.542
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:22:59.603
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:00.060
+!MESSAGE begin problem for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:00.060
+!MESSAGE 19 problems reported for /Sislog.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:00.061
+!MESSAGE Validated 1. Took 57 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:00.624
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:00.828
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:01.051
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:01.255
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:02.376
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:02.577
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:04.036
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:04.652
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:05.124
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:05.478
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:05.818
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:06.151
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:06.497
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:06.634
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:06.834
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:07.166
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:07.369
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:07.638
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:07.842
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:08.311
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:08.512
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:08.743
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:08.944
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:09.938
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:10.141
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:10.299
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:10.500
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:11.846
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:12.049
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:12.971
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:13.175
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:14.820
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:17.340
+!MESSAGE >> document/willSaveWaitUntil
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:17.356
+!MESSAGE >> document/didClose
+!SESSION 2023-05-15 23:23:20.958 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=20.0.1
+java.vendor=N/A
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en
+Command-line arguments:  -data /home/alex/.config/coc/extensions/coc-java-data/jdt_ws
+
+!ENTRY org.eclipse.core.resources 2 10035 2023-05-15 23:23:21.416
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:21.806
+!MESSAGE class org.eclipse.jdt.ls.core.internal.JavaLanguageServerPlugin is started
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:21.882
+!MESSAGE Main thread is waiting
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:21.914
+!MESSAGE >> initialize
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:21.915
+!MESSAGE Initializing Java Language Server 1.19.0.202301170526
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:21.929
+!MESSAGE Static Commands: []
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:21.930
+!MESSAGE Non-Static Commands: [java.edit.organizeImports, java.project.refreshDiagnostics, java.project.import, java.navigate.openTypeHierarchy, java.project.removeFromSourcePath, java.project.listSourcePaths, java.project.resolveStackTraceLocation, java.project.getAll, java.reloadBundles, java.project.isTestFile, java.edit.handlePasteEvent, java.project.getClasspaths, java.navigate.resolveTypeHierarchy, java.edit.stringFormatting, java.project.getSettings, java.project.updateSourceAttachment, java.project.resolveWorkspaceSymbol, java.project.upgradeGradle, java.project.createModuleInfo, java.protobuf.generateSources, java.project.resolveSourceAttachment, java.project.addToSourcePath, java.completion.onDidSelect]
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:21.933
+!MESSAGE Starting org.eclipse.m2e.core
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:21.933
+!MESSAGE Started org.eclipse.m2e.core 0ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:22.379
+!MESSAGE ProjectRegistryRefreshJob finished 446ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:22.379
+!MESSAGE Starting org.eclipse.buildship.core
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:22.395
+!MESSAGE Started org.eclipse.buildship.core 16ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:22.413
+!MESSAGE >> initialized
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:22.416
+!MESSAGE RepositoryRegistryUpdateJob finished 14ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:22.703
+!MESSAGE Workspace initialized in 300ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:22.713
+!MESSAGE >> initialization job finished
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:22.714
+!MESSAGE >> workspace/didChangeConfiguration
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:22.719
+!MESSAGE >> java/buildWorkspace (incremental)
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:22.721
+!MESSAGE >> New configuration: {java={enabled=true, home=/usr/lib/jvm/java-20-openjdk, jdt={ls={directory=null, statusIcons=null, java={home=null}, vmargs=-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -Xlog:disable, lombokSupport={enabled=true}, protobufSupport={enabled=true}, androidSupport={enabled=false}}}, errors={incompleteClasspath={severity=warning}}, configuration={checkProjectSettingsExclusions=false, updateBuildConfiguration=interactive, maven={userSettings=null, globalSettings=null, notCoveredPluginExecutionSeverity=warning}, workspaceCacheLimit=90.0, runtimes=[]}, trace={server=off}, import={maven={enabled=true, offline={enabled=false}}, gradle={enabled=true, wrapper={enabled=true}, version=null, home=null, java={home=null}, offline={enabled=false}, arguments=null, jvmArguments=null, user={home=null}, annotationProcessing={enabled=true}}, exclusions=[**/node_modules/**, **/.metadata/**, **/archetype-resources/**, **/META-INF/maven/**], generatesMetadataFilesAtProjectRoot=false}, maven={downloadSources=false, updateSnapshots=false}, eclipse={downloadSources=false}, referencesCodeLens={enabled=false}, signatureHelp={enabled=true, description={enabled=false}}, implementationsCodeLens={enabled=false}, format={enabled=true, settings={url=null, profile=null}, comments={enabled=true}, onType={enabled=true}}, saveActions={organizeImports=false}, project={referencedLibraries=[lib/**/*.jar], importOnFirstTimeStartup=automatic, importHint=true, resourceFilters=[node_modules, \.git], encoding=ignore}, contentProvider={preferred=null}, autobuild={enabled=true}, maxConcurrentBuilds=1.0, recommendations={dependency={analytics={show=true}}}, completion={maxResults=0.0, enabled=true, guessMethodArguments=true, favoriteStaticMembers=[org.junit.Assert.*, org.junit.Assume.*, org.junit.jupiter.api.Assertions.*, org.junit.jupiter.api.Assumptions.*, org.junit.jupiter.api.DynamicContainer.*, org.junit.jupiter.api.DynamicTest.*, org.mockito.Mockito.*, org.mockito.ArgumentMatchers.*, org.mockito.Answers.*], filteredTypes=[java.awt.*, com.sun.*, sun.*, jdk.*, org.graalvm.*, io.micrometer.shaded.*], importOrder=[#, java, javax, org, com, ], postfix={enabled=true}, matchCase=off}, foldingRange={enabled=true}, progressReports={enabled=true}, codeGeneration={hashCodeEquals={useJava7Objects=false, useInstanceof=false}, useBlocks=false, generateComments=false, toString={template=${object.className} [${member.name()}=${member.value}, ${otherMembers}], codeStyle=STRING_CONCATENATION, skipNullValues=false, listArrayContents=true, limitElements=0.0}, insertionLocation=afterCursor}, selectionRange={enabled=true}, showBuildStatusOnStart={enabled=notification}, server={launchMode=Standard}, sources={organizeImports={starThreshold=99.0, staticStarThreshold=99.0}}, imports={gradle={wrapper={checksums=[]}}}, templates={fileHeader=[], typeComment=[]}, references={includeAccessors=true, includeDecompiledSources=true}, typeHierarchy={lazyLoad=false}, settings={url=null}, symbols={includeSourceMethodDeclarations=false}, quickfix={showAt=line}, inlayHints={parameterNames={enabled=literals, exclusions=[]}}, codeAction={sortMembers={avoidVolatileChanges=true}}, compile={nullAnalysis={nonnull=[javax.annotation.Nonnull, org.eclipse.jdt.annotation.NonNull, org.springframework.lang.NonNull], nullable=[javax.annotation.Nullable, org.eclipse.jdt.annotation.Nullable, org.springframework.lang.Nullable], mode=interactive}}, cleanup={actionsOnSave=[]}, sharedIndexes={enabled=auto, location=}}}
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:22.723
+!MESSAGE >> document/didOpen
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:22.735
+!MESSAGE >> Updating classpath for project SistemasDistribuidos_afa16e5a
+!SESSION 2023-05-15 23:23:27.232 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=20.0.1
+java.vendor=N/A
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en
+Command-line arguments:  -data /home/alex/.config/coc/extensions/coc-java-data/jdt_ws
+
+!ENTRY org.eclipse.core.resources 2 10035 2023-05-15 23:23:27.683
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:28.062
+!MESSAGE class org.eclipse.jdt.ls.core.internal.JavaLanguageServerPlugin is started
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:28.139
+!MESSAGE Main thread is waiting
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:28.171
+!MESSAGE >> initialize
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:28.172
+!MESSAGE Initializing Java Language Server 1.19.0.202301170526
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:28.185
+!MESSAGE Static Commands: []
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:28.185
+!MESSAGE Non-Static Commands: [java.edit.organizeImports, java.project.refreshDiagnostics, java.project.import, java.navigate.openTypeHierarchy, java.project.removeFromSourcePath, java.project.listSourcePaths, java.project.resolveStackTraceLocation, java.project.getAll, java.reloadBundles, java.project.isTestFile, java.edit.handlePasteEvent, java.project.getClasspaths, java.navigate.resolveTypeHierarchy, java.edit.stringFormatting, java.project.getSettings, java.project.updateSourceAttachment, java.project.resolveWorkspaceSymbol, java.project.upgradeGradle, java.project.createModuleInfo, java.protobuf.generateSources, java.project.resolveSourceAttachment, java.project.addToSourcePath, java.completion.onDidSelect]
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:28.190
+!MESSAGE Starting org.eclipse.m2e.core
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:28.190
+!MESSAGE Started org.eclipse.m2e.core 0ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:28.647
+!MESSAGE ProjectRegistryRefreshJob finished 456ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:28.647
+!MESSAGE Starting org.eclipse.buildship.core
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:28.661
+!MESSAGE Started org.eclipse.buildship.core 14ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:28.673
+!MESSAGE >> initialized
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:28.677
+!MESSAGE RepositoryRegistryUpdateJob finished 11ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:28.973
+!MESSAGE Workspace initialized in 307ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:28.989
+!MESSAGE >> initialization job finished
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:28.990
+!MESSAGE >> workspace/didChangeConfiguration
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:28.996
+!MESSAGE >> java/buildWorkspace (incremental)
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:28.998
+!MESSAGE >> New configuration: {java={enabled=true, home=/usr/lib/jvm/java-20-openjdk, jdt={ls={directory=null, statusIcons=null, java={home=null}, vmargs=-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -Xlog:disable, lombokSupport={enabled=true}, protobufSupport={enabled=true}, androidSupport={enabled=false}}}, errors={incompleteClasspath={severity=warning}}, configuration={checkProjectSettingsExclusions=false, updateBuildConfiguration=interactive, maven={userSettings=null, globalSettings=null, notCoveredPluginExecutionSeverity=warning}, workspaceCacheLimit=90.0, runtimes=[]}, trace={server=off}, import={maven={enabled=true, offline={enabled=false}}, gradle={enabled=true, wrapper={enabled=true}, version=null, home=null, java={home=null}, offline={enabled=false}, arguments=null, jvmArguments=null, user={home=null}, annotationProcessing={enabled=true}}, exclusions=[**/node_modules/**, **/.metadata/**, **/archetype-resources/**, **/META-INF/maven/**], generatesMetadataFilesAtProjectRoot=false}, maven={downloadSources=false, updateSnapshots=false}, eclipse={downloadSources=false}, referencesCodeLens={enabled=false}, signatureHelp={enabled=true, description={enabled=false}}, implementationsCodeLens={enabled=false}, format={enabled=true, settings={url=null, profile=null}, comments={enabled=true}, onType={enabled=true}}, saveActions={organizeImports=false}, project={referencedLibraries=[lib/**/*.jar], importOnFirstTimeStartup=automatic, importHint=true, resourceFilters=[node_modules, \.git], encoding=ignore}, contentProvider={preferred=null}, autobuild={enabled=true}, maxConcurrentBuilds=1.0, recommendations={dependency={analytics={show=true}}}, completion={maxResults=0.0, enabled=true, guessMethodArguments=true, favoriteStaticMembers=[org.junit.Assert.*, org.junit.Assume.*, org.junit.jupiter.api.Assertions.*, org.junit.jupiter.api.Assumptions.*, org.junit.jupiter.api.DynamicContainer.*, org.junit.jupiter.api.DynamicTest.*, org.mockito.Mockito.*, org.mockito.ArgumentMatchers.*, org.mockito.Answers.*], filteredTypes=[java.awt.*, com.sun.*, sun.*, jdk.*, org.graalvm.*, io.micrometer.shaded.*], importOrder=[#, java, javax, org, com, ], postfix={enabled=true}, matchCase=off}, foldingRange={enabled=true}, progressReports={enabled=true}, codeGeneration={hashCodeEquals={useJava7Objects=false, useInstanceof=false}, useBlocks=false, generateComments=false, toString={template=${object.className} [${member.name()}=${member.value}, ${otherMembers}], codeStyle=STRING_CONCATENATION, skipNullValues=false, listArrayContents=true, limitElements=0.0}, insertionLocation=afterCursor}, selectionRange={enabled=true}, showBuildStatusOnStart={enabled=notification}, server={launchMode=Standard}, sources={organizeImports={starThreshold=99.0, staticStarThreshold=99.0}}, imports={gradle={wrapper={checksums=[]}}}, templates={fileHeader=[], typeComment=[]}, references={includeAccessors=true, includeDecompiledSources=true}, typeHierarchy={lazyLoad=false}, settings={url=null}, symbols={includeSourceMethodDeclarations=false}, quickfix={showAt=line}, inlayHints={parameterNames={enabled=literals, exclusions=[]}}, codeAction={sortMembers={avoidVolatileChanges=true}}, compile={nullAnalysis={nonnull=[javax.annotation.Nonnull, org.eclipse.jdt.annotation.NonNull, org.springframework.lang.NonNull], nullable=[javax.annotation.Nullable, org.eclipse.jdt.annotation.Nullable, org.springframework.lang.Nullable], mode=interactive}}, cleanup={actionsOnSave=[]}, sharedIndexes={enabled=auto, location=}}}
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:28.999
+!MESSAGE >> document/didOpen
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:29.012
+!MESSAGE >> Updating classpath for project SistemasDistribuidos_afa16e5a
+
+!ENTRY org.eclipse.jdt.ls.core 4 0 2023-05-15 23:23:29.199
+!MESSAGE Error occured while building workspace. Details: 
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 8
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 9
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 10
+ message: ConnectionFactory cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 30
+ message: ConnectionFactory cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 30
+ message: Connection cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 32
+ message: Channel cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 33
+ message: Channel cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 62
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Estadis.java; line: 4
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Estadis.java; line: 5
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Estadis.java; line: 6
+ message: Envelope cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 63
+ message: AMQP cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 63
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 4
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 5
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 6
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 7
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 8
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 9
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 10
+ message: ConnectionFactory cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 53
+ message: ConnectionFactory cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 53
+ message: Connection cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 56
+ message: Channel cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 57
+ message: Consumer cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 61
+ message: DefaultConsumer cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 61
+!SESSION 2023-05-15 23:23:34.149 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=20.0.1
+java.vendor=N/A
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en
+Command-line arguments:  -data /home/alex/.config/coc/extensions/coc-java-data/jdt_ws
+
+!ENTRY org.eclipse.core.resources 2 10035 2023-05-15 23:23:34.608
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:35.030
+!MESSAGE class org.eclipse.jdt.ls.core.internal.JavaLanguageServerPlugin is started
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:35.117
+!MESSAGE Main thread is waiting
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:35.141
+!MESSAGE >> initialize
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:35.142
+!MESSAGE Initializing Java Language Server 1.19.0.202301170526
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:35.155
+!MESSAGE Static Commands: []
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:35.155
+!MESSAGE Non-Static Commands: [java.edit.organizeImports, java.project.refreshDiagnostics, java.project.import, java.navigate.openTypeHierarchy, java.project.removeFromSourcePath, java.project.listSourcePaths, java.project.resolveStackTraceLocation, java.project.getAll, java.reloadBundles, java.project.isTestFile, java.edit.handlePasteEvent, java.project.getClasspaths, java.navigate.resolveTypeHierarchy, java.edit.stringFormatting, java.project.getSettings, java.project.updateSourceAttachment, java.project.resolveWorkspaceSymbol, java.project.upgradeGradle, java.project.createModuleInfo, java.protobuf.generateSources, java.project.resolveSourceAttachment, java.project.addToSourcePath, java.completion.onDidSelect]
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:35.158
+!MESSAGE Starting org.eclipse.m2e.core
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:35.158
+!MESSAGE Started org.eclipse.m2e.core 0ms
+!SESSION 2023-05-15 23:23:45.007 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=20.0.1
+java.vendor=N/A
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en
+Command-line arguments:  -data /home/alex/.config/coc/extensions/coc-java-data/jdt_ws
+
+!ENTRY org.eclipse.core.resources 2 10035 2023-05-15 23:23:45.461
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:45.835
+!MESSAGE class org.eclipse.jdt.ls.core.internal.JavaLanguageServerPlugin is started
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:45.920
+!MESSAGE Main thread is waiting
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:45.945
+!MESSAGE >> initialize
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:45.946
+!MESSAGE Initializing Java Language Server 1.19.0.202301170526
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:45.959
+!MESSAGE Static Commands: []
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:45.959
+!MESSAGE Non-Static Commands: [java.edit.organizeImports, java.project.refreshDiagnostics, java.project.import, java.navigate.openTypeHierarchy, java.project.removeFromSourcePath, java.project.listSourcePaths, java.project.resolveStackTraceLocation, java.project.getAll, java.reloadBundles, java.project.isTestFile, java.edit.handlePasteEvent, java.project.getClasspaths, java.navigate.resolveTypeHierarchy, java.edit.stringFormatting, java.project.getSettings, java.project.updateSourceAttachment, java.project.resolveWorkspaceSymbol, java.project.upgradeGradle, java.project.createModuleInfo, java.protobuf.generateSources, java.project.resolveSourceAttachment, java.project.addToSourcePath, java.completion.onDidSelect]
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:45.962
+!MESSAGE Starting org.eclipse.m2e.core
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:45.962
+!MESSAGE Started org.eclipse.m2e.core 0ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:46.395
+!MESSAGE ProjectRegistryRefreshJob finished 433ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:46.395
+!MESSAGE Starting org.eclipse.buildship.core
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:46.406
+!MESSAGE Started org.eclipse.buildship.core 11ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:46.417
+!MESSAGE >> initialized
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:46.419
+!MESSAGE RepositoryRegistryUpdateJob finished 10ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:46.922
+!MESSAGE Workspace initialized in 513ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:46.945
+!MESSAGE >> initialization job finished
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:46.947
+!MESSAGE >> workspace/didChangeConfiguration
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:46.954
+!MESSAGE >> java/buildWorkspace (incremental)
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:46.956
+!MESSAGE >> New configuration: {java={enabled=true, home=/usr/lib/jvm/java-20-openjdk, jdt={ls={directory=null, statusIcons=null, java={home=null}, vmargs=-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -Xlog:disable, lombokSupport={enabled=true}, protobufSupport={enabled=true}, androidSupport={enabled=false}}}, errors={incompleteClasspath={severity=warning}}, configuration={checkProjectSettingsExclusions=false, updateBuildConfiguration=interactive, maven={userSettings=null, globalSettings=null, notCoveredPluginExecutionSeverity=warning}, workspaceCacheLimit=90.0, runtimes=[]}, trace={server=off}, import={maven={enabled=true, offline={enabled=false}}, gradle={enabled=true, wrapper={enabled=true}, version=null, home=null, java={home=null}, offline={enabled=false}, arguments=null, jvmArguments=null, user={home=null}, annotationProcessing={enabled=true}}, exclusions=[**/node_modules/**, **/.metadata/**, **/archetype-resources/**, **/META-INF/maven/**], generatesMetadataFilesAtProjectRoot=false}, maven={downloadSources=false, updateSnapshots=false}, eclipse={downloadSources=false}, referencesCodeLens={enabled=false}, signatureHelp={enabled=true, description={enabled=false}}, implementationsCodeLens={enabled=false}, format={enabled=true, settings={url=null, profile=null}, comments={enabled=true}, onType={enabled=true}}, saveActions={organizeImports=false}, project={referencedLibraries=[lib/**/*.jar], importOnFirstTimeStartup=automatic, importHint=true, resourceFilters=[node_modules, \.git], encoding=ignore}, contentProvider={preferred=null}, autobuild={enabled=true}, maxConcurrentBuilds=1.0, recommendations={dependency={analytics={show=true}}}, completion={maxResults=0.0, enabled=true, guessMethodArguments=true, favoriteStaticMembers=[org.junit.Assert.*, org.junit.Assume.*, org.junit.jupiter.api.Assertions.*, org.junit.jupiter.api.Assumptions.*, org.junit.jupiter.api.DynamicContainer.*, org.junit.jupiter.api.DynamicTest.*, org.mockito.Mockito.*, org.mockito.ArgumentMatchers.*, org.mockito.Answers.*], filteredTypes=[java.awt.*, com.sun.*, sun.*, jdk.*, org.graalvm.*, io.micrometer.shaded.*], importOrder=[#, java, javax, org, com, ], postfix={enabled=true}, matchCase=off}, foldingRange={enabled=true}, progressReports={enabled=true}, codeGeneration={hashCodeEquals={useJava7Objects=false, useInstanceof=false}, useBlocks=false, generateComments=false, toString={template=${object.className} [${member.name()}=${member.value}, ${otherMembers}], codeStyle=STRING_CONCATENATION, skipNullValues=false, listArrayContents=true, limitElements=0.0}, insertionLocation=afterCursor}, selectionRange={enabled=true}, showBuildStatusOnStart={enabled=notification}, server={launchMode=Standard}, sources={organizeImports={starThreshold=99.0, staticStarThreshold=99.0}}, imports={gradle={wrapper={checksums=[]}}}, templates={fileHeader=[], typeComment=[]}, references={includeAccessors=true, includeDecompiledSources=true}, typeHierarchy={lazyLoad=false}, settings={url=null}, symbols={includeSourceMethodDeclarations=false}, quickfix={showAt=line}, inlayHints={parameterNames={enabled=literals, exclusions=[]}}, codeAction={sortMembers={avoidVolatileChanges=true}}, compile={nullAnalysis={nonnull=[javax.annotation.Nonnull, org.eclipse.jdt.annotation.NonNull, org.springframework.lang.NonNull], nullable=[javax.annotation.Nullable, org.eclipse.jdt.annotation.Nullable, org.springframework.lang.Nullable], mode=interactive}}, cleanup={actionsOnSave=[]}, sharedIndexes={enabled=auto, location=}}}
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:46.957
+!MESSAGE >> document/didOpen
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:47.021
+!MESSAGE >> Updating classpath for project SistemasDistribuidos_afa16e5a
+
+!ENTRY org.eclipse.jdt.ls.core 4 0 2023-05-15 23:23:47.168
+!MESSAGE Error occured while building workspace. Details: 
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 8
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 9
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 10
+ message: ConnectionFactory cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 30
+ message: ConnectionFactory cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 30
+ message: Connection cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 32
+ message: Channel cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 33
+ message: Channel cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 62
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Estadis.java; line: 4
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Estadis.java; line: 5
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Estadis.java; line: 6
+ message: Envelope cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 63
+ message: AMQP cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 63
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 4
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 5
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 6
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 7
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 8
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 9
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 10
+ message: ConnectionFactory cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 53
+ message: ConnectionFactory cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 53
+ message: Connection cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 56
+ message: Channel cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 57
+ message: Consumer cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 61
+ message: DefaultConsumer cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 61
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:47.273
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:47.275
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:47.276
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:47.277
+!MESSAGE Reconciled 1. Took 0 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:47.323
+!MESSAGE begin problem for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:47.323
+!MESSAGE 8 problems reported for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:47.326
+!MESSAGE Validated 1. Took 39 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:47.337
+!MESSAGE >> build jobs finished
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:47.358
+!MESSAGE >> registerWatchers'
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:47.359
+!MESSAGE >> registerFeature 'workspace/didChangeWatchedFiles'
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:47.360
+!MESSAGE >> watchers registered
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:47.374
+!MESSAGE >> workspace/executeCommand java.project.getAll
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:47.375
+!MESSAGE >> workspace/executeCommand java.project.getAll
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:47.378
+!MESSAGE >> workspace/executeCommand java.project.getSettings
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:47.380
+!MESSAGE >> workspace/executeCommand java.project.getClasspaths
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:47.399
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:48.534
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:49.315
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:49.521
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:50.500
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:50.703
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:51.508
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:51.533
+!MESSAGE Reconciled 1. Took 16 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:51.610
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:51.640
+!MESSAGE Reconciled 1. Took 6 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:51.794
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:51.799
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:51.802
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:51.860
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:52.363
+!MESSAGE begin problem for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:52.364
+!MESSAGE 8 problems reported for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:52.365
+!MESSAGE Validated 1. Took 54 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:52.946
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:53.149
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:53.586
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:53.790
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:54.896
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:55.101
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:56.550
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:56.762
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:57.850
+!MESSAGE >> document/willSaveWaitUntil
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:57.898
+!MESSAGE >> document/didSave
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:57.996
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:58.161
+!MESSAGE Reconciled 1. Took 0 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:58.333
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:58.638
+!MESSAGE begin problem for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:58.638
+!MESSAGE 8 problems reported for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:23:58.639
+!MESSAGE Validated 1. Took 29 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:01.249
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:12.952
+!MESSAGE >> document/willSaveWaitUntil
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:12.970
+!MESSAGE >> document/didSave
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:13.208
+!MESSAGE Reconciled 1. Took 0 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:13.299
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:13.653
+!MESSAGE begin problem for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:13.654
+!MESSAGE 8 problems reported for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:13.654
+!MESSAGE Validated 1. Took 45 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:18.706
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:18.726
+!MESSAGE Reconciled 1. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:19.168
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:19.171
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:19.209
+!MESSAGE Reconciled 1. Took 4 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:19.233
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:19.246
+!MESSAGE >> document/resolveCompletionItem
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:19.303
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:19.367
+!MESSAGE Reconciled 1. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:19.387
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:19.450
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:19.621
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:19.692
+!MESSAGE Reconciled 1. Took 7 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:19.703
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:19.761
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:19.763
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:19.825
+!MESSAGE Reconciled 1. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:19.855
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:19.857
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:19.918
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:19.919
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:19.929
+!MESSAGE >> document/resolveCompletionItem
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:20.051
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:20.060
+!MESSAGE >> document/resolveCompletionItem
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:20.105
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:20.118
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:20.212
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:20.272
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:20.275
+!MESSAGE Reconciled 1. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:20.277
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:20.313
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:20.328
+!MESSAGE >> document/resolveCompletionItem
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:20.339
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:20.831
+!MESSAGE begin problem for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:20.831
+!MESSAGE 9 problems reported for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:20.833
+!MESSAGE Validated 1. Took 42 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:21.269
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:21.312
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:21.377
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:21.475
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:21.874
+!MESSAGE begin problem for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:21.875
+!MESSAGE 8 problems reported for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:21.875
+!MESSAGE Validated 1. Took 47 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:23.820
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:26.630
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:26.833
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:27.462
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:29.586
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:31.008
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:42.005
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:49.803
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:49.870
+!MESSAGE Reconciled 1. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:49.968
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:49.971
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:49.993
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:50.019
+!MESSAGE >> document/resolveCompletionItem
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:50.022
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:50.089
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:50.125
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:50.174
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:50.230
+!MESSAGE Reconciled 1. Took 6 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:50.277
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:50.293
+!MESSAGE Reconciled 1. Took 4 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:50.349
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:50.360
+!MESSAGE Reconciled 1. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:50.417
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:50.464
+!MESSAGE Reconciled 1. Took 4 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:50.529
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:50.532
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:50.553
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:50.563
+!MESSAGE >> document/resolveCompletionItem
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:50.567
+!MESSAGE Reconciled 1. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:50.812
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:50.819
+!MESSAGE >> document/resolveCompletionItem
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:50.827
+!MESSAGE Reconciled 1. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:50.873
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:50.939
+!MESSAGE Reconciled 1. Took 5 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:50.972
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:51.034
+!MESSAGE Reconciled 1. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:51.057
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:51.059
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:51.086
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:51.102
+!MESSAGE >> document/resolveCompletionItem
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:51.119
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:51.235
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:51.242
+!MESSAGE >> document/resolveCompletionItem
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:51.297
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:51.373
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:51.391
+!MESSAGE Reconciled 1. Took 5 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:51.438
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:51.500
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:51.510
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:51.571
+!MESSAGE Reconciled 1. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:51.593
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:51.639
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:51.655
+!MESSAGE Reconciled 1. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:51.705
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:51.723
+!MESSAGE Reconciled 1. Took 5 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:51.923
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:51.934
+!MESSAGE >> document/signatureHelp
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:51.942
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:52.375
+!MESSAGE begin problem for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:52.375
+!MESSAGE 10 problems reported for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:52.376
+!MESSAGE Validated 1. Took 34 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:54.253
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:54.317
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:54.360
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:54.363
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:54.368
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:54.371
+!MESSAGE Reconciled 1. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:54.372
+!MESSAGE >> document/resolveCompletionItem
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:54.840
+!MESSAGE begin problem for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:54.840
+!MESSAGE 11 problems reported for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:54.840
+!MESSAGE Validated 1. Took 18 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:54.989
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:55.051
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:55.524
+!MESSAGE begin problem for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:55.524
+!MESSAGE 9 problems reported for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:55.525
+!MESSAGE Validated 1. Took 23 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:55.909
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:55.912
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:55.924
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:55.925
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:56.013
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:56.042
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:56.055
+!MESSAGE Reconciled 1. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:56.152
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:56.216
+!MESSAGE Reconciled 1. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:56.236
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:56.301
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:56.329
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:56.393
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:56.413
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:56.477
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:56.894
+!MESSAGE begin problem for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:56.894
+!MESSAGE 9 problems reported for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:56.895
+!MESSAGE Validated 1. Took 17 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:57.257
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:57.259
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:57.260
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:57.270
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:57.481
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:57.486
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:57.496
+!MESSAGE Reconciled 1. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:57.499
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:57.535
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:57.599
+!MESSAGE Reconciled 1. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:57.643
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:57.701
+!MESSAGE Reconciled 1. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:57.707
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:57.718
+!MESSAGE Reconciled 1. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:57.811
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:57.875
+!MESSAGE Reconciled 1. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:58.010
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:58.073
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:58.095
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:58.098
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:58.099
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:58.158
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:58.582
+!MESSAGE begin problem for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:58.582
+!MESSAGE 9 problems reported for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:58.583
+!MESSAGE Validated 1. Took 24 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:59.339
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:59.401
+!MESSAGE Reconciled 1. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:59.554
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:59.556
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:59.564
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:24:59.567
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:00.027
+!MESSAGE begin problem for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:00.027
+!MESSAGE 9 problems reported for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:00.027
+!MESSAGE Validated 1. Took 9 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:00.238
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:00.252
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:00.372
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:00.374
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:00.379
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:00.433
+!MESSAGE Reconciled 1. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:00.688
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:00.703
+!MESSAGE Reconciled 1. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:01.041
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:01.042
+!MESSAGE >> document/signatureHelp
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:01.102
+!MESSAGE Reconciled 1. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:01.149
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:01.152
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:01.153
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:01.206
+!MESSAGE Reconciled 1. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:01.672
+!MESSAGE begin problem for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:01.672
+!MESSAGE 9 problems reported for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:01.672
+!MESSAGE Validated 1. Took 16 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:01.721
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:01.723
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:01.731
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:01.740
+!MESSAGE >> document/resolveCompletionItem
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:01.783
+!MESSAGE Reconciled 1. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:01.825
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:01.890
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:01.988
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:02.002
+!MESSAGE Reconciled 1. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:02.088
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:02.099
+!MESSAGE Reconciled 1. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:02.168
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:02.232
+!MESSAGE Reconciled 1. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:02.418
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:02.482
+!MESSAGE Reconciled 1. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:02.642
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:02.706
+!MESSAGE Reconciled 1. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:03.166
+!MESSAGE begin problem for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:03.166
+!MESSAGE 8 problems reported for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:03.167
+!MESSAGE Validated 1. Took 11 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:03.372
+!MESSAGE >> document/willSaveWaitUntil
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:03.406
+!MESSAGE >> document/didSave
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:03.452
+!MESSAGE Reconciled 1. Took 0 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:03.506
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:03.879
+!MESSAGE begin problem for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:03.880
+!MESSAGE 8 problems reported for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:03.880
+!MESSAGE Validated 1. Took 27 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:05.898
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:05.903
+!MESSAGE >> document/signatureHelp
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:05.962
+!MESSAGE Reconciled 1. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:06.438
+!MESSAGE begin problem for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:06.438
+!MESSAGE 8 problems reported for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:06.439
+!MESSAGE Validated 1. Took 26 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:06.486
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:06.503
+!MESSAGE Reconciled 1. Took 6 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:06.697
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:06.702
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:06.713
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:06.761
+!MESSAGE Reconciled 1. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:06.935
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:07.000
+!MESSAGE Reconciled 1. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:07.120
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:07.123
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:07.124
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:07.134
+!MESSAGE Reconciled 1. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:07.480
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:07.550
+!MESSAGE begin problem for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:07.550
+!MESSAGE 8 problems reported for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:07.551
+!MESSAGE Validated 1. Took 16 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:07.684
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:14.900
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:17.608
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:18.094
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:18.275
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:18.586
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:20.329
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:20.517
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:20.531
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:20.582
+!MESSAGE Reconciled 1. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:20.618
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:20.912
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:21.020
+!MESSAGE begin problem for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:21.020
+!MESSAGE 8 problems reported for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:21.021
+!MESSAGE Validated 1. Took 38 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:21.046
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:21.631
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:23.910
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:23.924
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:24.041
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:24.390
+!MESSAGE begin problem for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:24.390
+!MESSAGE 8 problems reported for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:24.391
+!MESSAGE Validated 1. Took 17 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:24.579
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:24.643
+!MESSAGE Reconciled 1. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:24.679
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:24.758
+!MESSAGE >> document/willSaveWaitUntil
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:24.776
+!MESSAGE >> document/didSave
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:24.877
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:25.079
+!MESSAGE begin problem for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:25.079
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:25.080
+!MESSAGE 8 problems reported for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:25.080
+!MESSAGE Validated 1. Took 36 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:25.249
+!MESSAGE Reconciled 1. Took 0 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:25.677
+!MESSAGE begin problem for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:25.677
+!MESSAGE 8 problems reported for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:25.678
+!MESSAGE Validated 1. Took 27 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:25.761
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:25:26.693
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:06.719
+!MESSAGE >> document/willSaveWaitUntil
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:06.735
+!MESSAGE >> document/didSave
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:06.743
+!MESSAGE >> document/didClose
+!SESSION 2023-05-15 23:26:11.202 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=20.0.1
+java.vendor=N/A
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en
+Command-line arguments:  -data /home/alex/.config/coc/extensions/coc-java-data/jdt_ws
+
+!ENTRY org.eclipse.core.resources 2 10035 2023-05-15 23:26:11.661
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:12.040
+!MESSAGE class org.eclipse.jdt.ls.core.internal.JavaLanguageServerPlugin is started
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:12.112
+!MESSAGE Main thread is waiting
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:12.136
+!MESSAGE >> initialize
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:12.138
+!MESSAGE Initializing Java Language Server 1.19.0.202301170526
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:12.149
+!MESSAGE Static Commands: []
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:12.149
+!MESSAGE Non-Static Commands: [java.edit.organizeImports, java.project.refreshDiagnostics, java.project.import, java.navigate.openTypeHierarchy, java.project.removeFromSourcePath, java.project.listSourcePaths, java.project.resolveStackTraceLocation, java.project.getAll, java.reloadBundles, java.project.isTestFile, java.edit.handlePasteEvent, java.project.getClasspaths, java.navigate.resolveTypeHierarchy, java.edit.stringFormatting, java.project.getSettings, java.project.updateSourceAttachment, java.project.resolveWorkspaceSymbol, java.project.upgradeGradle, java.project.createModuleInfo, java.protobuf.generateSources, java.project.resolveSourceAttachment, java.project.addToSourcePath, java.completion.onDidSelect]
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:12.152
+!MESSAGE Starting org.eclipse.m2e.core
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:12.152
+!MESSAGE Started org.eclipse.m2e.core 0ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:12.604
+!MESSAGE ProjectRegistryRefreshJob finished 451ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:12.604
+!MESSAGE Starting org.eclipse.buildship.core
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:12.616
+!MESSAGE Started org.eclipse.buildship.core 11ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:12.630
+!MESSAGE RepositoryRegistryUpdateJob finished 11ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:12.631
+!MESSAGE >> initialized
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:13.128
+!MESSAGE Workspace initialized in 509ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:13.146
+!MESSAGE >> initialization job finished
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:13.147
+!MESSAGE >> workspace/didChangeConfiguration
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:13.152
+!MESSAGE >> java/buildWorkspace (incremental)
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:13.153
+!MESSAGE >> New configuration: {java={enabled=true, home=/usr/lib/jvm/java-20-openjdk, jdt={ls={directory=null, statusIcons=null, java={home=null}, vmargs=-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -Xlog:disable, lombokSupport={enabled=true}, protobufSupport={enabled=true}, androidSupport={enabled=false}}}, errors={incompleteClasspath={severity=warning}}, configuration={checkProjectSettingsExclusions=false, updateBuildConfiguration=interactive, maven={userSettings=null, globalSettings=null, notCoveredPluginExecutionSeverity=warning}, workspaceCacheLimit=90.0, runtimes=[]}, trace={server=off}, import={maven={enabled=true, offline={enabled=false}}, gradle={enabled=true, wrapper={enabled=true}, version=null, home=null, java={home=null}, offline={enabled=false}, arguments=null, jvmArguments=null, user={home=null}, annotationProcessing={enabled=true}}, exclusions=[**/node_modules/**, **/.metadata/**, **/archetype-resources/**, **/META-INF/maven/**], generatesMetadataFilesAtProjectRoot=false}, maven={downloadSources=false, updateSnapshots=false}, eclipse={downloadSources=false}, referencesCodeLens={enabled=false}, signatureHelp={enabled=true, description={enabled=false}}, implementationsCodeLens={enabled=false}, format={enabled=true, settings={url=null, profile=null}, comments={enabled=true}, onType={enabled=true}}, saveActions={organizeImports=false}, project={referencedLibraries=[lib/**/*.jar], importOnFirstTimeStartup=automatic, importHint=true, resourceFilters=[node_modules, \.git], encoding=ignore}, contentProvider={preferred=null}, autobuild={enabled=true}, maxConcurrentBuilds=1.0, recommendations={dependency={analytics={show=true}}}, completion={maxResults=0.0, enabled=true, guessMethodArguments=true, favoriteStaticMembers=[org.junit.Assert.*, org.junit.Assume.*, org.junit.jupiter.api.Assertions.*, org.junit.jupiter.api.Assumptions.*, org.junit.jupiter.api.DynamicContainer.*, org.junit.jupiter.api.DynamicTest.*, org.mockito.Mockito.*, org.mockito.ArgumentMatchers.*, org.mockito.Answers.*], filteredTypes=[java.awt.*, com.sun.*, sun.*, jdk.*, org.graalvm.*, io.micrometer.shaded.*], importOrder=[#, java, javax, org, com, ], postfix={enabled=true}, matchCase=off}, foldingRange={enabled=true}, progressReports={enabled=true}, codeGeneration={hashCodeEquals={useJava7Objects=false, useInstanceof=false}, useBlocks=false, generateComments=false, toString={template=${object.className} [${member.name()}=${member.value}, ${otherMembers}], codeStyle=STRING_CONCATENATION, skipNullValues=false, listArrayContents=true, limitElements=0.0}, insertionLocation=afterCursor}, selectionRange={enabled=true}, showBuildStatusOnStart={enabled=notification}, server={launchMode=Standard}, sources={organizeImports={starThreshold=99.0, staticStarThreshold=99.0}}, imports={gradle={wrapper={checksums=[]}}}, templates={fileHeader=[], typeComment=[]}, references={includeAccessors=true, includeDecompiledSources=true}, typeHierarchy={lazyLoad=false}, settings={url=null}, symbols={includeSourceMethodDeclarations=false}, quickfix={showAt=line}, inlayHints={parameterNames={enabled=literals, exclusions=[]}}, codeAction={sortMembers={avoidVolatileChanges=true}}, compile={nullAnalysis={nonnull=[javax.annotation.Nonnull, org.eclipse.jdt.annotation.NonNull, org.springframework.lang.NonNull], nullable=[javax.annotation.Nullable, org.eclipse.jdt.annotation.Nullable, org.springframework.lang.Nullable], mode=interactive}}, cleanup={actionsOnSave=[]}, sharedIndexes={enabled=auto, location=}}}
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:13.154
+!MESSAGE >> document/didOpen
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:13.213
+!MESSAGE >> Updating classpath for project SistemasDistribuidos_afa16e5a
+
+!ENTRY org.eclipse.jdt.ls.core 4 0 2023-05-15 23:26:13.373
+!MESSAGE Error occured while building workspace. Details: 
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 8
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 9
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 10
+ message: ConnectionFactory cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 30
+ message: ConnectionFactory cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 30
+ message: Connection cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 32
+ message: Channel cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 33
+ message: Channel cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 62
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Estadis.java; line: 4
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Estadis.java; line: 5
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Estadis.java; line: 6
+ message: Envelope cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 63
+ message: AMQP cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 63
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 4
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 5
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 6
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 7
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 8
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 9
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 10
+ message: ConnectionFactory cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 53
+ message: ConnectionFactory cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 53
+ message: Connection cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 56
+ message: Channel cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 57
+ message: Consumer cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 61
+ message: DefaultConsumer cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 61
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:13.488
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:13.490
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:13.491
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:13.496
+!MESSAGE Reconciled 1. Took 0 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:13.550
+!MESSAGE begin problem for /Estadis.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:13.550
+!MESSAGE 7 problems reported for /Estadis.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:13.552
+!MESSAGE Validated 1. Took 46 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:13.567
+!MESSAGE >> build jobs finished
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:13.586
+!MESSAGE >> registerWatchers'
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:13.587
+!MESSAGE >> registerFeature 'workspace/didChangeWatchedFiles'
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:13.589
+!MESSAGE >> watchers registered
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:13.607
+!MESSAGE >> workspace/executeCommand java.project.getAll
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:13.608
+!MESSAGE >> workspace/executeCommand java.project.getAll
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:13.610
+!MESSAGE >> workspace/executeCommand java.project.getSettings
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:13.611
+!MESSAGE >> workspace/executeCommand java.project.getClasspaths
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:13.865
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:15.039
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:15.439
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:15.593
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:15.891
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:16.087
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:16.278
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:16.484
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:16.727
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:16.911
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:17.115
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:17.510
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:17.713
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:18.896
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:19.097
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:19.574
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:20.308
+!MESSAGE >> document/didClose
+!SESSION 2023-05-15 23:26:24.550 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=20.0.1
+java.vendor=N/A
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en
+Command-line arguments:  -data /home/alex/.config/coc/extensions/coc-java-data/jdt_ws
+
+!ENTRY org.eclipse.core.resources 2 10035 2023-05-15 23:26:25.012
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:25.399
+!MESSAGE class org.eclipse.jdt.ls.core.internal.JavaLanguageServerPlugin is started
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:25.476
+!MESSAGE Main thread is waiting
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:25.512
+!MESSAGE >> initialize
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:25.513
+!MESSAGE Initializing Java Language Server 1.19.0.202301170526
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:25.530
+!MESSAGE Static Commands: []
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:25.530
+!MESSAGE Non-Static Commands: [java.edit.organizeImports, java.project.refreshDiagnostics, java.project.import, java.navigate.openTypeHierarchy, java.project.removeFromSourcePath, java.project.listSourcePaths, java.project.resolveStackTraceLocation, java.project.getAll, java.reloadBundles, java.project.isTestFile, java.edit.handlePasteEvent, java.project.getClasspaths, java.navigate.resolveTypeHierarchy, java.edit.stringFormatting, java.project.getSettings, java.project.updateSourceAttachment, java.project.resolveWorkspaceSymbol, java.project.upgradeGradle, java.project.createModuleInfo, java.protobuf.generateSources, java.project.resolveSourceAttachment, java.project.addToSourcePath, java.completion.onDidSelect]
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:25.533
+!MESSAGE Starting org.eclipse.m2e.core
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:25.533
+!MESSAGE Started org.eclipse.m2e.core 0ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:26.000
+!MESSAGE ProjectRegistryRefreshJob finished 467ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:26.001
+!MESSAGE Starting org.eclipse.buildship.core
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:26.013
+!MESSAGE Started org.eclipse.buildship.core 13ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:26.039
+!MESSAGE RepositoryRegistryUpdateJob finished 21ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:26.044
+!MESSAGE >> initialized
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:26.320
+!MESSAGE Workspace initialized in 302ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:26.334
+!MESSAGE >> initialization job finished
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:26.335
+!MESSAGE >> workspace/didChangeConfiguration
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:26.340
+!MESSAGE >> java/buildWorkspace (incremental)
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:26.342
+!MESSAGE >> New configuration: {java={enabled=true, home=/usr/lib/jvm/java-20-openjdk, jdt={ls={directory=null, statusIcons=null, java={home=null}, vmargs=-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -Xlog:disable, lombokSupport={enabled=true}, protobufSupport={enabled=true}, androidSupport={enabled=false}}}, errors={incompleteClasspath={severity=warning}}, configuration={checkProjectSettingsExclusions=false, updateBuildConfiguration=interactive, maven={userSettings=null, globalSettings=null, notCoveredPluginExecutionSeverity=warning}, workspaceCacheLimit=90.0, runtimes=[]}, trace={server=off}, import={maven={enabled=true, offline={enabled=false}}, gradle={enabled=true, wrapper={enabled=true}, version=null, home=null, java={home=null}, offline={enabled=false}, arguments=null, jvmArguments=null, user={home=null}, annotationProcessing={enabled=true}}, exclusions=[**/node_modules/**, **/.metadata/**, **/archetype-resources/**, **/META-INF/maven/**], generatesMetadataFilesAtProjectRoot=false}, maven={downloadSources=false, updateSnapshots=false}, eclipse={downloadSources=false}, referencesCodeLens={enabled=false}, signatureHelp={enabled=true, description={enabled=false}}, implementationsCodeLens={enabled=false}, format={enabled=true, settings={url=null, profile=null}, comments={enabled=true}, onType={enabled=true}}, saveActions={organizeImports=false}, project={referencedLibraries=[lib/**/*.jar], importOnFirstTimeStartup=automatic, importHint=true, resourceFilters=[node_modules, \.git], encoding=ignore}, contentProvider={preferred=null}, autobuild={enabled=true}, maxConcurrentBuilds=1.0, recommendations={dependency={analytics={show=true}}}, completion={maxResults=0.0, enabled=true, guessMethodArguments=true, favoriteStaticMembers=[org.junit.Assert.*, org.junit.Assume.*, org.junit.jupiter.api.Assertions.*, org.junit.jupiter.api.Assumptions.*, org.junit.jupiter.api.DynamicContainer.*, org.junit.jupiter.api.DynamicTest.*, org.mockito.Mockito.*, org.mockito.ArgumentMatchers.*, org.mockito.Answers.*], filteredTypes=[java.awt.*, com.sun.*, sun.*, jdk.*, org.graalvm.*, io.micrometer.shaded.*], importOrder=[#, java, javax, org, com, ], postfix={enabled=true}, matchCase=off}, foldingRange={enabled=true}, progressReports={enabled=true}, codeGeneration={hashCodeEquals={useJava7Objects=false, useInstanceof=false}, useBlocks=false, generateComments=false, toString={template=${object.className} [${member.name()}=${member.value}, ${otherMembers}], codeStyle=STRING_CONCATENATION, skipNullValues=false, listArrayContents=true, limitElements=0.0}, insertionLocation=afterCursor}, selectionRange={enabled=true}, showBuildStatusOnStart={enabled=notification}, server={launchMode=Standard}, sources={organizeImports={starThreshold=99.0, staticStarThreshold=99.0}}, imports={gradle={wrapper={checksums=[]}}}, templates={fileHeader=[], typeComment=[]}, references={includeAccessors=true, includeDecompiledSources=true}, typeHierarchy={lazyLoad=false}, settings={url=null}, symbols={includeSourceMethodDeclarations=false}, quickfix={showAt=line}, inlayHints={parameterNames={enabled=literals, exclusions=[]}}, codeAction={sortMembers={avoidVolatileChanges=true}}, compile={nullAnalysis={nonnull=[javax.annotation.Nonnull, org.eclipse.jdt.annotation.NonNull, org.springframework.lang.NonNull], nullable=[javax.annotation.Nullable, org.eclipse.jdt.annotation.Nullable, org.springframework.lang.Nullable], mode=interactive}}, cleanup={actionsOnSave=[]}, sharedIndexes={enabled=auto, location=}}}
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:26.343
+!MESSAGE >> document/didOpen
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:26.357
+!MESSAGE >> Updating classpath for project SistemasDistribuidos_afa16e5a
+
+!ENTRY org.eclipse.jdt.ls.core 4 0 2023-05-15 23:26:26.596
+!MESSAGE Error occured while building workspace. Details: 
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 8
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 9
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 10
+ message: ConnectionFactory cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 30
+ message: ConnectionFactory cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 30
+ message: Connection cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 32
+ message: Channel cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 33
+ message: Channel cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Cliente.java; line: 62
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Estadis.java; line: 4
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Estadis.java; line: 5
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/cliente/Estadis.java; line: 6
+ message: Envelope cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 63
+ message: AMQP cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 63
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 4
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 5
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 6
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 7
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 8
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 9
+ message: The import com.rabbitmq cannot be resolved; code: 268435846; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 10
+ message: ConnectionFactory cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 53
+ message: ConnectionFactory cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 53
+ message: Connection cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 56
+ message: Channel cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 57
+ message: Consumer cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 61
+ message: DefaultConsumer cannot be resolved to a type; code: 16777218; resource: /mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p1/sislog/Sislog.java; line: 61
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:26.705
+!MESSAGE Reconciled 1. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:26.751
+!MESSAGE begin problem for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:26.751
+!MESSAGE 8 problems reported for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:26.756
+!MESSAGE Validated 1. Took 41 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:26.775
+!MESSAGE >> build jobs finished
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:26.798
+!MESSAGE >> registerWatchers'
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:26.799
+!MESSAGE >> registerFeature 'workspace/didChangeWatchedFiles'
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:26.800
+!MESSAGE >> watchers registered
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:26.820
+!MESSAGE >> workspace/executeCommand java.project.getAll
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:26.822
+!MESSAGE >> workspace/executeCommand java.project.getAll
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:26.825
+!MESSAGE >> workspace/executeCommand java.project.getSettings
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:26.825
+!MESSAGE >> workspace/executeCommand java.project.getClasspaths
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:28.471
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:31.548
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:55.274
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:26:57.589
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:27:01.839
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:27:02.786
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:27:07.133
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:27:13.525
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:27:14.829
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:27:14.903
+!MESSAGE Reconciled 1. Took 4 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:27:15.001
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:27:15.011
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:27:15.104
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:27:15.149
+!MESSAGE >> document/willSaveWaitUntil
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:27:15.172
+!MESSAGE >> document/didSave
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:27:15.272
+!MESSAGE >> textDocument/inlayHint
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:27:15.437
+!MESSAGE begin problem for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:27:15.437
+!MESSAGE 8 problems reported for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:27:15.437
+!MESSAGE Validated 1. Took 24 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:27:15.476
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:27:16.305
+!MESSAGE Reconciled 1. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:27:16.800
+!MESSAGE begin problem for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:27:16.800
+!MESSAGE 8 problems reported for /Cliente.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:27:16.800
+!MESSAGE Validated 1. Took 44 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:27:17.481
+!MESSAGE >> document/willSaveWaitUntil
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:27:17.499
+!MESSAGE >> document/didSave
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-05-15 23:27:17.512
+!MESSAGE >> document/didClose

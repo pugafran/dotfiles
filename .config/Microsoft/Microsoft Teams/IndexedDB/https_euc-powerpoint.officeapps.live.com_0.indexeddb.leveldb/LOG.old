@@ -1,0 +1,8 @@
+2023/05/06-14:02:51.713 255da Reusing MANIFEST /home/alex/.config/Microsoft/Microsoft Teams/IndexedDB/https_euc-powerpoint.officeapps.live.com_0.indexeddb.leveldb/MANIFEST-000001
+2023/05/06-14:02:51.713 255da Recovering log #4
+2023/05/06-14:02:51.713 255da Reusing old log /home/alex/.config/Microsoft/Microsoft Teams/IndexedDB/https_euc-powerpoint.officeapps.live.com_0.indexeddb.leveldb/000004.log 
+2023/05/06-22:43:03.867 2eac Level-0 table #8: started
+2023/05/06-22:43:03.868 2eac Level-0 table #8: 0 bytes OK
+2023/05/06-22:43:03.869 2eac Delete type=0 #4
+2023/05/06-22:43:03.870 2eac Manual compaction at level-0 from (begin) .. (end); will stop at (end)
+2023/05/06-22:43:03.870 2eac Manual compaction at level-1 from (begin) .. (end); will stop at (end)

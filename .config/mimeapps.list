@@ -1,0 +1,6 @@
+[Default Applications]
+x-scheme-handler/eclipse+command x-scheme-handler/eclipse+mpc=_usr_lib_eclipse_.desktop
+x-scheme-handler/msteams=teams.desktop
+
+[Added Associations]
+text/markdown=chromium.desktop;

@@ -1,0 +1,63 @@
+2023/05/11-21:30:20.631 bd56d Reusing MANIFEST /home/alex/.config/Microsoft/Microsoft Teams/Local Storage/leveldb/MANIFEST-000001
+2023/05/11-21:30:20.631 bd56d Recovering log #881
+2023/05/11-21:30:20.631 bd56d Reusing old log /home/alex/.config/Microsoft/Microsoft Teams/Local Storage/leveldb/000881.log 
+2023/05/11-21:30:32.805 bd731 Level-0 table #885: started
+2023/05/11-21:30:32.812 bd731 Level-0 table #885: 492795 bytes OK
+2023/05/11-21:30:32.813 bd731 Delete type=0 #881
+2023/05/11-21:30:32.813 bd731 Compacting 4@0 + 1@1 files
+2023/05/11-21:30:32.825 bd731 Generated table #886@0: 343 keys, 1067915 bytes
+2023/05/11-21:30:32.825 bd731 Compacted 4@0 + 1@1 files => 1067915 bytes
+2023/05/11-21:30:32.826 bd731 compacted to: files[ 0 1 1 0 0 0 0 ]
+2023/05/11-21:30:32.826 bd731 Delete type=2 #878
+2023/05/11-21:30:32.826 bd731 Delete type=2 #876
+2023/05/11-21:30:32.826 bd731 Delete type=2 #880
+2023/05/11-21:30:32.826 bd731 Delete type=2 #885
+2023/05/11-21:30:32.826 bd731 Delete type=2 #882
+2023/05/11-21:31:29.159 bd731 Level-0 table #888: started
+2023/05/11-21:31:29.163 bd731 Level-0 table #888: 319401 bytes OK
+2023/05/11-21:31:29.164 bd731 Delete type=0 #884
+2023/05/11-21:39:36.847 bd731 Level-0 table #890: started
+2023/05/11-21:39:36.848 bd731 Level-0 table #890: 24332 bytes OK
+2023/05/11-21:39:36.850 bd731 Delete type=0 #887
+2023/05/11-22:00:00.266 bd731 Level-0 table #892: started
+2023/05/11-22:00:00.268 bd731 Level-0 table #892: 30108 bytes OK
+2023/05/11-22:00:00.270 bd731 Delete type=0 #889
+2023/05/11-22:31:46.859 bd731 Level-0 table #894: started
+2023/05/11-22:31:46.861 bd731 Level-0 table #894: 43475 bytes OK
+2023/05/11-22:31:46.863 bd731 Delete type=0 #891
+2023/05/11-22:31:46.863 bd731 Compacting 4@0 + 1@1 files
+2023/05/11-22:31:46.875 bd731 Generated table #895@0: 346 keys, 1070457 bytes
+2023/05/11-22:31:46.875 bd731 Compacted 4@0 + 1@1 files => 1070457 bytes
+2023/05/11-22:31:46.876 bd731 compacted to: files[ 0 1 1 0 0 0 0 ]
+2023/05/11-22:31:46.876 bd731 Delete type=2 #894
+2023/05/11-22:31:46.876 bd731 Delete type=2 #886
+2023/05/11-22:31:46.876 bd731 Delete type=2 #890
+2023/05/11-22:31:46.876 bd731 Delete type=2 #888
+2023/05/11-22:31:46.876 bd731 Delete type=2 #892
+2023/05/11-22:48:19.015 bd731 Level-0 table #897: started
+2023/05/11-22:48:19.017 bd731 Level-0 table #897: 29232 bytes OK
+2023/05/11-22:48:19.018 bd731 Delete type=0 #893
+2023/05/11-23:10:20.780 bd731 Level-0 table #899: started
+2023/05/11-23:10:20.782 bd731 Level-0 table #899: 30101 bytes OK
+2023/05/11-23:10:20.783 bd731 Delete type=0 #896
+2023/05/11-23:12:39.475 bd731 Level-0 table #901: started
+2023/05/11-23:12:39.477 bd731 Level-0 table #901: 42870 bytes OK
+2023/05/11-23:12:39.478 bd731 Delete type=0 #898
+2023/05/11-23:18:03.339 bd731 Level-0 table #903: started
+2023/05/11-23:18:03.341 bd731 Level-0 table #903: 27039 bytes OK
+2023/05/11-23:18:03.342 bd731 Delete type=0 #900
+2023/05/11-23:18:03.342 bd731 Compacting 4@0 + 1@1 files
+2023/05/11-23:18:03.370 bd731 Generated table #904@0: 347 keys, 1069256 bytes
+2023/05/11-23:18:03.370 bd731 Compacted 4@0 + 1@1 files => 1069256 bytes
+2023/05/11-23:18:03.377 bd731 compacted to: files[ 0 1 1 0 0 0 0 ]
+2023/05/11-23:18:03.378 bd731 Delete type=2 #897
+2023/05/11-23:18:03.378 bd731 Delete type=2 #899
+2023/05/11-23:18:03.378 bd731 Delete type=2 #901
+2023/05/11-23:18:03.378 bd731 Delete type=2 #895
+2023/05/11-23:18:03.378 bd731 Delete type=2 #903
+2023/05/11-23:28:04.189 bd731 Level-0 table #906: started
+2023/05/11-23:28:04.192 bd731 Level-0 table #906: 19728 bytes OK
+2023/05/11-23:28:04.194 bd731 Delete type=0 #902
+2023/05/11-23:31:05.079 bd731 Level-0 table #908: started
+2023/05/11-23:31:05.081 bd731 Level-0 table #908: 109423 bytes OK
+2023/05/11-23:31:05.083 bd731 Delete type=0 #905

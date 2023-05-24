@@ -1,0 +1,15 @@
+2023/05/11-19:06:58.293 978da Reusing MANIFEST /home/alex/.config/Microsoft/Microsoft Teams/Session Storage/MANIFEST-000001
+2023/05/11-19:06:58.293 978da Recovering log #16
+2023/05/11-19:06:58.293 978da Reusing old log /home/alex/.config/Microsoft/Microsoft Teams/Session Storage/000016.log 
+2023/05/11-19:08:20.269 979f3 Level-0 table #20: started
+2023/05/11-19:08:20.272 979f3 Level-0 table #20: 86128 bytes OK
+2023/05/11-19:08:20.273 979f3 Delete type=0 #16
+2023/05/11-19:08:20.273 979f3 Compacting 4@0 + 1@1 files
+2023/05/11-19:08:20.282 979f3 Generated table #21@0: 273 keys, 176004 bytes
+2023/05/11-19:08:20.282 979f3 Compacted 4@0 + 1@1 files => 176004 bytes
+2023/05/11-19:08:20.283 979f3 compacted to: files[ 0 1 1 0 0 0 0 ]
+2023/05/11-19:08:20.284 979f3 Delete type=2 #8
+2023/05/11-19:08:20.284 979f3 Delete type=2 #17
+2023/05/11-19:08:20.284 979f3 Delete type=2 #11
+2023/05/11-19:08:20.284 979f3 Delete type=2 #14
+2023/05/11-19:08:20.284 979f3 Delete type=2 #20

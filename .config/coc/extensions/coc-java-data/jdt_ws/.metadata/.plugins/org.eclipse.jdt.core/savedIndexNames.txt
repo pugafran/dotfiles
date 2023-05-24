@@ -1,0 +1,6 @@
+INDEX VERSION 1.132+/home/alex/.config/coc/extensions/coc-java-data/jdt_ws/.metadata/.plugins/org.eclipse.jdt.core
+3842426239.index
+2750961493.index
+1865797976.index
+787539109.index
+3901715842.index

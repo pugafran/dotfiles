@@ -1,3 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =1
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/mnt/EPI/EPI/3/2/distribuidos/SistemasDistribuidos/entrega2/p2/apartado0.2'
+let g:netrw_dirhist_3='/home/alex/.config/polybar/scripts'
+let g:netrw_dirhist_2='/home/alex/Documents/EPI/tres_puertos/Makefile'
 let g:netrw_dirhist_1='/home/alex/Documents/BoundaryBot/AFloatingBoundary/.env'

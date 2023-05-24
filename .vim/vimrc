@@ -16,6 +16,8 @@ set noshowmode
 
 nmap " "gd <Plug>(coc-definition)
 
+set path+=/usr/include/tirpc/
+
 call plug#begin()
 
 " Coc

@@ -1,0 +1,15 @@
+2023/05/24-10:36:51.302 3 Reusing MANIFEST /home/alex/.config/chromium/Default/Session Storage/MANIFEST-000001
+2023/05/24-10:36:51.302 3 Recovering log #15
+2023/05/24-10:36:51.303 3 Reusing old log /home/alex/.config/chromium/Default/Session Storage/000015.log 
+2023/05/24-11:49:01.913 3 Level-0 table #19: started
+2023/05/24-11:49:01.916 3 Level-0 table #19: 16716 bytes OK
+2023/05/24-11:49:01.919 3 Delete type=0 #15
+2023/05/24-11:49:01.919 3 Compacting 4@0 + 1@1 files
+2023/05/24-11:49:01.924 3 Generated table #20@0: 754 keys, 33521 bytes
+2023/05/24-11:49:01.924 3 Compacted 4@0 + 1@1 files => 33521 bytes
+2023/05/24-11:49:01.925 3 compacted to: files[ 0 1 1 0 0 0 0 ]
+2023/05/24-11:49:01.926 3 Delete type=2 #19
+2023/05/24-11:49:01.926 3 Delete type=2 #8
+2023/05/24-11:49:01.926 3 Delete type=2 #16
+2023/05/24-11:49:01.926 3 Delete type=2 #11
+2023/05/24-11:49:01.926 3 Delete type=2 #13

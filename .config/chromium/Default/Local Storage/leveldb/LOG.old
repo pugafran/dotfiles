@@ -1,0 +1,6 @@
+2023/05/23-13:49:33.270 3 Reusing MANIFEST /home/alex/.config/chromium/Default/Local Storage/leveldb/MANIFEST-000001
+2023/05/23-13:49:33.271 3 Recovering log #65
+2023/05/23-13:49:33.274 3 Reusing old log /home/alex/.config/chromium/Default/Local Storage/leveldb/000065.log 
+2023/05/23-13:49:54.388 5 Level-0 table #69: started
+2023/05/23-13:49:54.394 5 Level-0 table #69: 43384 bytes OK
+2023/05/23-13:49:54.398 5 Delete type=0 #65

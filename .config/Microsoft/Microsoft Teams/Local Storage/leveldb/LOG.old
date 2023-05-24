@@ -1,0 +1,50 @@
+2023/05/11-19:06:57.266 97860 Reusing MANIFEST /home/alex/.config/Microsoft/Microsoft Teams/Local Storage/leveldb/MANIFEST-000001
+2023/05/11-19:06:57.266 97860 Recovering log #858
+2023/05/11-19:06:57.266 97860 Level-0 table #861: started
+2023/05/11-19:06:57.268 97860 Level-0 table #861: 29775 bytes OK
+2023/05/11-19:06:57.269 97860 Delete type=0 #858
+2023/05/11-19:07:08.141 979f3 Level-0 table #864: started
+2023/05/11-19:07:08.147 979f3 Level-0 table #864: 472055 bytes OK
+2023/05/11-19:07:08.148 979f3 Delete type=0 #862
+2023/05/11-19:08:12.768 979f3 Level-0 table #866: started
+2023/05/11-19:08:12.775 979f3 Level-0 table #866: 347238 bytes OK
+2023/05/11-19:08:12.776 979f3 Delete type=0 #863
+2023/05/11-19:08:12.777 979f3 Compacting 4@0 + 1@1 files
+2023/05/11-19:08:12.803 979f3 Generated table #867@0: 339 keys, 1054410 bytes
+2023/05/11-19:08:12.803 979f3 Compacted 4@0 + 1@1 files => 1054410 bytes
+2023/05/11-19:08:12.805 979f3 compacted to: files[ 0 1 1 0 0 0 0 ]
+2023/05/11-19:08:12.805 979f3 Delete type=2 #866
+2023/05/11-19:08:12.805 979f3 Delete type=2 #857
+2023/05/11-19:08:12.805 979f3 Delete type=2 #861
+2023/05/11-19:08:12.805 979f3 Delete type=2 #859
+2023/05/11-19:08:12.805 979f3 Delete type=2 #864
+2023/05/11-19:11:12.767 979f3 Level-0 table #869: started
+2023/05/11-19:11:12.770 979f3 Level-0 table #869: 23092 bytes OK
+2023/05/11-19:11:12.772 979f3 Delete type=0 #865
+2023/05/11-19:33:12.767 979f3 Level-0 table #871: started
+2023/05/11-19:33:12.769 979f3 Level-0 table #871: 30694 bytes OK
+2023/05/11-19:33:12.770 979f3 Delete type=0 #868
+2023/05/11-19:54:56.938 979f3 Level-0 table #873: started
+2023/05/11-19:54:56.940 979f3 Level-0 table #873: 37520 bytes OK
+2023/05/11-19:54:56.941 979f3 Delete type=0 #870
+2023/05/11-20:15:12.768 979f3 Level-0 table #875: started
+2023/05/11-20:15:12.770 979f3 Level-0 table #875: 30195 bytes OK
+2023/05/11-20:15:12.772 979f3 Delete type=0 #872
+2023/05/11-20:15:12.772 979f3 Compacting 4@0 + 1@1 files
+2023/05/11-20:15:12.796 979f3 Generated table #876@0: 340 keys, 1055147 bytes
+2023/05/11-20:15:12.796 979f3 Compacted 4@0 + 1@1 files => 1055147 bytes
+2023/05/11-20:15:12.797 979f3 compacted to: files[ 0 1 1 0 0 0 0 ]
+2023/05/11-20:15:12.797 979f3 Delete type=2 #869
+2023/05/11-20:15:12.797 979f3 Delete type=2 #871
+2023/05/11-20:15:12.797 979f3 Delete type=2 #875
+2023/05/11-20:15:12.797 979f3 Delete type=2 #873
+2023/05/11-20:15:12.797 979f3 Delete type=2 #867
+2023/05/11-20:35:12.768 979f3 Level-0 table #878: started
+2023/05/11-20:35:12.771 979f3 Level-0 table #878: 32197 bytes OK
+2023/05/11-20:35:12.772 979f3 Delete type=0 #874
+2023/05/11-20:55:12.768 979f3 Level-0 table #880: started
+2023/05/11-20:55:12.769 979f3 Level-0 table #880: 33325 bytes OK
+2023/05/11-20:55:12.770 979f3 Delete type=0 #877
+2023/05/11-21:08:12.767 979f3 Level-0 table #882: started
+2023/05/11-21:08:12.799 979f3 Level-0 table #882: 121840 bytes OK
+2023/05/11-21:08:12.804 979f3 Delete type=0 #879

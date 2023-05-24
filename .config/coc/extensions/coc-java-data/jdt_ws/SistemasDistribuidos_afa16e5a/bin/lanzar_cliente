@@ -1,0 +1,7 @@
+# A RELLENAR
+if [ "$#" -ne 1 ]; then
+    echo "Forma de uso: $0 <fichero_eventos>"
+    exit
+fi
+echo "Lanzando el cliente"
+java -cp clases:clases/rabbitmq-client.jar -Djava.security.policy=policy cliente.Cliente $1

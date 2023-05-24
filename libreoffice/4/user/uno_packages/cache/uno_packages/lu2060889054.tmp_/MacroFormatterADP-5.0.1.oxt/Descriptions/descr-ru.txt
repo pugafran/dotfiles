@@ -1,1 +1,0 @@
-Раскрась Basic, Bash, Bat, C++, C#, Java, JavaScript, JSON, Perl, Python, R, Rust, XML, PHP, SQL, Squirrel, Go, Ruby,  и сборщик (8085 и x86). 

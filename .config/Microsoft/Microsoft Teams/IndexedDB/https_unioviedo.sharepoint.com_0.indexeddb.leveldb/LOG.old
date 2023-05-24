@@ -1,0 +1,15 @@
+2023/05/11-22:31:48.362 cda60 Reusing MANIFEST /home/alex/.config/Microsoft/Microsoft Teams/IndexedDB/https_unioviedo.sharepoint.com_0.indexeddb.leveldb/MANIFEST-000001
+2023/05/11-22:31:48.362 cda60 Recovering log #39
+2023/05/11-22:31:48.362 cda60 Reusing old log /home/alex/.config/Microsoft/Microsoft Teams/IndexedDB/https_unioviedo.sharepoint.com_0.indexeddb.leveldb/000039.log 
+2023/05/11-22:32:30.379 bd688 Level-0 table #44: started
+2023/05/11-22:32:30.381 bd688 Level-0 table #44: 2386 bytes OK
+2023/05/11-22:32:30.382 bd688 Delete type=0 #39
+2023/05/11-22:32:30.382 bd688 Manual compaction at level-0 from (begin) .. (end); will stop at (end)
+2023/05/11-22:32:30.382 bd688 Manual compaction at level-1 from (begin) .. (end); will stop at '\x00\x01\x01%\x04\x02\x01#\x00s\x00e\x00r\x00v\x00i\x00c\x00e\x00w\x00o\x00r\x00k\x00e\x00r\x00-\x00t\x00e\x00l\x00e\x00m\x00e\x00t\x00r\x00y\x00-\x00e\x00v\x00e\x00n\x00t\x00-\x00c\x00a\x00c\x00h\x00e\x03\x00\x00\x00\x00\x00\x00\xf0?\x00\x011\x00_\x00o\x00d\x00s\x00p\x00c\x00a\x00c\x00h\x00e\x00_\x00d\x009\x00b\x00d\x00a\x005\x008\x004\x00-\x000\x002\x006\x00e\x00-\x004\x009\x00a\x00e\x00-\x008\x00e\x00b\x002\x00-\x00b\x00b\x003\x002\x002\x009\x001\x002\x008\x000\x009\x000\x00-\x002' @ 33632 : 1
+2023/05/11-22:32:30.382 bd688 Compacting 1@1 + 1@2 files
+2023/05/11-22:32:30.394 bd688 Generated table #45@1: 2657 keys, 540446 bytes
+2023/05/11-22:32:30.394 bd688 Compacted 1@1 + 1@2 files => 540446 bytes
+2023/05/11-22:32:30.395 bd688 compacted to: files[ 0 0 1 0 0 0 0 ]
+2023/05/11-22:32:30.395 bd688 Delete type=2 #44
+2023/05/11-22:32:30.395 bd688 Delete type=2 #41
+2023/05/11-22:32:30.396 bd688 Manual compaction at level-1 from '\x00\x01\x01%\x04\x02\x01#\x00s\x00e\x00r\x00v\x00i\x00c\x00e\x00w\x00o\x00r\x00k\x00e\x00r\x00-\x00t\x00e\x00l\x00e\x00m\x00e\x00t\x00r\x00y\x00-\x00e\x00v\x00e\x00n\x00t\x00-\x00c\x00a\x00c\x00h\x00e\x03\x00\x00\x00\x00\x00\x00\xf0?\x00\x011\x00_\x00o\x00d\x00s\x00p\x00c\x00a\x00c\x00h\x00e\x00_\x00d\x009\x00b\x00d\x00a\x005\x008\x004\x00-\x000\x002\x006\x00e\x00-\x004\x009\x00a\x00e\x00-\x008\x00e\x00b\x002\x00-\x00b\x00b\x003\x002\x002\x009\x001\x002\x008\x000\x009\x000\x00-\x002' @ 33632 : 1 .. (end); will stop at (end)

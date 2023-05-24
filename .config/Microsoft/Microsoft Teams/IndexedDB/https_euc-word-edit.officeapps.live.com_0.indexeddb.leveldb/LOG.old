@@ -1,0 +1,8 @@
+2023/05/11-22:31:43.774 cd4e3 Reusing MANIFEST /home/alex/.config/Microsoft/Microsoft Teams/IndexedDB/https_euc-word-edit.officeapps.live.com_0.indexeddb.leveldb/MANIFEST-000001
+2023/05/11-22:31:43.774 cd4e3 Recovering log #10
+2023/05/11-22:31:43.774 cd4e3 Reusing old log /home/alex/.config/Microsoft/Microsoft Teams/IndexedDB/https_euc-word-edit.officeapps.live.com_0.indexeddb.leveldb/000010.log 
+2023/05/11-23:12:24.229 bd688 Level-0 table #14: started
+2023/05/11-23:12:24.229 bd688 Level-0 table #14: 0 bytes OK
+2023/05/11-23:12:24.231 bd688 Delete type=0 #10
+2023/05/11-23:12:24.231 bd688 Manual compaction at level-0 from (begin) .. (end); will stop at (end)
+2023/05/11-23:12:24.231 bd688 Manual compaction at level-1 from (begin) .. (end); will stop at (end)

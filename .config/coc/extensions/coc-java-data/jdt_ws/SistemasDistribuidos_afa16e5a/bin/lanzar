@@ -1,0 +1,19 @@
+#! /bin/bash
+
+if [ $# -ne 6 ]
+then
+	echo "ERR. $0 <facs> <levs> <tam_cola> <n_workers> <n_clientes> <fichero_eventos>" >&2
+	exit 1
+fi
+
+./lanzar_registro
+sleep 1
+./lanzar_sislog $1 $2 $3 $4
+sleep 1
+./lanzar_estadis
+sleep 1
+./lanzar_clientes $5 $6
+sleep 1
+# ./lanzar_estadis
+# sleep 1
+

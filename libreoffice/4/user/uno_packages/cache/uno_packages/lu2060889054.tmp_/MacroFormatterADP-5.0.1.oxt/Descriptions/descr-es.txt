@@ -1,1 +1,0 @@
-Couleur Basic, Bash, Bat, C++, C#, Java, JavaScript, JSON, Perl, Python, R, Rust, XML, PHP, SQL, Squirrel, Go, Ruby,  y ensamblador (8085 y x86)..

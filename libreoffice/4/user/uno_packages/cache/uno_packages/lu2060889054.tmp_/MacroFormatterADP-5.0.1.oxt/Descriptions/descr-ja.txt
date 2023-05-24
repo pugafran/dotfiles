@@ -1,2 +1,0 @@
-色 Basic, Bash, Bat, C++, C#, Java, JavaScript, JSON, Perl, Python, R, Rust, XML, PHP, SQL, Squirrel, Go, Ruby,  そして  XML. 
-

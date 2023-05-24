@@ -1,0 +1,7 @@
+2023/04/29-23:34:02.076 7b858 Reusing MANIFEST /home/alex/.config/chromium/Default/IndexedDB/https_twitter.com_0.indexeddb.leveldb/MANIFEST-000001
+2023/04/29-23:34:02.076 7b858 Recovering log #3
+2023/04/29-23:34:02.076 7b858 Reusing old log /home/alex/.config/chromium/Default/IndexedDB/https_twitter.com_0.indexeddb.leveldb/000003.log 
+2023/04/29-23:35:02.379 8d404 Level-0 table #5: started
+2023/04/29-23:35:02.380 8d404 Level-0 table #5: 1599 bytes OK
+2023/04/29-23:35:02.381 8d404 Delete type=0 #3
+2023/04/29-23:35:02.381 8d404 Manual compaction at level-0 from (begin) .. (end); will stop at (end)
