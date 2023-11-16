@@ -157,6 +157,16 @@ function fish_prompt
         echo $job
     end
 
+    # Background containers
+    set_color normal
+
+    for container in (docker ps | tail -n +2)
+        set_color $lineColor
+        echo -n '  │ '
+        set_color 3280B6
+        echo $container
+    end
+
     set_color $lineColor
     echo -n '  ╰─>'
     echo -n ' λ' 
