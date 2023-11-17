@@ -160,11 +160,14 @@ function fish_prompt
     # Background containers
     set_color normal
 
-    for container in (docker ps | tail -n +2)
-        set_color $lineColor
-        echo -n '  │ '
-        set_color 3280B6
-        echo $container
+    # Checks if Docker is running before listing containers ( ͡° ͜ʖ ͡°)
+    if docker info >/dev/null 2>&1
+        for container in (docker ps | tail -n +2)
+            set_color $lineColor
+            echo -n '  │ '
+            set_color 3280B6
+            echo $container
+        end
     end
 
     set_color $lineColor
