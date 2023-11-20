@@ -160,20 +160,22 @@ function fish_prompt
     # Background containers
     set_color normal
 
-    if test (docker ps | wc -l) -gt 1
+    set -l activeContainers (docker ps --format "{{.ID}};{{.Names}};{{.Image}};{{.Status}};{{.Ports}}")
+
+    if test (count $activeContainers) -gt 0
         set_color $lineColor
         echo -n '  ├──┤' 
         set_color 3280B6
         echo -n '  DOCKER CONTAINERS'
         set_color $lineColor
         echo '  ├─' 
-    end
 
-    for container in (docker ps --format "{{.ID}};{{.Names}};{{.Image}};{{.Status}};{{.Ports}}" | awk 'BEGIN { FS=";" } { print "\tID: " $1 ";" "NAME: " $2 ";" "IMG: " $3 ";" $4 ";" $5 }' | column -t -s ';')
-        set_color $lineColor
-        echo -n '  │ '
-        set_color 3280B6
-        echo $container
+        for container in $activeContainers 
+            set_color $lineColor
+            echo -n '  │ '
+            set_color 3280B6
+            echo $container
+        end
     end
 
     set_color $lineColor
