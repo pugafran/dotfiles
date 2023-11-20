@@ -169,20 +169,11 @@ function fish_prompt
         echo '  ├─' 
     end
 
-    # Checks if Docker is running before listing containers ( ͡° ͜ʖ ͡°)
-    if docker info >/dev/null 2>&1
-        for container in (docker ps --format "{{.ID}};{{.Names}};{{.Image}};{{.Status}};{{.Ports}}" | awk 'BEGIN { FS=";" } { print "\tID: " $1 ";" "NAME: " $2 ";" "IMG: " $3 ";" $4 ";" $5 }' | column -t -s ';')
-            set_color $lineColor
-            echo -n '  │ '
-            set_color 3280B6
-            echo $container
-            for container in (docker ps | tail -n +2)
-                set_color $lineColor
-                echo -n '  │ '
-                set_color 3280B6
-                echo $container
-            end
-        end
+    for container in (docker ps --format "{{.ID}};{{.Names}};{{.Image}};{{.Status}};{{.Ports}}" | awk 'BEGIN { FS=";" } { print "\tID: " $1 ";" "NAME: " $2 ";" "IMG: " $3 ";" $4 ";" $5 }' | column -t -s ';')
+        set_color $lineColor
+        echo -n '  │ '
+        set_color 3280B6
+        echo $container
     end
 
     set_color $lineColor
