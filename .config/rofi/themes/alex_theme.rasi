@@ -55,11 +55,14 @@ entry {
 
 element {
 	background: 	@tp;
-	padding: 	0px 2px;
+	padding: 5px;
+	margin: 0px 5px 0px 5px;
 	text-color:	@white;
 }
 
 element selected {
+	border-radius: 50px;
+	border: 1px;
 	background: 	@tp;
 	background-color:	@selected-normal-background;
 	text-color:		@orange;
